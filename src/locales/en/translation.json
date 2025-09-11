@@ -1,0 +1,49 @@
+{
+    "login": {
+        "title": "Login",
+        "username": "Username",
+        "email": "Email",
+        "password": "Password",
+        "actions": {
+            "login": "Login"
+        },
+        "errors": {
+            "invalidCredentials": "Invalid username or password"
+        }
+    },
+    "homepage": {
+        "welcome": "Welcome to the DK Reporting App"
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "description": "This is your dashboard where you can see an overview of your data."
+    },
+    "settings": {
+        "title": "Settings",
+        "description": "Adjust your preferences and configurations.",
+        "theme": "Theme",
+        "themes": {
+            "system": "System",
+            "light": "Light",
+            "dark": "Dark"
+        },
+        "language": "Language",
+        "languages": {
+            "german": "German",
+            "english": "English",
+            "polish": "Polish"
+        }
+    },
+    "common": {
+        "actions": {
+            "submit": "Submit",
+            "cancel": "Cancel",
+            "save": "Save",
+            "delete": "Delete",
+            "edit": "Edit",
+            "update": "Update",
+            "signIn": "Sign In",
+            "signOut": "Sign Out"
+        }
+    }
+}
