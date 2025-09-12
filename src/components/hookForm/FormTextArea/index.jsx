@@ -1,9 +1,11 @@
 import { Form, Input } from 'antd'
 
 import { Controller, useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 
-const ControlledTextField = ({ name, label = '', required = false, rules = {}, type = 'text' }) => {
+const FormTextArea = ({ name, label = '', required = false, rules = {}, rows = 4 }) => {
     const { control } = useFormContext()
+    const { t } = useTranslation()
 
     return (
         <Controller
@@ -18,13 +20,12 @@ const ControlledTextField = ({ name, label = '', required = false, rules = {}, t
                     label={label}
                     required={required}
                 >
-                    <Input
+                    <Input.TextArea
                         onChange={(e) => onChange(e.target.value)}
                         value={value}
-                        placeholder={label}
-                        type={type}
-                        size="small"
+                        placeholder={t('common.placeholders.enterText')}
                         required={required}
+                        rows={rows}
                     />
                 </Form.Item>
             )}
@@ -32,4 +33,4 @@ const ControlledTextField = ({ name, label = '', required = false, rules = {}, t
     )
 }
 
-export default ControlledTextField
+export default FormTextArea

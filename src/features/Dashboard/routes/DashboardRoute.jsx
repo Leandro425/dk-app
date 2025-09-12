@@ -14,7 +14,7 @@ const { Paragraph, Title } = Typography
 const DashboardRoutes = () => {
     return (
         <Layout style={{ minHeight: '100vh', width: '100vw' }}>
-            <Header>
+            <Header style={{ padding: '0 16px', background: '#fff' }}>
                 <Flex
                     mode="horizontal"
                     gap="16px"

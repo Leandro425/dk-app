@@ -25,6 +25,13 @@
     "reports": {
         "title": "Reports",
         "description": "Here you can view and manage your reports.",
+        "actions": {
+            "add": "Add Report",
+            "addMany": "Add Many Reports",
+            "edit": "Edit Report",
+            "delete": "Delete Report",
+            "view": "View Report"
+        },
         "table": {
             "title": "Reports Table",
             "columns": {
@@ -33,6 +40,14 @@
                 "text": "Text",
                 "createdAt": "Created At"
             }
+        },
+        "report": {
+            "employee": "Employee",
+            "date": "Date",
+            "field": "Field",
+            "article": "Article",
+            "quantity": "Quantity",
+            "annotation": "Annotation"
         }
     },
     "deliveryNotes": {
@@ -54,6 +69,17 @@
             "update": "Update",
             "signIn": "Sign In",
             "signOut": "Sign Out"
+        },
+        "messages": {
+            "successfullyAdded": "Successfully added.",
+            "successfullyUpdated": "Successfully updated.",
+            "successfullyDeleted": "Successfully deleted.",
+            "errorOccurred": "An error occurred. Please try again."
+        },
+        "placeholders": {
+            "enterText": "Enter text here...",
+            "selectOption": "Select an option...",
+            "noData": "No data available."
         }
     },
     "settings": {

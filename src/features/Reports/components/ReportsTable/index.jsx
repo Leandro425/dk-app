@@ -1,22 +1,36 @@
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Flex, Table } from 'antd'
+import { Button, Flex, Table } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
+import { useState } from 'react'
+import AddReportModal from '../modals/AddReportModal'
 
 const ReportsTable = () => {
     const { t } = useTranslation()
     const { supabase } = useSupabaseContext()
+    const [pagination, setPagination] = useState({ current: 1, pageSize: 10 })
+    const [openAddModal, setOpenAddModal] = useState(false)
 
-    const { data } = useQuery({
-        queryKey: ['reports'],
-        queryFn: async () => {
-            const { data, error } = await supabase.from('Note').select('*')
-            if (error) {
-                console.error('Error fetching note:', error)
-                return []
-            }
-            return data
-        },
+    const fetchData = async ({ queryKey }) => {
+        const [, page, pageSize] = queryKey
+        const from = (page - 1) * pageSize
+        const to = page * pageSize - 1
+        const { data, count, error } = await supabase
+            .from('Note')
+            .select('*', { count: 'exact' })
+            .range(from, to)
+            .order('id', { ascending: false })
+        if (error) {
+            // console.error('Error fetching data:', error)
+            return { data: [], total: 0 }
+        }
+        return { data, total: count }
+    }
+
+    const { data, isLoading } = useQuery({
+        queryKey: ['reports', pagination.current, pagination.pageSize],
+        queryFn: fetchData,
+        keepPreviousData: true,
     })
 
     const columns = [
@@ -26,12 +40,47 @@ const ReportsTable = () => {
     ]
 
     return (
-        <Flex vertical>
-            <Table
-                columns={columns}
-                dataSource={data}
+        <>
+            <Flex
+                vertical
+                gap={16}
+            >
+                <Flex
+                    horizontal
+                    gap={16}
+                >
+                    <Button
+                        type="primary"
+                        onClick={() => setOpenAddModal(true)}
+                    >
+                        {t('reports.actions.add')}
+                    </Button>
+                    <Button
+                        type="primary"
+                        disabled
+                    >
+                        {t('reports.actions.addMany')}
+                    </Button>
+                </Flex>
+                <Table
+                    loading={isLoading}
+                    columns={columns}
+                    dataSource={data?.data || []}
+                    pagination={{
+                        current: pagination.current,
+                        pageSize: pagination.pageSize,
+                        total: data?.total || 0,
+                        showSizeChanger: true,
+                        onChange: (current, pageSize) => setPagination({ current, pageSize }),
+                    }}
+                    rowKey="id"
+                />
+            </Flex>
+            <AddReportModal
+                open={openAddModal}
+                onClose={() => setOpenAddModal(false)}
             />
-        </Flex>
+        </>
     )
 }
 export default ReportsTable

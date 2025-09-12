@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { ConfigProvider, theme } from 'antd'
 import { ThemeContext, useThemeContext } from './useThemeContext'
+
 // https://ant.design/docs/react/customize-theme
+
 const AntConfigProvider = ({ children }) => {
     const { isDarkMode } = useThemeContext()
     return (
@@ -10,10 +12,12 @@ const AntConfigProvider = ({ children }) => {
                 // 1. Use dark algorithm
                 algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
                 token: {
-                    colorPrimary: '#0f744aff',
+                    // fontFamily: 'Lowvetica',
+                    colorPrimary: '#3e4532',
                     // colorBgBase: isDarkMode ? '#141414' : '#ffffff',
-                    borderRadius: 6,
-                    // colorBgContainer: isDarkMode ? '#1f1f1f' : '#f6ffed',
+                    // borderRadius: 6,
+                    // fontSize: 14,
+                    // colorBgContainer: isDarkMode ? '#3e4532' : '#f6ffed',
                     // controlHeight: 32,
                     // controlHeightLG: 40,
                     // controlHeightSM: 24,

@@ -13,9 +13,38 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+    font-family: 'Lowvetica';
+    src: url('./assets/fonts/Lowvetica-UltraThin.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lowvetica';
+    src: url('./assets/fonts/Lowvetica.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lowvetica';
+    src: url('./assets/fonts/LowveticaDemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lowvetica';
+    src: url('./assets/fonts/LowveticaBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     display: flex;
     width: 100vw;
     height: 100vh;
+    background-color: brown;
 }
