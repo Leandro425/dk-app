@@ -28,7 +28,7 @@ i18n.use(initReactI18next).init({
     resources,
     lng: 'en', // change in production to de
     fallbackLng: 'en', // use en if detected lng is not available
-    debug: false, // TODO disable in production
+    debug: true, // TODO disable in production
     interpolation: {
         escapeValue: false,
     },

@@ -1,22 +1,51 @@
 {
-    "login": {
-        "title": "Login",
-        "username": "Username",
-        "email": "Email",
-        "password": "Password",
-        "actions": {
-            "login": "Login"
-        },
-        "errors": {
-            "invalidCredentials": "Invalid username or password"
+    "auth": {
+        "login": {
+            "title": "Login",
+            "username": "Username",
+            "email": "Email",
+            "password": "Password",
+            "errors": {
+                "invalidCredentials": "Invalid username or password"
+            }
         }
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "description": "This is your dashboard where you can see an overview of your data.",
+        "reports": {
+            "title": "Reports",
+            "content": "This is the reports content."
+        },
+        "deliveryNotes": {
+            "title": "Delivery Notes",
+            "content": "This is the delivery note content."
+        }
+    },
+    "reports": {
+        "title": "Reports",
+        "description": "Here you can view and manage your reports."
+    },
+    "deliveryNotes": {
+        "title": "Delivery Notes",
+        "description": "Here you can view and manage your delivery notes."
     },
     "homepage": {
         "welcome": "Welcome to the DK Reporting App"
     },
-    "dashboard": {
-        "title": "Dashboard",
-        "description": "This is your dashboard where you can see an overview of your data."
+    "common": {
+        "actions": {
+            "open": "Open",
+            "close": "Close",
+            "submit": "Submit",
+            "cancel": "Cancel",
+            "save": "Save",
+            "delete": "Delete",
+            "edit": "Edit",
+            "update": "Update",
+            "signIn": "Sign In",
+            "signOut": "Sign Out"
+        }
     },
     "settings": {
         "title": "Settings",
@@ -32,18 +61,6 @@
             "german": "German",
             "english": "English",
             "polish": "Polish"
-        }
-    },
-    "common": {
-        "actions": {
-            "submit": "Submit",
-            "cancel": "Cancel",
-            "save": "Save",
-            "delete": "Delete",
-            "edit": "Edit",
-            "update": "Update",
-            "signIn": "Sign In",
-            "signOut": "Sign Out"
         }
     }
 }

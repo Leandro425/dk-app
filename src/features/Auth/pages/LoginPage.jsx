@@ -1,23 +1,66 @@
-import { Button, Layout } from 'antd'
+import { Card, Layout } from 'antd'
 import { Flex } from 'antd'
+import { useForm } from 'react-hook-form'
 
-const { Header, Content, Footer } = Layout
+const { Content } = Layout
 
 import { useTranslation } from 'react-i18next'
+import FormTextField from '../../../components/hookForm/FormTextField'
+import FormSubmitButton from '../../../components/hookForm/FormSubmitButton'
+import Form from '../../../components/hookForm/Form'
+import useSupabaseContext from '../../../context/supabase/supabaseContext'
+import { useNavigate } from 'react-router-dom'
 const LoginPage = () => {
-    const { t } = useTranslation('auth')
+    const { t } = useTranslation()
+    const navigate = useNavigate()
+
+    const { login } = useSupabaseContext()
+
+    const form = useForm({
+        defaultValues: {
+            email: '',
+            password: '',
+        },
+    })
+
+    const onSubmit = async (data) => {
+        const { email, password } = data
+        const { error } = await login(email, password)
+        if (error) {
+            console.log('Login error:', error.message)
+            return
+        }
+        navigate('/app/dashboard')
+    }
     return (
         <Layout>
             <Content style={{ display: 'flex', height: '100vh', width: '100vw' }}>
                 <Flex
-                    vertical
-                    align="center"
+                    direction="column"
                     justify="center"
-                    gap={2}
+                    align="center"
                     style={{ width: '100%' }}
                 >
-                    <h1>{t('login.title')}</h1>
-                    <Button type="primary">{t('login.button')}</Button>
+                    <Card title={t('auth.login.title')}>
+                        <Form {...form}>
+                            <FormTextField
+                                name="email"
+                                label={t('auth.login.email')}
+                                required
+                                type="email"
+                            />
+                            <FormTextField
+                                name="password"
+                                label={t('auth.login.password')}
+                                required
+                                type="password"
+                            />
+                            <FormSubmitButton
+                                onSubmit={onSubmit}
+                                i18nKey="common.actions.signIn"
+                            />
+                        </Form>
+                    </Card>
                 </Flex>
             </Content>
         </Layout>

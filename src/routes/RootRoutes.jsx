@@ -2,24 +2,30 @@ import { Route, Routes } from 'react-router-dom'
 import { HomepageRoutes } from '../features/Homepage'
 import I18nextProvider from '../providers/I18nextProvider'
 import AppRoutes from './AppRoutes'
+import QueryClientProvider from '../providers/QueryClientProvider'
+import ThemeProvider from '../context/theme/ThemeProvider'
 
 const RootRoutes = () => {
     return (
         <I18nextProvider>
-            <Routes>
-                <Route
-                    path="/*"
-                    element={<HomepageRoutes />}
-                />
-                <Route
-                    path="/app/*"
-                    element={<AppRoutes />}
-                />
-                <Route
-                    path="*"
-                    element={<h1>Not Found</h1>}
-                />
-            </Routes>
+            <QueryClientProvider>
+                <ThemeProvider>
+                    <Routes>
+                        <Route
+                            path="/*"
+                            element={<HomepageRoutes />}
+                        />
+                        <Route
+                            path="/app/*"
+                            element={<AppRoutes />}
+                        />
+                        <Route
+                            path="*"
+                            element={<h1>Not Found</h1>}
+                        />
+                    </Routes>
+                </ThemeProvider>
+            </QueryClientProvider>
         </I18nextProvider>
     )
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Flex, Spin } from 'antd'
 import { createClient } from '@supabase/supabase-js'
 import { SupabaseContext } from './supabaseContext'
 import { supabaseUrl, supabasePublishableKey } from './supabaseConfig'
@@ -7,26 +8,62 @@ const supabase = createClient(supabaseUrl, supabasePublishableKey)
 
 const SupabaseProvider = ({ children }) => {
     const [session, setSession] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        supabase.auth.getSession().then(({ data }) => setSession(data.session))
-        const { data: subscription } = supabase.auth.onAuthStateChange((_event, session) => {
-            setSession(session)
+        // Get the current session
+        supabase.auth.getSession().then(({ data }) => {
+            setSession(data.session)
+            setLoading(false)
         })
-        return () => subscription.subscription.unsubscribe()
+
+        // Subscribe to auth state changes
+        const {
+            data: { subscription },
+        } = supabase.auth.onAuthStateChange((_event, session) => {
+            setSession(session)
+            setLoading(false)
+        })
+
+        // Cleanup subscription on unmount
+        return () => {
+            subscription.unsubscribe()
+        }
     }, [])
 
+    // Login with email & password
     const login = async (email, password) => {
-        const { error } = await supabase.auth.signInWithPassword({ email, password })
-        return { error }
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email,
+            password,
+        })
+        return { data, error }
     }
 
+    // Logout
     const logout = async () => {
         const { error } = await supabase.auth.signOut()
         return { error }
     }
 
-    return <SupabaseContext.Provider value={{ supabase, session, login, logout }}>{children}</SupabaseContext.Provider>
+    // Extract user for convenience
+    const user = session?.user ?? null
+
+    return (
+        <SupabaseContext.Provider value={{ supabase, session, user, login, logout }}>
+            {loading ? <LoadingScreen /> : children}
+        </SupabaseContext.Provider>
+    )
 }
 
 export default SupabaseProvider
+
+const LoadingScreen = () => (
+    <Flex
+        justify="center"
+        align="center"
+        style={{ height: '100vh', width: '100vw' }}
+    >
+        <Spin size="large" />
+    </Flex>
+)

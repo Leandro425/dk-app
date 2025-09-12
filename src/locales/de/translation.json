@@ -1,1 +1,48 @@
-{}
+{
+    "auth": {
+        "login": {
+            "title": "Anmeldung",
+            "username": "Benutzername",
+            "email": "E-Mail",
+            "password": "Passwort",
+            "errors": {
+                "invalidCredentials": "Ungültiger Benutzername oder Passwort"
+            }
+        }
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "description": "Dies ist Ihr Dashboard, auf dem Sie einen Überblick über Ihre Daten erhalten."
+    },
+    "homepage": {
+        "welcome": "Willkommen zur DK Reporting App"
+    },
+    "common": {
+        "actions": {
+            "submit": "Absenden",
+            "cancel": "Abbrechen",
+            "save": "Speichern",
+            "delete": "Löschen",
+            "edit": "Bearbeiten",
+            "update": "Aktualisieren",
+            "signIn": "Anmelden",
+            "signOut": "Abmelden"
+        }
+    },
+    "settings": {
+        "title": "Einstellungen",
+        "description": "Passen Sie Ihre Präferenzen und Konfigurationen an.",
+        "theme": "Thema",
+        "themes": {
+            "system": "System",
+            "light": "Hell",
+            "dark": "Dunkel"
+        },
+        "language": "Sprache",
+        "languages": {
+            "german": "Deutsch",
+            "english": "Englisch",
+            "polish": "Polnisch"
+        }
+    }
+}
