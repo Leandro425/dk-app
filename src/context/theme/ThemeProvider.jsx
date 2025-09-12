@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ConfigProvider, theme } from 'antd'
 import { ThemeContext, useThemeContext } from './useThemeContext'
-
+// https://ant.design/docs/react/customize-theme
 const AntConfigProvider = ({ children }) => {
     const { isDarkMode } = useThemeContext()
     return (
@@ -9,6 +9,17 @@ const AntConfigProvider = ({ children }) => {
             theme={{
                 // 1. Use dark algorithm
                 algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
+                token: {
+                    colorPrimary: '#0f744aff',
+                    // colorBgBase: isDarkMode ? '#141414' : '#ffffff',
+                    borderRadius: 6,
+                    // colorBgContainer: isDarkMode ? '#1f1f1f' : '#f6ffed',
+                    // controlHeight: 32,
+                    // controlHeightLG: 40,
+                    // controlHeightSM: 24,
+                },
+                // components: { Button: { colorPrimary: '#740f31ff' } },
+                // Uncomment below to enable compact mode
 
                 // 2. Combine dark algorithm and compact algorithm
                 // algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],

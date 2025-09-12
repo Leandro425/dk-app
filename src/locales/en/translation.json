@@ -24,7 +24,16 @@
     },
     "reports": {
         "title": "Reports",
-        "description": "Here you can view and manage your reports."
+        "description": "Here you can view and manage your reports.",
+        "table": {
+            "title": "Reports Table",
+            "columns": {
+                "id": "ID",
+                "name": "Name",
+                "text": "Text",
+                "createdAt": "Created At"
+            }
+        }
     },
     "deliveryNotes": {
         "title": "Delivery Notes",

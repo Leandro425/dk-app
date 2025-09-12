@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import ContentFrame from '../../../components/ContentFrame'
 import { useNavigate } from 'react-router-dom'
 import { HomeOutlined } from '@ant-design/icons'
+import ReportsTable from '../components/ReportsTable'
 
 const ReportsPage = () => {
     const { t } = useTranslation()
@@ -29,7 +30,9 @@ const ReportsPage = () => {
                     },
                 },
             ]}
-        ></ContentFrame>
+        >
+            <ReportsTable />
+        </ContentFrame>
     )
 }
 
