@@ -1,4 +1,4 @@
-import { Flex, Typography, Row, Col, Card, Button } from 'antd'
+import { Flex, Typography, Row, Col, Card, Button, Tag } from 'antd'
 
 import { useTranslation } from 'react-i18next'
 import ContentFrame from '../../../components/ContentFrame'
@@ -51,13 +51,16 @@ const DashboardPage = () => {
                         <Card
                             title={t('dashboard.deliveryNotes.title')}
                             extra={
-                                <Button
-                                    type="primary"
-                                    onClick={() => navigate('/app/dashboard/delivery-notes')}
-                                    disabled
-                                >
-                                    {t('common.actions.open')}
-                                </Button>
+                                <>
+                                    <Tag color="blue">{t('common.messages.comingSoon')}</Tag>
+                                    {/* <Button
+                                        type="primary"
+                                        onClick={() => navigate('/app/dashboard/delivery-notes')}
+                                        disabled
+                                    >
+                                        {t('common.actions.open')}
+                                    </Button> */}
+                                </>
                             }
                         >
                             <Typography.Text>{t('dashboard.deliveryNotes.content')}</Typography.Text>

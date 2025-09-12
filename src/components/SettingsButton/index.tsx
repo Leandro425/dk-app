@@ -7,7 +7,7 @@ const SettingsIconButton = () => {
     return (
         <Fragment>
             <Button
-                type="primary"
+                type="default"
                 icon={<SettingFilled />}
                 onClick={() => setOpen(true)}
             />

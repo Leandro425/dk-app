@@ -11,7 +11,7 @@ const DarkModeToggle = () => {
     }
     return (
         <Button
-            type="primary"
+            type="default"
             icon={isDarkMode ? <SunFilled /> : <MoonFilled />}
             onClick={toggleDarkMode}
         />

@@ -1,4 +1,4 @@
-import { Card, Layout } from 'antd'
+import { Card, Layout, Space } from 'antd'
 import { Flex } from 'antd'
 import { useForm } from 'react-hook-form'
 
@@ -10,6 +10,7 @@ import FormSubmitButton from '../../../components/hookForm/FormSubmitButton'
 import Form from '../../../components/hookForm/Form'
 import useSupabaseContext from '../../../context/supabase/supabaseContext'
 import { useNavigate } from 'react-router-dom'
+import Logo from '../../../components/Logo'
 const LoginPage = () => {
     const { t } = useTranslation()
     const navigate = useNavigate()
@@ -42,24 +43,31 @@ const LoginPage = () => {
                     style={{ width: '100%' }}
                 >
                     <Card title={t('auth.login.title')}>
-                        <Form {...form}>
-                            <FormTextField
-                                name="email"
-                                label={t('auth.login.email')}
-                                required
-                                type="email"
-                            />
-                            <FormTextField
-                                name="password"
-                                label={t('auth.login.password')}
-                                required
-                                type="password"
-                            />
-                            <FormSubmitButton
-                                onSubmit={onSubmit}
-                                i18nKey="common.actions.signIn"
-                            />
-                        </Form>
+                        <Space
+                            direction="vertical"
+                            align="center"
+                            size="large"
+                        >
+                            <Logo width={300} />
+                            <Form {...form}>
+                                <FormTextField
+                                    name="email"
+                                    label={t('auth.login.email')}
+                                    required
+                                    type="email"
+                                />
+                                <FormTextField
+                                    name="password"
+                                    label={t('auth.login.password')}
+                                    required
+                                    type="password"
+                                />
+                                <FormSubmitButton
+                                    onSubmit={onSubmit}
+                                    i18nKey="common.actions.signIn"
+                                />
+                            </Form>
+                        </Space>
                     </Card>
                 </Flex>
             </Content>

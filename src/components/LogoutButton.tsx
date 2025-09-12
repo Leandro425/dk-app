@@ -10,7 +10,7 @@ const LogoutButton = () => {
     return (
         <Button
             onClick={logout}
-            type="primary"
+            type="default"
         >
             {t('common.actions.signOut')}
         </Button>

@@ -74,7 +74,8 @@
             "successfullyAdded": "Successfully added.",
             "successfullyUpdated": "Successfully updated.",
             "successfullyDeleted": "Successfully deleted.",
-            "errorOccurred": "An error occurred. Please try again."
+            "errorOccurred": "An error occurred. Please try again.",
+            "comingSoon": "Coming Soon"
         },
         "placeholders": {
             "enterText": "Enter text here...",

@@ -1,20 +1,19 @@
 import { Navigate, Route, Routes } from 'react-router'
 import DashboardPage from '../pages/DashboardPage'
 import ReportsRoutes from '../../Reports/routes/ReportRoutes'
-import { Flex, Layout, Typography, Row, Col, Card, Breadcrumb, Button } from 'antd'
+import { Flex, Layout, Typography } from 'antd'
 
 import LogoutButton from '../../../components/LogoutButton'
 
 import SettingsIconButton from '../../../components/SettingsButton'
 import DarkModeToggle from '../../../components/DarkModeToggle'
-import ContentFrame from '../../../components/ContentFrame'
-import { HomeOutlined } from '@ant-design/icons'
 const { Header, Content, Footer } = Layout
 const { Paragraph, Title } = Typography
+
 const DashboardRoutes = () => {
     return (
         <Layout style={{ minHeight: '100vh', width: '100vw' }}>
-            <Header style={{ padding: '0 16px', background: '#fff' }}>
+            <Header>
                 <Flex
                     mode="horizontal"
                     gap="16px"
