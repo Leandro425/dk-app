@@ -18,7 +18,7 @@ const DashboardPage = () => {
                     title: <HomeOutlined />,
                 },
                 {
-                    path: '',
+                    href: '/app/dashboard',
                     title: t('dashboard.title'),
                     onClick: () => {
                         navigate('/app/dashboard')
@@ -37,7 +37,7 @@ const DashboardPage = () => {
                             title={t('dashboard.reports.title')}
                             extra={
                                 <Button
-                                    type="primary"
+                                    type="default"
                                     onClick={() => navigate('/app/dashboard/reports')}
                                 >
                                     {t('common.actions.open')}

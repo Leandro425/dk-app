@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next'
 import ContentFrame from '../../../components/ContentFrame'
-import { useNavigate } from 'react-router-dom'
+
 import { HomeOutlined } from '@ant-design/icons'
 import ReportsTable from '../components/ReportsTable'
 
 const ReportsPage = () => {
     const { t } = useTranslation()
-    const navigate = useNavigate()
+
     return (
         <ContentFrame
             title={t('reports.title')}
@@ -16,18 +16,12 @@ const ReportsPage = () => {
                     title: <HomeOutlined />,
                 },
                 {
-                    path: '',
+                    href: '/app/dashboard',
                     title: t('dashboard.title'),
-                    onClick: () => {
-                        navigate('/app/dashboard')
-                    },
                 },
                 {
-                    path: '',
+                    href: '/app/dashboard/reports',
                     title: t('reports.title'),
-                    onClick: () => {
-                        navigate('/app/dashboard/reports')
-                    },
                 },
             ]}
         >

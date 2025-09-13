@@ -3,6 +3,7 @@ import { Flex, Spin } from 'antd'
 import { createClient } from '@supabase/supabase-js'
 import { SupabaseContext } from './supabaseContext'
 import { supabaseUrl, supabasePublishableKey } from './supabaseConfig'
+import LoadingScreen from '../../components/LoadingScreen'
 
 const supabase = createClient(supabaseUrl, supabasePublishableKey)
 
@@ -57,13 +58,3 @@ const SupabaseProvider = ({ children }) => {
 }
 
 export default SupabaseProvider
-
-const LoadingScreen = () => (
-    <Flex
-        justify="center"
-        align="center"
-        style={{ height: '100vh', width: '100vw' }}
-    >
-        <Spin size="large" />
-    </Flex>
-)

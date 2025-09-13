@@ -16,7 +16,9 @@ const themeLight = {
     },
     components: {
         Layout: {
-            headerBg: 'rgb(162,162,126)',
+            headerBg: '#F5E9E2',
+            footerBg: '#F5E9E2',
+            bodyBg: '#F5E9E2',
         },
         Button: {
             colorPrimaryBorder: '#718159ff',
@@ -43,6 +45,19 @@ const themeLight = {
 const themeDark = {
     algorithm: theme.darkAlgorithm,
     colorPrimary: '#3e4532',
+
+    components: {
+        Layout: {
+            headerBg: '#21241dff',
+            footerBg: '#21241dff',
+            bodyBg: '#21241dff',
+        },
+        Button: {
+            colorPrimaryBorder: '#718159ff',
+            colorPrimaryHover: '#718159ff',
+            primaryShadow: '0 2px 0 rgba(62, 69, 50, 1)',
+        },
+    },
 }
 
 const AntConfigProvider = ({ children }) => {

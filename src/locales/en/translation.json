@@ -38,7 +38,8 @@
                 "id": "ID",
                 "name": "Name",
                 "text": "Text",
-                "createdAt": "Created At"
+                "createdAt": "Created At",
+                "actions": "Actions"
             }
         },
         "report": {
@@ -55,9 +56,24 @@
         "description": "Here you can view and manage your delivery notes."
     },
     "homepage": {
-        "welcome": "Welcome to the DK Reporting App"
+        "welcome": "Welcome to the DK Nowack Reporting Application",
+        "description": "This is the homepage of the DK Nowack GmbH & Co. KG reporting application.",
+        "footer": {
+            "companyInfo": "© 2024 DK Nowack GmbH & Co. KG. All rights reserved.",
+            "allRightsReserved": "© All rights reserved.",
+            "privacyPolicy": "Privacy Policy",
+            "links": {
+                "imprint": "Imprint",
+                "contact": "Contact",
+                "homepage": "Homepage"
+            }
+        }
     },
     "common": {
+        "greetings": {
+            "hello": "Hello",
+            "welcome": "Welcome"
+        },
         "actions": {
             "open": "Open",
             "close": "Close",
@@ -68,14 +84,17 @@
             "edit": "Edit",
             "update": "Update",
             "signIn": "Sign In",
-            "signOut": "Sign Out"
+            "signOut": "Sign Out",
+            "goToApplication": "Go to Application",
+            "goToHomepage": "Go to Homepage"
         },
         "messages": {
             "successfullyAdded": "Successfully added.",
             "successfullyUpdated": "Successfully updated.",
             "successfullyDeleted": "Successfully deleted.",
             "errorOccurred": "An error occurred. Please try again.",
-            "comingSoon": "Coming Soon"
+            "comingSoon": "Coming Soon",
+            "notFoundPage": "Sorry, the page you visited does not exist."
         },
         "placeholders": {
             "enterText": "Enter text here...",

@@ -3,6 +3,8 @@ import SupabaseProvider from '../context/supabase/SupabaseProvider'
 import { AuthRoutes } from '../features/Auth'
 import DashboardRoutes from '../features/Dashboard/routes/DashboardRoute'
 import SupabaseAuthGuard from '../components/guards/SupabaseAuthGuard'
+import SupervisorProvider from '../context/user/SupervisorProvider'
+import NotFoundPage from '../components/NotFoundPage'
 
 const AppRoutes = () => {
     return (
@@ -16,13 +18,15 @@ const AppRoutes = () => {
                     path="/dashboard/*"
                     element={
                         <SupabaseAuthGuard>
-                            <DashboardRoutes />
+                            <SupervisorProvider>
+                                <DashboardRoutes />
+                            </SupervisorProvider>
                         </SupabaseAuthGuard>
                     }
                 />
                 <Route
                     path="*"
-                    element={<h1>Not Found</h1>}
+                    element={<NotFoundPage />}
                 />
             </Routes>
         </SupabaseProvider>

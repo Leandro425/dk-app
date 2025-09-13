@@ -4,6 +4,7 @@ import I18nextProvider from '../providers/I18nextProvider'
 import AppRoutes from './AppRoutes'
 import QueryClientProvider from '../providers/QueryClientProvider'
 import ThemeProvider from '../context/theme/ThemeProvider'
+import NotFoundPage from '../components/NotFoundPage'
 
 const RootRoutes = () => {
     return (
@@ -21,7 +22,7 @@ const RootRoutes = () => {
                         />
                         <Route
                             path="*"
-                            element={<h1>Not Found</h1>}
+                            element={<NotFoundPage />}
                         />
                     </Routes>
                 </ThemeProvider>

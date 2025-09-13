@@ -7,20 +7,31 @@ import LogoutButton from '../../../components/LogoutButton'
 
 import SettingsIconButton from '../../../components/SettingsButton'
 import DarkModeToggle from '../../../components/DarkModeToggle'
+
+import useSupervisorContext from '../../../context/user/supervisorContext'
+import { useTranslation } from 'react-i18next'
 const { Header, Content, Footer } = Layout
 const { Paragraph, Title } = Typography
 
 const DashboardRoutes = () => {
+    const { t } = useTranslation()
+    const { supervisor } = useSupervisorContext()
     return (
         <Layout style={{ minHeight: '100vh', width: '100vw' }}>
             <Header>
                 <Flex
                     mode="horizontal"
-                    gap="16px"
+                    gap={16}
                     align="center"
                     justify="end"
                     style={{ height: '100%' }}
                 >
+                    <Title
+                        level={5}
+                        style={{ margin: 0 }}
+                    >
+                        {supervisor ? `${t('common.greetings.hello')}, ${supervisor.name}` : 'Dashboard'}
+                    </Title>
                     <DarkModeToggle />
                     <SettingsIconButton />
                     <LogoutButton />

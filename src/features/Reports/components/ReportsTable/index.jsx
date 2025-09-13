@@ -4,12 +4,15 @@ import { Button, Flex, Table } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
 import AddReportModal from '../modals/AddReportModal'
+import EditReportModal from '../modals/EditReportModal'
 
 const ReportsTable = () => {
     const { t } = useTranslation()
     const { supabase } = useSupabaseContext()
     const [pagination, setPagination] = useState({ current: 1, pageSize: 10 })
     const [openAddModal, setOpenAddModal] = useState(false)
+    const [selectedReport, setSelectedReport] = useState(null)
+    const [openEditModal, setOpenEditModal] = useState(false)
 
     const fetchData = async ({ queryKey }) => {
         const [, page, pageSize] = queryKey
@@ -37,6 +40,22 @@ const ReportsTable = () => {
         { title: t('reports.table.columns.id'), dataIndex: 'id', key: 'id' },
         { title: t('reports.table.columns.text'), dataIndex: 'text', key: 'text' },
         { title: t('reports.table.columns.createdAt'), dataIndex: 'created_at', key: 'created_at' },
+        {
+            title: t('reports.table.columns.actions'),
+            key: 'operation',
+            fixed: 'right',
+            render: (_, report) => (
+                <Button
+                    type="default"
+                    onClick={() => {
+                        setOpenEditModal(true)
+                        setSelectedReport(report)
+                    }}
+                >
+                    {t('common.actions.edit')}
+                </Button>
+            ),
+        },
     ]
 
     return (
@@ -57,7 +76,7 @@ const ReportsTable = () => {
                     </Button>
                     <Button
                         type="primary"
-                        disabled
+                        // disabled
                     >
                         {t('reports.actions.addMany')}
                     </Button>
@@ -79,6 +98,14 @@ const ReportsTable = () => {
             <AddReportModal
                 open={openAddModal}
                 onClose={() => setOpenAddModal(false)}
+            />
+            <EditReportModal
+                open={openEditModal}
+                onClose={() => {
+                    setOpenEditModal(false)
+                    setSelectedReport(null)
+                }}
+                report={selectedReport}
             />
         </>
     )
