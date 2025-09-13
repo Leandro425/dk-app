@@ -5,28 +5,27 @@ import { useEffect, useState } from 'react'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useQueryClient } from '@tanstack/react-query'
 import FormReportFields from './FormReportFields'
+
+import { dateStringToDayjs, timeStringToDayjs } from '../../../../utils/helpers'
 import dayjs from 'dayjs'
+import useSupervisorContext from '../../../../context/user/supervisorContext'
 
 const getFormValues = (report) => {
     return {
         employee: report?.employee_id,
-        date: report?.date,
+        date: dateStringToDayjs(report?.date),
         field: report?.field_id,
         article: report?.article_id,
         quantity: report?.quantity,
-        timeRange:
-            report?.start_time &&
-            report?.end_time &&
-            dayjs(report.start_time).isValid() &&
-            dayjs(report.end_time).isValid()
-                ? [dayjs(report.start_time), dayjs(report.end_time)]
-                : [null, null],
+        timeRange: [timeStringToDayjs(report?.start_time), timeStringToDayjs(report?.end_time)],
+        break_time_min: report?.break_time_min,
         annotation: report?.annotation || '',
     }
 }
 
 const EditReportModal = ({ open, onClose, report }) => {
     const { t } = useTranslation()
+    const { supervisor } = useSupervisorContext()
     const { supabase } = useSupabaseContext()
     const queryClient = useQueryClient()
     const [messageApi, contextHolder] = message.useMessage()
@@ -36,15 +35,29 @@ const EditReportModal = ({ open, onClose, report }) => {
     const {
         control,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isValid, isDirty },
         reset,
     } = form
 
     const onSubmit = async (data) => {
         setConfirmLoading(true)
         const { error } = await supabase
-            .from('Note')
-            .update([{ text: data.text }])
+            .from('Report')
+            .update([
+                {
+                    employee_id: data.employee,
+                    date: data.date.format('YYYY-MM-DD'),
+                    field_id: data.field,
+                    article_id: data.article,
+                    quantity: data.quantity,
+                    start_time: data.timeRange && data.timeRange[0] ? data.timeRange[0].format('HH:mm') : null,
+                    end_time: data.timeRange && data.timeRange[1] ? data.timeRange[1].format('HH:mm') : null,
+                    break_time_min: data.break_time_min,
+                    modified_by: supervisor.id,
+                    modified_at: dayjs().toISOString(),
+                    annotation: data.annotation,
+                },
+            ])
             .eq('id', report.id)
         messageApi.open({
             type: error ? 'error' : 'success',
@@ -73,6 +86,7 @@ const EditReportModal = ({ open, onClose, report }) => {
                     onOk={handleSubmit(onSubmit)}
                     confirmLoading={confirmLoading}
                     onCancel={onClose}
+                    okButtonProps={{ disabled: !isDirty || !isValid || confirmLoading }}
                 >
                     <FormReportFields
                         control={control}

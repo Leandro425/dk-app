@@ -17,7 +17,11 @@ export const getArticleSelectOptions = async (supabase) => {
     if (error) {
         throw new Error(error.message)
     }
-    return data.map((article) => ({ label: getArticleLabel(article), value: article.id }))
+    return data.map((article) => ({
+        label: getArticleLabel(article),
+        value: article.id,
+        piecework_packaging: article.piecework_packaging,
+    }))
 }
 
 export const getFieldSelectOptions = async (supabase) => {

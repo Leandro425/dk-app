@@ -8,18 +8,17 @@ import dayjs from 'dayjs'
 import FormReportFields from './FormReportFields'
 import useSupervisorContext from '../../../../context/user/supervisorContext'
 
-const formatDateString = 'YYYY-MM-DD'
 const formatTimeString = 'HH:mm'
 
 const getFormValues = () => {
-    const today = dayjs()
     return {
         employee: null,
-        date: dayjs(today.format(formatDateString), formatDateString),
+        date: dayjs(),
         field: null,
         article: null,
         quantity: '',
         timeRange: [null, null],
+        break_time_min: '',
         annotation: '',
     }
 }
@@ -53,6 +52,7 @@ const AddReportModal = ({ open, onClose }) => {
                 quantity: data.quantity,
                 start_time: startTime,
                 end_time: endTime,
+                break_time_min: data.break_time_min,
                 created_by: supervisor.id,
                 annotation: data.annotation,
             },

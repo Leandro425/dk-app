@@ -10,7 +10,7 @@ const ContentFrame = ({ title, description, breadcrumbs, children }) => {
                 display: 'flex',
                 flex: 1,
                 width: '100%',
-                maxWidth: '800px',
+                maxWidth: '1200px',
             }}
         >
             <Flex vertical>

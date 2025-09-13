@@ -11,6 +11,8 @@ import Form from '../../../components/hookForm/Form'
 import useSupabaseContext from '../../../context/supabase/supabaseContext'
 import { useNavigate } from 'react-router-dom'
 import Logo from '../../../components/Logo'
+
+import BackGroundImage1 from '../../../../src/assets/entry-cgi2.jpg'
 const LoginPage = () => {
     const { t } = useTranslation()
     const navigate = useNavigate()
@@ -35,7 +37,15 @@ const LoginPage = () => {
     }
     return (
         <Layout>
-            <Content style={{ display: 'flex', height: '100vh', width: '100vw' }}>
+            <Content
+                style={{
+                    display: 'flex',
+                    height: '100vh',
+                    width: '100vw',
+                    background: `url(${BackGroundImage1})`,
+                    backgroundSize: 'cover',
+                }}
+            >
                 <Flex
                     direction="column"
                     justify="center"

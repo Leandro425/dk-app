@@ -2,7 +2,7 @@ import { Form, InputNumber } from 'antd'
 
 import { Controller, useFormContext } from 'react-hook-form'
 
-const FormInputNumber = ({ name, label = '', required = false, rules = {} }) => {
+const FormInputNumber = ({ name, label = '', required = false, rules = {}, ...props }) => {
     const { control } = useFormContext()
 
     return (
@@ -23,6 +23,7 @@ const FormInputNumber = ({ name, label = '', required = false, rules = {} }) => 
                         value={value}
                         required={required}
                         style={{ width: '100%' }}
+                        {...props}
                     />
                 </Form.Item>
             )}

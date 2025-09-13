@@ -22,6 +22,7 @@ const FormTimeRangePicker = ({ name, label = '', required = false, rules = {} })
                         onChange={(range) => onChange(range)}
                         value={value}
                         picker="date"
+                        format={'DD.MM.YYYY'}
                         style={{ width: '100%' }}
                     />
                 </Form.Item>

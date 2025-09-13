@@ -8,6 +8,7 @@ import EditReportModal from '../modals/EditReportModal'
 import {
     formatDate,
     formatDateTime,
+    formatTime,
     getEmployeeLabel,
     getFieldLabel,
     getSupervisorLabel,
@@ -67,10 +68,27 @@ const ReportsTable = () => {
             key: 'article',
             render: (article) => (article ? `${article.external_id} | ${article.name}` : ''),
         },
-        { title: t('reports.table.columns.quantity'), dataIndex: 'quantity', key: 'quantity' },
-        { title: t('reports.table.columns.startTime'), dataIndex: 'start_time', key: 'start_time' },
-        { title: t('reports.table.columns.endTime'), dataIndex: 'end_time', key: 'end_time' },
-        { title: t('reports.table.columns.breaktime'), dataIndex: 'breaktime', key: 'breaktime' },
+        { title: t('reports.table.columns.quantity'), dataIndex: 'quantity', key: 'quantity', align: 'right' },
+        {
+            title: t('reports.table.columns.startTime'),
+            dataIndex: 'start_time',
+            key: 'start_time',
+            render: formatTime,
+            align: 'right',
+        },
+        {
+            title: t('reports.table.columns.endTime'),
+            dataIndex: 'end_time',
+            key: 'end_time',
+            render: formatTime,
+            align: 'right',
+        },
+        {
+            title: t('reports.table.columns.breaktime'),
+            dataIndex: 'break_time_min',
+            key: 'break_time_min',
+            align: 'right',
+        },
         { title: t('reports.table.columns.annotation'), dataIndex: 'annotation', key: 'annotation' },
         {
             title: t('reports.table.columns.modifiedBy'),
@@ -143,6 +161,7 @@ const ReportsTable = () => {
                     }}
                 >
                     <Table
+                        size="small"
                         loading={isLoading}
                         columns={columns}
                         dataSource={data?.data || []}

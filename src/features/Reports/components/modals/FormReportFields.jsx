@@ -1,3 +1,4 @@
+import { Flex } from 'antd'
 import { useTranslation } from 'react-i18next'
 import {
     getArticleSelectOptions,
@@ -32,7 +33,6 @@ const FormReportFields = ({ control, errors, enabledSelects = false }) => {
                 control={control}
                 errors={errors}
                 label={t('reports.report.staffGroup')}
-                required
                 enabled={enabledSelects}
             />
             <FormSelect
@@ -79,12 +79,23 @@ const FormReportFields = ({ control, errors, enabledSelects = false }) => {
                 label={t('reports.report.quantity')}
                 required
             />
-            <FormTimeRangePicker
-                name="timeRange"
-                label={t('reports.report.timeRange')}
-                control={control}
-                errors={errors}
-            />
+            <Flex gap={16}>
+                <FormTimeRangePicker
+                    name="timeRange"
+                    label={t('reports.report.timeRange')}
+                    control={control}
+                    errors={errors}
+                />
+                <FormInputNumber
+                    name="break_time_min"
+                    control={control}
+                    errors={errors}
+                    label={t('reports.report.breaktime')}
+                    min={0}
+                    step={15}
+                    addonAfter="min"
+                />
+            </Flex>
             <FormTextArea
                 name="annotation"
                 control={control}

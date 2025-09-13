@@ -10,3 +10,11 @@ export const getSupervisorLabel = (sup) => (sup ? `${sup.name}` : '')
 export const formatDateTime = (date) => (date ? dayjs(date).format('DD.MM.YYYY HH:mm') : '')
 export const formatDate = (date) => (date ? dayjs(date).format('DD.MM.YYYY') : '')
 export const formatTime = (time) => (time ? dayjs(time, 'HH:mm').format('HH:mm') : '')
+
+export const timeStringToDayjs = (timeString) => {
+    return timeString ? dayjs(timeString, 'HH:mm') : null
+}
+
+export const dateStringToDayjs = (dateString) => {
+    return dateString ? dayjs(dateString, 'YYYY-MM-DD') : null
+}
