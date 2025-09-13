@@ -1,19 +1,27 @@
 import { Form, message, Modal } from 'antd'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import FormTextField from '../../../../components/hookForm/FormTextField'
 import { useEffect, useState } from 'react'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useQueryClient } from '@tanstack/react-query'
-import FormTextArea from '../../../../components/hookForm/FormTextArea'
-import { getEmployeesSelectOptions } from '../../../../utils/supabaseQuery'
-import FormSelect from '../../../../components/hookForm/FormSelect'
+import FormReportFields from './FormReportFields'
+import dayjs from 'dayjs'
 
 const getFormValues = (report) => {
-    if (!report) return { text: '', annotation: '' }
     return {
-        text: report.text || '',
-        annotation: report.annotation || '',
+        employee: report?.employee_id,
+        date: report?.date,
+        field: report?.field_id,
+        article: report?.article_id,
+        quantity: report?.quantity,
+        timeRange:
+            report?.start_time &&
+            report?.end_time &&
+            dayjs(report.start_time).isValid() &&
+            dayjs(report.end_time).isValid()
+                ? [dayjs(report.start_time), dayjs(report.end_time)]
+                : [null, null],
+        annotation: report?.annotation || '',
     }
 }
 
@@ -66,29 +74,10 @@ const EditReportModal = ({ open, onClose, report }) => {
                     confirmLoading={confirmLoading}
                     onCancel={onClose}
                 >
-                    <FormSelect
-                        name="employee"
-                        queryKey={['employees']}
-                        supabaseQuery={() => getEmployeesSelectOptions(supabase)}
+                    <FormReportFields
                         control={control}
                         errors={errors}
-                        label={t('reports.report.employee')}
-                        required
-                        enabled={open}
-                    />
-                    <FormTextField
-                        name="text"
-                        control={control}
-                        errors={errors}
-                        label={t('common.placeholders.enterText')}
-                        required
-                    />
-                    <FormTextArea
-                        name="annotation"
-                        control={control}
-                        errors={errors}
-                        rows={6}
-                        label={t('reports.report.annotation')}
+                        enabledSelects={open}
                     />
                 </Modal>
             </Form>

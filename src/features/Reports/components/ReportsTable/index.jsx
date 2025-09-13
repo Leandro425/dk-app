@@ -1,10 +1,17 @@
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Table } from 'antd'
+import { Button, Card, Flex, Table } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
 import AddReportModal from '../modals/AddReportModal'
 import EditReportModal from '../modals/EditReportModal'
+import {
+    formatDate,
+    formatDateTime,
+    getEmployeeLabel,
+    getFieldLabel,
+    getSupervisorLabel,
+} from '../../../../utils/helpers'
 
 const ReportsTable = () => {
     const { t } = useTranslation()
@@ -19,12 +26,16 @@ const ReportsTable = () => {
         const from = (page - 1) * pageSize
         const to = page * pageSize - 1
         const { data, count, error } = await supabase
-            .from('Note')
-            .select('*', { count: 'exact' })
+            .from('Report')
+            .select(
+                '*, employee:Employee(*), field:Field(*), article:Article(*), created_by:Supervisor!Report_created_by_fkey(*), modified_by:Supervisor!Report_modified_by_fkey(*)',
+                {
+                    count: 'exact',
+                }
+            )
             .range(from, to)
             .order('id', { ascending: false })
         if (error) {
-            // console.error('Error fetching data:', error)
             return { data: [], total: 0 }
         }
         return { data, total: count }
@@ -37,9 +48,54 @@ const ReportsTable = () => {
     })
 
     const columns = [
-        { title: t('reports.table.columns.id'), dataIndex: 'id', key: 'id' },
-        { title: t('reports.table.columns.text'), dataIndex: 'text', key: 'text' },
-        { title: t('reports.table.columns.createdAt'), dataIndex: 'created_at', key: 'created_at' },
+        { title: t('reports.table.columns.date'), dataIndex: 'date', key: 'date', render: formatDate },
+        {
+            title: t('reports.table.columns.employee'),
+            dataIndex: 'employee',
+            key: 'employee',
+            render: getEmployeeLabel,
+        },
+        {
+            title: t('reports.table.columns.field'),
+            dataIndex: 'field',
+            key: 'field',
+            render: getFieldLabel,
+        },
+        {
+            title: t('reports.table.columns.article'),
+            dataIndex: 'article',
+            key: 'article',
+            render: (article) => (article ? `${article.external_id} | ${article.name}` : ''),
+        },
+        { title: t('reports.table.columns.quantity'), dataIndex: 'quantity', key: 'quantity' },
+        { title: t('reports.table.columns.startTime'), dataIndex: 'start_time', key: 'start_time' },
+        { title: t('reports.table.columns.endTime'), dataIndex: 'end_time', key: 'end_time' },
+        { title: t('reports.table.columns.breaktime'), dataIndex: 'breaktime', key: 'breaktime' },
+        { title: t('reports.table.columns.annotation'), dataIndex: 'annotation', key: 'annotation' },
+        {
+            title: t('reports.table.columns.modifiedBy'),
+            dataIndex: 'modified_by',
+            key: 'modified_by',
+            render: getSupervisorLabel,
+        },
+        {
+            title: t('reports.table.columns.modifiedAt'),
+            dataIndex: 'modified_at',
+            key: 'modified_at',
+            render: formatDateTime,
+        },
+        {
+            title: t('reports.table.columns.createdBy'),
+            dataIndex: 'created_by',
+            key: 'created_by',
+            render: getSupervisorLabel,
+        },
+        {
+            title: t('reports.table.columns.createdAt'),
+            dataIndex: 'created_at',
+            key: 'created_at',
+            render: formatDateTime,
+        },
         {
             title: t('reports.table.columns.actions'),
             key: 'operation',
@@ -64,10 +120,7 @@ const ReportsTable = () => {
                 vertical
                 gap={16}
             >
-                <Flex
-                    horizontal
-                    gap={16}
-                >
+                <Flex gap={16}>
                     <Button
                         type="primary"
                         onClick={() => setOpenAddModal(true)}
@@ -76,24 +129,34 @@ const ReportsTable = () => {
                     </Button>
                     <Button
                         type="primary"
-                        // disabled
+                        disabled
                     >
                         {t('reports.actions.addMany')}
                     </Button>
                 </Flex>
-                <Table
-                    loading={isLoading}
-                    columns={columns}
-                    dataSource={data?.data || []}
-                    pagination={{
-                        current: pagination.current,
-                        pageSize: pagination.pageSize,
-                        total: data?.total || 0,
-                        showSizeChanger: true,
-                        onChange: (current, pageSize) => setPagination({ current, pageSize }),
+                <Flex
+                    style={{
+                        padding: 0,
+
+                        borderRadius: 8,
+                        overflow: 'hidden',
                     }}
-                    rowKey="id"
-                />
+                >
+                    <Table
+                        loading={isLoading}
+                        columns={columns}
+                        dataSource={data?.data || []}
+                        pagination={{
+                            current: pagination.current,
+                            pageSize: pagination.pageSize,
+                            total: data?.total || 0,
+                            showSizeChanger: true,
+                            onChange: (current, pageSize) => setPagination({ current, pageSize }),
+                        }}
+                        rowKey="id"
+                        scroll={{ x: 'max-content' }}
+                    />
+                </Flex>
             </Flex>
             <AddReportModal
                 open={openAddModal}

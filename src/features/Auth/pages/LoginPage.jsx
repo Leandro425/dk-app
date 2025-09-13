@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 const { Content } = Layout
 
 import { useTranslation } from 'react-i18next'
-import FormTextField from '../../../components/hookForm/FormTextField'
+import FormTextField from '../../../components/hookForm/FormInput'
 import FormSubmitButton from '../../../components/hookForm/FormSubmitButton'
 import Form from '../../../components/hookForm/Form'
 import useSupabaseContext from '../../../context/supabase/supabaseContext'

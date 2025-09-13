@@ -1,8 +1,6 @@
 import { Layout, Image, Flex, Typography } from 'antd'
 import { useTranslation } from 'react-i18next'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-
+import BackGroundImage1 from '../../../../src/assets/entry-cgi2.jpg'
 const { Text, Title } = Typography
 
 const { Content } = Layout
@@ -14,7 +12,13 @@ const MainPage = () => {
             // justify="center"
             align="center"
             gap={32}
-            style={{ width: '100%', paddingTop: 64 }}
+            style={{
+                width: '100%',
+                paddingTop: 64,
+                backgroundImage: `url(${BackGroundImage1})`,
+                backgroundSize: 'cover',
+                // minHeight: '100vh',
+            }}
         >
             <Image
                 width={500}
@@ -25,8 +29,13 @@ const MainPage = () => {
                 vertical
                 gap={0}
             >
-                <Title level={4}>{t('homepage.welcome')}</Title>
-                <Text>{t('homepage.description')}</Text>
+                <Title
+                    level={4}
+                    style={{ color: 'white' }}
+                >
+                    {t('homepage.welcome')}
+                </Title>
+                <Text style={{ color: 'white' }}>{t('homepage.description')}</Text>
             </Flex>
         </Flex>
     )

@@ -1,9 +1,37 @@
-const getFullName = (emp) => `${emp.staff_number} | ${emp.firstname} ${emp.lastname}`
+import { getArticleLabel, getEmployeeLabel, getFieldLabel, getStaffGroupLabel } from './helpers'
 
-export const getEmployeesSelectOptions = async (supabase) => {
-    const { data, error } = await supabase.from('Employee').select('*').order('staff_number', { ascending: true })
+export const getEmployeeSelectOptions = async (supabase, staffGroup = null) => {
+    const query = supabase.from('Employee').select('*').order('staff_number', { ascending: true })
+    if (staffGroup) {
+        query.eq('staff_group_id', staffGroup)
+    }
+    const { data, error } = await query
     if (error) {
         throw new Error(error.message)
     }
-    return data.map((emp) => ({ label: getFullName(emp), value: emp.id }))
+    return data.map((emp) => ({ label: getEmployeeLabel(emp), value: emp.id }))
+}
+
+export const getArticleSelectOptions = async (supabase) => {
+    const { data, error } = await supabase.from('Article').select('*').order('name', { ascending: true })
+    if (error) {
+        throw new Error(error.message)
+    }
+    return data.map((article) => ({ label: getArticleLabel(article), value: article.id }))
+}
+
+export const getFieldSelectOptions = async (supabase) => {
+    const { data, error } = await supabase.from('Field').select('*').order('name', { ascending: true })
+    if (error) {
+        throw new Error(error.message)
+    }
+    return data.map((field) => ({ label: getFieldLabel(field), value: field.id }))
+}
+
+export const getStaffGroupSelectOptions = async (supabase) => {
+    const { data, error } = await supabase.from('StaffGroup').select('*').order('name', { ascending: true })
+    if (error) {
+        throw new Error(error.message)
+    }
+    return data.map((group) => ({ label: getStaffGroupLabel(group), value: group.id }))
 }

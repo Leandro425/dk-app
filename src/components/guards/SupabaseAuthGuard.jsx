@@ -4,8 +4,6 @@ import useSupabaseContext from '../../context/supabase/supabaseContext'
 const SupabaseAuthGuard = ({ children }) => {
     const { user } = useSupabaseContext()
 
-    console.log('SupabaseAuthGuard user:', user)
-
     return user ? (
         children
     ) : (

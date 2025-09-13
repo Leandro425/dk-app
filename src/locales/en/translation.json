@@ -35,18 +35,30 @@
         "table": {
             "title": "Reports Table",
             "columns": {
-                "id": "ID",
-                "name": "Name",
-                "text": "Text",
+                "date": "Date",
+                "employee": "Employee",
+                "field": "Field",
+                "article": "Article",
+                "quantity": "Quantity",
+                "annotation": "Annotation",
+                "startTime": "Start Time",
+                "endTime": "End Time",
+                "breaktime": "Breaktime (minutes)",
+                "modifiedBy": "Modified By",
+                "modifiedAt": "Modified At",
+                "createdBy": "Created By",
                 "createdAt": "Created At",
                 "actions": "Actions"
             }
         },
         "report": {
+            "staffGroup": "Staff Group",
             "employee": "Employee",
             "date": "Date",
             "field": "Field",
             "article": "Article",
+            "timeRange": "Time Range",
+            "breaktime": "Breaktime (minutes)",
             "quantity": "Quantity",
             "annotation": "Annotation"
         }
