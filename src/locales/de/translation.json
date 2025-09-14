@@ -27,7 +27,7 @@
         "description": "Hier können Sie Ihre Berichte anzeigen und verwalten.",
         "actions": {
             "add": "Bericht hinzufügen",
-            "addGroup": "Gruppenbericht hinzufüge",
+            "addGroup": "Gruppenbericht hinzufügen",
             "edit": "Bericht bearbeiten",
             "delete": "Bericht löschen",
             "view": "Bericht ansehen"

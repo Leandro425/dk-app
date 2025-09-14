@@ -40,6 +40,7 @@ const AddReportModal = ({ open, onClose }) => {
     } = form
 
     const onSubmit = async (data) => {
+        console.log('Submitting', data)
         setConfirmLoading(true)
         const startTime = data.timeRange && data.timeRange[0] ? data.timeRange[0].format(formatTimeString) : null
         const endTime = data.timeRange && data.timeRange[1] ? data.timeRange[1].format(formatTimeString) : null
@@ -52,7 +53,7 @@ const AddReportModal = ({ open, onClose }) => {
                 quantity: data.quantity,
                 start_time: startTime,
                 end_time: endTime,
-                break_time_min: data.break_time_min,
+                break_time_min: parseFloat(data.break_time_min || 0),
                 created_by: supervisor.id,
                 annotation: data.annotation,
             },

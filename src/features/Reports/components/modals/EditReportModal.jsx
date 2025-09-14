@@ -18,7 +18,7 @@ const getFormValues = (report) => {
         article: report?.article_id,
         quantity: report?.quantity,
         timeRange: [timeStringToDayjs(report?.start_time), timeStringToDayjs(report?.end_time)],
-        break_time_min: report?.break_time_min,
+        break_time_min: report?.break_time_min || '',
         annotation: report?.annotation || '',
     }
 }
@@ -52,7 +52,7 @@ const EditReportModal = ({ open, onClose, report }) => {
                     quantity: data.quantity,
                     start_time: data.timeRange && data.timeRange[0] ? data.timeRange[0].format('HH:mm') : null,
                     end_time: data.timeRange && data.timeRange[1] ? data.timeRange[1].format('HH:mm') : null,
-                    break_time_min: data.break_time_min,
+                    break_time_min: parseFloat(data.break_time_min || 0),
                     modified_by: supervisor.id,
                     modified_at: dayjs().toISOString(),
                     annotation: data.annotation,
