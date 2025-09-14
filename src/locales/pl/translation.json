@@ -1,1 +1,138 @@
-{}
+{
+    "auth": {
+        "login": {
+            "title": "Logowanie",
+            "username": "Nazwa użytkownika",
+            "email": "E-mail",
+            "password": "Hasło",
+            "errors": {
+                "invalidCredentials": "Nieprawidłowa nazwa użytkownika lub hasło"
+            }
+        }
+    },
+    "dashboard": {
+        "title": "Panel",
+        "description": "To jest Twój panel, w którym możesz zobaczyć przegląd swoich danych.",
+        "reports": {
+            "title": "Raporty",
+            "content": "To jest zawartość raportów."
+        },
+        "deliveryNotes": {
+            "title": "Dowody dostawy",
+            "content": "To jest zawartość dowodu dostawy."
+        }
+    },
+    "reports": {
+        "title": "Raporty",
+        "description": "Tutaj możesz przeglądać i zarządzać swoimi raportami.",
+        "actions": {
+            "add": "Dodaj raport",
+            "addGroup": "Dodaj wiele raportów",
+            "edit": "Edytuj raport",
+            "delete": "Usuń raport",
+            "view": "Zobacz raport"
+        },
+        "table": {
+            "title": "Tabela raportów",
+            "columns": {
+                "date": "Data",
+                "employee": "Pracownik",
+                "field": "Pole",
+                "article": "Artykuł",
+                "quantity": "Ilość",
+                "annotation": "Adnotacja",
+                "startTime": "Czas rozpoczęcia",
+                "endTime": "Czas zakończenia",
+                "breaktime": "Przerwa (minuty)",
+                "modifiedBy": "Zmodyfikowane przez",
+                "modifiedAt": "Zmodyfikowane o",
+                "createdBy": "Utworzone przez",
+                "createdAt": "Utworzone o",
+                "actions": "Akcje"
+            }
+        },
+        "report": {
+            "staffGroup": "Grupa personelu",
+            "employee": "Pracownik",
+            "date": "Data",
+            "field": "Pole",
+            "article": "Artykuł",
+            "timeRange": "Zakres czasu",
+            "breaktime": "Przerwa (minuty)",
+            "quantity": "Ilość",
+            "annotation": "Adnotacja"
+        }
+    },
+    "deliveryNotes": {
+        "title": "Dowody dostawy",
+        "description": "Tutaj możesz przeglądać i zarządzać swoimi dowodami dostawy."
+    },
+    "homepage": {
+        "welcome": "Witamy w DK Nowack",
+        "description": "To jest strona główna DK Nowack GmbH & Co. KG",
+        "footer": {
+            "companyInfo": "© 2024 DK Nowack GmbH & Co. KG. Wszelkie prawa zastrzeżone.",
+            "allRightsReserved": "© Wszelkie prawa zastrzeżone.",
+            "privacyPolicy": "Polityka prywatności",
+            "links": {
+                "imprint": "Impressum",
+                "contact": "Kontakt",
+                "startPage": "Strona startowa"
+            }
+        }
+    },
+    "common": {
+        "greetings": {
+            "hello": "Cześć",
+            "welcome": "Witamy"
+        },
+        "actions": {
+            "open": "Otwórz",
+            "close": "Zamknij",
+            "submit": "Wyślij",
+            "cancel": "Anuluj",
+            "save": "Zapisz",
+            "delete": "Usuń",
+            "edit": "Edytuj",
+            "update": "Aktualizuj",
+            "signIn": "Zaloguj się",
+            "signOut": "Wyloguj się",
+            "goToApplication": "Przejdź do aplikacji",
+            "goToHomepage": "Przejdź do strony głównej",
+            "goToSignIn": "Przejdź do logowania"
+        },
+        "messages": {
+            "successfullyAdded": "Pomyślnie dodano.",
+            "successfullyUpdated": "Pomyślnie zaktualizowano.",
+            "successfullyDeleted": "Pomyślnie usunięto.",
+            "errorOccurred": "Wystąpił błąd. Spróbuj ponownie.",
+            "comingSoon": "Wkrótce",
+            "notFoundPage": "Przepraszamy, strona, którą odwiedziłeś, nie istnieje."
+        },
+        "placeholders": {
+            "enterText": "Wpisz tekst tutaj...",
+            "selectOption": "Wybierz opcję...",
+            "noData": "Brak dostępnych danych."
+        }
+    },
+    "settings": {
+        "title": "Ustawienia",
+        "description": "Dostosuj swoje preferencje i konfiguracje.",
+        "theme": "Motyw",
+        "themes": {
+            "system": "Systemowy",
+            "light": "Jasny",
+            "dark": "Ciemny"
+        },
+        "language": "Język",
+        "languages": {
+            "german": "Niemiecki",
+            "english": "Angielski",
+            "polish": "Polski",
+            "dutch": "Holenderski",
+            "danish": "Duński",
+            "romanian": "Rumuński",
+            "bulgarian": "Bułgarski"
+        }
+    }
+}

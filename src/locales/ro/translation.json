@@ -1,0 +1,138 @@
+{
+    "auth": {
+        "login": {
+            "title": "Autentificare",
+            "username": "Nume utilizator",
+            "email": "Email",
+            "password": "Parolă",
+            "errors": {
+                "invalidCredentials": "Nume utilizator sau parolă incorecte"
+            }
+        }
+    },
+    "dashboard": {
+        "title": "Tablou de bord",
+        "description": "Acesta este tabloul de bord unde puteți vedea o privire de ansamblu a datelor dvs.",
+        "reports": {
+            "title": "Rapoarte",
+            "content": "Aceasta este conținutul rapoartelor."
+        },
+        "deliveryNotes": {
+            "title": "Note de livrare",
+            "content": "Aceasta este conținutul notei de livrare."
+        }
+    },
+    "reports": {
+        "title": "Rapoarte",
+        "description": "Aici puteți vizualiza și gestiona rapoartele dvs.",
+        "actions": {
+            "add": "Adaugă raport",
+            "addGroup": "Adaugă mai multe rapoarte",
+            "edit": "Editează raport",
+            "delete": "Șterge raport",
+            "view": "Vizualizează raport"
+        },
+        "table": {
+            "title": "Tabel rapoarte",
+            "columns": {
+                "date": "Data",
+                "employee": "Angajat",
+                "field": "Câmp",
+                "article": "Articol",
+                "quantity": "Cantitate",
+                "annotation": "Anotație",
+                "startTime": "Ora de început",
+                "endTime": "Ora de sfârșit",
+                "breaktime": "Pauză (minute)",
+                "modifiedBy": "Modificat de",
+                "modifiedAt": "Modificat la",
+                "createdBy": "Creat de",
+                "createdAt": "Creat la",
+                "actions": "Acțiuni"
+            }
+        },
+        "report": {
+            "staffGroup": "Grup personal",
+            "employee": "Angajat",
+            "date": "Data",
+            "field": "Câmp",
+            "article": "Articol",
+            "timeRange": "Interval orar",
+            "breaktime": "Pauză (minute)",
+            "quantity": "Cantitate",
+            "annotation": "Anotație"
+        }
+    },
+    "deliveryNotes": {
+        "title": "Note de livrare",
+        "description": "Aici puteți vizualiza și gestiona notele dvs. de livrare."
+    },
+    "homepage": {
+        "welcome": "Bine ați venit la DK Nowack",
+        "description": "Aceasta este pagina principală a DK Nowack GmbH & Co. KG",
+        "footer": {
+            "companyInfo": "© 2024 DK Nowack GmbH & Co. KG. Toate drepturile rezervate.",
+            "allRightsReserved": "© Toate drepturile rezervate.",
+            "privacyPolicy": "Politica de confidențialitate",
+            "links": {
+                "imprint": "Imprimare",
+                "contact": "Contact",
+                "startPage": "Pagina principală"
+            }
+        }
+    },
+    "common": {
+        "greetings": {
+            "hello": "Salut",
+            "welcome": "Bine ați venit"
+        },
+        "actions": {
+            "open": "Deschide",
+            "close": "Închide",
+            "submit": "Trimite",
+            "cancel": "Anulează",
+            "save": "Salvează",
+            "delete": "Șterge",
+            "edit": "Editează",
+            "update": "Actualizează",
+            "signIn": "Autentificare",
+            "signOut": "Deconectare",
+            "goToApplication": "Mergi la aplicație",
+            "goToHomepage": "Mergi la pagina principală",
+            "goToSignIn": "Mergi la autentificare"
+        },
+        "messages": {
+            "successfullyAdded": "Adăugat cu succes.",
+            "successfullyUpdated": "Actualizat cu succes.",
+            "successfullyDeleted": "Șters cu succes.",
+            "errorOccurred": "A apărut o eroare. Vă rugăm să încercați din nou.",
+            "comingSoon": "În curând",
+            "notFoundPage": "Ne pare rău, pagina pe care ați vizitat-o nu există."
+        },
+        "placeholders": {
+            "enterText": "Introduceți text aici...",
+            "selectOption": "Selectați o opțiune...",
+            "noData": "Nu există date disponibile."
+        }
+    },
+    "settings": {
+        "title": "Setări",
+        "description": "Ajustați preferințele și configurațiile dvs.",
+        "theme": "Temă",
+        "themes": {
+            "system": "Sistem",
+            "light": "Deschis",
+            "dark": "Întunecat"
+        },
+        "language": "Limba",
+        "languages": {
+            "german": "Germană",
+            "english": "Engleză",
+            "polish": "Poloneză",
+            "dutch": "Olandeză",
+            "danish": "Daneză",
+            "romanian": "Română",
+            "bulgarian": "Bulgară"
+        }
+    }
+}

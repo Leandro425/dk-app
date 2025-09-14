@@ -1,0 +1,138 @@
+{
+    "auth": {
+        "login": {
+            "title": "Inloggen",
+            "username": "Gebruikersnaam",
+            "email": "E-mail",
+            "password": "Wachtwoord",
+            "errors": {
+                "invalidCredentials": "Ongeldige gebruikersnaam of wachtwoord"
+            }
+        }
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "description": "Dit is uw dashboard waar u een overzicht van uw gegevens kunt zien.",
+        "reports": {
+            "title": "Rapporten",
+            "content": "Dit is de inhoud van de rapporten."
+        },
+        "deliveryNotes": {
+            "title": "Leveringsbonnen",
+            "content": "Dit is de inhoud van het leveringsbewijs."
+        }
+    },
+    "reports": {
+        "title": "Rapporten",
+        "description": "Hier kunt u uw rapporten bekijken en beheren.",
+        "actions": {
+            "add": "Rapport toevoegen",
+            "addGroup": "Meerdere rapporten toevoegen",
+            "edit": "Rapport bewerken",
+            "delete": "Rapport verwijderen",
+            "view": "Rapport bekijken"
+        },
+        "table": {
+            "title": "Rapportentabel",
+            "columns": {
+                "date": "Datum",
+                "employee": "Medewerker",
+                "field": "Veld",
+                "article": "Artikel",
+                "quantity": "Aantal",
+                "annotation": "Notitie",
+                "startTime": "Starttijd",
+                "endTime": "Eindtijd",
+                "breaktime": "Pauze (minuten)",
+                "modifiedBy": "Gewijzigd door",
+                "modifiedAt": "Gewijzigd op",
+                "createdBy": "Aangemaakt door",
+                "createdAt": "Aangemaakt op",
+                "actions": "Acties"
+            }
+        },
+        "report": {
+            "staffGroup": "Personeelsgroep",
+            "employee": "Medewerker",
+            "date": "Datum",
+            "field": "Veld",
+            "article": "Artikel",
+            "timeRange": "Tijdsbereik",
+            "breaktime": "Pauze (minuten)",
+            "quantity": "Aantal",
+            "annotation": "Notitie"
+        }
+    },
+    "deliveryNotes": {
+        "title": "Leveringsbonnen",
+        "description": "Hier kunt u uw leveringsbonnen bekijken en beheren."
+    },
+    "homepage": {
+        "welcome": "Welkom bij DK Nowack",
+        "description": "Dit is de startpagina van DK Nowack GmbH & Co. KG",
+        "footer": {
+            "companyInfo": "© 2024 DK Nowack GmbH & Co. KG. Alle rechten voorbehouden.",
+            "allRightsReserved": "© Alle rechten voorbehouden.",
+            "privacyPolicy": "Privacybeleid",
+            "links": {
+                "imprint": "Afdruk",
+                "contact": "Contact",
+                "startPage": "Startpagina"
+            }
+        }
+    },
+    "common": {
+        "greetings": {
+            "hello": "Hallo",
+            "welcome": "Welkom"
+        },
+        "actions": {
+            "open": "Openen",
+            "close": "Sluiten",
+            "submit": "Verzenden",
+            "cancel": "Annuleren",
+            "save": "Opslaan",
+            "delete": "Verwijderen",
+            "edit": "Bewerken",
+            "update": "Bijwerken",
+            "signIn": "Inloggen",
+            "signOut": "Uitloggen",
+            "goToApplication": "Ga naar toepassing",
+            "goToHomepage": "Ga naar startpagina",
+            "goToSignIn": "Ga naar inloggen"
+        },
+        "messages": {
+            "successfullyAdded": "Succesvol toegevoegd.",
+            "successfullyUpdated": "Succesvol bijgewerkt.",
+            "successfullyDeleted": "Succesvol verwijderd.",
+            "errorOccurred": "Er is een fout opgetreden. Probeer het opnieuw.",
+            "comingSoon": "Binnenkort beschikbaar",
+            "notFoundPage": "Sorry, de pagina die u bezocht bestaat niet."
+        },
+        "placeholders": {
+            "enterText": "Voer hier tekst in...",
+            "selectOption": "Selecteer een optie...",
+            "noData": "Geen gegevens beschikbaar."
+        }
+    },
+    "settings": {
+        "title": "Instellingen",
+        "description": "Pas uw voorkeuren en configuraties aan.",
+        "theme": "Thema",
+        "themes": {
+            "system": "Systeem",
+            "light": "Licht",
+            "dark": "Donker"
+        },
+        "language": "Taal",
+        "languages": {
+            "german": "Duits",
+            "english": "Engels",
+            "polish": "Pools",
+            "dutch": "Nederlands",
+            "danish": "Deens",
+            "romanian": "Roemeens",
+            "bulgarian": "Bulgaars"
+        }
+    }
+}

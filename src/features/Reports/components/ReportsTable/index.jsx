@@ -149,7 +149,7 @@ const ReportsTable = () => {
                         type="primary"
                         disabled
                     >
-                        {t('reports.actions.addMany')}
+                        {t('reports.actions.addGroup')}
                     </Button>
                 </Flex>
                 <Flex

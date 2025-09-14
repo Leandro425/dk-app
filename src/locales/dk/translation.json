@@ -1,0 +1,138 @@
+{
+    "auth": {
+        "login": {
+            "title": "Log ind",
+            "username": "Brugernavn",
+            "email": "E-mail",
+            "password": "Adgangskode",
+            "errors": {
+                "invalidCredentials": "Ugyldigt brugernavn eller adgangskode"
+            }
+        }
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "description": "Dette er dit dashboard, hvor du kan se en oversigt over dine data.",
+        "reports": {
+            "title": "Rapporter",
+            "content": "Dette er rapportindholdet."
+        },
+        "deliveryNotes": {
+            "title": "Leveringssedler",
+            "content": "Dette er indholdet af leveringssedlen."
+        }
+    },
+    "reports": {
+        "title": "Rapporter",
+        "description": "Her kan du se og administrere dine rapporter.",
+        "actions": {
+            "add": "Tilføj rapport",
+            "addGroup": "Tilføj flere rapporter",
+            "edit": "Rediger rapport",
+            "delete": "Slet rapport",
+            "view": "Se rapport"
+        },
+        "table": {
+            "title": "Rapporttabel",
+            "columns": {
+                "date": "Dato",
+                "employee": "Medarbejder",
+                "field": "Felt",
+                "article": "Artikel",
+                "quantity": "Antal",
+                "annotation": "Bemærkning",
+                "startTime": "Starttid",
+                "endTime": "Sluttid",
+                "breaktime": "Pause (minutter)",
+                "modifiedBy": "Ændret af",
+                "modifiedAt": "Ændret den",
+                "createdBy": "Oprettet af",
+                "createdAt": "Oprettet den",
+                "actions": "Handlinger"
+            }
+        },
+        "report": {
+            "staffGroup": "Personalgruppe",
+            "employee": "Medarbejder",
+            "date": "Dato",
+            "field": "Felt",
+            "article": "Artikel",
+            "timeRange": "Tidsinterval",
+            "breaktime": "Pause (minutter)",
+            "quantity": "Antal",
+            "annotation": "Bemærkning"
+        }
+    },
+    "deliveryNotes": {
+        "title": "Leveringssedler",
+        "description": "Her kan du se og administrere dine leveringssedler."
+    },
+    "homepage": {
+        "welcome": "Velkommen til DK Nowack",
+        "description": "Dette er startsiden for DK Nowack GmbH & Co. KG",
+        "footer": {
+            "companyInfo": "© 2024 DK Nowack GmbH & Co. KG. Alle rettigheder forbeholdes.",
+            "allRightsReserved": "© Alle rettigheder forbeholdes.",
+            "privacyPolicy": "Fortrolighedspolitik",
+            "links": {
+                "imprint": "Impressum",
+                "contact": "Kontakt",
+                "startPage": "Startside"
+            }
+        }
+    },
+    "common": {
+        "greetings": {
+            "hello": "Hej",
+            "welcome": "Velkommen"
+        },
+        "actions": {
+            "open": "Åbn",
+            "close": "Luk",
+            "submit": "Send",
+            "cancel": "Annuller",
+            "save": "Gem",
+            "delete": "Slet",
+            "edit": "Rediger",
+            "update": "Opdater",
+            "signIn": "Log ind",
+            "signOut": "Log ud",
+            "goToApplication": "Gå til applikationen",
+            "goToHomepage": "Gå til startside",
+            "goToSignIn": "Gå til log ind"
+        },
+        "messages": {
+            "successfullyAdded": "Tilføjet med succes.",
+            "successfullyUpdated": "Opdateret med succes.",
+            "successfullyDeleted": "Slettet med succes.",
+            "errorOccurred": "Der opstod en fejl. Prøv igen.",
+            "comingSoon": "Kommer snart",
+            "notFoundPage": "Beklager, siden du besøgte findes ikke."
+        },
+        "placeholders": {
+            "enterText": "Indtast tekst her...",
+            "selectOption": "Vælg en mulighed...",
+            "noData": "Ingen data tilgængelige."
+        }
+    },
+    "settings": {
+        "title": "Indstillinger",
+        "description": "Juster dine præferencer og konfigurationer.",
+        "theme": "Tema",
+        "themes": {
+            "system": "System",
+            "light": "Lyst",
+            "dark": "Mørkt"
+        },
+        "language": "Sprog",
+        "languages": {
+            "german": "Tysk",
+            "english": "Engelsk",
+            "polish": "Polsk",
+            "dutch": "Hollandsk",
+            "danish": "Dansk",
+            "romanian": "Rumænsk",
+            "bulgarian": "Bulgarsk"
+        }
+    }
+}

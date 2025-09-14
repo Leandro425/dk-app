@@ -27,7 +27,7 @@
         "description": "Here you can view and manage your reports.",
         "actions": {
             "add": "Add Report",
-            "addMany": "Add Many Reports",
+            "addGroup": "Add Many Reports",
             "edit": "Edit Report",
             "delete": "Delete Report",
             "view": "View Report"
@@ -68,8 +68,8 @@
         "description": "Here you can view and manage your delivery notes."
     },
     "homepage": {
-        "welcome": "Welcome to the DK Nowack Reporting Application",
-        "description": "This is the homepage of the DK Nowack GmbH & Co. KG reporting application.",
+        "welcome": "Welcome to the DK Nowack",
+        "description": "This is the homepage of the DK Nowack GmbH & Co. KG",
         "footer": {
             "companyInfo": "© 2024 DK Nowack GmbH & Co. KG. All rights reserved.",
             "allRightsReserved": "© All rights reserved.",
@@ -128,7 +128,11 @@
         "languages": {
             "german": "German",
             "english": "English",
-            "polish": "Polish"
+            "polish": "Polish",
+            "dutch": "Dutch",
+            "danish": "Danish",
+            "romanian": "Romanian",
+            "bulgarian": "Bulgarian"
         }
     }
 }

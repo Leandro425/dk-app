@@ -12,13 +12,83 @@
     },
     "dashboard": {
         "title": "Dashboard",
-        "description": "Dies ist Ihr Dashboard, auf dem Sie einen Überblick über Ihre Daten erhalten."
+        "description": "Dies ist Ihr Dashboard, auf dem Sie eine Übersicht Ihrer Daten sehen können.",
+        "reports": {
+            "title": "Berichte",
+            "content": "Dies ist der Inhalt der Berichte."
+        },
+        "deliveryNotes": {
+            "title": "Lieferscheine",
+            "content": "Dies ist der Inhalt des Lieferscheins."
+        }
+    },
+    "reports": {
+        "title": "Berichte",
+        "description": "Hier können Sie Ihre Berichte anzeigen und verwalten.",
+        "actions": {
+            "add": "Bericht hinzufügen",
+            "addGroup": "Gruppenbericht hinzufüge",
+            "edit": "Bericht bearbeiten",
+            "delete": "Bericht löschen",
+            "view": "Bericht ansehen"
+        },
+        "table": {
+            "title": "Berichtstabelle",
+            "columns": {
+                "date": "Datum",
+                "employee": "Mitarbeiter",
+                "field": "Feld",
+                "article": "Artikel",
+                "quantity": "Menge",
+                "annotation": "Anmerkung",
+                "startTime": "Startzeit",
+                "endTime": "Endzeit",
+                "breaktime": "Pause (Minuten)",
+                "modifiedBy": "Geändert von",
+                "modifiedAt": "Geändert am",
+                "createdBy": "Erstellt von",
+                "createdAt": "Erstellt am",
+                "actions": "Aktionen"
+            }
+        },
+        "report": {
+            "staffGroup": "Mitarbeitergruppe",
+            "employee": "Mitarbeiter",
+            "date": "Datum",
+            "field": "Feld",
+            "article": "Artikel",
+            "timeRange": "Zeitraum",
+            "breaktime": "Pause (Minuten)",
+            "quantity": "Menge",
+            "annotation": "Anmerkung"
+        }
+    },
+    "deliveryNotes": {
+        "title": "Lieferscheine",
+        "description": "Hier können Sie Ihre Lieferscheine anzeigen und verwalten."
     },
     "homepage": {
-        "welcome": "Willkommen zur DK Reporting App"
+        "welcome": "Willkommen bei DK Nowack",
+        "description": "Dies ist die Startseite der DK Nowack GmbH & Co. KG",
+        "footer": {
+            "companyInfo": "© 2024 DK Nowack GmbH & Co. KG. Alle Rechte vorbehalten.",
+            "allRightsReserved": "© Alle Rechte vorbehalten.",
+            "privacyPolicy": "Datenschutzrichtlinie",
+            "links": {
+                "imprint": "Impressum",
+                "contact": "Kontakt",
+                "startPage": "Startseite"
+            }
+        }
     },
     "common": {
+        "greetings": {
+            "hello": "Hallo",
+            "welcome": "Willkommen"
+        },
         "actions": {
+            "open": "Öffnen",
+            "close": "Schließen",
             "submit": "Absenden",
             "cancel": "Abbrechen",
             "save": "Speichern",
@@ -26,7 +96,23 @@
             "edit": "Bearbeiten",
             "update": "Aktualisieren",
             "signIn": "Anmelden",
-            "signOut": "Abmelden"
+            "signOut": "Abmelden",
+            "goToApplication": "Zur Anwendung",
+            "goToHomepage": "Zur Startseite",
+            "goToSignIn": "Zur Anmeldung"
+        },
+        "messages": {
+            "successfullyAdded": "Erfolgreich hinzugefügt.",
+            "successfullyUpdated": "Erfolgreich aktualisiert.",
+            "successfullyDeleted": "Erfolgreich gelöscht.",
+            "errorOccurred": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+            "comingSoon": "Demnächst verfügbar",
+            "notFoundPage": "Entschuldigung, die besuchte Seite existiert nicht."
+        },
+        "placeholders": {
+            "enterText": "Text hier eingeben...",
+            "selectOption": "Option auswählen...",
+            "noData": "Keine Daten verfügbar."
         }
     },
     "settings": {
@@ -42,7 +128,11 @@
         "languages": {
             "german": "Deutsch",
             "english": "Englisch",
-            "polish": "Polnisch"
+            "polish": "Polnisch",
+            "dutch": "Niederländisch",
+            "danish": "Dänisch",
+            "romanian": "Rumänisch",
+            "bulgarian": "Bulgarisch"
         }
     }
 }

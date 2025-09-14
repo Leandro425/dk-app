@@ -8,6 +8,10 @@ import { createInstance } from 'i18next'
 import translationDE from '../locales/de/translation.json'
 import translationEN from '../locales/en/translation.json'
 import translationPL from '../locales/pl/translation.json'
+import translationNL from '../locales/nl/translation.json'
+import translationDK from '../locales/dk/translation.json'
+import translationRO from '../locales/ro/translation.json'
+import translationBG from '../locales/bg/translation.json'
 
 const resources = {
     en: {
@@ -19,6 +23,18 @@ const resources = {
     pl: {
         translation: translationPL,
     },
+    nl: {
+        translation: translationNL,
+    },
+    dk: {
+        translation: translationDK,
+    },
+    ro: {
+        translation: translationRO,
+    },
+    bg: {
+        translation: translationBG,
+    },
 }
 
 const i18n = createInstance()
@@ -26,7 +42,7 @@ const i18n = createInstance()
 i18n.use(initReactI18next).init({
     compatibilityJSON: 'v4',
     resources,
-    lng: 'en', // change in production to de
+    lng: 'de', // change in production to de
     fallbackLng: 'en', // use en if detected lng is not available
     debug: true, // TODO disable in production
     interpolation: {

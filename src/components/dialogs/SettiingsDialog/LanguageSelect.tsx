@@ -9,8 +9,6 @@ const LanguageSelect = () => {
         i18n.changeLanguage(value)
     }
 
-    console.log('Current language:', i18n.language)
-
     return (
         <Select
             defaultValue={i18n.language}
@@ -20,6 +18,10 @@ const LanguageSelect = () => {
                 { value: 'de', label: t('settings.languages.german') },
                 { value: 'en', label: t('settings.languages.english') },
                 { value: 'pl', label: t('settings.languages.polish') },
+                { value: 'nl', label: t('settings.languages.dutch') },
+                { value: 'dk', label: t('settings.languages.danish') },
+                { value: 'ro', label: t('settings.languages.romanian') },
+                { value: 'bg', label: t('settings.languages.bulgarian') },
             ]}
         />
     )
