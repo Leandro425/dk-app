@@ -1,4 +1,5 @@
 import { Breadcrumb, Flex, Typography } from 'antd'
+import { Link } from 'react-router-dom'
 
 const { Title, Paragraph } = Typography
 
@@ -11,14 +12,16 @@ const ContentFrame = ({ title, description, breadcrumbs, children }) => {
                 flex: 1,
                 width: '100%',
                 maxWidth: '1200px',
+                padding: '0 50px',
             }}
         >
             <Flex vertical>
                 <Breadcrumb
                     items={breadcrumbs}
                     style={{ marginTop: '16px' }}
+                    itemRender={(item) => <Link to={item.href}>{item.title}</Link>}
                 />
-                <Title>{title}</Title>
+                <Title level={2}>{title}</Title>
                 <Paragraph>{description}</Paragraph>
             </Flex>
             {children}

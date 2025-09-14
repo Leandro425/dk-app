@@ -1,4 +1,4 @@
-import { Card, Layout, Space } from 'antd'
+import { Card, Layout, Space, message } from 'antd'
 import { Flex } from 'antd'
 import { useForm } from 'react-hook-form'
 
@@ -12,10 +12,11 @@ import useSupabaseContext from '../../../context/supabase/supabaseContext'
 import { useNavigate } from 'react-router-dom'
 import Logo from '../../../components/Logo'
 
-import BackGroundImage1 from '../../../../src/assets/entry-cgi2.jpg'
+import BackGroundImage1 from '../../../../src/assets/background/field_1.jpg'
 const LoginPage = () => {
     const { t } = useTranslation()
     const navigate = useNavigate()
+    const [messageApi, contextHolder] = message.useMessage()
 
     const { login } = useSupabaseContext()
 
@@ -30,13 +31,17 @@ const LoginPage = () => {
         const { email, password } = data
         const { error } = await login(email, password)
         if (error) {
-            console.log('Login error:', error.message)
+            messageApi.open({
+                type: 'error',
+                content: error?.message,
+            })
             return
         }
         navigate('/app/dashboard')
     }
     return (
         <Layout>
+            {contextHolder}
             <Content
                 style={{
                     display: 'flex',

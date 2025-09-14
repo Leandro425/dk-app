@@ -1,19 +1,29 @@
-import { Flex, Spin, theme } from 'antd'
+import { Flex, Layout, Spin } from 'antd'
 
 const LoadingScreen = () => {
-    const { token } = theme.useToken()
     return (
-        <Flex
-            justify="center"
-            align="center"
-            style={{
-                height: '100vh',
-                width: '100vw',
-                backgroundColor: token.colorBg,
-            }}
-        >
-            <Spin size="large" />
-        </Flex>
+        <Layout>
+            <Flex
+                justify="center"
+                align="center"
+                style={{
+                    height: '100vh',
+                    width: '100vw',
+                }}
+            >
+                <Flex
+                    justify="center"
+                    align="center"
+                    style={{
+                        backgroundColor: 'rgba(255, 255, 255, 1)',
+                        padding: 15,
+                        borderRadius: '8px',
+                    }}
+                >
+                    <Spin size="large" />
+                </Flex>
+            </Flex>
+        </Layout>
     )
 }
 

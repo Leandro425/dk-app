@@ -5,7 +5,7 @@ const Logo = ({ width = 400, style }) => {
         <Image
             width={width}
             preview={false}
-            src="../../src/assets/dk_logo_black.png"
+            src="../../src/assets/logo/dk_black_logo.png"
             style={style}
         />
     )

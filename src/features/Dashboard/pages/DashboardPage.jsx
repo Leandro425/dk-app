@@ -20,9 +20,6 @@ const DashboardPage = () => {
                 {
                     href: '/app/dashboard',
                     title: t('dashboard.title'),
-                    onClick: () => {
-                        navigate('/app/dashboard')
-                    },
                 },
             ]}
         >

@@ -1,10 +1,11 @@
-import { Button, Flex, Layout, List, theme, Timeline, Typography } from 'antd'
-import { Divider } from 'antd'
+import { Button, Divider, Flex, Layout, theme, Typography } from 'antd'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import Logo from '../../../../components/Logo'
 
 const Footer = () => {
     const { t } = useTranslation()
+    const navigate = useNavigate()
 
     const {
         token: { colorSplit },
@@ -38,24 +39,22 @@ const Footer = () => {
                 >
                     <Button
                         type="link"
-                        href="/Homepage"
                         style={{ padding: 0 }}
+                        onClick={() => {
+                            navigate('/')
+                        }}
                     >
-                        {t('homepage.footer.links.homepage')}
+                        {t('homepage.footer.links.startPage')}
                     </Button>
                     <Button
                         type="link"
-                        href="/imprint"
+                        to="/imprint"
                         style={{ padding: 0 }}
+                        onClick={() => {
+                            navigate('/imprint')
+                        }}
                     >
                         {t('homepage.footer.links.imprint')}
-                    </Button>
-                    <Button
-                        type="link"
-                        href="/contact"
-                        style={{ padding: 0 }}
-                    >
-                        {t('homepage.footer.links.contact')}
                     </Button>
                 </Flex>
             </Flex>

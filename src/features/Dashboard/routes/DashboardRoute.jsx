@@ -10,6 +10,9 @@ import DarkModeToggle from '../../../components/DarkModeToggle'
 
 import useSupervisorContext from '../../../context/user/supervisorContext'
 import { useTranslation } from 'react-i18next'
+
+import LogoText from '../../../components/LogoText'
+import Icon from '../../../components/Icon'
 const { Header, Content, Footer } = Layout
 const { Paragraph, Title } = Typography
 
@@ -23,18 +26,27 @@ const DashboardRoutes = () => {
                     mode="horizontal"
                     gap={16}
                     align="center"
-                    justify="end"
+                    justify="space-between"
                     style={{ height: '100%' }}
                 >
-                    <Title
-                        level={5}
-                        style={{ margin: 0 }}
+                    <Flex align="center">
+                        {/* <Icon width={80} /> */}
+                        <LogoText width={220} />
+                    </Flex>
+                    <Flex
+                        gap={16}
+                        align="center"
                     >
-                        {supervisor ? `${t('common.greetings.hello')}, ${supervisor.name}` : 'Dashboard'}
-                    </Title>
-                    <DarkModeToggle />
-                    <SettingsIconButton />
-                    <LogoutButton />
+                        <Title
+                            level={5}
+                            style={{ margin: 0 }}
+                        >
+                            {supervisor ? `${t('common.greetings.hello')}, ${supervisor.name}` : 'Dashboard'}
+                        </Title>
+                        <LogoutButton />
+                        <DarkModeToggle />
+                        <SettingsIconButton />
+                    </Flex>
                 </Flex>
             </Header>
             <Content style={{ display: 'flex', justifyContent: 'center' }}>

@@ -77,7 +77,7 @@
             "links": {
                 "imprint": "Imprint",
                 "contact": "Contact",
-                "homepage": "Homepage"
+                "startPage": "Start Page"
             }
         }
     },
@@ -98,7 +98,8 @@
             "signIn": "Sign In",
             "signOut": "Sign Out",
             "goToApplication": "Go to Application",
-            "goToHomepage": "Go to Homepage"
+            "goToHomepage": "Go to Homepage",
+            "goToSignIn": "Go to Sign In"
         },
         "messages": {
             "successfullyAdded": "Successfully added.",
