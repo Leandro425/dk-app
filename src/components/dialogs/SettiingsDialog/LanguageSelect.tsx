@@ -1,18 +1,28 @@
 import { Select } from 'antd'
 
 import { useTranslation } from 'react-i18next'
+// import useLocalStorage from '../../../hooks/useLocalStorage'
+// import { useEffect } from 'react'
 
 const LanguageSelect = () => {
     const { t, i18n } = useTranslation()
+    // const [language, setLanguage] = useLocalStorage('language', 'de')
 
     const handleChange = (value: string) => {
         i18n.changeLanguage(value)
+        // setLanguage(value)
     }
+
+    // useEffect(() => {
+    //     if (language !== i18n.language) {
+    //         i18n.changeLanguage(language)
+    //     }
+    // }, [i18n, language])
 
     return (
         <Select
             defaultValue={i18n.language}
-            style={{ width: 120 }}
+            style={{ width: '100%' }}
             onChange={handleChange}
             options={[
                 { value: 'de', label: t('settings.languages.german') },
