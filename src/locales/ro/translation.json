@@ -17,6 +17,10 @@
             "title": "Rapoarte",
             "content": "Aceasta este conținutul rapoartelor."
         },
+        "timestamps": {
+            "title": "Pontaj",
+            "content": "Aceasta este conținutul pontajului."
+        },
         "deliveryNotes": {
             "title": "Note de livrare",
             "content": "Aceasta este conținutul notei de livrare."
@@ -60,6 +64,40 @@
             "timeRange": "Interval orar",
             "breaktime": "Pauză (minute)",
             "quantity": "Cantitate",
+            "annotation": "Anotație"
+        }
+    },
+    "timestamps": {
+        "title": "Pontaj",
+        "description": "Aici puteți vizualiza și gestiona pontajul dvs.",
+        "actions": {
+            "add": "Adaugă pontaj",
+            "edit": "Editează pontaj",
+            "delete": "Șterge pontaj",
+            "view": "Vizualizează pontaj"
+        },
+        "table": {
+            "title": "Tabel pontaj",
+            "columns": {
+                "date": "Data",
+                "employee": "Angajat",
+                "annotation": "Anotație",
+                "startTime": "Ora de început",
+                "endTime": "Ora de sfârșit",
+                "breaktime": "Pauză (minute)",
+                "modifiedBy": "Modificat de",
+                "modifiedAt": "Modificat la",
+                "createdBy": "Creat de",
+                "createdAt": "Creat la",
+                "actions": "Acțiuni"
+            }
+        },
+        "timestamp": {
+            "staffGroup": "Grup personal",
+            "employee": "Angajat",
+            "date": "Data",
+            "timeRange": "Interval orar",
+            "breaktime": "Pauză (minute)",
             "annotation": "Anotație"
         }
     },

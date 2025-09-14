@@ -17,6 +17,10 @@
             "title": "Rapporter",
             "content": "Dette er rapportindholdet."
         },
+        "timestamps": {
+            "title": "Tidsregistrering",
+            "content": "Dette er indholdet af tidsregistreringen."
+        },
         "deliveryNotes": {
             "title": "Leveringssedler",
             "content": "Dette er indholdet af leveringssedlen."
@@ -60,6 +64,40 @@
             "timeRange": "Tidsinterval",
             "breaktime": "Pause (minutter)",
             "quantity": "Antal",
+            "annotation": "Bemærkning"
+        }
+    },
+    "timestamps": {
+        "title": "Tidsregistrering",
+        "description": "Her kan du se og administrere din tidsregistrering.",
+        "actions": {
+            "add": "Tilføj tidsstempel",
+            "edit": "Rediger tidsstempel",
+            "delete": "Slet tidsstempel",
+            "view": "Se tidsstempel"
+        },
+        "table": {
+            "title": "Tidsstempeltabel",
+            "columns": {
+                "date": "Dato",
+                "employee": "Medarbejder",
+                "annotation": "Bemærkning",
+                "startTime": "Starttid",
+                "endTime": "Sluttid",
+                "breaktime": "Pause (minutter)",
+                "modifiedBy": "Ændret af",
+                "modifiedAt": "Ændret den",
+                "createdBy": "Oprettet af",
+                "createdAt": "Oprettet den",
+                "actions": "Handlinger"
+            }
+        },
+        "timestamp": {
+            "staffGroup": "Personalgruppe",
+            "employee": "Medarbejder",
+            "date": "Dato",
+            "timeRange": "Tidsinterval",
+            "breaktime": "Pause (minutter)",
             "annotation": "Bemærkning"
         }
     },

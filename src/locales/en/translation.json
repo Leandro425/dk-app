@@ -17,6 +17,10 @@
             "title": "Reports",
             "content": "This is the reports content."
         },
+        "timestamps": {
+            "title": "Timestamps",
+            "content": "This is the timestamps content."
+        },
         "deliveryNotes": {
             "title": "Delivery Notes",
             "content": "This is the delivery note content."
@@ -60,6 +64,40 @@
             "timeRange": "Time Range",
             "breaktime": "Breaktime (minutes)",
             "quantity": "Quantity",
+            "annotation": "Annotation"
+        }
+    },
+    "timestamps": {
+        "title": "Timestamps",
+        "description": "Here you can view and manage your timestamps.",
+        "actions": {
+            "add": "Add Timestamp",
+            "edit": "Edit Timestamp",
+            "delete": "Delete Timestamp",
+            "view": "View Timestamp"
+        },
+        "table": {
+            "title": "Timestamps Table",
+            "columns": {
+                "date": "Date",
+                "employee": "Employee",
+                "annotation": "Annotation",
+                "startTime": "Start Time",
+                "endTime": "End Time",
+                "breaktime": "Breaktime (minutes)",
+                "modifiedBy": "Modified By",
+                "modifiedAt": "Modified At",
+                "createdBy": "Created By",
+                "createdAt": "Created At",
+                "actions": "Actions"
+            }
+        },
+        "timestamp": {
+            "staffGroup": "Staff Group",
+            "employee": "Employee",
+            "date": "Date",
+            "timeRange": "Time Range",
+            "breaktime": "Breaktime (minutes)",
             "annotation": "Annotation"
         }
     },

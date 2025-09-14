@@ -1,6 +1,8 @@
 import { Navigate, Route, Routes } from 'react-router'
 import DashboardPage from '../pages/DashboardPage'
-import ReportsRoutes from '../../Reports/routes/ReportRoutes'
+import ReportRoutes from '../../Reports/routes/ReportRoutes'
+import TimestampRoutes from '../../Timestamps'
+
 import { Flex, Layout, Typography } from 'antd'
 
 import LogoutButton from '../../../components/LogoutButton'
@@ -12,9 +14,9 @@ import useSupervisorContext from '../../../context/user/supervisorContext'
 import { useTranslation } from 'react-i18next'
 
 import LogoText from '../../../components/LogoText'
-import Icon from '../../../components/Icon'
-const { Header, Content, Footer } = Layout
-const { Paragraph, Title } = Typography
+
+const { Header, Content } = Layout
+const { Title } = Typography
 
 const DashboardRoutes = () => {
     const { t } = useTranslation()
@@ -61,7 +63,11 @@ const DashboardRoutes = () => {
                                 />
                                 <Route
                                     path="reports/*"
-                                    element={<ReportsRoutes />}
+                                    element={<ReportRoutes />}
+                                />
+                                <Route
+                                    path="timestamps/*"
+                                    element={<TimestampRoutes />}
                                 />
                             </Routes>
                         }

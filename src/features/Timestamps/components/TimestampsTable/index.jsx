@@ -3,22 +3,16 @@ import { useTranslation } from 'react-i18next'
 import { Button, Flex, Table } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
-import AddReportModal from '../modals/AddReportModal'
-import EditReportModal from '../modals/EditReportModal'
-import {
-    formatDate,
-    formatDateTime,
-    getEmployeeLabel,
-    getFieldLabel,
-    getSupervisorLabel,
-} from '../../../../utils/helpers'
+import AddTimestampModal from '../modals/AddTimestampModal'
+import EditTimestampModal from '../modals/EditTimestampModal'
+import { formatDate, formatDateTime, formatTime, getEmployeeLabel, getSupervisorLabel } from '../../../../utils/helpers'
 
-const ReportsTable = () => {
+const TimestampsTable = () => {
     const { t } = useTranslation()
     const { supabase } = useSupabaseContext()
     const [pagination, setPagination] = useState({ current: 1, pageSize: 10 })
     const [openAddModal, setOpenAddModal] = useState(false)
-    const [selectedReport, setSelectedReport] = useState(null)
+    const [selectedTimestamp, setSelectedTimestamp] = useState(null)
     const [openEditModal, setOpenEditModal] = useState(false)
 
     const fetchData = async ({ queryKey }) => {
@@ -26,9 +20,9 @@ const ReportsTable = () => {
         const from = (page - 1) * pageSize
         const to = page * pageSize - 1
         const { data, count, error } = await supabase
-            .from('Report')
+            .from('Timestamp')
             .select(
-                '*, employee:Employee(*), field:Field(*), article:Article(*), created_by:Supervisor!Report_created_by_fkey(*), modified_by:Supervisor!Report_modified_by_fkey(*)',
+                '*, employee:Employee(*), created_by:Supervisor!Timestamp_created_by_id_fkey(*), modified_by:Supervisor!Timestamp_modified_by_id_fkey(*)',
                 {
                     count: 'exact',
                 }
@@ -42,7 +36,7 @@ const ReportsTable = () => {
     }
 
     const { data, isLoading } = useQuery({
-        queryKey: ['reports', pagination.current, pagination.pageSize],
+        queryKey: ['Timestamps', pagination.current, pagination.pageSize],
         queryFn: fetchData,
         keepPreviousData: true,
     })
@@ -50,59 +44,66 @@ const ReportsTable = () => {
     const columns = [
         { title: t('reports.table.columns.date'), dataIndex: 'date', key: 'date', render: formatDate },
         {
-            title: t('reports.table.columns.employee'),
+            title: t('timestamps.table.columns.employee'),
             dataIndex: 'employee',
             key: 'employee',
             render: getEmployeeLabel,
         },
         {
-            title: t('reports.table.columns.field'),
-            dataIndex: 'field',
-            key: 'field',
-            render: getFieldLabel,
+            title: t('timestamps.table.columns.startTime'),
+            dataIndex: 'start_time',
+            key: 'start_time',
+            render: formatTime,
+            align: 'right',
         },
         {
-            title: t('reports.table.columns.article'),
-            dataIndex: 'article',
-            key: 'article',
-            render: (article) => (article ? `${article.external_id} | ${article.name}` : ''),
+            title: t('timestamps.table.columns.endTime'),
+            dataIndex: 'end_time',
+            key: 'end_time',
+            render: formatTime,
+            align: 'right',
         },
-        { title: t('reports.table.columns.quantity'), dataIndex: 'quantity', key: 'quantity', align: 'right' },
-        { title: t('reports.table.columns.annotation'), dataIndex: 'annotation', key: 'annotation' },
         {
-            title: t('reports.table.columns.modifiedBy'),
+            title: t('timestamps.table.columns.breaktime'),
+            dataIndex: 'break_in_min',
+            key: 'break_in_min',
+            align: 'right',
+        },
+        { title: t('timestamps.table.columns.annotation'), dataIndex: 'annotation', key: 'annotation' },
+        {
+            title: t('timestamps.table.columns.modifiedBy'),
             dataIndex: 'modified_by',
             key: 'modified_by',
             render: getSupervisorLabel,
         },
         {
-            title: t('reports.table.columns.modifiedAt'),
+            title: t('timestamps.table.columns.modifiedAt'),
             dataIndex: 'modified_at',
             key: 'modified_at',
             render: formatDateTime,
         },
         {
-            title: t('reports.table.columns.createdBy'),
+            title: t('timestamps.table.columns.createdBy'),
             dataIndex: 'created_by',
             key: 'created_by',
             render: getSupervisorLabel,
         },
         {
-            title: t('reports.table.columns.createdAt'),
+            title: t('timestamps.table.columns.createdAt'),
             dataIndex: 'created_at',
             key: 'created_at',
             render: formatDateTime,
         },
         {
-            title: t('reports.table.columns.actions'),
+            title: t('timestamps.table.columns.actions'),
             key: 'operation',
             fixed: 'right',
-            render: (_, report) => (
+            render: (_, Timestamp) => (
                 <Button
                     type="default"
                     onClick={() => {
                         setOpenEditModal(true)
-                        setSelectedReport(report)
+                        setSelectedTimestamp(Timestamp)
                     }}
                 >
                     {t('common.actions.edit')}
@@ -122,19 +123,12 @@ const ReportsTable = () => {
                         type="primary"
                         onClick={() => setOpenAddModal(true)}
                     >
-                        {t('reports.actions.add')}
-                    </Button>
-                    <Button
-                        type="primary"
-                        disabled
-                    >
-                        {t('reports.actions.addGroup')}
+                        {t('timestamps.actions.add')}
                     </Button>
                 </Flex>
                 <Flex
                     style={{
                         padding: 0,
-
                         borderRadius: 8,
                         overflow: 'hidden',
                     }}
@@ -157,19 +151,19 @@ const ReportsTable = () => {
                     />
                 </Flex>
             </Flex>
-            <AddReportModal
+            <AddTimestampModal
                 open={openAddModal}
                 onClose={() => setOpenAddModal(false)}
             />
-            <EditReportModal
+            <EditTimestampModal
                 open={openEditModal}
                 onClose={() => {
                     setOpenEditModal(false)
-                    setSelectedReport(null)
+                    setSelectedTimestamp(null)
                 }}
-                report={selectedReport}
+                Timestamp={selectedTimestamp}
             />
         </>
     )
 }
-export default ReportsTable
+export default TimestampsTable

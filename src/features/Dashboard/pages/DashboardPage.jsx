@@ -23,48 +23,57 @@ const DashboardPage = () => {
                 },
             ]}
         >
-            <Flex
-                flex={1}
-                vertical
-                gap="16px"
-            >
-                <Row gutter={16}>
-                    <Col span={12}>
-                        <Card
-                            title={t('dashboard.reports.title')}
-                            extra={
-                                <Button
-                                    type="default"
-                                    onClick={() => navigate('/app/dashboard/reports')}
-                                >
-                                    {t('common.actions.open')}
-                                </Button>
-                            }
-                        >
-                            <Typography.Text>{t('dashboard.reports.content')}</Typography.Text>
-                        </Card>
-                    </Col>
-                    <Col span={12}>
-                        <Card
-                            title={t('dashboard.deliveryNotes.title')}
-                            extra={
-                                <>
-                                    <Tag color="blue">{t('common.messages.comingSoon')}</Tag>
-                                    {/* <Button
+            <Row gutter={[16, 16]}>
+                <Col span={12}>
+                    <Card
+                        title={t('dashboard.reports.title')}
+                        extra={
+                            <Button
+                                type="primary"
+                                onClick={() => navigate('/app/dashboard/reports')}
+                            >
+                                {t('common.actions.open')}
+                            </Button>
+                        }
+                    >
+                        <Typography.Text>{t('dashboard.reports.content')}</Typography.Text>
+                    </Card>
+                </Col>
+                <Col span={12}>
+                    <Card
+                        title={t('dashboard.timestamps.title')}
+                        extra={
+                            <Button
+                                type="primary"
+                                onClick={() => navigate('/app/dashboard/timestamps')}
+                            >
+                                {t('common.actions.open')}
+                            </Button>
+                        }
+                    >
+                        <Typography.Text>{t('dashboard.timestamps.content')}</Typography.Text>
+                    </Card>
+                </Col>
+                <Col span={12}>
+                    <Card
+                        title={t('dashboard.deliveryNotes.title')}
+                        extra={
+                            <>
+                                <Tag color="blue">{t('common.messages.comingSoon')}</Tag>
+                                {/* <Button
                                         type="primary"
                                         onClick={() => navigate('/app/dashboard/delivery-notes')}
                                         disabled
                                     >
                                         {t('common.actions.open')}
                                     </Button> */}
-                                </>
-                            }
-                        >
-                            <Typography.Text>{t('dashboard.deliveryNotes.content')}</Typography.Text>
-                        </Card>
-                    </Col>
-                </Row>
-            </Flex>
+                            </>
+                        }
+                    >
+                        <Typography.Text>{t('dashboard.deliveryNotes.content')}</Typography.Text>
+                    </Card>
+                </Col>
+            </Row>
         </ContentFrame>
     )
 }

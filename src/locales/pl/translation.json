@@ -17,6 +17,10 @@
             "title": "Raporty",
             "content": "To jest zawartość raportów."
         },
+        "timestamps": {
+            "title": "Rejestracja czasu",
+            "content": "To jest zawartość rejestracji czasu."
+        },
         "deliveryNotes": {
             "title": "Dowody dostawy",
             "content": "To jest zawartość dowodu dostawy."
@@ -60,6 +64,40 @@
             "timeRange": "Zakres czasu",
             "breaktime": "Przerwa (minuty)",
             "quantity": "Ilość",
+            "annotation": "Adnotacja"
+        }
+    },
+    "timestamps": {
+        "title": "Rejestracja czasu",
+        "description": "Tutaj możesz przeglądać i zarządzać swoją rejestracją czasu.",
+        "actions": {
+            "add": "Dodaj znacznik czasu",
+            "edit": "Edytuj znacznik czasu",
+            "delete": "Usuń znacznik czasu",
+            "view": "Zobacz znacznik czasu"
+        },
+        "table": {
+            "title": "Tabela znaczników czasu",
+            "columns": {
+                "date": "Data",
+                "employee": "Pracownik",
+                "annotation": "Adnotacja",
+                "startTime": "Czas rozpoczęcia",
+                "endTime": "Czas zakończenia",
+                "breaktime": "Przerwa (minuty)",
+                "modifiedBy": "Zmodyfikowane przez",
+                "modifiedAt": "Zmodyfikowane o",
+                "createdBy": "Utworzone przez",
+                "createdAt": "Utworzone o",
+                "actions": "Akcje"
+            }
+        },
+        "timestamp": {
+            "staffGroup": "Grupa personelu",
+            "employee": "Pracownik",
+            "date": "Data",
+            "timeRange": "Zakres czasu",
+            "breaktime": "Przerwa (minuty)",
             "annotation": "Adnotacja"
         }
     },

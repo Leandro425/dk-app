@@ -17,6 +17,10 @@
             "title": "Rapporten",
             "content": "Dit is de inhoud van de rapporten."
         },
+        "timestamps": {
+            "title": "Tijdregistratie",
+            "content": "Dit is de inhoud van de tijdregistratie."
+        },
         "deliveryNotes": {
             "title": "Leveringsbonnen",
             "content": "Dit is de inhoud van het leveringsbewijs."
@@ -60,6 +64,40 @@
             "timeRange": "Tijdsbereik",
             "breaktime": "Pauze (minuten)",
             "quantity": "Aantal",
+            "annotation": "Notitie"
+        }
+    },
+    "timestamps": {
+        "title": "Tijdregistratie",
+        "description": "Hier kunt u uw tijdregistratie bekijken en beheren.",
+        "actions": {
+            "add": "Tijdstempel toevoegen",
+            "edit": "Tijdstempel bewerken",
+            "delete": "Tijdstempel verwijderen",
+            "view": "Tijdstempel bekijken"
+        },
+        "table": {
+            "title": "Tijdstempeltabel",
+            "columns": {
+                "date": "Datum",
+                "employee": "Medewerker",
+                "annotation": "Notitie",
+                "startTime": "Starttijd",
+                "endTime": "Eindtijd",
+                "breaktime": "Pauze (minuten)",
+                "modifiedBy": "Gewijzigd door",
+                "modifiedAt": "Gewijzigd op",
+                "createdBy": "Aangemaakt door",
+                "createdAt": "Aangemaakt op",
+                "actions": "Acties"
+            }
+        },
+        "timestamp": {
+            "staffGroup": "Personeelsgroep",
+            "employee": "Medewerker",
+            "date": "Datum",
+            "timeRange": "Tijdsbereik",
+            "breaktime": "Pauze (minuten)",
             "annotation": "Notitie"
         }
     },

@@ -17,6 +17,10 @@
             "title": "Berichte",
             "content": "Dies ist der Inhalt der Berichte."
         },
+        "timestamps": {
+            "title": "Zeiterfassung",
+            "content": "Dies ist der Inhalt der Zeiterfassung."
+        },
         "deliveryNotes": {
             "title": "Lieferscheine",
             "content": "Dies ist der Inhalt des Lieferscheins."
@@ -60,6 +64,40 @@
             "timeRange": "Zeitraum",
             "breaktime": "Pause (Minuten)",
             "quantity": "Menge",
+            "annotation": "Anmerkung"
+        }
+    },
+    "timestamps": {
+        "title": "Zeiterfassung",
+        "description": "Hier können Sie Ihre Zeiterfassung anzeigen und verwalten.",
+        "actions": {
+            "add": "Zeitstempel hinzufügen",
+            "edit": "Zeitstempel bearbeiten",
+            "delete": "Zeitstempel löschen",
+            "view": "Zeitstempel ansehen"
+        },
+        "table": {
+            "title": "Zeitstempeltabelle",
+            "columns": {
+                "date": "Datum",
+                "employee": "Mitarbeiter",
+                "annotation": "Anmerkung",
+                "startTime": "Startzeit",
+                "endTime": "Endzeit",
+                "breaktime": "Pause (Minuten)",
+                "modifiedBy": "Geändert von",
+                "modifiedAt": "Geändert am",
+                "createdBy": "Erstellt von",
+                "createdAt": "Erstellt am",
+                "actions": "Aktionen"
+            }
+        },
+        "timestamp": {
+            "staffGroup": "Mitarbeitergruppe",
+            "employee": "Mitarbeiter",
+            "date": "Datum",
+            "timeRange": "Zeitraum",
+            "breaktime": "Pause (Minuten)",
             "annotation": "Anmerkung"
         }
     },

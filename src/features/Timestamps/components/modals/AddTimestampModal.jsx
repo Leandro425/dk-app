@@ -5,21 +5,22 @@ import { useState } from 'react'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useQueryClient } from '@tanstack/react-query'
 import dayjs from 'dayjs'
-import FormReportFields from './FormReportFields'
+import FormTimestampFields from './FormTimestampFields'
 import useSupervisorContext from '../../../../context/user/supervisorContext'
+
+const formatTimeString = 'HH:mm'
 
 const getFormValues = () => {
     return {
         employee: null,
         date: dayjs(),
-        field: null,
-        article: null,
-        quantity: '',
+        timeRange: [null, null],
+        break_in_min: '',
         annotation: '',
     }
 }
 
-const AddReportModal = ({ open, onClose }) => {
+const AddTimestampModal = ({ open, onClose }) => {
     const { t } = useTranslation()
     const { supervisor } = useSupervisorContext()
     const { supabase } = useSupabaseContext()
@@ -37,14 +38,16 @@ const AddReportModal = ({ open, onClose }) => {
 
     const onSubmit = async (data) => {
         setConfirmLoading(true)
-        const { error } = await supabase.from('Report').insert([
+        const startTime = data.timeRange && data.timeRange[0] ? data.timeRange[0].format(formatTimeString) : null
+        const endTime = data.timeRange && data.timeRange[1] ? data.timeRange[1].format(formatTimeString) : null
+        const { error } = await supabase.from('Timestamp').insert([
             {
+                date: data.date.format('YYYY-MM-DD'),
                 employee_id: data.employee,
-                date: dayjs().format('YYYY-MM-DD'),
-                field_id: data.field,
-                article_id: data.article,
-                quantity: data.quantity,
-                created_by: supervisor.id,
+                start_time: startTime,
+                end_time: endTime,
+                break_in_min: data.break_in_min ? parseFloat(data.break_in_min) : null,
+                created_by_id: supervisor.id,
                 annotation: data.annotation,
             },
         ])
@@ -56,7 +59,7 @@ const AddReportModal = ({ open, onClose }) => {
         onClose()
         setConfirmLoading(false)
         reset()
-        queryClient.invalidateQueries({ queryKey: ['reports'] })
+        queryClient.invalidateQueries({ queryKey: ['Timestamps'] })
     }
 
     return (
@@ -64,14 +67,14 @@ const AddReportModal = ({ open, onClose }) => {
             {contextHolder}
             <Form layout="vertical">
                 <Modal
-                    title={t('reports.actions.add')}
+                    title={t('timestamps.actions.add')}
                     open={open}
                     onOk={handleSubmit(onSubmit)}
                     confirmLoading={confirmLoading}
                     onCancel={onClose}
                     okButtonProps={{ disabled: !isDirty || !isValid || confirmLoading }}
                 >
-                    <FormReportFields
+                    <FormTimestampFields
                         control={control}
                         errors={errors}
                         enabledSelects={open}
@@ -82,4 +85,4 @@ const AddReportModal = ({ open, onClose }) => {
     )
 }
 
-export default AddReportModal
+export default AddTimestampModal
