@@ -4,33 +4,31 @@ import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useQueryClient } from '@tanstack/react-query'
-import FormTimestampFields from './FormTimestampFields'
+import FormDeliveryFields from './FormDeliveryFields'
 
-import { dateStringToDayjs, timeStringToDayjs } from '../../../../utils/helpers'
+import { dateStringToDayjs } from '../../../../utils/helpers'
 import dayjs from 'dayjs'
 import useSupervisorContext from '../../../../context/user/supervisorContext'
 
-const getFormValues = (timestamp) => {
+const getFormValues = (delivery) => {
     return {
-        employee: timestamp?.employee_id,
-        date: dateStringToDayjs(timestamp?.date),
-        field: timestamp?.field_id,
-        article: timestamp?.article_id,
-        quantity: timestamp?.quantity,
-        timeRange: [timeStringToDayjs(timestamp?.start_time), timeStringToDayjs(timestamp?.end_time)],
-        break_in_min: timestamp?.break_in_min || '',
-        annotation: timestamp?.annotation || '',
+        date: dateStringToDayjs(delivery?.date),
+        field: delivery?.field_id,
+        article: delivery?.article_id,
+        order: delivery?.order_id,
+        quantity: delivery?.quantity,
+        annotation: delivery?.annotation || '',
     }
 }
 
-const EditTimestampModal = ({ open, onClose, timestamp }) => {
+const EditDeliveryModal = ({ open, onClose, delivery }) => {
     const { t } = useTranslation()
     const { supervisor } = useSupervisorContext()
     const { supabase } = useSupabaseContext()
     const queryClient = useQueryClient()
     const [messageApi, contextHolder] = message.useMessage()
     const [confirmLoading, setConfirmLoading] = useState(false)
-    const form = useForm({ mode: 'onChange', defaultValues: getFormValues(timestamp) })
+    const form = useForm({ mode: 'onChange', defaultValues: getFormValues(delivery) })
 
     const {
         control,
@@ -42,20 +40,20 @@ const EditTimestampModal = ({ open, onClose, timestamp }) => {
     const onSubmit = async (data) => {
         setConfirmLoading(true)
         const { error } = await supabase
-            .from('Timestamp')
+            .from('Delivery')
             .update([
                 {
-                    employee_id: data.employee,
                     date: data.date.format('YYYY-MM-DD'),
-                    start_time: data.timeRange && data.timeRange[0] ? data.timeRange[0].format('HH:mm') : null,
-                    end_time: data.timeRange && data.timeRange[1] ? data.timeRange[1].format('HH:mm') : null,
-                    break_in_min: data.break_in_min ? parseFloat(data.break_in_min) : null,
-                    modified_by_id: supervisor.id,
+                    field_id: data.field,
+                    article_id: data.article,
+                    order_id: data.order,
+                    quantity: data.quantity,
+                    modified_by: supervisor.id,
                     modified_at: dayjs().toISOString(),
                     annotation: data.annotation,
                 },
             ])
-            .eq('id', timestamp.id)
+            .eq('id', delivery.id)
         messageApi.open({
             type: error ? 'error' : 'success',
             content: error ? t('common.messages.errorOccurred') : t('common.messages.successfullyAdded'),
@@ -64,28 +62,28 @@ const EditTimestampModal = ({ open, onClose, timestamp }) => {
         onClose()
         setConfirmLoading(false)
         reset()
-        queryClient.invalidateQueries({ queryKey: ['Timestamps'] })
+        queryClient.invalidateQueries({ queryKey: ['deliveries'] })
     }
 
     useEffect(() => {
-        if (timestamp) {
-            reset(getFormValues(timestamp))
+        if (delivery) {
+            reset(getFormValues(delivery))
         }
-    }, [timestamp, reset])
+    }, [delivery, reset])
 
     return (
         <FormProvider {...form}>
             {contextHolder}
             <Form layout="vertical">
                 <Modal
-                    title={t('timestamps.actions.edit')}
+                    title={t('deliveries.actions.edit')}
                     open={open}
                     onOk={handleSubmit(onSubmit)}
                     confirmLoading={confirmLoading}
                     onCancel={onClose}
                     okButtonProps={{ disabled: !isDirty || !isValid || confirmLoading }}
                 >
-                    <FormTimestampFields
+                    <FormDeliveryFields
                         control={control}
                         errors={errors}
                         enabledSelects={open}
@@ -96,4 +94,4 @@ const EditTimestampModal = ({ open, onClose, timestamp }) => {
     )
 }
 
-export default EditTimestampModal
+export default EditDeliveryModal

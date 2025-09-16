@@ -21,9 +21,9 @@
             "title": "Zeiterfassung",
             "content": "Dies ist der Inhalt der Zeiterfassung."
         },
-        "deliveryNotes": {
-            "title": "Lieferscheine",
-            "content": "Dies ist der Inhalt des Lieferscheins."
+        "deliveries": {
+            "title": "Lieferungen",
+            "content": "Dies ist der Inhalt der Lieferungen."
         }
     },
     "reports": {
@@ -100,9 +100,39 @@
             "annotation": "Anmerkung"
         }
     },
-    "deliveryNotes": {
-        "title": "Lieferscheine",
-        "description": "Hier können Sie Ihre Lieferscheine anzeigen und verwalten."
+    "deliveries": {
+        "title": "Lieferungen",
+        "description": "Hier können Sie Ihre Lieferungen anzeigen und verwalten.",
+        "actions": {
+            "add": "Lieferung hinzufügen",
+            "edit": "Lieferung bearbeiten",
+            "delete": "Lieferung löschen",
+            "view": "Lieferung ansehen"
+        },
+        "table": {
+            "title": "Lieferungstabelle",
+            "columns": {
+                "date": "Datum",
+                "order": "Auftrag",
+                "field": "Feld",
+                "article": "Artikel",
+                "quantity": "Menge",
+                "annotation": "Anmerkung",
+                "modifiedBy": "Geändert von",
+                "modifiedAt": "Geändert am",
+                "createdBy": "Erstellt von",
+                "createdAt": "Erstellt am",
+                "actions": "Aktionen"
+            }
+        },
+        "delivery": {
+            "order": "Auftrag",
+            "date": "Datum",
+            "field": "Feld",
+            "article": "Artikel",
+            "quantity": "Menge",
+            "annotation": "Anmerkung"
+        }
     },
     "homepage": {
         "welcome": "Willkommen bei DK Nowack",

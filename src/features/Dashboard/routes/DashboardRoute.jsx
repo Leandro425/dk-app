@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router'
 import DashboardPage from '../pages/DashboardPage'
 import ReportRoutes from '../../Reports/routes/ReportRoutes'
 import TimestampRoutes from '../../Timestamps'
+import DeliveryRoutes from '../../Delivery/routes/DeliveryRoutes'
 
 import { Flex, Layout, Typography } from 'antd'
 
@@ -68,6 +69,10 @@ const DashboardRoutes = () => {
                                 <Route
                                     path="timestamps/*"
                                     element={<TimestampRoutes />}
+                                />
+                                <Route
+                                    path="deliveries/*"
+                                    element={<DeliveryRoutes />}
                                 />
                             </Routes>
                         }

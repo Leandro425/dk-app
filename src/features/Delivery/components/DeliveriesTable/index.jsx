@@ -3,16 +3,23 @@ import { useTranslation } from 'react-i18next'
 import { Button, Flex, Table } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
-import AddTimestampModal from '../modals/AddTimestampModal'
-import EditTimestampModal from '../modals/EditTimestampModal'
-import { formatDate, formatDateTime, formatTime, getEmployeeLabel, getSupervisorLabel } from '../../../../utils/helpers'
+import AddDeliveryModal from '../modals/AddDeliveryModal'
+import EditDeliveryModal from '../modals/EditDeliveryModal'
+import {
+    formatDate,
+    formatDateTime,
+    getArticleLabel,
+    getFieldLabel,
+    getOrderLabel,
+    getSupervisorLabel,
+} from '../../../../utils/helpers'
 
-const TimestampsTable = () => {
+const DeliveriesTable = () => {
     const { t } = useTranslation()
     const { supabase } = useSupabaseContext()
     const [pagination, setPagination] = useState({ current: 1, pageSize: 10 })
     const [openAddModal, setOpenAddModal] = useState(false)
-    const [selectedTimestamp, setSelectedTimestamp] = useState(null)
+    const [selectedDelivery, setSelectedDelivery] = useState(null)
     const [openEditModal, setOpenEditModal] = useState(false)
 
     const fetchData = async ({ queryKey }) => {
@@ -20,9 +27,9 @@ const TimestampsTable = () => {
         const from = (page - 1) * pageSize
         const to = page * pageSize - 1
         const { data, count, error } = await supabase
-            .from('Timestamp')
+            .from('Delivery')
             .select(
-                '*, employee:Employee(*), created_by:Supervisor!Timestamp_created_by_id_fkey(*), modified_by:Supervisor!Timestamp_modified_by_id_fkey(*)',
+                '*, order:Order(*), field:Field(*), article:Article(*), created_by:Supervisor!Delivery_created_by_fkey(*), modified_by:Supervisor!Delivery_modified_by_fkey(*)',
                 {
                     count: 'exact',
                 }
@@ -36,74 +43,67 @@ const TimestampsTable = () => {
     }
 
     const { data, isLoading } = useQuery({
-        queryKey: ['Timestamps', pagination.current, pagination.pageSize],
+        queryKey: ['deliveries', pagination.current, pagination.pageSize],
         queryFn: fetchData,
         keepPreviousData: true,
     })
 
     const columns = [
-        { title: t('reports.table.columns.date'), dataIndex: 'date', key: 'date', render: formatDate },
+        { title: t('deliveries.table.columns.date'), dataIndex: 'date', key: 'date', render: formatDate },
         {
-            title: t('timestamps.table.columns.employee'),
-            dataIndex: 'employee',
-            key: 'employee',
-            render: getEmployeeLabel,
+            title: t('deliveries.table.columns.order'),
+            dataIndex: 'order',
+            key: 'order',
+            render: getOrderLabel,
         },
         {
-            title: t('timestamps.table.columns.startTime'),
-            dataIndex: 'start_time',
-            key: 'start_time',
-            render: formatTime,
-            align: 'right',
+            title: t('deliveries.table.columns.field'),
+            dataIndex: 'field',
+            key: 'field',
+            render: getFieldLabel,
         },
         {
-            title: t('timestamps.table.columns.endTime'),
-            dataIndex: 'end_time',
-            key: 'end_time',
-            render: formatTime,
-            align: 'right',
+            title: t('deliveries.table.columns.article'),
+            dataIndex: 'article',
+            key: 'article',
+            render: getArticleLabel,
         },
+        { title: t('deliveries.table.columns.quantity'), dataIndex: 'quantity', key: 'quantity', align: 'right' },
+        { title: t('deliveries.table.columns.annotation'), dataIndex: 'annotation', key: 'annotation' },
         {
-            title: t('timestamps.table.columns.breaktime'),
-            dataIndex: 'break_in_min',
-            key: 'break_in_min',
-            align: 'right',
-        },
-        { title: t('timestamps.table.columns.annotation'), dataIndex: 'annotation', key: 'annotation' },
-        {
-            title: t('timestamps.table.columns.modifiedBy'),
+            title: t('deliveries.table.columns.modifiedBy'),
             dataIndex: 'modified_by',
             key: 'modified_by',
             render: getSupervisorLabel,
         },
         {
-            title: t('timestamps.table.columns.modifiedAt'),
+            title: t('deliveries.table.columns.modifiedAt'),
             dataIndex: 'modified_at',
             key: 'modified_at',
             render: formatDateTime,
         },
         {
-            title: t('timestamps.table.columns.createdBy'),
+            title: t('deliveries.table.columns.createdBy'),
             dataIndex: 'created_by',
             key: 'created_by',
             render: getSupervisorLabel,
         },
         {
-            title: t('timestamps.table.columns.createdAt'),
+            title: t('deliveries.table.columns.createdAt'),
             dataIndex: 'created_at',
             key: 'created_at',
             render: formatDateTime,
         },
         {
-            title: t('timestamps.table.columns.actions'),
+            title: t('deliveries.table.columns.actions'),
             key: 'operation',
             fixed: 'right',
-            render: (_, timestamp) => (
+            render: (_, delivery) => (
                 <Button
                     type="default"
                     onClick={() => {
                         setOpenEditModal(true)
-                        setSelectedTimestamp(timestamp)
+                        setSelectedDelivery(delivery)
                     }}
                 >
                     {t('common.actions.edit')}
@@ -123,7 +123,7 @@ const TimestampsTable = () => {
                         type="primary"
                         onClick={() => setOpenAddModal(true)}
                     >
-                        {t('timestamps.actions.add')}
+                        {t('deliveries.actions.add')}
                     </Button>
                 </Flex>
                 <Flex
@@ -151,19 +151,19 @@ const TimestampsTable = () => {
                     />
                 </Flex>
             </Flex>
-            <AddTimestampModal
+            <AddDeliveryModal
                 open={openAddModal}
                 onClose={() => setOpenAddModal(false)}
             />
-            <EditTimestampModal
+            <EditDeliveryModal
                 open={openEditModal}
                 onClose={() => {
                     setOpenEditModal(false)
-                    setSelectedTimestamp(null)
+                    setSelectedDelivery(null)
                 }}
-                timestamp={selectedTimestamp}
+                delivery={selectedDelivery}
             />
         </>
     )
 }
-export default TimestampsTable
+export default DeliveriesTable
