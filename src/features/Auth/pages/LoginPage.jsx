@@ -55,16 +55,22 @@ const LoginPage = () => {
                     direction="column"
                     justify="center"
                     align="center"
-                    style={{ width: '100%' }}
+                    style={{
+                        width: '100%',
+                    }}
                 >
                     <Card title={t('auth.login.title')}>
                         <Space
                             direction="vertical"
                             align="center"
                             size="large"
+                            style={{ width: '100%' }}
                         >
                             <Logo width={300} />
-                            <Form {...form}>
+                            <Form
+                                style={{ width: 350 }}
+                                {...form}
+                            >
                                 <FormTextField
                                     name="email"
                                     label={t('auth.login.email')}

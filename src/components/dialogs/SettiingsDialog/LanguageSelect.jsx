@@ -1,27 +1,24 @@
 import { Select } from 'antd'
 
 import { useTranslation } from 'react-i18next'
-// import useLocalStorage from '../../../hooks/useLocalStorage'
-// import { useEffect } from 'react'
+import useSupervisorContext from '../../../context/user/supervisorContext'
+import useSupabaseContext from '../../../context/supabase/supabaseContext'
 
 const LanguageSelect = () => {
-    const { t, i18n } = useTranslation()
-    // const [language, setLanguage] = useLocalStorage('language', 'de')
+    const { t } = useTranslation()
+    const { supabase } = useSupabaseContext()
+    const { supervisor, refetch } = useSupervisorContext()
 
-    const handleChange = (value: string) => {
-        i18n.changeLanguage(value)
-        // setLanguage(value)
+    const handleChange = async (value) => {
+        const res = await supabase.from('Supervisor').update({ language: value }).eq('id', supervisor.id)
+        if (!res.error) {
+            refetch()
+        }
     }
-
-    // useEffect(() => {
-    //     if (language !== i18n.language) {
-    //         i18n.changeLanguage(language)
-    //     }
-    // }, [i18n, language])
 
     return (
         <Select
-            defaultValue={i18n.language}
+            defaultValue={supervisor?.language || 'de'}
             style={{ width: '100%' }}
             onChange={handleChange}
             options={[
