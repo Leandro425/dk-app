@@ -41,6 +41,7 @@
             "columns": {
                 "date": "Datum",
                 "employee": "Mitarbeiter",
+                "order": "Auftrag",
                 "field": "Feld",
                 "article": "Artikel",
                 "quantity": "Menge",
@@ -56,6 +57,7 @@
         "report": {
             "staffGroup": "Mitarbeitergruppe",
             "employee": "Mitarbeiter",
+            "order": "Auftrag",
             "date": "Datum",
             "field": "Feld",
             "article": "Artikel",

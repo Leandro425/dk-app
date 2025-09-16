@@ -3,6 +3,7 @@ import {
     getArticleSelectOptions,
     getEmployeeSelectOptions,
     getFieldSelectOptions,
+    getOrderSelectOptions,
     getStaffGroupSelectOptions,
 } from '../../../../utils/supabaseQuery'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
@@ -50,6 +51,15 @@ const FormReportFields = ({ control, errors, enabledSelects = false }) => {
                 control={control}
                 errors={errors}
                 required
+            />
+            <FormSelect
+                name="order"
+                queryKey={['orders']}
+                supabaseQuery={() => getOrderSelectOptions(supabase)}
+                control={control}
+                errors={errors}
+                label={t('reports.report.order')}
+                enabled={enabledSelects}
             />
             <FormSelect
                 name="article"

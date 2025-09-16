@@ -1,4 +1,4 @@
-import { getArticleLabel, getEmployeeLabel, getFieldLabel, getStaffGroupLabel } from './helpers'
+import { getArticleLabel, getEmployeeLabel, getFieldLabel, getStaffGroupLabel, getOrderLabel } from './helpers'
 
 export const getEmployeeSelectOptions = async (supabase, staffGroup = null) => {
     const query = supabase.from('Employee').select('*').order('staff_number', { ascending: true })
@@ -38,4 +38,12 @@ export const getStaffGroupSelectOptions = async (supabase) => {
         throw new Error(error.message)
     }
     return data.map((group) => ({ label: getStaffGroupLabel(group), value: group.id }))
+}
+
+export const getOrderSelectOptions = async (supabase) => {
+    const { data, error } = await supabase.from('Order').select('*').order('customer', { ascending: true })
+    if (error) {
+        throw new Error(error.message)
+    }
+    return data.map((order) => ({ label: getOrderLabel(order), value: order.id }))
 }

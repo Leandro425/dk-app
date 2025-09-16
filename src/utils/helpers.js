@@ -1,9 +1,19 @@
 import dayjs from 'dayjs'
 
-export const getEmployeeLabel = (emp) => `${emp.staff_number} | ${emp.firstname} ${emp.lastname}`
-export const getArticleLabel = (article) => `${article.external_id} | ${article.name}`
-export const getFieldLabel = (field) => `${field.external_id} | ${field.name} - ${field.location}`
-export const getStaffGroupLabel = (group) => group.name
+export const getEmployeeLabel = (emp) =>
+    emp ? `${emp.staff_number} | ${emp.firstname} ${emp.lastname}` : ''
+
+export const getArticleLabel = (article) =>
+    article ? `${article.external_id} | ${article.name}` : ''
+
+export const getFieldLabel = (field) =>
+    field ? `${field.external_id} | ${field.name} - ${field.location}` : ''
+
+export const getStaffGroupLabel = (group) =>
+    group && group.name ? group.name : ''
+
+export const getOrderLabel = (order) =>
+    order ? `${order.customer} | ${order.description}` : ''
 
 export const getSupervisorLabel = (sup) => (sup ? `${sup.name}` : '')
 

@@ -8,8 +8,10 @@ import EditReportModal from '../modals/EditReportModal'
 import {
     formatDate,
     formatDateTime,
+    getArticleLabel,
     getEmployeeLabel,
     getFieldLabel,
+    getOrderLabel,
     getSupervisorLabel,
 } from '../../../../utils/helpers'
 
@@ -28,7 +30,7 @@ const ReportsTable = () => {
         const { data, count, error } = await supabase
             .from('Report')
             .select(
-                '*, employee:Employee(*), field:Field(*), article:Article(*), created_by:Supervisor!Report_created_by_fkey(*), modified_by:Supervisor!Report_modified_by_fkey(*)',
+                '*, employee:Employee(*), order:Order(*), field:Field(*), article:Article(*), created_by:Supervisor!Report_created_by_fkey(*), modified_by:Supervisor!Report_modified_by_fkey(*)',
                 {
                     count: 'exact',
                 }
@@ -56,6 +58,12 @@ const ReportsTable = () => {
             render: getEmployeeLabel,
         },
         {
+            title: t('reports.table.columns.order'),
+            dataIndex: 'order',
+            key: 'order',
+            render: getOrderLabel,
+        },
+        {
             title: t('reports.table.columns.field'),
             dataIndex: 'field',
             key: 'field',
@@ -65,7 +73,7 @@ const ReportsTable = () => {
             title: t('reports.table.columns.article'),
             dataIndex: 'article',
             key: 'article',
-            render: (article) => (article ? `${article.external_id} | ${article.name}` : ''),
+            render: getArticleLabel,
         },
         { title: t('reports.table.columns.quantity'), dataIndex: 'quantity', key: 'quantity', align: 'right' },
         { title: t('reports.table.columns.annotation'), dataIndex: 'annotation', key: 'annotation' },
