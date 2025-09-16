@@ -13,6 +13,12 @@
     "dashboard": {
         "title": "Dashboard",
         "description": "Dies ist Ihr Dashboard, auf dem Sie eine Übersicht Ihrer Daten sehen können.",
+        "statistics": {
+            "title": "Statistiken",
+            "produced": "Produziert",
+            "delivered": "Geliefert",
+            "balance": "Bestand"
+        },
         "reports": {
             "title": "Berichte",
             "content": "Dies ist der Inhalt der Berichte."
@@ -151,6 +157,7 @@
     "common": {
         "yes": "Ja",
         "no": "Nein",
+        "balance": "Bestand",
         "greetings": {
             "hello": "Hallo",
             "welcome": "Willkommen"
@@ -168,7 +175,9 @@
             "signOut": "Abmelden",
             "goToApplication": "Zur Anwendung",
             "goToHomepage": "Zur Startseite",
-            "goToSignIn": "Zur Anmeldung"
+            "goToSignIn": "Zur Anmeldung",
+            "produced": "Produziert",
+            "delivered": "Geliefert"
         },
         "messages": {
             "successfullyAdded": "Erfolgreich hinzugefügt.",
