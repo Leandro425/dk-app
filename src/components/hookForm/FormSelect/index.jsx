@@ -47,6 +47,7 @@ const FormSelect = ({
                         value={value}
                         onChange={(value) => onChange(value)}
                         options={options}
+                        allowClear
                     />
                 </Form.Item>
             )}

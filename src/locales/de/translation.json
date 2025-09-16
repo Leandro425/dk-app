@@ -45,9 +45,7 @@
                 "article": "Artikel",
                 "quantity": "Menge",
                 "annotation": "Anmerkung",
-                "startTime": "Startzeit",
-                "endTime": "Endzeit",
-                "breaktime": "Pause (Minuten)",
+                "notChargingPieceworkWage": "Nicht als Akkordlohn berechnen",
                 "modifiedBy": "Geändert von",
                 "modifiedAt": "Geändert am",
                 "createdBy": "Erstellt von",
@@ -61,10 +59,9 @@
             "date": "Datum",
             "field": "Feld",
             "article": "Artikel",
-            "timeRange": "Zeitraum",
-            "breaktime": "Pause (Minuten)",
             "quantity": "Menge",
-            "annotation": "Anmerkung"
+            "annotation": "Anmerkung",
+            "notChargingPieceworkWage": "Nicht als Akkordlohn berechnen"
         }
     },
     "timestamps": {
@@ -120,6 +117,8 @@
         }
     },
     "common": {
+        "yes": "Ja",
+        "no": "Nein",
         "greetings": {
             "hello": "Hallo",
             "welcome": "Willkommen"

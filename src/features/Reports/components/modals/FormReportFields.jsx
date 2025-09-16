@@ -11,6 +11,7 @@ import FormInputNumber from '../../../../components/hookForm/FormInputNumber'
 import FormTextArea from '../../../../components/hookForm/FormTextArea'
 import FormDatePicker from '../../../../components/hookForm/FormDatePicker'
 import { useWatch } from 'react-hook-form'
+import FormCheckbox from '../../../../components/hookForm/FormCheckbox'
 
 const FormReportFields = ({ control, errors, enabledSelects = false }) => {
     const { supabase } = useSupabaseContext()
@@ -83,6 +84,12 @@ const FormReportFields = ({ control, errors, enabledSelects = false }) => {
                 errors={errors}
                 rows={6}
                 label={t('reports.report.annotation')}
+            />
+            <FormCheckbox
+                name="not_charging_piecework_wage"
+                label={t('reports.report.notChargingPieceworkWage')}
+                control={control}
+                errors={errors}
             />
         </>
     )

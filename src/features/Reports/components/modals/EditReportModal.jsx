@@ -18,6 +18,7 @@ const getFormValues = (report) => {
         article: report?.article_id,
         quantity: report?.quantity,
         annotation: report?.annotation || '',
+        not_charging_piecework_wage: report?.not_charging_piecework_wage || false,
     }
 }
 
@@ -51,6 +52,7 @@ const EditReportModal = ({ open, onClose, report }) => {
                     modified_by: supervisor.id,
                     modified_at: dayjs().toISOString(),
                     annotation: data.annotation,
+                    not_charging_piecework_wage: data.not_charging_piecework_wage,
                 },
             ])
             .eq('id', report.id)

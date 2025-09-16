@@ -16,6 +16,7 @@ const getFormValues = () => {
         article: null,
         quantity: '',
         annotation: '',
+        not_charging_piecework_wage: false,
     }
 }
 
@@ -46,6 +47,7 @@ const AddReportModal = ({ open, onClose }) => {
                 quantity: data.quantity,
                 created_by: supervisor.id,
                 annotation: data.annotation,
+                not_charging_piecework_wage: data.not_charging_piecework_wage,
             },
         ])
         messageApi.open({

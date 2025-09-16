@@ -70,6 +70,12 @@ const ReportsTable = () => {
         { title: t('reports.table.columns.quantity'), dataIndex: 'quantity', key: 'quantity', align: 'right' },
         { title: t('reports.table.columns.annotation'), dataIndex: 'annotation', key: 'annotation' },
         {
+            title: t('reports.table.columns.notChargingPieceworkWage'),
+            dataIndex: 'not_charging_piecework_wage',
+            key: 'not_charging_piecework_wage',
+            render: (value) => (value ? t('common.yes') : t('common.no')),
+        },
+        {
             title: t('reports.table.columns.modifiedBy'),
             dataIndex: 'modified_by',
             key: 'modified_by',
