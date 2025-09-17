@@ -1,67 +1,131 @@
-import { Card, Col, Row, Statistic } from 'antd'
-// import { useEffect, useState, useCallback } from 'react'
+import { Card, Flex, Statistic } from 'antd'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-// import { useSupabaseContext } from '../../../../contexts/SupabaseContext'
+import useSupabaseContext from '../../../../context/supabase/supabaseContext'
+import { useQuery } from '@tanstack/react-query'
+import OrderSelect from '../../../../components/selects/OrderSelect'
+import ArticleSelect from '../../../../components/selects/ArticleSelect'
+import FieldSelect from '../../../../components/selects/FieldSelect'
 
 const Stats = () => {
     const { t } = useTranslation()
-    // const { supabase } = useSupabaseContext()
+    const { supabase } = useSupabaseContext()
 
-    // const [producedAmount, setProducedAmount] = useState(5)
-    // const [deliveredAmount, setDeliveredAmount] = useState(0)
-    // const [balanceAmount, setBalanceAmount] = useState(0)
+    const [producedAmount, setProducedAmount] = useState(0)
+    const [deliveredAmount, setDeliveredAmount] = useState(0)
+    const [orderId, setOrderId] = useState(null)
+    const [articleId, setArticleId] = useState(null)
+    const [fieldId, setFieldId] = useState(null)
 
-    // const getStatistics = useCallback(async () => {
-    //     const { data: reportsData, error: reportsError } = await supabase.from('Report').select('quantity.sumget_report_total_quantity()')
-    //     if (reportsError) {
-    //         console.error('Error fetching statistics:', reportsError)
-    //         return
-    //     }
-    //     console.log('Reports data:', reportsData)
-    //     const produced = reportsData && reportsData.length > 0 ? reportsData[0].sum || 0 : 0
-    //     setProducedAmount(produced)
+    const handleOrderChange = (value) => {
+        setOrderId(value)
+    }
+    const handleArticleChange = (value) => {
+        setArticleId(value)
+    }
+    const handleFieldChange = (value) => {
+        setFieldId(value)
+    }
 
-    //     const { data: deliveriesData, error: deliveriesError } = await supabase.from('Delivery').select('sum:quantity')
-    //     if (deliveriesError) {
-    //         console.error('Error fetching statistics:', deliveriesError)
-    //         return
-    //     }
-    //     const delivered = deliveriesData && deliveriesData.length > 0 ? deliveriesData[0].sum || 0 : 0
-    //     setDeliveredAmount(delivered)
+    const fetchStatistics = async () => {
+        const { data: reportsTotalQuantity, error: reportsError } = await supabase.rpc('get_report_total_quantity', {
+            p_field_id: fieldId,
+            p_order_id: orderId,
+            p_article_id: articleId,
+        })
+        if (reportsError) throw reportsError
 
-    //     setBalanceAmount(produced - delivered)
-    // }, [supabase])
+        const { data: deliveryTotalQuantity, error: deliveriesError } = await supabase.rpc(
+            'get_delivery_total_quantity',
+            {
+                p_field_id: fieldId,
+                p_order_id: orderId,
+                p_article_id: articleId,
+            }
+        )
+        if (deliveriesError) throw deliveriesError
 
-    // useEffect(() => {
-    //     getStatistics()
-    // }, [getStatistics])
+        return {
+            produced: reportsTotalQuantity || 0,
+            delivered: deliveryTotalQuantity || 0,
+        }
+    }
+
+    const { data, refetch } = useQuery({
+        queryKey: ['statistics', orderId, articleId, fieldId],
+        queryFn: fetchStatistics,
+    })
+
+    useEffect(() => {
+        if (data) {
+            setProducedAmount(data.produced)
+            setDeliveredAmount(data.delivered)
+        }
+    }, [data])
 
     return (
-        <Card title={`${t('dashboard.statistics.title')} (demo)`}>
-            <Row gutter={24}>
-                <Col span={8}>
+        <Card title={t('dashboard.statistics.title')}>
+            <Flex gap={32}>
+                <Flex
+                    flex={1}
+                    vertical
+                    gap={16}
+                    style={{ minWidth: 200 }}
+                >
+                    <OrderSelect
+                        supabase={supabase}
+                        style={{ width: '100%' }}
+                        value={orderId}
+                        onChange={handleOrderChange}
+                        allowClear
+                        placeholder={t('deliveries.delivery.order')}
+                        enabled={supabase !== null}
+                    />
+                    <ArticleSelect
+                        supabase={supabase}
+                        style={{ width: '100%' }}
+                        value={articleId}
+                        onChange={handleArticleChange}
+                        allowClear
+                        placeholder={t('deliveries.delivery.article')}
+                        enabled={supabase !== null}
+                    />
+                    <FieldSelect
+                        supabase={supabase}
+                        style={{ width: '100%' }}
+                        value={fieldId}
+                        onChange={handleFieldChange}
+                        allowClear
+                        placeholder={t('deliveries.delivery.field')}
+                        enabled={supabase !== null}
+                    />
+                </Flex>
+                <Flex
+                    gap={32}
+                    flex={2}
+                    justify="space-around"
+                    align="middle"
+                    style={{ minWidth: 300 }}
+                >
                     <Statistic
                         title={t('common.actions.produced')}
-                        value={1500}
+                        value={producedAmount}
                         precision={2}
                     />
-                </Col>
-                <Col span={8}>
+
                     <Statistic
                         title={t('common.actions.delivered')}
-                        value={1200}
+                        value={deliveredAmount}
                         precision={2}
                     />
-                </Col>
-                <Col span={8}>
+
                     <Statistic
                         title={t('common.balance')}
-                        value={300}
+                        value={producedAmount - deliveredAmount}
                         precision={2}
-                        // loading
                     />
-                </Col>
-            </Row>
+                </Flex>
+            </Flex>
         </Card>
     )
 }

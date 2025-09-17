@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-import { getOrderSelectOptions } from '../../utils/supabaseQuery'
+import { getFieldSelectOptions } from '../../utils/supabaseQuery'
 import { useTranslation } from 'react-i18next'
 import { Select } from 'antd'
-const OrderSelect = ({ supabase, value, onChange, enabled = false, placeholder }) => {
+const FieldSelect = ({ supabase, value, onChange, enabled = false, placeholder }) => {
     const { t } = useTranslation()
     const {
         data: options,
@@ -10,8 +10,8 @@ const OrderSelect = ({ supabase, value, onChange, enabled = false, placeholder }
         isFetching,
         isError,
     } = useQuery({
-        queryKey: ['orders'],
-        queryFn: () => getOrderSelectOptions(supabase),
+        queryKey: ['fields'],
+        queryFn: () => getFieldSelectOptions(supabase),
         enabled: enabled,
     })
 
@@ -29,4 +29,4 @@ const OrderSelect = ({ supabase, value, onChange, enabled = false, placeholder }
     )
 }
 
-export default OrderSelect
+export default FieldSelect
