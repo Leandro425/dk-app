@@ -13,101 +13,136 @@
     "dashboard": {
         "title": "Dashboard",
         "description": "This is your dashboard where you can see an overview of your data.",
+        "statistics": {
+            "title": "Statistics",
+            "produced": "Produced",
+            "delivered": "Delivered",
+            "balance": "Balance"
+        },
         "reports": {
             "title": "Reports",
-            "content": "This is the reports content."
+            "content": "This is the content of the reports."
         },
         "timestamps": {
-            "title": "Timestamps",
-            "content": "This is the timestamps content."
+            "title": "Time Tracking",
+            "content": "This is the content of the time tracking."
         },
-        "deliveryNotes": {
-            "title": "Delivery Notes",
-            "content": "This is the delivery note content."
+        "deliveries": {
+            "title": "Deliveries",
+            "content": "This is the content of the deliveries."
         }
     },
     "reports": {
         "title": "Reports",
         "description": "Here you can view and manage your reports.",
         "actions": {
-            "add": "Add Report",
-            "addGroup": "Add Many Reports",
-            "edit": "Edit Report",
-            "delete": "Delete Report",
-            "view": "View Report"
+            "add": "Add report",
+            "addGroup": "Add group report",
+            "edit": "Edit report",
+            "delete": "Delete report",
+            "view": "View report"
         },
         "table": {
-            "title": "Reports Table",
+            "title": "Report table",
             "columns": {
                 "date": "Date",
                 "employee": "Employee",
+                "order": "Order",
                 "field": "Field",
                 "article": "Article",
                 "quantity": "Quantity",
-                "annotation": "Annotation",
-                "startTime": "Start Time",
-                "endTime": "End Time",
-                "breaktime": "Breaktime (minutes)",
-                "modifiedBy": "Modified By",
-                "modifiedAt": "Modified At",
-                "createdBy": "Created By",
-                "createdAt": "Created At",
+                "annotation": "Note",
+                "notChargingPieceworkWage": "Do not charge as piecework wage",
+                "modifiedBy": "Modified by",
+                "modifiedAt": "Modified at",
+                "createdBy": "Created by",
+                "createdAt": "Created at",
                 "actions": "Actions"
             }
         },
         "report": {
-            "staffGroup": "Staff Group",
+            "staffGroup": "Staff group",
             "employee": "Employee",
+            "order": "Order",
             "date": "Date",
             "field": "Field",
             "article": "Article",
-            "timeRange": "Time Range",
-            "breaktime": "Breaktime (minutes)",
             "quantity": "Quantity",
-            "annotation": "Annotation"
+            "annotation": "Note",
+            "notChargingPieceworkWage": "Do not charge as piecework wage"
         }
     },
     "timestamps": {
-        "title": "Timestamps",
-        "description": "Here you can view and manage your timestamps.",
+        "title": "Time Tracking",
+        "description": "Here you can view and manage your time tracking.",
         "actions": {
-            "add": "Add Timestamp",
-            "edit": "Edit Timestamp",
-            "delete": "Delete Timestamp",
-            "view": "View Timestamp"
+            "add": "Add timestamp",
+            "edit": "Edit timestamp",
+            "delete": "Delete timestamp",
+            "view": "View timestamp"
         },
         "table": {
-            "title": "Timestamps Table",
+            "title": "Timestamp table",
             "columns": {
                 "date": "Date",
                 "employee": "Employee",
-                "annotation": "Annotation",
-                "startTime": "Start Time",
-                "endTime": "End Time",
-                "breaktime": "Breaktime (minutes)",
-                "modifiedBy": "Modified By",
-                "modifiedAt": "Modified At",
-                "createdBy": "Created By",
-                "createdAt": "Created At",
+                "annotation": "Note",
+                "startTime": "Start time",
+                "endTime": "End time",
+                "breaktime": "Break (minutes)",
+                "modifiedBy": "Modified by",
+                "modifiedAt": "Modified at",
+                "createdBy": "Created by",
+                "createdAt": "Created at",
                 "actions": "Actions"
             }
         },
         "timestamp": {
-            "staffGroup": "Staff Group",
+            "staffGroup": "Staff group",
             "employee": "Employee",
             "date": "Date",
-            "timeRange": "Time Range",
-            "breaktime": "Breaktime (minutes)",
-            "annotation": "Annotation"
+            "timeRange": "Time range",
+            "breaktime": "Break (minutes)",
+            "annotation": "Note"
         }
     },
-    "deliveryNotes": {
-        "title": "Delivery Notes",
-        "description": "Here you can view and manage your delivery notes."
+    "deliveries": {
+        "title": "Deliveries",
+        "description": "Here you can view and manage your deliveries.",
+        "actions": {
+            "add": "Add delivery",
+            "edit": "Edit delivery",
+            "delete": "Delete delivery",
+            "view": "View delivery"
+        },
+        "table": {
+            "title": "Delivery table",
+            "columns": {
+                "date": "Date",
+                "order": "Order",
+                "field": "Field",
+                "article": "Article",
+                "quantity": "Quantity",
+                "annotation": "Note",
+                "modifiedBy": "Modified by",
+                "modifiedAt": "Modified at",
+                "createdBy": "Created by",
+                "createdAt": "Created at",
+                "actions": "Actions"
+            }
+        },
+        "delivery": {
+            "order": "Order",
+            "date": "Date",
+            "field": "Field",
+            "article": "Article",
+            "quantity": "Quantity",
+            "annotation": "Note"
+        }
     },
     "homepage": {
-        "welcome": "Welcome to the DK Nowack",
-        "description": "This is the homepage of the DK Nowack GmbH & Co. KG",
+        "welcome": "Welcome to DK Nowack",
+        "description": "This is the homepage of DK Nowack GmbH & Co. KG",
         "footer": {
             "companyInfo": "© 2024 DK Nowack GmbH & Co. KG. All rights reserved.",
             "allRightsReserved": "© All rights reserved.",
@@ -115,11 +150,14 @@
             "links": {
                 "imprint": "Imprint",
                 "contact": "Contact",
-                "startPage": "Start Page"
+                "startPage": "Homepage"
             }
         }
     },
     "common": {
+        "yes": "Yes",
+        "no": "No",
+        "balance": "Balance",
         "greetings": {
             "hello": "Hello",
             "welcome": "Welcome"
@@ -133,23 +171,25 @@
             "delete": "Delete",
             "edit": "Edit",
             "update": "Update",
-            "signIn": "Sign In",
-            "signOut": "Sign Out",
-            "goToApplication": "Go to Application",
-            "goToHomepage": "Go to Homepage",
-            "goToSignIn": "Go to Sign In"
+            "signIn": "Sign in",
+            "signOut": "Sign out",
+            "goToApplication": "Go to application",
+            "goToHomepage": "Go to homepage",
+            "goToSignIn": "Go to login",
+            "produced": "Produced",
+            "delivered": "Delivered"
         },
         "messages": {
             "successfullyAdded": "Successfully added.",
             "successfullyUpdated": "Successfully updated.",
             "successfullyDeleted": "Successfully deleted.",
             "errorOccurred": "An error occurred. Please try again.",
-            "comingSoon": "Coming Soon",
+            "comingSoon": "Coming soon",
             "notFoundPage": "Sorry, the page you visited does not exist."
         },
         "placeholders": {
             "enterText": "Enter text here...",
-            "selectOption": "Select an option...",
+            "selectOption": "Select option...",
             "noData": "No data available."
         }
     },

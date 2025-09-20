@@ -13,6 +13,12 @@
     "dashboard": {
         "title": "Dashboard",
         "description": "Dit is uw dashboard waar u een overzicht van uw gegevens kunt zien.",
+        "statistics": {
+            "title": "Statistieken",
+            "produced": "Geproduceerd",
+            "delivered": "Geleverd",
+            "balance": "Voorraad"
+        },
         "reports": {
             "title": "Rapporten",
             "content": "Dit is de inhoud van de rapporten."
@@ -21,9 +27,9 @@
             "title": "Tijdregistratie",
             "content": "Dit is de inhoud van de tijdregistratie."
         },
-        "deliveryNotes": {
-            "title": "Leveringsbonnen",
-            "content": "Dit is de inhoud van het leveringsbewijs."
+        "deliveries": {
+            "title": "Leveringen",
+            "content": "Dit is de inhoud van de leveringen."
         }
     },
     "reports": {
@@ -31,40 +37,39 @@
         "description": "Hier kunt u uw rapporten bekijken en beheren.",
         "actions": {
             "add": "Rapport toevoegen",
-            "addGroup": "Meerdere rapporten toevoegen",
+            "addGroup": "Groepsrapport toevoegen",
             "edit": "Rapport bewerken",
             "delete": "Rapport verwijderen",
             "view": "Rapport bekijken"
         },
         "table": {
-            "title": "Rapportentabel",
+            "title": "Rapporttabel",
             "columns": {
                 "date": "Datum",
-                "employee": "Medewerker",
+                "employee": "Werknemer",
+                "order": "Opdracht",
                 "field": "Veld",
                 "article": "Artikel",
                 "quantity": "Aantal",
-                "annotation": "Notitie",
-                "startTime": "Starttijd",
-                "endTime": "Eindtijd",
-                "breaktime": "Pauze (minuten)",
+                "annotation": "Opmerking",
+                "notChargingPieceworkWage": "Niet als stukloon berekenen",
                 "modifiedBy": "Gewijzigd door",
                 "modifiedAt": "Gewijzigd op",
-                "createdBy": "Aangemaakt door",
-                "createdAt": "Aangemaakt op",
+                "createdBy": "Gemaakt door",
+                "createdAt": "Gemaakt op",
                 "actions": "Acties"
             }
         },
         "report": {
-            "staffGroup": "Personeelsgroep",
-            "employee": "Medewerker",
+            "staffGroup": "Werknemersgroep",
+            "employee": "Werknemer",
+            "order": "Opdracht",
             "date": "Datum",
             "field": "Veld",
             "article": "Artikel",
-            "timeRange": "Tijdsbereik",
-            "breaktime": "Pauze (minuten)",
             "quantity": "Aantal",
-            "annotation": "Notitie"
+            "annotation": "Opmerking",
+            "notChargingPieceworkWage": "Niet als stukloon berekenen"
         }
     },
     "timestamps": {
@@ -80,30 +85,60 @@
             "title": "Tijdstempeltabel",
             "columns": {
                 "date": "Datum",
-                "employee": "Medewerker",
-                "annotation": "Notitie",
+                "employee": "Werknemer",
+                "annotation": "Opmerking",
                 "startTime": "Starttijd",
                 "endTime": "Eindtijd",
                 "breaktime": "Pauze (minuten)",
                 "modifiedBy": "Gewijzigd door",
                 "modifiedAt": "Gewijzigd op",
-                "createdBy": "Aangemaakt door",
-                "createdAt": "Aangemaakt op",
+                "createdBy": "Gemaakt door",
+                "createdAt": "Gemaakt op",
                 "actions": "Acties"
             }
         },
         "timestamp": {
-            "staffGroup": "Personeelsgroep",
-            "employee": "Medewerker",
+            "staffGroup": "Werknemersgroep",
+            "employee": "Werknemer",
             "date": "Datum",
-            "timeRange": "Tijdsbereik",
+            "timeRange": "Tijdspanne",
             "breaktime": "Pauze (minuten)",
-            "annotation": "Notitie"
+            "annotation": "Opmerking"
         }
     },
-    "deliveryNotes": {
-        "title": "Leveringsbonnen",
-        "description": "Hier kunt u uw leveringsbonnen bekijken en beheren."
+    "deliveries": {
+        "title": "Leveringen",
+        "description": "Hier kunt u uw leveringen bekijken en beheren.",
+        "actions": {
+            "add": "Levering toevoegen",
+            "edit": "Levering bewerken",
+            "delete": "Levering verwijderen",
+            "view": "Levering bekijken"
+        },
+        "table": {
+            "title": "Leveringstabel",
+            "columns": {
+                "date": "Datum",
+                "order": "Opdracht",
+                "field": "Veld",
+                "article": "Artikel",
+                "quantity": "Aantal",
+                "annotation": "Opmerking",
+                "modifiedBy": "Gewijzigd door",
+                "modifiedAt": "Gewijzigd op",
+                "createdBy": "Gemaakt door",
+                "createdAt": "Gemaakt op",
+                "actions": "Acties"
+            }
+        },
+        "delivery": {
+            "order": "Opdracht",
+            "date": "Datum",
+            "field": "Veld",
+            "article": "Artikel",
+            "quantity": "Aantal",
+            "annotation": "Opmerking"
+        }
     },
     "homepage": {
         "welcome": "Welkom bij DK Nowack",
@@ -113,13 +148,16 @@
             "allRightsReserved": "© Alle rechten voorbehouden.",
             "privacyPolicy": "Privacybeleid",
             "links": {
-                "imprint": "Afdruk",
+                "imprint": "Impressum",
                 "contact": "Contact",
                 "startPage": "Startpagina"
             }
         }
     },
     "common": {
+        "yes": "Ja",
+        "no": "Nee",
+        "balance": "Voorraad",
         "greetings": {
             "hello": "Hallo",
             "welcome": "Welkom"
@@ -135,9 +173,11 @@
             "update": "Bijwerken",
             "signIn": "Inloggen",
             "signOut": "Uitloggen",
-            "goToApplication": "Ga naar toepassing",
+            "goToApplication": "Ga naar applicatie",
             "goToHomepage": "Ga naar startpagina",
-            "goToSignIn": "Ga naar inloggen"
+            "goToSignIn": "Ga naar inloggen",
+            "produced": "Geproduceerd",
+            "delivered": "Geleverd"
         },
         "messages": {
             "successfullyAdded": "Succesvol toegevoegd.",
@@ -145,11 +185,11 @@
             "successfullyDeleted": "Succesvol verwijderd.",
             "errorOccurred": "Er is een fout opgetreden. Probeer het opnieuw.",
             "comingSoon": "Binnenkort beschikbaar",
-            "notFoundPage": "Sorry, de pagina die u bezocht bestaat niet."
+            "notFoundPage": "Sorry, de pagina die u bezoekt bestaat niet."
         },
         "placeholders": {
             "enterText": "Voer hier tekst in...",
-            "selectOption": "Selecteer een optie...",
+            "selectOption": "Selecteer optie...",
             "noData": "Geen gegevens beschikbaar."
         }
     },

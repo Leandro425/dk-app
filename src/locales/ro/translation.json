@@ -2,36 +2,42 @@
     "auth": {
         "login": {
             "title": "Autentificare",
-            "username": "Nume utilizator",
-            "email": "Email",
+            "username": "Nume de utilizator",
+            "email": "E-mail",
             "password": "Parolă",
             "errors": {
-                "invalidCredentials": "Nume utilizator sau parolă incorecte"
+                "invalidCredentials": "Nume de utilizator sau parolă incorectă"
             }
         }
     },
     "dashboard": {
         "title": "Tablou de bord",
-        "description": "Acesta este tabloul de bord unde puteți vedea o privire de ansamblu a datelor dvs.",
+        "description": "Acesta este tabloul de bord unde puteți vedea o privire de ansamblu a datelor dumneavoastră.",
+        "statistics": {
+            "title": "Statistici",
+            "produced": "Produs",
+            "delivered": "Livrat",
+            "balance": "Stoc"
+        },
         "reports": {
             "title": "Rapoarte",
-            "content": "Aceasta este conținutul rapoartelor."
+            "content": "Acesta este conținutul rapoartelor."
         },
         "timestamps": {
-            "title": "Pontaj",
-            "content": "Aceasta este conținutul pontajului."
+            "title": "Ștampile de timp",
+            "content": "Acesta este conținutul ștampilelor de timp."
         },
-        "deliveryNotes": {
-            "title": "Note de livrare",
-            "content": "Aceasta este conținutul notei de livrare."
+        "deliveries": {
+            "title": "Livrări",
+            "content": "Acesta este conținutul livrărilor."
         }
     },
     "reports": {
         "title": "Rapoarte",
-        "description": "Aici puteți vizualiza și gestiona rapoartele dvs.",
+        "description": "Aici puteți vizualiza și gestiona rapoartele dumneavoastră.",
         "actions": {
             "add": "Adaugă raport",
-            "addGroup": "Adaugă mai multe rapoarte",
+            "addGroup": "Adaugă raport de grup",
             "edit": "Editează raport",
             "delete": "Șterge raport",
             "view": "Vizualizează raport"
@@ -41,13 +47,12 @@
             "columns": {
                 "date": "Data",
                 "employee": "Angajat",
+                "order": "Comandă",
                 "field": "Câmp",
                 "article": "Articol",
                 "quantity": "Cantitate",
-                "annotation": "Anotație",
-                "startTime": "Ora de început",
-                "endTime": "Ora de sfârșit",
-                "breaktime": "Pauză (minute)",
+                "annotation": "Observație",
+                "notChargingPieceworkWage": "Nu se calculează ca salariu pe bucată",
                 "modifiedBy": "Modificat de",
                 "modifiedAt": "Modificat la",
                 "createdBy": "Creat de",
@@ -56,32 +61,32 @@
             }
         },
         "report": {
-            "staffGroup": "Grup personal",
+            "staffGroup": "Grup angajați",
             "employee": "Angajat",
+            "order": "Comandă",
             "date": "Data",
             "field": "Câmp",
             "article": "Articol",
-            "timeRange": "Interval orar",
-            "breaktime": "Pauză (minute)",
             "quantity": "Cantitate",
-            "annotation": "Anotație"
+            "annotation": "Observație",
+            "notChargingPieceworkWage": "Nu se calculează ca salariu pe bucată"
         }
     },
     "timestamps": {
-        "title": "Pontaj",
-        "description": "Aici puteți vizualiza și gestiona pontajul dvs.",
+        "title": "Ștampile de timp",
+        "description": "Aici puteți vizualiza și gestiona ștampilele de timp.",
         "actions": {
-            "add": "Adaugă pontaj",
-            "edit": "Editează pontaj",
-            "delete": "Șterge pontaj",
-            "view": "Vizualizează pontaj"
+            "add": "Adaugă ștampilă",
+            "edit": "Editează ștampilă",
+            "delete": "Șterge ștampilă",
+            "view": "Vizualizează ștampilă"
         },
         "table": {
-            "title": "Tabel pontaj",
+            "title": "Tabel ștampile",
             "columns": {
                 "date": "Data",
                 "employee": "Angajat",
-                "annotation": "Anotație",
+                "annotation": "Observație",
                 "startTime": "Ora de început",
                 "endTime": "Ora de sfârșit",
                 "breaktime": "Pauză (minute)",
@@ -93,17 +98,47 @@
             }
         },
         "timestamp": {
-            "staffGroup": "Grup personal",
+            "staffGroup": "Grup angajați",
             "employee": "Angajat",
             "date": "Data",
-            "timeRange": "Interval orar",
+            "timeRange": "Interval de timp",
             "breaktime": "Pauză (minute)",
-            "annotation": "Anotație"
+            "annotation": "Observație"
         }
     },
-    "deliveryNotes": {
-        "title": "Note de livrare",
-        "description": "Aici puteți vizualiza și gestiona notele dvs. de livrare."
+    "deliveries": {
+        "title": "Livrări",
+        "description": "Aici puteți vizualiza și gestiona livrările dumneavoastră.",
+        "actions": {
+            "add": "Adaugă livrare",
+            "edit": "Editează livrare",
+            "delete": "Șterge livrare",
+            "view": "Vizualizează livrare"
+        },
+        "table": {
+            "title": "Tabel livrări",
+            "columns": {
+                "date": "Data",
+                "order": "Comandă",
+                "field": "Câmp",
+                "article": "Articol",
+                "quantity": "Cantitate",
+                "annotation": "Observație",
+                "modifiedBy": "Modificat de",
+                "modifiedAt": "Modificat la",
+                "createdBy": "Creat de",
+                "createdAt": "Creat la",
+                "actions": "Acțiuni"
+            }
+        },
+        "delivery": {
+            "order": "Comandă",
+            "date": "Data",
+            "field": "Câmp",
+            "article": "Articol",
+            "quantity": "Cantitate",
+            "annotation": "Observație"
+        }
     },
     "homepage": {
         "welcome": "Bine ați venit la DK Nowack",
@@ -113,13 +148,16 @@
             "allRightsReserved": "© Toate drepturile rezervate.",
             "privacyPolicy": "Politica de confidențialitate",
             "links": {
-                "imprint": "Imprimare",
+                "imprint": "Impressum",
                 "contact": "Contact",
                 "startPage": "Pagina principală"
             }
         }
     },
     "common": {
+        "yes": "Da",
+        "no": "Nu",
+        "balance": "Stoc",
         "greetings": {
             "hello": "Salut",
             "welcome": "Bine ați venit"
@@ -137,7 +175,9 @@
             "signOut": "Deconectare",
             "goToApplication": "Mergi la aplicație",
             "goToHomepage": "Mergi la pagina principală",
-            "goToSignIn": "Mergi la autentificare"
+            "goToSignIn": "Mergi la autentificare",
+            "produced": "Produs",
+            "delivered": "Livrat"
         },
         "messages": {
             "successfullyAdded": "Adăugat cu succes.",
@@ -145,24 +185,24 @@
             "successfullyDeleted": "Șters cu succes.",
             "errorOccurred": "A apărut o eroare. Vă rugăm să încercați din nou.",
             "comingSoon": "În curând",
-            "notFoundPage": "Ne pare rău, pagina pe care ați vizitat-o nu există."
+            "notFoundPage": "Ne pare rău, pagina accesată nu există."
         },
         "placeholders": {
             "enterText": "Introduceți text aici...",
-            "selectOption": "Selectați o opțiune...",
+            "selectOption": "Selectați opțiune...",
             "noData": "Nu există date disponibile."
         }
     },
     "settings": {
         "title": "Setări",
-        "description": "Ajustați preferințele și configurațiile dvs.",
+        "description": "Personalizați preferințele și configurațiile dumneavoastră.",
         "theme": "Temă",
         "themes": {
             "system": "Sistem",
             "light": "Deschis",
             "dark": "Întunecat"
         },
-        "language": "Limba",
+        "language": "Limbă",
         "languages": {
             "german": "Germană",
             "english": "Engleză",

@@ -12,18 +12,24 @@
     },
     "dashboard": {
         "title": "Panel",
-        "description": "To jest Twój panel, w którym możesz zobaczyć przegląd swoich danych.",
+        "description": "To jest Twój panel, w którym możesz zobaczyć podgląd swoich danych.",
+        "statistics": {
+            "title": "Statystyki",
+            "produced": "Wyprodukowano",
+            "delivered": "Dostarczono",
+            "balance": "Stan magazynu"
+        },
         "reports": {
             "title": "Raporty",
             "content": "To jest zawartość raportów."
         },
         "timestamps": {
-            "title": "Rejestracja czasu",
-            "content": "To jest zawartość rejestracji czasu."
+            "title": "Rejestr czasu",
+            "content": "To jest zawartość rejestru czasu."
         },
-        "deliveryNotes": {
-            "title": "Dowody dostawy",
-            "content": "To jest zawartość dowodu dostawy."
+        "deliveries": {
+            "title": "Dostawy",
+            "content": "To jest zawartość dostaw."
         }
     },
     "reports": {
@@ -31,7 +37,7 @@
         "description": "Tutaj możesz przeglądać i zarządzać swoimi raportami.",
         "actions": {
             "add": "Dodaj raport",
-            "addGroup": "Dodaj wiele raportów",
+            "addGroup": "Dodaj raport grupowy",
             "edit": "Edytuj raport",
             "delete": "Usuń raport",
             "view": "Zobacz raport"
@@ -41,69 +47,98 @@
             "columns": {
                 "date": "Data",
                 "employee": "Pracownik",
+                "order": "Zlecenie",
                 "field": "Pole",
                 "article": "Artykuł",
                 "quantity": "Ilość",
-                "annotation": "Adnotacja",
-                "startTime": "Czas rozpoczęcia",
-                "endTime": "Czas zakończenia",
-                "breaktime": "Przerwa (minuty)",
-                "modifiedBy": "Zmodyfikowane przez",
-                "modifiedAt": "Zmodyfikowane o",
+                "annotation": "Notatka",
+                "notChargingPieceworkWage": "Nie naliczać jako akord",
+                "modifiedBy": "Zmienione przez",
+                "modifiedAt": "Zmienione dnia",
                 "createdBy": "Utworzone przez",
-                "createdAt": "Utworzone o",
+                "createdAt": "Utworzone dnia",
                 "actions": "Akcje"
             }
         },
         "report": {
-            "staffGroup": "Grupa personelu",
+            "staffGroup": "Grupa pracowników",
             "employee": "Pracownik",
+            "order": "Zlecenie",
             "date": "Data",
             "field": "Pole",
             "article": "Artykuł",
-            "timeRange": "Zakres czasu",
-            "breaktime": "Przerwa (minuty)",
             "quantity": "Ilość",
-            "annotation": "Adnotacja"
+            "annotation": "Notatka",
+            "notChargingPieceworkWage": "Nie naliczać jako akord"
         }
     },
     "timestamps": {
-        "title": "Rejestracja czasu",
-        "description": "Tutaj możesz przeglądać i zarządzać swoją rejestracją czasu.",
+        "title": "Rejestr czasu",
+        "description": "Tutaj możesz przeglądać i zarządzać swoimi rejestrami czasu.",
         "actions": {
-            "add": "Dodaj znacznik czasu",
-            "edit": "Edytuj znacznik czasu",
-            "delete": "Usuń znacznik czasu",
-            "view": "Zobacz znacznik czasu"
+            "add": "Dodaj wpis czasu",
+            "edit": "Edytuj wpis czasu",
+            "delete": "Usuń wpis czasu",
+            "view": "Zobacz wpis czasu"
         },
         "table": {
-            "title": "Tabela znaczników czasu",
+            "title": "Tabela rejestru czasu",
             "columns": {
                 "date": "Data",
                 "employee": "Pracownik",
-                "annotation": "Adnotacja",
+                "annotation": "Notatka",
                 "startTime": "Czas rozpoczęcia",
                 "endTime": "Czas zakończenia",
                 "breaktime": "Przerwa (minuty)",
-                "modifiedBy": "Zmodyfikowane przez",
-                "modifiedAt": "Zmodyfikowane o",
+                "modifiedBy": "Zmienione przez",
+                "modifiedAt": "Zmienione dnia",
                 "createdBy": "Utworzone przez",
-                "createdAt": "Utworzone o",
+                "createdAt": "Utworzone dnia",
                 "actions": "Akcje"
             }
         },
         "timestamp": {
-            "staffGroup": "Grupa personelu",
+            "staffGroup": "Grupa pracowników",
             "employee": "Pracownik",
             "date": "Data",
-            "timeRange": "Zakres czasu",
+            "timeRange": "Przedział czasu",
             "breaktime": "Przerwa (minuty)",
-            "annotation": "Adnotacja"
+            "annotation": "Notatka"
         }
     },
-    "deliveryNotes": {
-        "title": "Dowody dostawy",
-        "description": "Tutaj możesz przeglądać i zarządzać swoimi dowodami dostawy."
+    "deliveries": {
+        "title": "Dostawy",
+        "description": "Tutaj możesz przeglądać i zarządzać swoimi dostawami.",
+        "actions": {
+            "add": "Dodaj dostawę",
+            "edit": "Edytuj dostawę",
+            "delete": "Usuń dostawę",
+            "view": "Zobacz dostawę"
+        },
+        "table": {
+            "title": "Tabela dostaw",
+            "columns": {
+                "date": "Data",
+                "order": "Zlecenie",
+                "field": "Pole",
+                "article": "Artykuł",
+                "quantity": "Ilość",
+                "annotation": "Notatka",
+                "modifiedBy": "Zmienione przez",
+                "modifiedAt": "Zmienione dnia",
+                "createdBy": "Utworzone przez",
+                "createdAt": "Utworzone dnia",
+                "actions": "Akcje"
+            }
+        },
+        "delivery": {
+            "order": "Zlecenie",
+            "date": "Data",
+            "field": "Pole",
+            "article": "Artykuł",
+            "quantity": "Ilość",
+            "annotation": "Notatka"
+        }
     },
     "homepage": {
         "welcome": "Witamy w DK Nowack",
@@ -115,11 +150,14 @@
             "links": {
                 "imprint": "Impressum",
                 "contact": "Kontakt",
-                "startPage": "Strona startowa"
+                "startPage": "Strona główna"
             }
         }
     },
     "common": {
+        "yes": "Tak",
+        "no": "Nie",
+        "balance": "Stan magazynu",
         "greetings": {
             "hello": "Cześć",
             "welcome": "Witamy"
@@ -137,15 +175,17 @@
             "signOut": "Wyloguj się",
             "goToApplication": "Przejdź do aplikacji",
             "goToHomepage": "Przejdź do strony głównej",
-            "goToSignIn": "Przejdź do logowania"
+            "goToSignIn": "Przejdź do logowania",
+            "produced": "Wyprodukowano",
+            "delivered": "Dostarczono"
         },
         "messages": {
             "successfullyAdded": "Pomyślnie dodano.",
             "successfullyUpdated": "Pomyślnie zaktualizowano.",
             "successfullyDeleted": "Pomyślnie usunięto.",
             "errorOccurred": "Wystąpił błąd. Spróbuj ponownie.",
-            "comingSoon": "Wkrótce",
-            "notFoundPage": "Przepraszamy, strona, którą odwiedziłeś, nie istnieje."
+            "comingSoon": "Wkrótce dostępne",
+            "notFoundPage": "Przepraszamy, odwiedzona strona nie istnieje."
         },
         "placeholders": {
             "enterText": "Wpisz tekst tutaj...",
@@ -158,7 +198,7 @@
         "description": "Dostosuj swoje preferencje i konfiguracje.",
         "theme": "Motyw",
         "themes": {
-            "system": "Systemowy",
+            "system": "System",
             "light": "Jasny",
             "dark": "Ciemny"
         },

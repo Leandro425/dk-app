@@ -12,18 +12,24 @@
     },
     "dashboard": {
         "title": "Dashboard",
-        "description": "Dette er dit dashboard, hvor du kan se en oversigt over dine data.",
+        "description": "Dette er dit dashboard, hvor du kan se et overblik over dine data.",
+        "statistics": {
+            "title": "Statistik",
+            "produced": "Produceret",
+            "delivered": "Leveret",
+            "balance": "Beholdning"
+        },
         "reports": {
             "title": "Rapporter",
-            "content": "Dette er rapportindholdet."
+            "content": "Dette er indholdet af rapporterne."
         },
         "timestamps": {
             "title": "Tidsregistrering",
             "content": "Dette er indholdet af tidsregistreringen."
         },
-        "deliveryNotes": {
-            "title": "Leveringssedler",
-            "content": "Dette er indholdet af leveringssedlen."
+        "deliveries": {
+            "title": "Leveringer",
+            "content": "Dette er indholdet af leveringerne."
         }
     },
     "reports": {
@@ -31,7 +37,7 @@
         "description": "Her kan du se og administrere dine rapporter.",
         "actions": {
             "add": "Tilføj rapport",
-            "addGroup": "Tilføj flere rapporter",
+            "addGroup": "Tilføj grupprapport",
             "edit": "Rediger rapport",
             "delete": "Slet rapport",
             "view": "Se rapport"
@@ -41,13 +47,12 @@
             "columns": {
                 "date": "Dato",
                 "employee": "Medarbejder",
+                "order": "Ordre",
                 "field": "Felt",
                 "article": "Artikel",
-                "quantity": "Antal",
+                "quantity": "Mængde",
                 "annotation": "Bemærkning",
-                "startTime": "Starttid",
-                "endTime": "Sluttid",
-                "breaktime": "Pause (minutter)",
+                "notChargingPieceworkWage": "Ikke beregnet som akkordløn",
                 "modifiedBy": "Ændret af",
                 "modifiedAt": "Ændret den",
                 "createdBy": "Oprettet af",
@@ -56,15 +61,15 @@
             }
         },
         "report": {
-            "staffGroup": "Personalgruppe",
+            "staffGroup": "Medarbejdergruppe",
             "employee": "Medarbejder",
+            "order": "Ordre",
             "date": "Dato",
             "field": "Felt",
             "article": "Artikel",
-            "timeRange": "Tidsinterval",
-            "breaktime": "Pause (minutter)",
-            "quantity": "Antal",
-            "annotation": "Bemærkning"
+            "quantity": "Mængde",
+            "annotation": "Bemærkning",
+            "notChargingPieceworkWage": "Ikke beregnet som akkordløn"
         }
     },
     "timestamps": {
@@ -93,17 +98,47 @@
             }
         },
         "timestamp": {
-            "staffGroup": "Personalgruppe",
+            "staffGroup": "Medarbejdergruppe",
             "employee": "Medarbejder",
             "date": "Dato",
-            "timeRange": "Tidsinterval",
+            "timeRange": "Tidsrum",
             "breaktime": "Pause (minutter)",
             "annotation": "Bemærkning"
         }
     },
-    "deliveryNotes": {
-        "title": "Leveringssedler",
-        "description": "Her kan du se og administrere dine leveringssedler."
+    "deliveries": {
+        "title": "Leveringer",
+        "description": "Her kan du se og administrere dine leveringer.",
+        "actions": {
+            "add": "Tilføj levering",
+            "edit": "Rediger levering",
+            "delete": "Slet levering",
+            "view": "Se levering"
+        },
+        "table": {
+            "title": "Leveringstabel",
+            "columns": {
+                "date": "Dato",
+                "order": "Ordre",
+                "field": "Felt",
+                "article": "Artikel",
+                "quantity": "Mængde",
+                "annotation": "Bemærkning",
+                "modifiedBy": "Ændret af",
+                "modifiedAt": "Ændret den",
+                "createdBy": "Oprettet af",
+                "createdAt": "Oprettet den",
+                "actions": "Handlinger"
+            }
+        },
+        "delivery": {
+            "order": "Ordre",
+            "date": "Dato",
+            "field": "Felt",
+            "article": "Artikel",
+            "quantity": "Mængde",
+            "annotation": "Bemærkning"
+        }
     },
     "homepage": {
         "welcome": "Velkommen til DK Nowack",
@@ -111,7 +146,7 @@
         "footer": {
             "companyInfo": "© 2024 DK Nowack GmbH & Co. KG. Alle rettigheder forbeholdes.",
             "allRightsReserved": "© Alle rettigheder forbeholdes.",
-            "privacyPolicy": "Fortrolighedspolitik",
+            "privacyPolicy": "Privatlivspolitik",
             "links": {
                 "imprint": "Impressum",
                 "contact": "Kontakt",
@@ -120,6 +155,9 @@
         }
     },
     "common": {
+        "yes": "Ja",
+        "no": "Nej",
+        "balance": "Beholdning",
         "greetings": {
             "hello": "Hej",
             "welcome": "Velkommen"
@@ -127,7 +165,7 @@
         "actions": {
             "open": "Åbn",
             "close": "Luk",
-            "submit": "Send",
+            "submit": "Indsend",
             "cancel": "Annuller",
             "save": "Gem",
             "delete": "Slet",
@@ -137,7 +175,9 @@
             "signOut": "Log ud",
             "goToApplication": "Gå til applikationen",
             "goToHomepage": "Gå til startside",
-            "goToSignIn": "Gå til log ind"
+            "goToSignIn": "Gå til login",
+            "produced": "Produceret",
+            "delivered": "Leveret"
         },
         "messages": {
             "successfullyAdded": "Tilføjet med succes.",
@@ -150,12 +190,12 @@
         "placeholders": {
             "enterText": "Indtast tekst her...",
             "selectOption": "Vælg en mulighed...",
-            "noData": "Ingen data tilgængelige."
+            "noData": "Ingen tilgængelige data."
         }
     },
     "settings": {
         "title": "Indstillinger",
-        "description": "Juster dine præferencer og konfigurationer.",
+        "description": "Tilpas dine præferencer og konfigurationer.",
         "theme": "Tema",
         "themes": {
             "system": "System",
