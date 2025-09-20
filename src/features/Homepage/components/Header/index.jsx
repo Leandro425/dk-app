@@ -1,8 +1,6 @@
 import { Button, Flex, Layout, theme } from 'antd'
-import { Divider } from 'antd'
 import { useTranslation } from 'react-i18next'
 import DarkModeToggle from '../../../../components/DarkModeToggle'
-import SettingsIconButton from '../../../../components/SettingsButton'
 import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
@@ -18,7 +16,7 @@ const Header = () => {
             style={{ borderBottom: `1px solid ${colorSplit}` }}
         >
             <Flex
-                justify="space-between"
+                justify="flex-end"
                 align="center"
                 style={{ height: '100%' }}
                 gap={16}
@@ -32,10 +30,7 @@ const Header = () => {
                     >
                         {t('common.actions.goToSignIn')}
                     </Button>
-                </Flex>
-                <Flex gap={16}>
                     <DarkModeToggle />
-                    <SettingsIconButton />
                 </Flex>
             </Flex>
         </Layout.Header>
