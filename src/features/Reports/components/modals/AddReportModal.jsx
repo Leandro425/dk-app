@@ -39,7 +39,7 @@ const AddReportModal = ({ open, onClose }) => {
 
     const onSubmit = async (data) => {
         setConfirmLoading(true)
-        const { error } = await supabase.from('Report').insert([
+        const { error } = await supabase.from('report').insert([
             {
                 employee_id: data.employee,
                 date: dayjs().format('YYYY-MM-DD'),
@@ -47,7 +47,7 @@ const AddReportModal = ({ open, onClose }) => {
                 article_id: data.article,
                 order_id: data.order,
                 quantity: data.quantity,
-                created_by: supervisor.id,
+                created_by_id: supervisor.id,
                 annotation: data.annotation,
                 not_charging_piecework_wage: data.not_charging_piecework_wage,
             },

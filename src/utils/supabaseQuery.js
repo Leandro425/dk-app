@@ -1,7 +1,7 @@
 import { getArticleLabel, getEmployeeLabel, getFieldLabel, getStaffGroupLabel, getOrderLabel } from './helpers'
 
 export const getEmployeeSelectOptions = async (supabase, staffGroup = null) => {
-    const query = supabase.from('Employee').select('*').order('staff_number', { ascending: true })
+    const query = supabase.from('employee').select('*').order('staff_number', { ascending: true })
     if (staffGroup) {
         query.eq('staff_group_id', staffGroup)
     }
@@ -13,7 +13,7 @@ export const getEmployeeSelectOptions = async (supabase, staffGroup = null) => {
 }
 
 export const getArticleSelectOptions = async (supabase) => {
-    const { data, error } = await supabase.from('Article').select('*').order('name', { ascending: true })
+    const { data, error } = await supabase.from('article').select('*').order('name', { ascending: true })
     if (error) {
         throw new Error(error.message)
     }
@@ -25,7 +25,7 @@ export const getArticleSelectOptions = async (supabase) => {
 }
 
 export const getFieldSelectOptions = async (supabase) => {
-    const { data, error } = await supabase.from('Field').select('*').order('name', { ascending: true })
+    const { data, error } = await supabase.from('field').select('*').order('name', { ascending: true })
     if (error) {
         throw new Error(error.message)
     }
@@ -33,7 +33,7 @@ export const getFieldSelectOptions = async (supabase) => {
 }
 
 export const getStaffGroupSelectOptions = async (supabase) => {
-    const { data, error } = await supabase.from('StaffGroup').select('*').order('name', { ascending: true })
+    const { data, error } = await supabase.from('staffgroup').select('*').order('name', { ascending: true })
     if (error) {
         throw new Error(error.message)
     }
@@ -41,7 +41,7 @@ export const getStaffGroupSelectOptions = async (supabase) => {
 }
 
 export const getOrderSelectOptions = async (supabase) => {
-    const { data, error } = await supabase.from('Order').select('*').order('customer', { ascending: true })
+    const { data, error } = await supabase.from('order').select('*').order('customer', { ascending: true })
     if (error) {
         throw new Error(error.message)
     }

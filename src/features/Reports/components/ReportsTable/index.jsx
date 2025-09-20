@@ -28,9 +28,9 @@ const ReportsTable = () => {
         const from = (page - 1) * pageSize
         const to = page * pageSize - 1
         const { data, count, error } = await supabase
-            .from('Report')
+            .from('report')
             .select(
-                '*, employee:Employee(*), order:Order(*), field:Field(*), article:Article(*), created_by:Supervisor!Report_created_by_fkey(*), modified_by:Supervisor!Report_modified_by_fkey(*)',
+                '*, employee:employee(*), order:order(*), field:field(*), article:article(*), created_by:supervisor!report_created_by_id_fkey(*), modified_by:supervisor!report_modified_by_id_fkey(*)',
                 {
                     count: 'exact',
                 }

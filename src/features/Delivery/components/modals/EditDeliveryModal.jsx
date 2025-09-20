@@ -40,7 +40,7 @@ const EditDeliveryModal = ({ open, onClose, delivery }) => {
     const onSubmit = async (data) => {
         setConfirmLoading(true)
         const { error } = await supabase
-            .from('Delivery')
+            .from('delivery')
             .update([
                 {
                     date: data.date.format('YYYY-MM-DD'),
@@ -48,7 +48,7 @@ const EditDeliveryModal = ({ open, onClose, delivery }) => {
                     article_id: data.article,
                     order_id: data.order,
                     quantity: data.quantity,
-                    modified_by: supervisor.id,
+                    modified_by_id: supervisor.id,
                     modified_at: dayjs().toISOString(),
                     annotation: data.annotation,
                 },

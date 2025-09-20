@@ -20,9 +20,9 @@ const TimestampsTable = () => {
         const from = (page - 1) * pageSize
         const to = page * pageSize - 1
         const { data, count, error } = await supabase
-            .from('Timestamp')
+            .from('timestamp')
             .select(
-                '*, employee:Employee(*), created_by:Supervisor!Timestamp_created_by_id_fkey(*), modified_by:Supervisor!Timestamp_modified_by_id_fkey(*)',
+                '*, employee:employee(*), created_by:supervisor!timestamp_created_by_id_fkey(*), modified_by:supervisor!timestamp_modified_by_id_fkey(*)',
                 {
                     count: 'exact',
                 }
@@ -36,7 +36,7 @@ const TimestampsTable = () => {
     }
 
     const { data, isLoading } = useQuery({
-        queryKey: ['Timestamps', pagination.current, pagination.pageSize],
+        queryKey: ['timestamps', pagination.current, pagination.pageSize],
         queryFn: fetchData,
         keepPreviousData: true,
     })

@@ -10,7 +10,7 @@ const LanguageSelect = () => {
     const { supervisor, refetch } = useSupervisorContext()
 
     const handleChange = async (value) => {
-        const res = await supabase.from('Supervisor').update({ language: value }).eq('id', supervisor.id)
+        const res = await supabase.from('supervisor').update({ language: value }).eq('id', supervisor.id)
         if (!res.error) {
             refetch()
         }

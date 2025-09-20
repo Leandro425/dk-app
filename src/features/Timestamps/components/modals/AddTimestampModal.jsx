@@ -40,7 +40,7 @@ const AddTimestampModal = ({ open, onClose }) => {
         setConfirmLoading(true)
         const startTime = data.timeRange && data.timeRange[0] ? data.timeRange[0].format(formatTimeString) : null
         const endTime = data.timeRange && data.timeRange[1] ? data.timeRange[1].format(formatTimeString) : null
-        const { error } = await supabase.from('Timestamp').insert([
+        const { error } = await supabase.from('timestamp').insert([
             {
                 date: data.date.format('YYYY-MM-DD'),
                 employee_id: data.employee,
@@ -59,7 +59,7 @@ const AddTimestampModal = ({ open, onClose }) => {
         onClose()
         setConfirmLoading(false)
         reset()
-        queryClient.invalidateQueries({ queryKey: ['Timestamps'] })
+        queryClient.invalidateQueries({ queryKey: ['timestamps'] })
     }
 
     return (

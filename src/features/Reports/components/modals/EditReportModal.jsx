@@ -42,7 +42,7 @@ const EditReportModal = ({ open, onClose, report }) => {
     const onSubmit = async (data) => {
         setConfirmLoading(true)
         const { error } = await supabase
-            .from('Report')
+            .from('report')
             .update([
                 {
                     employee_id: data.employee,
@@ -51,7 +51,7 @@ const EditReportModal = ({ open, onClose, report }) => {
                     article_id: data.article,
                     order_id: data.order,
                     quantity: data.quantity,
-                    modified_by: supervisor.id,
+                    modified_by_id: supervisor.id,
                     modified_at: dayjs().toISOString(),
                     annotation: data.annotation,
                     not_charging_piecework_wage: data.not_charging_piecework_wage,

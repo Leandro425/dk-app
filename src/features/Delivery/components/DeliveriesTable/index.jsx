@@ -27,9 +27,9 @@ const DeliveriesTable = () => {
         const from = (page - 1) * pageSize
         const to = page * pageSize - 1
         const { data, count, error } = await supabase
-            .from('Delivery')
+            .from('delivery')
             .select(
-                '*, order:Order(*), field:Field(*), article:Article(*), created_by:Supervisor!Delivery_created_by_fkey(*), modified_by:Supervisor!Delivery_modified_by_fkey(*)',
+                '*, order:order(*), field:field(*), article:article(*), created_by:supervisor!delivery_created_by_id_fkey(*), modified_by:supervisor!delivery_modified_by_id_fkey(*)',
                 {
                     count: 'exact',
                 }

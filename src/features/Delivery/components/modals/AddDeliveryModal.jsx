@@ -37,14 +37,14 @@ const AddDeliveryModal = ({ open, onClose }) => {
 
     const onSubmit = async (data) => {
         setConfirmLoading(true)
-        const { error } = await supabase.from('Delivery').insert([
+        const { error } = await supabase.from('delivery').insert([
             {
                 date: dayjs().format('YYYY-MM-DD'),
                 field_id: data.field,
                 article_id: data.article,
                 order_id: data.order,
                 quantity: data.quantity,
-                created_by: supervisor.id,
+                created_by_id: supervisor.id,
                 annotation: data.annotation,
             },
         ])

@@ -42,7 +42,7 @@ const EditTimestampModal = ({ open, onClose, timestamp }) => {
     const onSubmit = async (data) => {
         setConfirmLoading(true)
         const { error } = await supabase
-            .from('Timestamp')
+            .from('timestamp')
             .update([
                 {
                     employee_id: data.employee,
@@ -64,7 +64,7 @@ const EditTimestampModal = ({ open, onClose, timestamp }) => {
         onClose()
         setConfirmLoading(false)
         reset()
-        queryClient.invalidateQueries({ queryKey: ['Timestamps'] })
+        queryClient.invalidateQueries({ queryKey: ['timestamps'] })
     }
 
     useEffect(() => {
