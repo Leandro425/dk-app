@@ -42,7 +42,7 @@ const AddReportModal = ({ open, onClose }) => {
         const { error } = await supabase.from('report').insert([
             {
                 employee_id: data.employee,
-                date: dayjs().format('YYYY-MM-DD'),
+                date: data.date.format('YYYY-MM-DD'),
                 field_id: data.field,
                 article_id: data.article,
                 order_id: data.order,
