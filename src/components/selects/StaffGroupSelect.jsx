@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-import { getOrderSelectOptions } from '../../utils/supabaseQuery'
+import { getStaffGroupSelectOptions } from '../../utils/supabaseQuery'
 import { useTranslation } from 'react-i18next'
 import { Select } from 'antd'
-const OrderSelect = ({ supabase, value, onChange, enabled = false, placeholder }) => {
+const StaffGroupSelect = ({ supabase, value, onChange, enabled = false, placeholder }) => {
     const { t } = useTranslation()
     const {
         data: options,
@@ -10,8 +10,8 @@ const OrderSelect = ({ supabase, value, onChange, enabled = false, placeholder }
         isFetching,
         isError,
     } = useQuery({
-        queryKey: ['orders', 'select'],
-        queryFn: () => getOrderSelectOptions(supabase),
+        queryKey: ['staffGroups', 'select'],
+        queryFn: () => getStaffGroupSelectOptions(supabase),
         enabled: enabled,
     })
 
@@ -23,11 +23,12 @@ const OrderSelect = ({ supabase, value, onChange, enabled = false, placeholder }
             placeholder={placeholder || t('common.placeholders.selectOption')}
             value={value}
             onChange={(value) => onChange(value)}
-            filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
             options={options}
+            filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
+            style={{ width: '100%' }}
             allowClear
         />
     )
 }
 
-export default OrderSelect
+export default StaffGroupSelect

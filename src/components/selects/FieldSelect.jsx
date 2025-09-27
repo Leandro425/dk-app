@@ -10,7 +10,7 @@ const FieldSelect = ({ supabase, value, onChange, enabled = false, placeholder }
         isFetching,
         isError,
     } = useQuery({
-        queryKey: ['fields'],
+        queryKey: ['fields', 'select'],
         queryFn: () => getFieldSelectOptions(supabase),
         enabled: enabled,
     })
@@ -24,6 +24,8 @@ const FieldSelect = ({ supabase, value, onChange, enabled = false, placeholder }
             value={value}
             onChange={(value) => onChange(value)}
             options={options}
+            filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
+            style={{ width: '100%' }}
             allowClear
         />
     )

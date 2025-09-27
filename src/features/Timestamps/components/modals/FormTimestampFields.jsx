@@ -1,20 +1,22 @@
 import { Flex } from 'antd'
 import { useTranslation } from 'react-i18next'
-import { getEmployeeSelectOptions, getStaffGroupSelectOptions } from '../../../../utils/supabaseQuery'
+
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
-import FormSelect from '../../../../components/hookForm/FormSelect'
+
 import FormInputNumber from '../../../../components/hookForm/FormInputNumber'
 import FormTimeRangePicker from '../../../../components/hookForm/FormTimeRangePicker'
 import FormTextArea from '../../../../components/hookForm/FormTextArea'
 
 import { useWatch } from 'react-hook-form'
 import FormDatePicker from '../../../../components/hookForm/FormDatePicker'
+import FormStaffGroupSelect from '../../../../components/hookForm/FormStaffGroupSelect'
+import FormEmployeeSelect from '../../../../components/hookForm/FormEmployeeSelect'
 
 const FormTimestampFields = ({ control, errors, enabledSelects = false }) => {
     const { supabase } = useSupabaseContext()
     const { t } = useTranslation()
 
-    const currentStaffgroup =
+    const currentStaffGroup =
         useWatch({
             control,
             name: 'staffGroup',
@@ -22,21 +24,20 @@ const FormTimestampFields = ({ control, errors, enabledSelects = false }) => {
 
     return (
         <>
-            <FormSelect
+            <FormStaffGroupSelect
                 name="staffGroup"
-                queryKey={['staffGroups']}
-                supabaseQuery={() => getStaffGroupSelectOptions(supabase)}
+                supabase={supabase}
                 control={control}
                 errors={errors}
                 label={t('timestamps.timestamp.staffGroup')}
                 enabled={enabledSelects}
             />
-            <FormSelect
+            <FormEmployeeSelect
                 name="employee"
-                queryKey={['employees', currentStaffgroup]}
-                supabaseQuery={() => getEmployeeSelectOptions(supabase, currentStaffgroup)}
+                supabase={supabase}
                 control={control}
                 errors={errors}
+                staffgroup={currentStaffGroup}
                 label={t('timestamps.timestamp.employee')}
                 required
                 enabled={enabledSelects}

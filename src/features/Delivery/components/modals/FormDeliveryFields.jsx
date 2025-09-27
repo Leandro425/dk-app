@@ -1,11 +1,14 @@
 import { useTranslation } from 'react-i18next'
-import { getArticleSelectOptions, getFieldSelectOptions, getOrderSelectOptions } from '../../../../utils/supabaseQuery'
+
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
-import FormSelect from '../../../../components/hookForm/FormSelect'
+
 import FormInputNumber from '../../../../components/hookForm/FormInputNumber'
 import FormTextArea from '../../../../components/hookForm/FormTextArea'
 
 import FormDatePicker from '../../../../components/hookForm/FormDatePicker'
+import FormOrderSelect from '../../../../components/hookForm/FormOrderSelect'
+import FormArticleSelect from '../../../../components/hookForm/FormArticleSelect'
+import FormFieldSelect from '../../../../components/hookForm/FormFieldSelect'
 
 const FormDeliveryFields = ({ control, errors, enabledSelects = false }) => {
     const { supabase } = useSupabaseContext()
@@ -20,29 +23,26 @@ const FormDeliveryFields = ({ control, errors, enabledSelects = false }) => {
                 errors={errors}
                 required
             />
-            <FormSelect
+            <FormOrderSelect
                 name="order"
-                queryKey={['orders']}
-                supabaseQuery={() => getOrderSelectOptions(supabase)}
+                supabase={supabase}
                 control={control}
                 errors={errors}
                 label={t('deliveries.delivery.order')}
                 enabled={enabledSelects}
             />
-            <FormSelect
+            <FormArticleSelect
                 name="article"
-                queryKey={['articles']}
-                supabaseQuery={() => getArticleSelectOptions(supabase)}
+                supabase={supabase}
                 control={control}
                 errors={errors}
                 label={t('deliveries.delivery.article')}
                 required
                 enabled={enabledSelects}
             />
-            <FormSelect
+            <FormFieldSelect
                 name="field"
-                queryKey={['fields']}
-                supabaseQuery={() => getFieldSelectOptions(supabase)}
+                supabase={supabase}
                 control={control}
                 errors={errors}
                 label={t('deliveries.delivery.field')}

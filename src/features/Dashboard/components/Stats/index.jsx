@@ -51,7 +51,7 @@ const Stats = () => {
         }
     }
 
-    const { data, refetch } = useQuery({
+    const { data } = useQuery({
         queryKey: ['statistics', orderId, articleId, fieldId],
         queryFn: fetchStatistics,
     })

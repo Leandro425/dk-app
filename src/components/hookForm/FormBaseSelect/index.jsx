@@ -4,7 +4,7 @@ import { Form, Select } from 'antd'
 import { Controller, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
-const FormSelect = ({
+const FormBaseSelect = ({
     name,
     label = '',
     required = false,
@@ -55,4 +55,4 @@ const FormSelect = ({
     )
 }
 
-export default FormSelect
+export default FormBaseSelect

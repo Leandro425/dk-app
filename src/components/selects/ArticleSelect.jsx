@@ -10,7 +10,7 @@ const ArticleSelect = ({ supabase, value, onChange, enabled = false, placeholder
         isFetching,
         isError,
     } = useQuery({
-        queryKey: ['articles'],
+        queryKey: ['articles', 'select'],
         queryFn: () => getArticleSelectOptions(supabase),
         enabled: enabled,
     })
@@ -24,6 +24,7 @@ const ArticleSelect = ({ supabase, value, onChange, enabled = false, placeholder
             value={value}
             onChange={(value) => onChange(value)}
             options={options}
+            filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
             allowClear
         />
     )

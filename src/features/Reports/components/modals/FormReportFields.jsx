@@ -1,24 +1,21 @@
 import { useTranslation } from 'react-i18next'
-import {
-    getArticleSelectOptions,
-    getEmployeeSelectOptions,
-    getFieldSelectOptions,
-    getOrderSelectOptions,
-    getStaffGroupSelectOptions,
-} from '../../../../utils/supabaseQuery'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
-import FormSelect from '../../../../components/hookForm/FormSelect'
 import FormInputNumber from '../../../../components/hookForm/FormInputNumber'
 import FormTextArea from '../../../../components/hookForm/FormTextArea'
 import FormDatePicker from '../../../../components/hookForm/FormDatePicker'
 import { useWatch } from 'react-hook-form'
 import FormCheckbox from '../../../../components/hookForm/FormCheckbox'
+import FormOrderSelect from '../../../../components/hookForm/FormOrderSelect'
+import FormArticleSelect from '../../../../components/hookForm/FormArticleSelect'
+import FormFieldSelect from '../../../../components/hookForm/FormFieldSelect'
+import FormEmployeeSelect from '../../../../components/hookForm/FormEmployeeSelect'
+import FormStaffGroupSelect from '../../../../components/hookForm/FormStaffGroupSelect'
 
 const FormReportFields = ({ control, errors, enabledSelects = false }) => {
     const { supabase } = useSupabaseContext()
     const { t } = useTranslation()
 
-    const currentStaffgroup =
+    const currentStaffGroup =
         useWatch({
             control,
             name: 'staffGroup',
@@ -26,21 +23,20 @@ const FormReportFields = ({ control, errors, enabledSelects = false }) => {
 
     return (
         <>
-            <FormSelect
+            <FormStaffGroupSelect
                 name="staffGroup"
-                queryKey={['staffGroups']}
-                supabaseQuery={() => getStaffGroupSelectOptions(supabase)}
+                supabase={supabase}
                 control={control}
                 errors={errors}
                 label={t('reports.report.staffGroup')}
                 enabled={enabledSelects}
             />
-            <FormSelect
+            <FormEmployeeSelect
                 name="employee"
-                queryKey={['employees', currentStaffgroup]}
-                supabaseQuery={() => getEmployeeSelectOptions(supabase, currentStaffgroup)}
+                supabase={supabase}
                 control={control}
                 errors={errors}
+                staffgroup={currentStaffGroup}
                 label={t('reports.report.employee')}
                 required
                 enabled={enabledSelects}
@@ -52,29 +48,26 @@ const FormReportFields = ({ control, errors, enabledSelects = false }) => {
                 errors={errors}
                 required
             />
-            <FormSelect
+            <FormOrderSelect
                 name="order"
-                queryKey={['orders']}
-                supabaseQuery={() => getOrderSelectOptions(supabase)}
+                supabase={supabase}
                 control={control}
                 errors={errors}
                 label={t('reports.report.order')}
                 enabled={enabledSelects}
             />
-            <FormSelect
+            <FormArticleSelect
                 name="article"
-                queryKey={['articles']}
-                supabaseQuery={() => getArticleSelectOptions(supabase)}
+                supabase={supabase}
                 control={control}
                 errors={errors}
                 label={t('reports.report.article')}
                 required
                 enabled={enabledSelects}
             />
-            <FormSelect
+            <FormFieldSelect
                 name="field"
-                queryKey={['fields']}
-                supabaseQuery={() => getFieldSelectOptions(supabase)}
+                supabase={supabase}
                 control={control}
                 errors={errors}
                 label={t('reports.report.field')}
