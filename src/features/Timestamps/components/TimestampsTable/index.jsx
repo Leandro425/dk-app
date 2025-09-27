@@ -7,6 +7,7 @@ import AddTimestampModal from '../modals/AddTimestampModal'
 import EditTimestampModal from '../modals/EditTimestampModal'
 import { formatDate, formatDateTime, formatTime, getEmployeeLabel, getSupervisorLabel } from '../../../../utils/helpers'
 import { DeleteFilled, EditFilled } from '@ant-design/icons'
+import AddGroupTimestampModal from '../modals/AddGroupTimestampModal'
 
 const TimestampsTable = () => {
     const { t } = useTranslation()
@@ -14,6 +15,7 @@ const TimestampsTable = () => {
     const [messageApi, contextHolder] = message.useMessage()
     const [pagination, setPagination] = useState({ current: 1, pageSize: 10 })
     const [openAddModal, setOpenAddModal] = useState(false)
+    const [openAddGroupModal, setOpenAddGroupModal] = useState(false)
     const [selectedTimestamp, setSelectedTimestamp] = useState(null)
     const [openEditModal, setOpenEditModal] = useState(false)
 
@@ -157,6 +159,12 @@ const TimestampsTable = () => {
                     >
                         {t('timestamps.actions.add')}
                     </Button>
+                    <Button
+                        type="primary"
+                        onClick={() => setOpenAddGroupModal(true)}
+                    >
+                        {t('timestamps.actions.addGroup')}
+                    </Button>
                 </Flex>
                 <Flex
                     style={{
@@ -186,6 +194,10 @@ const TimestampsTable = () => {
             <AddTimestampModal
                 open={openAddModal}
                 onClose={() => setOpenAddModal(false)}
+            />
+            <AddGroupTimestampModal
+                open={openAddGroupModal}
+                onClose={() => setOpenAddGroupModal(false)}
             />
             <EditTimestampModal
                 open={openEditModal}

@@ -8,30 +8,21 @@ import dayjs from 'dayjs'
 
 import useSupervisorContext from '../../../../context/user/supervisorContext'
 import FormStaffGroupSelect from '../../../../components/hookForm/FormStaffGroupSelect'
-import FormOrderSelect from '../../../../components/hookForm/FormOrderSelect'
-import FormArticleSelect from '../../../../components/hookForm/FormArticleSelect'
-import FormFieldSelect from '../../../../components/hookForm/FormFieldSelect'
-import FormDatePicker from '../../../../components/hookForm/FormDatePicker'
-import FormBaseSelectWithoutQuery from '../../../../components/hookForm/FormBaseSelectWithoutQuery'
-import FormCheckbox from '../../../../components/hookForm/FormCheckbox'
 
 import FormInputNumber from '../../../../components/hookForm/FormInputNumber'
 import FormTextArea from '../../../../components/hookForm/FormTextArea'
 import { CloseOutlined } from '@ant-design/icons'
-
+import FormTimeRangePicker from '../../../../components/hookForm/FormTimeRangePicker'
+const formatTimeString = 'HH:mm'
 const getFormValues = () => {
     return {
         date: dayjs(),
-        field: null,
-        article: null,
-        order: null,
-        quantity: '',
         annotation: '',
-        reports: [],
+        timestamps: [],
     }
 }
 
-const AddGroupReportModal = ({ open, onClose }) => {
+const AddGroupTimestampModal = ({ open, onClose }) => {
     const { t } = useTranslation()
     const { supervisor } = useSupervisorContext()
     const { supabase } = useSupabaseContext()
@@ -50,36 +41,36 @@ const AddGroupReportModal = ({ open, onClose }) => {
 
     const { fields, remove } = useFieldArray({
         control,
-        name: 'reports',
+        name: 'timestamps',
     })
 
     const onSubmit = async (data) => {
         setConfirmLoading(true)
 
-        // Insert multiple reports
-        const reports = data.reports.map((report) => ({
-            employee_id: report.employee,
+        // Insert multiple timestamps
+        const timestamps = data.timestamps.map((timestamp) => ({
+            employee_id: timestamp.employee,
             date: data.date.format('YYYY-MM-DD'),
-            field_id: data.field,
-            article_id: data.article,
-            order_id: data.order,
-            quantity: report.quantity,
+            start_time:
+                timestamp.timeRange && timestamp.timeRange[0] ? timestamp.timeRange[0].format(formatTimeString) : null,
+            end_time:
+                timestamp.timeRange && timestamp.timeRange[1] ? timestamp.timeRange[1].format(formatTimeString) : null,
+            break_in_min: timestamp.break_in_min ? parseFloat(timestamp.break_in_min) : null,
             created_by_id: supervisor.id,
             annotation: data.annotation,
-            not_charging_piecework_wage: report.not_charging_piecework_wage,
         }))
 
-        if (reports.length === 0) {
+        if (timestamps.length === 0) {
             messageApi.open({
                 type: 'error',
-                content: t('reports.messages.errorOccurred'),
+                content: t('timestamps.messages.errorOccurred'),
                 duration: 3,
             })
             setConfirmLoading(false)
             return
         }
 
-        const { error } = await supabase.from('report').insert(reports) // Insert all reports at once
+        const { error } = await supabase.from('timestamp').insert(timestamps) // Insert all timestamps at once
 
         messageApi.open({
             type: error ? 'error' : 'success',
@@ -89,7 +80,7 @@ const AddGroupReportModal = ({ open, onClose }) => {
         onClose()
         setConfirmLoading(false)
         reset()
-        queryClient.invalidateQueries({ queryKey: ['reports'] })
+        queryClient.invalidateQueries({ queryKey: ['timestamps'] })
     }
 
     const currentStaffGroup =
@@ -102,7 +93,7 @@ const AddGroupReportModal = ({ open, onClose }) => {
 
     useEffect(() => {
         if (!currentStaffGroup) {
-            setValue('reports', [])
+            setValue('timestamps', [])
         } else {
             const query = supabase
                 .from('employee')
@@ -117,13 +108,13 @@ const AddGroupReportModal = ({ open, onClose }) => {
                         duration: 3,
                     })
                 } else {
-                    const reportEntries = data.map((emp) => ({
+                    const imestampEntries = data.map((emp) => ({
                         employee: emp.id,
                         employee_label: emp.staff_number + ' | ' + emp.firstname + ' ' + emp.lastname,
-                        quantity: '',
-                        not_charging_piecework_wage: false,
+                        timeRange: [null, null],
+                        break_in_min: null,
                     }))
-                    setValue('reports', reportEntries)
+                    setValue('timestamps', imestampEntries)
                 }
             })
         }
@@ -134,7 +125,7 @@ const AddGroupReportModal = ({ open, onClose }) => {
             {contextHolder}
             <Form layout="vertical">
                 <Modal
-                    title={t('reports.actions.addGroup')}
+                    title={t('timestamps.actions.addGroup')}
                     open={open}
                     onOk={handleSubmit(onSubmit)}
                     confirmLoading={confirmLoading}
@@ -147,81 +138,19 @@ const AddGroupReportModal = ({ open, onClose }) => {
                         supabase={supabase}
                         control={control}
                         errors={errors}
-                        label={t('reports.report.staffGroup')}
+                        label={t('timestamps.timestamp.staffGroup')}
                         enabled={enabledSelects}
                     />
                     <Flex
                         gap={16}
                         flex={1}
-                    >
-                        <Flex
-                            vertical
-                            gap={8}
-                            flex={1}
-                            style={{ minWidth: 0 }}
-                        >
-                            <FormDatePicker
-                                name="date"
-                                label={t('reports.report.date')}
-                                control={control}
-                                errors={errors}
-                                required
-                            />
-                            <FormOrderSelect
-                                name="order"
-                                supabase={supabase}
-                                control={control}
-                                errors={errors}
-                                label={t('reports.report.order')}
-                                enabled={enabledSelects}
-                            />
-                        </Flex>
-                        <Flex
-                            vertical
-                            gap={8}
-                            flex={1}
-                            style={{ minWidth: 0 }}
-                        >
-                            <FormArticleSelect
-                                name="article"
-                                supabase={supabase}
-                                control={control}
-                                errors={errors}
-                                label={t('reports.report.article')}
-                                required
-                                enabled={enabledSelects}
-                            />
-                            <FormFieldSelect
-                                name="field"
-                                supabase={supabase}
-                                control={control}
-                                errors={errors}
-                                label={t('reports.report.field')}
-                                required
-                                enabled={enabledSelects}
-                            />
-                        </Flex>
-                        <Flex
-                            vertical
-                            gap={8}
-                            flex={1}
-                            style={{ minWidth: 0 }}
-                        >
-                            <FormBaseSelectWithoutQuery
-                                name="special_feature"
-                                control={control}
-                                errors={errors}
-                                label={t('reports.report.specialFeature')}
-                                options={[{ label: t('reports.report.specialFeatures.barShears'), value: 'barShears' }]}
-                            />
-                        </Flex>
-                    </Flex>
+                    ></Flex>
                     <FormTextArea
                         name="annotation"
                         control={control}
                         errors={errors}
                         rows={3}
-                        label={t('reports.report.annotation')}
+                        label={t('timestamps.timestamp.annotation')}
                     />
                     <Divider />
                     {fields.map((field, index) => (
@@ -242,20 +171,24 @@ const AddGroupReportModal = ({ open, onClose }) => {
                                         {field.employee_label}
                                     </Typography.Text>
                                 </Flex>
-                                <FormInputNumber
-                                    name={`reports.${index}.quantity`}
-                                    control={control}
-                                    errors={errors}
-                                    label={t('reports.report.quantity')}
-                                    required
-                                    layout="horizontal"
-                                />
-                                <FormCheckbox
-                                    name={`reports.${index}.not_charging_piecework_wage`}
-                                    control={control}
-                                    errors={errors}
-                                    label={t('reports.report.notChargingPieceworkWage')}
-                                />
+                                <Flex gap={16}>
+                                    <FormTimeRangePicker
+                                        name={`timestamps.${index}.timeRange`}
+                                        label={t(`timestamps.timestamp.timeRange`)}
+                                        control={control}
+                                        errors={errors}
+                                        required
+                                    />
+                                    <FormInputNumber
+                                        name={`timestamps.${index}.break_in_min`}
+                                        control={control}
+                                        errors={errors}
+                                        label={t(`timestamps.timestamp.breaktime`)}
+                                        min={0}
+                                        step={15}
+                                        addonAfter="min"
+                                    />
+                                </Flex>
                                 <Button
                                     type="text"
                                     onClick={() => remove(index)}
@@ -271,4 +204,4 @@ const AddGroupReportModal = ({ open, onClose }) => {
     )
 }
 
-export default AddGroupReportModal
+export default AddGroupTimestampModal

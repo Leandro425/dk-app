@@ -53,7 +53,7 @@
                 "quantity": "Menge",
                 "specialFeature": "Besonderheit",
                 "annotation": "Anmerkung",
-                "notChargingPieceworkWage": "Nicht als Akkordlohn berechnen",
+                "notChargingPieceworkWage": "Akkordlohn nicht berechnen",
                 "modifiedBy": "Geändert von",
                 "modifiedAt": "Geändert am",
                 "createdBy": "Erstellt von",
@@ -71,7 +71,7 @@
             "quantity": "Menge",
             "specialFeature": "Besonderheit",
             "annotation": "Anmerkung",
-            "notChargingPieceworkWage": "Nicht als Akkordlohn berechnen",
+            "notChargingPieceworkWage": "Akkordlohn nicht berechnen",
             "specialFeatures": {
                 "barShears": "Stangenschere"
             }
@@ -82,6 +82,7 @@
         "description": "Hier können Sie Ihre Zeiterfassung anzeigen und verwalten.",
         "actions": {
             "add": "Zeitstempel hinzufügen",
+            "addGroup": "Gruppenzeitstempel hinzufügen",
             "edit": "Zeitstempel bearbeiten",
             "delete": "Zeitstempel löschen",
             "view": "Zeitstempel ansehen"
