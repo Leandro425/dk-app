@@ -15,7 +15,7 @@ const themeLight = {
     token: {
         colorPrimary: '#3e4532',
         colorInfo: '#3e4532',
-        colorError: '#d9003e',
+        colorError: '#df003fff',
         colorWarning: '#ffc932',
         colorSuccess: '#4eb03c',
     },
@@ -29,7 +29,8 @@ const themeLight = {
         Button: {
             colorPrimaryBorder: '#718159ff',
             colorPrimaryHover: '#718159ff',
-            primaryShadow: '0 2px 0 rgba(62, 69, 50, 1)',
+            primaryShadow: '0 0 0 rgba(0, 0, 0, 0)',
+            dangerShadow: '0 0 0 rgba(0, 0, 0, 0)',
         },
     },
 }
@@ -39,7 +40,7 @@ const themeDark = {
     token: {
         colorPrimary: '#3e4532',
         colorInfo: '#3e4532',
-        colorError: '#d9003e',
+        colorError: '#df003fff',
         colorWarning: '#ffc932',
         colorSuccess: '#4eb03c',
     },
@@ -54,7 +55,8 @@ const themeDark = {
         Button: {
             colorPrimaryBorder: '#718159ff',
             colorPrimaryHover: '#718159ff',
-            primaryShadow: '0 2px 0 rgba(57, 63, 46, 1)',
+            primaryShadow: '0 0 0 rgba(0, 0, 0, 0)',
+            dangerShadow: '0 0 0 rgba(0, 0, 0, 0)',
         },
         // Card: {
         //     colorBgContainer: '#2e3326ff',

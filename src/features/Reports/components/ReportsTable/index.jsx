@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Table } from 'antd'
+import { Button, Flex, Table, message } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
 import AddReportModal from '../modals/AddReportModal'
 import EditReportModal from '../modals/EditReportModal'
+import { DeleteFilled, EditFilled } from '@ant-design/icons'
 import {
     formatDate,
     formatDateTime,
@@ -18,6 +19,7 @@ import {
 const ReportsTable = () => {
     const { t } = useTranslation()
     const { supabase } = useSupabaseContext()
+    const [messageApi, contextHolder] = message.useMessage()
     const [pagination, setPagination] = useState({ current: 1, pageSize: 10 })
     const [openAddModal, setOpenAddModal] = useState(false)
     const [selectedReport, setSelectedReport] = useState(null)
@@ -43,11 +45,25 @@ const ReportsTable = () => {
         return { data, total: count }
     }
 
-    const { data, isLoading } = useQuery({
+    const { data, isLoading, refetch } = useQuery({
         queryKey: ['reports', pagination.current, pagination.pageSize],
         queryFn: fetchData,
         keepPreviousData: true,
     })
+
+    const handleDelete = async (reportId) => {
+        const { error } = await supabase.from('report').delete().eq('id', reportId)
+
+        messageApi.open({
+            type: error ? 'error' : 'success',
+            content: error ? t('common.messages.errorOccurred') : t('common.messages.successfullyUpdated'),
+            duration: 3,
+        })
+
+        if (!error) {
+            refetch()
+        }
+    }
 
     const columns = [
         { title: t('reports.table.columns.date'), dataIndex: 'date', key: 'date', render: formatDate },
@@ -111,22 +127,38 @@ const ReportsTable = () => {
             title: t('reports.table.columns.actions'),
             key: 'operation',
             fixed: 'right',
+            width: 100,
             render: (_, report) => (
-                <Button
-                    type="default"
-                    onClick={() => {
-                        setOpenEditModal(true)
-                        setSelectedReport(report)
-                    }}
+                <Flex
+                    gap={8}
+                    flex={1}
+                    justify="center"
+                    align="center"
                 >
-                    {t('common.actions.edit')}
-                </Button>
+                    <Button
+                        type="primary"
+                        icon={<EditFilled />}
+                        onClick={() => {
+                            setOpenEditModal(true)
+                            setSelectedReport(report)
+                        }}
+                    />
+                    <Button
+                        type="primary"
+                        icon={<DeleteFilled />}
+                        onClick={() => {
+                            handleDelete(report.id)
+                        }}
+                        danger
+                    />
+                </Flex>
             ),
         },
     ]
 
     return (
         <>
+            {contextHolder}
             <Flex
                 vertical
                 gap={16}
