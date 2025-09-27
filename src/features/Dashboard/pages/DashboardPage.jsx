@@ -6,9 +6,11 @@ import { HomeOutlined } from '@ant-design/icons'
 
 import { useNavigate } from 'react-router-dom'
 import Stats from '../components/Stats'
+import useSupervisorContext from '../../../context/user/supervisorContext'
 
 const DashboardPage = () => {
     const { t } = useTranslation()
+    const { supervisor } = useSupervisorContext()
     const navigate = useNavigate()
     return (
         <ContentFrame
@@ -28,7 +30,7 @@ const DashboardPage = () => {
                 vertical
                 gap={16}
             >
-                <Stats />
+                {supervisor?.is_admin && <Stats />}
                 <Row gutter={[16, 16]}>
                     <Col span={12}>
                         <Card
