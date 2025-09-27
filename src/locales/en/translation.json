@@ -82,6 +82,10 @@
         "description": "Here you can view and manage your time tracking.",
         "actions": {
             "add": "Add timestamp",
+            "addGroup": "Add group timestamp",
+            "quickSet": "Quick assignment",
+            "quickSetTimeRange": "Assign time range",
+            "quickSetBreaktime": "Assign break",
             "edit": "Edit timestamp",
             "delete": "Delete timestamp",
             "view": "View timestamp"
@@ -95,6 +99,7 @@
                 "startTime": "Start time",
                 "endTime": "End time",
                 "breaktime": "Break (minutes)",
+                "type": "Type",
                 "modifiedBy": "Modified by",
                 "modifiedAt": "Modified at",
                 "createdBy": "Created by",
@@ -108,7 +113,13 @@
             "date": "Date",
             "timeRange": "Time range",
             "breaktime": "Break (minutes)",
-            "annotation": "Note"
+            "type": "Type",
+            "annotation": "Note",
+            "types": {
+                "workingTime": "Working time",
+                "vacation": "Vacation",
+                "sickness": "Sickness"
+            }
         }
     },
     "deliveries": {

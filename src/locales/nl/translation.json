@@ -82,6 +82,10 @@
         "description": "Hier kunt u uw tijdregistratie bekijken en beheren.",
         "actions": {
             "add": "Tijdstempel toevoegen",
+            "addGroup": "Groepstijdstempel toevoegen",
+            "quickSet": "Snelle instelling",
+            "quickSetTimeRange": "Tijdspanne toewijzen",
+            "quickSetBreaktime": "Pauze toewijzen",
             "edit": "Tijdstempel bewerken",
             "delete": "Tijdstempel verwijderen",
             "view": "Tijdstempel bekijken"
@@ -95,6 +99,7 @@
                 "startTime": "Starttijd",
                 "endTime": "Eindtijd",
                 "breaktime": "Pauze (minuten)",
+                "type": "Type",
                 "modifiedBy": "Gewijzigd door",
                 "modifiedAt": "Gewijzigd op",
                 "createdBy": "Gemaakt door",
@@ -108,7 +113,13 @@
             "date": "Datum",
             "timeRange": "Tijdspanne",
             "breaktime": "Pauze (minuten)",
-            "annotation": "Opmerking"
+            "type": "Type",
+            "annotation": "Opmerking",
+            "types": {
+                "workingTime": "Werktijd",
+                "vacation": "Vakantie",
+                "sickness": "Ziekte"
+            }
         }
     },
     "deliveries": {

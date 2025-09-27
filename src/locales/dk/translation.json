@@ -82,6 +82,10 @@
         "description": "Her kan du se og administrere din tidsregistrering.",
         "actions": {
             "add": "Tilføj tidsstempel",
+            "addGroup": "Tilføj gruppetidsstempel",
+            "quickSet": "Hurtig tildeling",
+            "quickSetTimeRange": "Tildel tidsrum",
+            "quickSetBreaktime": "Tildel pause",
             "edit": "Rediger tidsstempel",
             "delete": "Slet tidsstempel",
             "view": "Se tidsstempel"
@@ -95,6 +99,7 @@
                 "startTime": "Starttid",
                 "endTime": "Sluttid",
                 "breaktime": "Pause (minutter)",
+                "type": "Type",
                 "modifiedBy": "Ændret af",
                 "modifiedAt": "Ændret den",
                 "createdBy": "Oprettet af",
@@ -108,7 +113,13 @@
             "date": "Dato",
             "timeRange": "Tidsrum",
             "breaktime": "Pause (minutter)",
-            "annotation": "Bemærkning"
+            "type": "Type",
+            "annotation": "Bemærkning",
+            "types": {
+                "workingTime": "Arbejdstid",
+                "vacation": "Ferie",
+                "sickness": "Sygdom"
+            }
         }
     },
     "deliveries": {

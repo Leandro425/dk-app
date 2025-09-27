@@ -82,6 +82,10 @@
         "description": "Tutaj możesz przeglądać i zarządzać swoimi rejestrami czasu.",
         "actions": {
             "add": "Dodaj wpis czasu",
+            "addGroup": "Dodaj grupowy wpis czasu",
+            "quickSet": "Szybka konfiguracja",
+            "quickSetTimeRange": "Przypisz przedział czasu",
+            "quickSetBreaktime": "Przypisz przerwę",
             "edit": "Edytuj wpis czasu",
             "delete": "Usuń wpis czasu",
             "view": "Zobacz wpis czasu"
@@ -95,6 +99,7 @@
                 "startTime": "Czas rozpoczęcia",
                 "endTime": "Czas zakończenia",
                 "breaktime": "Przerwa (minuty)",
+                "type": "Typ",
                 "modifiedBy": "Zmienione przez",
                 "modifiedAt": "Zmienione dnia",
                 "createdBy": "Utworzone przez",
@@ -108,7 +113,13 @@
             "date": "Data",
             "timeRange": "Przedział czasu",
             "breaktime": "Przerwa (minuty)",
-            "annotation": "Notatka"
+            "type": "Typ",
+            "annotation": "Notatka",
+            "types": {
+                "workingTime": "Czas pracy",
+                "vacation": "Urlop",
+                "sickness": "Choroba"
+            }
         }
     },
     "deliveries": {

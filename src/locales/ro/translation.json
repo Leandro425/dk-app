@@ -45,6 +45,8 @@
         "table": {
             "title": "Tabel rapoarte",
             "columns": {
+                "id": "ID",
+                "text": "Text",
                 "date": "Data",
                 "employee": "Angajat",
                 "order": "Comandă",
@@ -82,6 +84,10 @@
         "description": "Aici puteți vizualiza și gestiona ștampilele de timp.",
         "actions": {
             "add": "Adaugă ștampilă",
+            "addGroup": "Adaugă ștampilă de grup",
+            "quickSet": "Setare rapidă",
+            "quickSetTimeRange": "Atribuie interval de timp",
+            "quickSetBreaktime": "Atribuie pauză",
             "edit": "Editează ștampilă",
             "delete": "Șterge ștampilă",
             "view": "Vizualizează ștampilă"
@@ -95,6 +101,7 @@
                 "startTime": "Ora de început",
                 "endTime": "Ora de sfârșit",
                 "breaktime": "Pauză (minute)",
+                "type": "Tip",
                 "modifiedBy": "Modificat de",
                 "modifiedAt": "Modificat la",
                 "createdBy": "Creat de",
@@ -108,7 +115,13 @@
             "date": "Data",
             "timeRange": "Interval de timp",
             "breaktime": "Pauză (minute)",
-            "annotation": "Observație"
+            "type": "Tip",
+            "annotation": "Observație",
+            "types": {
+                "workingTime": "Timp de lucru",
+                "vacation": "Concediu",
+                "sickness": "Boală"
+            }
         }
     },
     "deliveries": {
