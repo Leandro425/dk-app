@@ -2,7 +2,7 @@ import { Form, TimePicker } from 'antd'
 
 import { Controller, useFormContext } from 'react-hook-form'
 
-const FormDatePicker = ({ name, label = '', required = false, rules = {} }) => {
+const FormTimeRangePicker = ({ name, label = '', required = false, rules = {} }) => {
     const { control } = useFormContext()
 
     return (
@@ -31,4 +31,4 @@ const FormDatePicker = ({ name, label = '', required = false, rules = {} }) => {
     )
 }
 
-export default FormDatePicker
+export default FormTimeRangePicker

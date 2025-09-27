@@ -181,7 +181,6 @@ const ReportsTable = () => {
                     <Button
                         type="primary"
                         onClick={() => setOpenAddGroupModal(true)}
-                        disabled
                     >
                         {t('reports.actions.addGroup')}
                     </Button>
@@ -189,7 +188,6 @@ const ReportsTable = () => {
                 <Flex
                     style={{
                         padding: 0,
-
                         borderRadius: 8,
                         overflow: 'hidden',
                     }}
