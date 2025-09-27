@@ -51,6 +51,7 @@
                 "field": "Felt",
                 "article": "Artikel",
                 "quantity": "Mængde",
+                "specialFeature": "Særligt kendetegn",
                 "annotation": "Bemærkning",
                 "notChargingPieceworkWage": "Ikke beregnet som akkordløn",
                 "modifiedBy": "Ændret af",
@@ -68,8 +69,12 @@
             "field": "Felt",
             "article": "Artikel",
             "quantity": "Mængde",
+            "specialFeature": "Særligt kendetegn",
             "annotation": "Bemærkning",
-            "notChargingPieceworkWage": "Ikke beregnet som akkordløn"
+            "notChargingPieceworkWage": "Ikke beregnet som akkordløn",
+            "specialFeatures": {
+                "barShears": "Stangsaks"
+            }
         }
     },
     "timestamps": {

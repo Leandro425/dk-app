@@ -15,6 +15,7 @@ import {
     getOrderLabel,
     getSupervisorLabel,
 } from '../../../../utils/helpers'
+import AddGroupReportModal from '../modals/AddGroupReportModal'
 
 const ReportsTable = () => {
     const { t } = useTranslation()
@@ -22,6 +23,7 @@ const ReportsTable = () => {
     const [messageApi, contextHolder] = message.useMessage()
     const [pagination, setPagination] = useState({ current: 1, pageSize: 10 })
     const [openAddModal, setOpenAddModal] = useState(false)
+    const [openAddGroupModal, setOpenAddGroupModal] = useState(false)
     const [selectedReport, setSelectedReport] = useState(null)
     const [openEditModal, setOpenEditModal] = useState(false)
 
@@ -56,7 +58,7 @@ const ReportsTable = () => {
 
         messageApi.open({
             type: error ? 'error' : 'success',
-            content: error ? t('common.messages.errorOccurred') : t('common.messages.successfullyUpdated'),
+            content: error ? t('common.messages.errorOccurred') : t('common.messages.successfullyDeleted'),
             duration: 3,
         })
 
@@ -92,6 +94,12 @@ const ReportsTable = () => {
             render: getArticleLabel,
         },
         { title: t('reports.table.columns.quantity'), dataIndex: 'quantity', key: 'quantity', align: 'right' },
+        {
+            title: t('reports.table.columns.specialFeature'),
+            dataIndex: 'special_feature',
+            key: 'special_feature',
+            render: (value) => (value ? t(`reports.report.specialFeatures.${value}`) : ''),
+        },
         { title: t('reports.table.columns.annotation'), dataIndex: 'annotation', key: 'annotation' },
         {
             title: t('reports.table.columns.notChargingPieceworkWage'),
@@ -172,6 +180,7 @@ const ReportsTable = () => {
                     </Button>
                     <Button
                         type="primary"
+                        onClick={() => setOpenAddGroupModal(true)}
                         disabled
                     >
                         {t('reports.actions.addGroup')}
@@ -206,6 +215,10 @@ const ReportsTable = () => {
             <AddReportModal
                 open={openAddModal}
                 onClose={() => setOpenAddModal(false)}
+            />
+            <AddGroupReportModal
+                open={openAddGroupModal}
+                onClose={() => setOpenAddGroupModal(false)}
             />
             <EditReportModal
                 open={openEditModal}

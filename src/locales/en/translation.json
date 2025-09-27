@@ -51,6 +51,7 @@
                 "field": "Field",
                 "article": "Article",
                 "quantity": "Quantity",
+                "specialFeature": "Special feature",
                 "annotation": "Note",
                 "notChargingPieceworkWage": "Do not charge as piecework wage",
                 "modifiedBy": "Modified by",
@@ -68,8 +69,12 @@
             "field": "Field",
             "article": "Article",
             "quantity": "Quantity",
+            "specialFeature": "Special feature",
             "annotation": "Note",
-            "notChargingPieceworkWage": "Do not charge as piecework wage"
+            "notChargingPieceworkWage": "Do not charge as piecework wage",
+            "specialFeatures": {
+                "barShears": "Bar shears"
+            }
         }
     },
     "timestamps": {

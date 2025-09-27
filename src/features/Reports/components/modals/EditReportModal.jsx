@@ -18,6 +18,7 @@ const getFormValues = (report) => {
         article: report?.article_id,
         order: report?.order_id,
         quantity: report?.quantity,
+        special_feature: report?.special_feature || null,
         annotation: report?.annotation || '',
         not_charging_piecework_wage: report?.not_charging_piecework_wage || false,
     }
@@ -53,6 +54,7 @@ const EditReportModal = ({ open, onClose, report }) => {
                     quantity: data.quantity,
                     modified_by_id: supervisor.id,
                     modified_at: dayjs().toISOString(),
+                    special_feature: data.special_feature || null,
                     annotation: data.annotation,
                     not_charging_piecework_wage: data.not_charging_piecework_wage,
                 },
@@ -60,7 +62,7 @@ const EditReportModal = ({ open, onClose, report }) => {
             .eq('id', report.id)
         messageApi.open({
             type: error ? 'error' : 'success',
-            content: error ? t('common.messages.errorOccurred') : t('common.messages.successfullyAdded'),
+            content: error ? t('common.messages.errorOccurred') : t('common.messages.successfullyUpdated'),
             duration: 3,
         })
         onClose()

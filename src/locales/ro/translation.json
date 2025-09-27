@@ -51,6 +51,7 @@
                 "field": "Câmp",
                 "article": "Articol",
                 "quantity": "Cantitate",
+                "specialFeature": "Caracteristică specială",
                 "annotation": "Observație",
                 "notChargingPieceworkWage": "Nu se calculează ca salariu pe bucată",
                 "modifiedBy": "Modificat de",
@@ -68,8 +69,12 @@
             "field": "Câmp",
             "article": "Articol",
             "quantity": "Cantitate",
+            "specialFeature": "Caracteristică specială",
             "annotation": "Observație",
-            "notChargingPieceworkWage": "Nu se calculează ca salariu pe bucată"
+            "notChargingPieceworkWage": "Nu se calculează ca salariu pe bucată",
+            "specialFeatures": {
+                "barShears": "Foarfece pentru bare"
+            }
         }
     },
     "timestamps": {

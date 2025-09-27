@@ -10,6 +10,7 @@ import FormArticleSelect from '../../../../components/hookForm/FormArticleSelect
 import FormFieldSelect from '../../../../components/hookForm/FormFieldSelect'
 import FormEmployeeSelect from '../../../../components/hookForm/FormEmployeeSelect'
 import FormStaffGroupSelect from '../../../../components/hookForm/FormStaffGroupSelect'
+import FormBaseSelectWithoutQuery from '../../../../components/hookForm/FormBaseSelectWithoutQuery'
 
 const FormReportFields = ({ control, errors, enabledSelects = false }) => {
     const { supabase } = useSupabaseContext()
@@ -80,6 +81,13 @@ const FormReportFields = ({ control, errors, enabledSelects = false }) => {
                 errors={errors}
                 label={t('reports.report.quantity')}
                 required
+            />
+            <FormBaseSelectWithoutQuery
+                name="special_feature"
+                control={control}
+                errors={errors}
+                label={t('reports.report.specialFeature')}
+                options={[{ label: t('reports.report.specialFeatures.barShears'), value: 'barShears' }]}
             />
             <FormTextArea
                 name="annotation"

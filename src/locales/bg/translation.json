@@ -51,6 +51,7 @@
                 "field": "Поле",
                 "article": "Артикул",
                 "quantity": "Количество",
+                "specialFeature": "Особеност",
                 "annotation": "Бележка",
                 "notChargingPieceworkWage": "Не начислявай като надница",
                 "modifiedBy": "Променено от",
@@ -68,8 +69,12 @@
             "field": "Поле",
             "article": "Артикул",
             "quantity": "Количество",
+            "specialFeature": "Особеност",
             "annotation": "Бележка",
-            "notChargingPieceworkWage": "Не начислявай като надница"
+            "notChargingPieceworkWage": "Не начислявай като надница",
+            "specialFeatures": {
+                "barShears": "Щангенножица"
+            }
         }
     },
     "timestamps": {

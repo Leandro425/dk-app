@@ -51,6 +51,7 @@
                 "field": "Veld",
                 "article": "Artikel",
                 "quantity": "Aantal",
+                "specialFeature": "Bijzonder kenmerk",
                 "annotation": "Opmerking",
                 "notChargingPieceworkWage": "Niet als stukloon berekenen",
                 "modifiedBy": "Gewijzigd door",
@@ -68,8 +69,12 @@
             "field": "Veld",
             "article": "Artikel",
             "quantity": "Aantal",
+            "specialFeature": "Bijzonder kenmerk",
             "annotation": "Opmerking",
-            "notChargingPieceworkWage": "Niet als stukloon berekenen"
+            "notChargingPieceworkWage": "Niet als stukloon berekenen",
+            "specialFeatures": {
+                "barShears": "Stangsaks"
+            }
         }
     },
     "timestamps": {

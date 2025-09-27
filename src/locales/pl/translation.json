@@ -51,6 +51,7 @@
                 "field": "Pole",
                 "article": "Artykuł",
                 "quantity": "Ilość",
+                "specialFeature": "Szczególna cecha",
                 "annotation": "Notatka",
                 "notChargingPieceworkWage": "Nie naliczać jako akord",
                 "modifiedBy": "Zmienione przez",
@@ -68,8 +69,12 @@
             "field": "Pole",
             "article": "Artykuł",
             "quantity": "Ilość",
+            "specialFeature": "Szczególna cecha",
             "annotation": "Notatka",
-            "notChargingPieceworkWage": "Nie naliczać jako akord"
+            "notChargingPieceworkWage": "Nie naliczać jako akord",
+            "specialFeatures": {
+                "barShears": "Nożyce do prętów"
+            }
         }
     },
     "timestamps": {

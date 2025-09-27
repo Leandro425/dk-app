@@ -51,6 +51,7 @@
                 "field": "Feld",
                 "article": "Artikel",
                 "quantity": "Menge",
+                "specialFeature": "Besonderheit",
                 "annotation": "Anmerkung",
                 "notChargingPieceworkWage": "Nicht als Akkordlohn berechnen",
                 "modifiedBy": "Geändert von",
@@ -68,8 +69,12 @@
             "field": "Feld",
             "article": "Artikel",
             "quantity": "Menge",
+            "specialFeature": "Besonderheit",
             "annotation": "Anmerkung",
-            "notChargingPieceworkWage": "Nicht als Akkordlohn berechnen"
+            "notChargingPieceworkWage": "Nicht als Akkordlohn berechnen",
+            "specialFeatures": {
+                "barShears": "Stangenschere"
+            }
         }
     },
     "timestamps": {

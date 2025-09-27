@@ -16,13 +16,12 @@ const getFormValues = () => {
         article: null,
         order: null,
         quantity: '',
-        special_feature: null,
         annotation: '',
         not_charging_piecework_wage: false,
     }
 }
 
-const AddReportModal = ({ open, onClose }) => {
+const AddGroupReportModal = ({ open, onClose }) => {
     const { t } = useTranslation()
     const { supervisor } = useSupervisorContext()
     const { supabase } = useSupabaseContext()
@@ -49,7 +48,6 @@ const AddReportModal = ({ open, onClose }) => {
                 order_id: data.order,
                 quantity: data.quantity,
                 created_by_id: supervisor.id,
-                special_feature: data.special_feature,
                 annotation: data.annotation,
                 not_charging_piecework_wage: data.not_charging_piecework_wage,
             },
@@ -70,22 +68,16 @@ const AddReportModal = ({ open, onClose }) => {
             {contextHolder}
             <Form layout="vertical">
                 <Modal
-                    title={t('reports.actions.add')}
+                    title={t('reports.actions.addGroup')}
                     open={open}
                     onOk={handleSubmit(onSubmit)}
                     confirmLoading={confirmLoading}
                     onCancel={onClose}
                     okButtonProps={{ disabled: !isDirty || !isValid || confirmLoading }}
-                >
-                    <FormReportFields
-                        control={control}
-                        errors={errors}
-                        enabledSelects={open}
-                    />
-                </Modal>
+                ></Modal>
             </Form>
         </FormProvider>
     )
 }
 
-export default AddReportModal
+export default AddGroupReportModal
