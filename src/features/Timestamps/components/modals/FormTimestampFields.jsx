@@ -11,6 +11,7 @@ import { useWatch } from 'react-hook-form'
 import FormDatePicker from '../../../../components/hookForm/FormDatePicker'
 import FormStaffGroupSelect from '../../../../components/hookForm/FormStaffGroupSelect'
 import FormEmployeeSelect from '../../../../components/hookForm/FormEmployeeSelect'
+import FormBaseSelectWithoutQuery from '../../../../components/hookForm/FormBaseSelectWithoutQuery'
 
 const FormTimestampFields = ({ control, errors, enabledSelects = false }) => {
     const { supabase } = useSupabaseContext()
@@ -67,6 +68,18 @@ const FormTimestampFields = ({ control, errors, enabledSelects = false }) => {
                     addonAfter="min"
                 />
             </Flex>
+            <FormBaseSelectWithoutQuery
+                name="type"
+                control={control}
+                errors={errors}
+                label={t('timestamps.timestamp.type')}
+                options={[
+                    { label: t('timestamps.timestamp.types.workingTime'), value: 'workingTime' },
+                    { label: t('timestamps.timestamp.types.vacation'), value: 'vacation' },
+                    { label: t('timestamps.timestamp.types.sickness'), value: 'sickness' },
+                ]}
+                required
+            />
             <FormTextArea
                 name="annotation"
                 control={control}

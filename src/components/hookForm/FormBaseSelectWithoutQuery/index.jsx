@@ -3,7 +3,7 @@ import { Form, Select } from 'antd'
 import { Controller, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
-const FormBaseSelectWithoutQuery = ({ name, label = '', required = false, rules = {}, options = [] }) => {
+const FormBaseSelectWithoutQuery = ({ name, label = '', required = false, rules = {}, options = [], style = {} }) => {
     const { control } = useFormContext()
     const { t } = useTranslation()
 
@@ -28,6 +28,7 @@ const FormBaseSelectWithoutQuery = ({ name, label = '', required = false, rules 
                         onChange={(value) => onChange(value)}
                         options={options}
                         allowClear
+                        style={style}
                     />
                 </Form.Item>
             )}

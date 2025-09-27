@@ -16,6 +16,7 @@ const getFormValues = () => {
         date: dayjs(),
         timeRange: [null, null],
         break_in_min: '',
+        type: 'workingTime',
         annotation: '',
     }
 }
@@ -46,6 +47,7 @@ const AddTimestampModal = ({ open, onClose }) => {
                 employee_id: data.employee,
                 start_time: startTime,
                 end_time: endTime,
+                type: data.type,
                 break_in_min: data.break_in_min ? parseFloat(data.break_in_min) : null,
                 created_by_id: supervisor.id,
                 annotation: data.annotation,

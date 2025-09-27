@@ -87,6 +87,12 @@ const TimestampsTable = () => {
             key: 'break_in_min',
             align: 'right',
         },
+        {
+            title: t('timestamps.table.columns.type'),
+            dataIndex: 'type',
+            key: 'type',
+            render: (value) => (value ? t(`timestamps.timestamp.types.${value}`) : ''),
+        },
         { title: t('timestamps.table.columns.annotation'), dataIndex: 'annotation', key: 'annotation' },
         {
             title: t('timestamps.table.columns.modifiedBy'),

@@ -1,4 +1,4 @@
-import { Button, Divider, Flex, Form, message, Modal, Typography } from 'antd'
+import { Button, Divider, Flex, Form, message, Modal, Typography, TimePicker, InputNumber } from 'antd'
 import { FormProvider, useFieldArray, useForm, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
@@ -13,6 +13,7 @@ import FormInputNumber from '../../../../components/hookForm/FormInputNumber'
 import FormTextArea from '../../../../components/hookForm/FormTextArea'
 import { CloseOutlined } from '@ant-design/icons'
 import FormTimeRangePicker from '../../../../components/hookForm/FormTimeRangePicker'
+import FormBaseSelectWithoutQuery from '../../../../components/hookForm/FormBaseSelectWithoutQuery'
 const formatTimeString = 'HH:mm'
 const getFormValues = () => {
     return {
@@ -29,6 +30,7 @@ const AddGroupTimestampModal = ({ open, onClose }) => {
     const queryClient = useQueryClient()
     const [messageApi, contextHolder] = message.useMessage()
     const [confirmLoading, setConfirmLoading] = useState(false)
+
     const form = useForm({ mode: 'onChange', defaultValues: getFormValues() })
 
     const {
@@ -108,13 +110,14 @@ const AddGroupTimestampModal = ({ open, onClose }) => {
                         duration: 3,
                     })
                 } else {
-                    const imestampEntries = data.map((emp) => ({
+                    const timestampEntries = data.map((emp) => ({
                         employee: emp.id,
                         employee_label: emp.staff_number + ' | ' + emp.firstname + ' ' + emp.lastname,
                         timeRange: [null, null],
+                        type: 'workingTime',
                         break_in_min: null,
                     }))
-                    setValue('timestamps', imestampEntries)
+                    setValue('timestamps', timestampEntries)
                 }
             })
         }
@@ -131,7 +134,7 @@ const AddGroupTimestampModal = ({ open, onClose }) => {
                     confirmLoading={confirmLoading}
                     onCancel={onClose}
                     okButtonProps={{ disabled: !isDirty || !isValid || confirmLoading || fields.length === 0 }}
-                    width={850}
+                    width={900}
                 >
                     <FormStaffGroupSelect
                         name="staffGroup"
@@ -141,10 +144,6 @@ const AddGroupTimestampModal = ({ open, onClose }) => {
                         label={t('timestamps.timestamp.staffGroup')}
                         enabled={enabledSelects}
                     />
-                    <Flex
-                        gap={16}
-                        flex={1}
-                    ></Flex>
                     <FormTextArea
                         name="annotation"
                         control={control}
@@ -152,6 +151,12 @@ const AddGroupTimestampModal = ({ open, onClose }) => {
                         rows={3}
                         label={t('timestamps.timestamp.annotation')}
                     />
+                    <Divider />
+                    <QuickSetBar
+                        setValue={setValue}
+                        fieldLength={fields.length}
+                    />
+
                     <Divider />
                     {fields.map((field, index) => (
                         <Flex
@@ -174,7 +179,7 @@ const AddGroupTimestampModal = ({ open, onClose }) => {
                                 <Flex gap={16}>
                                     <FormTimeRangePicker
                                         name={`timestamps.${index}.timeRange`}
-                                        label={t(`timestamps.timestamp.timeRange`)}
+                                        label={t('timestamps.timestamp.timeRange')}
                                         control={control}
                                         errors={errors}
                                         required
@@ -187,6 +192,23 @@ const AddGroupTimestampModal = ({ open, onClose }) => {
                                         min={0}
                                         step={15}
                                         addonAfter="min"
+                                        style={{ width: 150 }}
+                                    />
+                                    <FormBaseSelectWithoutQuery
+                                        name={`timestamps.${index}.type`}
+                                        control={control}
+                                        errors={errors}
+                                        label={t('timestamps.timestamp.type')}
+                                        options={[
+                                            {
+                                                label: t('timestamps.timestamp.types.workingTime'),
+                                                value: 'workingTime',
+                                            },
+                                            { label: t('timestamps.timestamp.types.vacation'), value: 'vacation' },
+                                            { label: t('timestamps.timestamp.types.sickness'), value: 'sickness' },
+                                        ]}
+                                        required
+                                        style={{ minWidth: 150 }}
                                     />
                                 </Flex>
                                 <Button
@@ -205,3 +227,58 @@ const AddGroupTimestampModal = ({ open, onClose }) => {
 }
 
 export default AddGroupTimestampModal
+
+const QuickSetBar = ({ setValue, fieldLength }) => {
+    const { t } = useTranslation()
+    const [timeRanges, setTimeRanges] = useState([dayjs('07:00', 'HH:mm'), dayjs('16:00', 'HH:mm')])
+    const [breaktime, setBreaktime] = useState(30)
+
+    return (
+        <Flex
+            gap={8}
+            flex={1}
+            vertical
+        >
+            <Typography.Text>{t('timestamps.actions.quickSet')}</Typography.Text>
+            <Flex
+                gap={16}
+                flex={1}
+            >
+                <TimePicker.RangePicker
+                    onChange={(range) => setTimeRanges(range)}
+                    value={timeRanges}
+                    format="HH:mm"
+                    minuteStep={15}
+                    style={{ width: '100%' }}
+                />
+                <Button
+                    type="primary"
+                    onClick={() => {
+                        for (let index = 0; index < fieldLength; index++) {
+                            setValue(`timestamps.${index}.timeRange`, timeRanges)
+                        }
+                    }}
+                >
+                    {t('timestamps.actions.quickSetTimeRange')}
+                </Button>
+                <InputNumber
+                    min={0}
+                    step={15}
+                    addonAfter="min"
+                    style={{ width: 600 }}
+                    onChange={(value) => setBreaktime(value)}
+                />
+                <Button
+                    type="primary"
+                    onClick={() => {
+                        for (let index = 0; index < fieldLength; index++) {
+                            setValue(`timestamps.${index}.break_in_min`, breaktime)
+                        }
+                    }}
+                >
+                    {t('timestamps.actions.quickSetBreaktime')}
+                </Button>
+            </Flex>
+        </Flex>
+    )
+}

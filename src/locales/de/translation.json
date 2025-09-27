@@ -83,6 +83,9 @@
         "actions": {
             "add": "Zeitstempel hinzufügen",
             "addGroup": "Gruppenzeitstempel hinzufügen",
+            "quickSet": "Schnellzuweisung",
+            "quickSetTimeRange": "Zeitraum zuweisen",
+            "quickSetBreaktime": "Pause zuweisen",
             "edit": "Zeitstempel bearbeiten",
             "delete": "Zeitstempel löschen",
             "view": "Zeitstempel ansehen"
@@ -96,6 +99,7 @@
                 "startTime": "Startzeit",
                 "endTime": "Endzeit",
                 "breaktime": "Pause (Minuten)",
+                "type": "Typ",
                 "modifiedBy": "Geändert von",
                 "modifiedAt": "Geändert am",
                 "createdBy": "Erstellt von",
@@ -109,7 +113,13 @@
             "date": "Datum",
             "timeRange": "Zeitraum",
             "breaktime": "Pause (Minuten)",
-            "annotation": "Anmerkung"
+            "type": "Typ",
+            "annotation": "Anmerkung",
+            "types": {
+                "workingTime": "Arbeitszeit",
+                "vacation": "Urlaub",
+                "sickness": "Krankheit"
+            }
         }
     },
     "deliveries": {

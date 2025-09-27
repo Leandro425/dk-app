@@ -20,6 +20,7 @@ const getFormValues = (timestamp) => {
         timeRange: [timeStringToDayjs(timestamp?.start_time), timeStringToDayjs(timestamp?.end_time)],
         break_in_min: timestamp?.break_in_min || '',
         annotation: timestamp?.annotation || '',
+        type: timestamp?.type || '',
     }
 }
 
@@ -50,6 +51,7 @@ const EditTimestampModal = ({ open, onClose, timestamp }) => {
                     start_time: data.timeRange && data.timeRange[0] ? data.timeRange[0].format('HH:mm') : null,
                     end_time: data.timeRange && data.timeRange[1] ? data.timeRange[1].format('HH:mm') : null,
                     break_in_min: data.break_in_min ? parseFloat(data.break_in_min) : null,
+                    type: data.type,
                     modified_by_id: supervisor.id,
                     modified_at: dayjs().toISOString(),
                     annotation: data.annotation,
