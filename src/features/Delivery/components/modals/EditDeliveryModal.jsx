@@ -40,7 +40,7 @@ const EditDeliveryModal = ({ open, onClose, delivery }) => {
     const onSubmit = async (data) => {
         setConfirmLoading(true)
         const { error } = await supabase
-            .from('delivery_position')
+            .from('delivery_item')
             .update([
                 {
                     date: data.date.format('YYYY-MM-DD'),
