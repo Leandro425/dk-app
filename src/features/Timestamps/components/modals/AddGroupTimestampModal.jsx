@@ -14,6 +14,7 @@ import FormTextArea from '../../../../components/hookForm/FormTextArea'
 import { CloseOutlined } from '@ant-design/icons'
 import FormTimeRangePicker from '../../../../components/hookForm/FormTimeRangePicker'
 import FormBaseSelectWithoutQuery from '../../../../components/hookForm/FormBaseSelectWithoutQuery'
+import FormDatePicker from '../../../../components/hookForm/FormDatePicker'
 const formatTimeString = 'HH:mm'
 const getFormValues = () => {
     return {
@@ -143,6 +144,13 @@ const AddGroupTimestampModal = ({ open, onClose }) => {
                         errors={errors}
                         label={t('timestamps.timestamp.staffGroup')}
                         enabled={enabledSelects}
+                    />
+                    <FormDatePicker
+                        name="date"
+                        label={t('timestamps.timestamp.date')}
+                        control={control}
+                        errors={errors}
+                        required
                     />
                     <FormTextArea
                         name="annotation"

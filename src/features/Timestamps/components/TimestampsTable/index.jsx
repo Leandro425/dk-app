@@ -50,7 +50,7 @@ const TimestampsTable = () => {
 
         messageApi.open({
             type: error ? 'error' : 'success',
-            content: error ? t('common.messages.errorOccurred') : t('common.messages.successfullyUpdated'),
+            content: error ? t('common.messages.errorOccurred') : t('common.messages.successfullyDeleted'),
             duration: 3,
         })
 
