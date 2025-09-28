@@ -29,7 +29,7 @@ const DeliveriesTable = () => {
         const from = (page - 1) * pageSize
         const to = page * pageSize - 1
         const { data, count, error } = await supabase
-            .from('delivery')
+            .from('delivery_position')
             .select(
                 '*, order:order(*), field:field(*), article:article(*), created_by:supervisor!delivery_created_by_id_fkey(*), modified_by:supervisor!delivery_modified_by_id_fkey(*)',
                 {
@@ -51,7 +51,7 @@ const DeliveriesTable = () => {
     })
 
     const handleDelete = async (deliveryId) => {
-        const { error } = await supabase.from('delivery').delete().eq('id', deliveryId)
+        const { error } = await supabase.from('delivery_position').delete().eq('id', deliveryId)
 
         messageApi.open({
             type: error ? 'error' : 'success',
