@@ -1,4 +1,4 @@
-import { Button, Divider, Flex, Form, message, Modal, Typography } from 'antd'
+import { Button, Divider, Flex, Form, message, Modal, Statistic, Typography } from 'antd'
 import { FormProvider, useFieldArray, useForm, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
@@ -216,6 +216,7 @@ const AddGroupReportModal = ({ open, onClose }) => {
                                 label={t('reports.report.specialFeature')}
                                 options={[{ label: t('reports.report.specialFeatures.barShears'), value: 'barShears' }]}
                             />
+                            <TotalQuantityDisplay control={control} />
                         </Flex>
                     </Flex>
                     <FormTextArea
@@ -274,3 +275,18 @@ const AddGroupReportModal = ({ open, onClose }) => {
 }
 
 export default AddGroupReportModal
+
+const TotalQuantityDisplay = ({ control }) => {
+    const { t } = useTranslation()
+
+    const reports = useWatch({ control, name: 'reports' }) || []
+    const totalQuantity = reports.reduce((total, { quantity }) => total + (Number(quantity) || 0), 0)
+
+    return (
+        <Statistic
+            title={t('reports.report.quantity')}
+            value={totalQuantity}
+            precision={2}
+        />
+    )
+}
