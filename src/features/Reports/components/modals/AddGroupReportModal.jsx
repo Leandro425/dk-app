@@ -27,6 +27,7 @@ const getFormValues = () => {
         order: null,
         quantity: '',
         annotation: '',
+        special_feature: null,
         reports: [],
     }
 }
@@ -65,6 +66,7 @@ const AddGroupReportModal = ({ open, onClose }) => {
             order_id: data.order,
             quantity: report.quantity,
             created_by_id: supervisor.id,
+            special_feature: data.special_feature,
             annotation: data.annotation,
             not_charging_piecework_wage: report.not_charging_piecework_wage,
         }))
