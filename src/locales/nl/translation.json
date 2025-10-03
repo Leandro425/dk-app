@@ -40,6 +40,7 @@
             "addGroup": "Groepsrapport toevoegen",
             "edit": "Rapport bewerken",
             "delete": "Rapport verwijderen",
+            "deleteConfirmation": "Wilt u dit rapport echt verwijderen?",
             "view": "Rapport bekijken"
         },
         "table": {
@@ -88,6 +89,7 @@
             "quickSetBreaktime": "Pauze toewijzen",
             "edit": "Tijdstempel bewerken",
             "delete": "Tijdstempel verwijderen",
+            "deleteConfirmation": "Wilt u dit tijdstempel echt verwijderen?",
             "view": "Tijdstempel bekijken"
         },
         "table": {
@@ -129,6 +131,7 @@
             "add": "Levering toevoegen",
             "edit": "Levering bewerken",
             "delete": "Levering verwijderen",
+            "deleteConfirmation": "Wilt u deze levering echt verwijderen?",
             "view": "Levering bekijken"
         },
         "table": {

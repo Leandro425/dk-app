@@ -40,6 +40,7 @@
             "addGroup": "Gruppenbericht hinzufügen",
             "edit": "Bericht bearbeiten",
             "delete": "Bericht löschen",
+            "deleteConfirmation": "Möchten Sie diesen Bericht wirklich löschen?",
             "view": "Bericht ansehen"
         },
         "table": {
@@ -88,6 +89,7 @@
             "quickSetBreaktime": "Pause zuweisen",
             "edit": "Zeitstempel bearbeiten",
             "delete": "Zeitstempel löschen",
+            "deleteConfirmation": "Möchten Sie diesen Zeitstempel wirklich löschen?",
             "view": "Zeitstempel ansehen"
         },
         "table": {
@@ -129,6 +131,7 @@
             "add": "Lieferung hinzufügen",
             "edit": "Lieferung bearbeiten",
             "delete": "Lieferung löschen",
+            "deleteConfirmation": "Möchten Sie diese Lieferung wirklich löschen?",
             "view": "Lieferung ansehen"
         },
         "table": {

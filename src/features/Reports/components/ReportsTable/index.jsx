@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Table, message } from 'antd'
+import { Button, Flex, Popconfirm, Table, message } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
 import AddReportModal from '../modals/AddReportModal'
@@ -151,14 +151,20 @@ const ReportsTable = () => {
                             setSelectedReport(report)
                         }}
                     />
-                    <Button
-                        type="primary"
-                        icon={<DeleteFilled />}
-                        onClick={() => {
-                            handleDelete(report.id)
-                        }}
-                        danger
-                    />
+                    <Popconfirm
+                        title={t('reports.actions.delete')}
+                        description={t('reports.actions.deleteConfirmation')}
+                        onConfirm={() => handleDelete(report.id)}
+                        onCancel={() => {}}
+                        okText={t('common.yes')}
+                        cancelText={t('common.no')}
+                    >
+                        <Button
+                            type="primary"
+                            icon={<DeleteFilled />}
+                            danger
+                        />
+                    </Popconfirm>
                 </Flex>
             ),
         },

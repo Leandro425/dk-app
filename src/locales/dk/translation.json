@@ -40,6 +40,7 @@
             "addGroup": "Tilføj grupprapport",
             "edit": "Rediger rapport",
             "delete": "Slet rapport",
+            "deleteConfirmation": "Vil du virkelig slette denne rapport?",
             "view": "Se rapport"
         },
         "table": {
@@ -88,6 +89,7 @@
             "quickSetBreaktime": "Tildel pause",
             "edit": "Rediger tidsstempel",
             "delete": "Slet tidsstempel",
+            "deleteConfirmation": "Vil du virkelig slette dette tidsstempel?",
             "view": "Se tidsstempel"
         },
         "table": {
@@ -129,6 +131,7 @@
             "add": "Tilføj levering",
             "edit": "Rediger levering",
             "delete": "Slet levering",
+            "deleteConfirmation": "Vil du virkelig slette denne levering?",
             "view": "Se levering"
         },
         "table": {

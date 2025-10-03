@@ -40,6 +40,7 @@
             "addGroup": "Dodaj raport grupowy",
             "edit": "Edytuj raport",
             "delete": "Usuń raport",
+            "deleteConfirmation": "Czy na pewno chcesz usunąć ten raport?",
             "view": "Zobacz raport"
         },
         "table": {
@@ -88,6 +89,7 @@
             "quickSetBreaktime": "Przypisz przerwę",
             "edit": "Edytuj wpis czasu",
             "delete": "Usuń wpis czasu",
+            "deleteConfirmation": "Czy na pewno chcesz usunąć ten wpis czasu?",
             "view": "Zobacz wpis czasu"
         },
         "table": {
@@ -129,6 +131,7 @@
             "add": "Dodaj dostawę",
             "edit": "Edytuj dostawę",
             "delete": "Usuń dostawę",
+            "deleteConfirmation": "Czy na pewno chcesz usunąć tę dostawę?",
             "view": "Zobacz dostawę"
         },
         "table": {

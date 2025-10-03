@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Table, message } from 'antd'
+import { Button, Flex, Popconfirm, Table, message } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
 import AddTimestampModal from '../modals/AddTimestampModal'
@@ -138,14 +138,20 @@ const TimestampsTable = () => {
                             setSelectedTimestamp(timestamp)
                         }}
                     />
-                    <Button
-                        type="primary"
-                        icon={<DeleteFilled />}
-                        onClick={() => {
-                            handleDelete(timestamp.id)
-                        }}
-                        danger
-                    />
+                    <Popconfirm
+                        title={t('timestamps.actions.delete')}
+                        description={t('timestamps.actions.deleteConfirmation')}
+                        onConfirm={() => handleDelete(timestamp.id)}
+                        onCancel={() => {}}
+                        okText={t('common.yes')}
+                        cancelText={t('common.no')}
+                    >
+                        <Button
+                            type="primary"
+                            icon={<DeleteFilled />}
+                            danger
+                        />
+                    </Popconfirm>
                 </Flex>
             ),
         },

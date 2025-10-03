@@ -40,6 +40,7 @@
             "addGroup": "Adaugă raport de grup",
             "edit": "Editează raport",
             "delete": "Șterge raport",
+            "deleteConfirmation": "Sunteți sigur că doriți să ștergeți acest raport?",
             "view": "Vizualizează raport"
         },
         "table": {
@@ -90,6 +91,7 @@
             "quickSetBreaktime": "Atribuie pauză",
             "edit": "Editează ștampilă",
             "delete": "Șterge ștampilă",
+            "deleteConfirmation": "Sunteți sigur că doriți să ștergeți această ștampilă?",
             "view": "Vizualizează ștampilă"
         },
         "table": {
@@ -131,6 +133,7 @@
             "add": "Adaugă livrare",
             "edit": "Editează livrare",
             "delete": "Șterge livrare",
+            "deleteConfirmation": "Sunteți sigur că doriți să ștergeți această livrare?",
             "view": "Vizualizează livrare"
         },
         "table": {

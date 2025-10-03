@@ -40,6 +40,7 @@
             "addGroup": "Add group report",
             "edit": "Edit report",
             "delete": "Delete report",
+            "deleteConfirmation": "Do you really want to delete this report?",
             "view": "View report"
         },
         "table": {
@@ -88,6 +89,7 @@
             "quickSetBreaktime": "Assign break",
             "edit": "Edit timestamp",
             "delete": "Delete timestamp",
+            "deleteConfirmation": "Do you really want to delete this timestamp?",
             "view": "View timestamp"
         },
         "table": {
@@ -129,6 +131,7 @@
             "add": "Add delivery",
             "edit": "Edit delivery",
             "delete": "Delete delivery",
+            "deleteConfirmation": "Do you really want to delete this delivery?",
             "view": "View delivery"
         },
         "table": {

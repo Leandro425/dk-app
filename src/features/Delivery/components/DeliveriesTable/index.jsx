@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Table, message } from 'antd'
+import { Button, Flex, Popconfirm, Table, message } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
 import AddDeliveryModal from '../modals/AddDeliveryModal'
@@ -130,14 +130,20 @@ const DeliveriesTable = () => {
                             setSelectedDelivery(delivery)
                         }}
                     />
-                    <Button
-                        type="primary"
-                        icon={<DeleteFilled />}
-                        onClick={() => {
-                            handleDelete(delivery.id)
-                        }}
-                        danger
-                    />
+                    <Popconfirm
+                        title={t('deliveries.actions.delete')}
+                        description={t('deliveries.actions.deleteConfirmation')}
+                        onConfirm={() => handleDelete(delivery.id)}
+                        onCancel={() => {}}
+                        okText={t('common.yes')}
+                        cancelText={t('common.no')}
+                    >
+                        <Button
+                            type="primary"
+                            icon={<DeleteFilled />}
+                            danger
+                        />
+                    </Popconfirm>
                 </Flex>
             ),
         },
