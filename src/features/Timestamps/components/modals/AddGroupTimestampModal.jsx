@@ -118,7 +118,7 @@ const AddGroupTimestampModal = ({ open, onClose }) => {
                         type: 'workingTime',
                         break_in_min: null,
                     }))
-                    setValue('timestamps', timestampEntries)
+                    setValue('timestamps', timestampEntries, { shouldDirty: true, shouldValidate: true })
                 }
             })
         }
@@ -164,7 +164,6 @@ const AddGroupTimestampModal = ({ open, onClose }) => {
                         setValue={setValue}
                         fieldLength={fields.length}
                     />
-
                     <Divider />
                     {fields.map((field, index) => (
                         <Flex
@@ -263,7 +262,10 @@ const QuickSetBar = ({ setValue, fieldLength }) => {
                     type="primary"
                     onClick={() => {
                         for (let index = 0; index < fieldLength; index++) {
-                            setValue(`timestamps.${index}.timeRange`, timeRanges)
+                            setValue(`timestamps.${index}.timeRange`, timeRanges, {
+                                shouldDirty: true,
+                                shouldValidate: true,
+                            })
                         }
                     }}
                 >

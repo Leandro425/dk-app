@@ -10,7 +10,12 @@ const FormTimeRangePicker = ({ name, label = '', required = false, rules = {} })
             name={name}
             control={control}
             rules={{
-                required,
+                validate: (val) => {
+                    if (required) {
+                        return Array.isArray(val) && val[0] && val[1] ? true : 'Please select a time range'
+                    }
+                    return true
+                },
                 ...rules,
             }}
             render={({ field: { onChange, value } }) => (
