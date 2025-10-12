@@ -1,29 +1,27 @@
 import { Form, message, Modal } from 'antd'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useQueryClient } from '@tanstack/react-query'
-import dayjs from 'dayjs'
-import FormDeliveryFields from './FormDeliveryFields'
-import useSupervisorContext from '../../../../context/user/supervisorContext'
+import FormDeliveryItemFields from './FormDeliveryItemFields'
 
-const getFormValues = () => {
+const getFormValues = (deliveryItem) => {
     return {
-        date: dayjs(),
-        customer: null,
-        annotation: '',
+        field: deliveryItem?.field_id,
+        article: deliveryItem?.article_id,
+        order: deliveryItem?.order_id,
+        quantity: deliveryItem?.quantity,
     }
 }
 
-const AddDeliveryModal = ({ open, onClose }) => {
+const EditDeliveryItemModal = ({ open, onClose, deliveryId, deliveryItem }) => {
     const { t } = useTranslation()
-    const { supervisor } = useSupervisorContext()
     const { supabase } = useSupabaseContext()
     const queryClient = useQueryClient()
     const [messageApi, contextHolder] = message.useMessage()
     const [confirmLoading, setConfirmLoading] = useState(false)
-    const form = useForm({ mode: 'onChange', defaultValues: getFormValues() })
+    const form = useForm({ mode: 'onChange', defaultValues: getFormValues(deliveryItem) })
 
     const {
         control,
@@ -34,14 +32,17 @@ const AddDeliveryModal = ({ open, onClose }) => {
 
     const onSubmit = async (data) => {
         setConfirmLoading(true)
-        const { error } = await supabase.from('delivery').insert([
-            {
-                date: dayjs().format('YYYY-MM-DD'),
-                customer_id: data.customer,
-                annotation: data.annotation,
-                created_by_id: supervisor.id,
-            },
-        ])
+        const { error } = await supabase
+            .from('delivery_item')
+            .update([
+                {
+                    field_id: data.field,
+                    article_id: data.article,
+                    order_id: data.order,
+                    quantity: data.quantity,
+                },
+            ])
+            .eq('id', deliveryItem.id)
         messageApi.open({
             type: error ? 'error' : 'success',
             content: error ? t('common.messages.errorOccurred') : t('common.messages.successfullyAdded'),
@@ -50,22 +51,28 @@ const AddDeliveryModal = ({ open, onClose }) => {
         onClose()
         setConfirmLoading(false)
         reset()
-        queryClient.invalidateQueries({ queryKey: ['deliveries'] })
+        queryClient.invalidateQueries({ queryKey: ['deliveries', deliveryId, 'items'] })
     }
+
+    useEffect(() => {
+        if (deliveryItem) {
+            reset(getFormValues(deliveryItem))
+        }
+    }, [deliveryItem, reset])
 
     return (
         <FormProvider {...form}>
             {contextHolder}
             <Form layout="vertical">
                 <Modal
-                    title={t('deliveries.actions.add')}
+                    title={t('deliveries.items.actions.edit')}
                     open={open}
                     onOk={handleSubmit(onSubmit)}
                     confirmLoading={confirmLoading}
                     onCancel={onClose}
                     okButtonProps={{ disabled: !isDirty || !isValid || confirmLoading }}
                 >
-                    <FormDeliveryFields
+                    <FormDeliveryItemFields
                         control={control}
                         errors={errors}
                         enabledSelects={open}
@@ -76,4 +83,4 @@ const AddDeliveryModal = ({ open, onClose }) => {
     )
 }
 
-export default AddDeliveryModal
+export default EditDeliveryItemModal

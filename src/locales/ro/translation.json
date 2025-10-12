@@ -139,11 +139,9 @@
         "table": {
             "title": "Tabel livrări",
             "columns": {
+                "number": "Numărul",
                 "date": "Data",
-                "order": "Comandă",
-                "field": "Câmp",
-                "article": "Articol",
-                "quantity": "Cantitate",
+                "customer": "Client",
                 "annotation": "Observație",
                 "modifiedBy": "Modificat de",
                 "modifiedAt": "Modificat la",
@@ -153,12 +151,41 @@
             }
         },
         "delivery": {
-            "order": "Comandă",
+            "title": "Livrare",
+            "description": "Aici puteți vizualiza și gestiona livrarea.",
+            "number": "Numărul",
             "date": "Data",
-            "field": "Câmp",
-            "article": "Articol",
-            "quantity": "Cantitate",
+            "customer": "Client",
             "annotation": "Observație"
+        },
+        "items": {
+            "title": "Articole de livrare",
+            "actions": {
+                "add": "Adaugă articol de livrare",
+                "edit": "Editează articol de livrare",
+                "delete": "Șterge articol de livrare",
+                "deleteConfirmation": "Sunteți sigur că doriți să ștergeți acest articol de livrare?",
+                "view": "Vizualizează articol de livrare"
+            },
+            "table": {
+                "title": "Tabel articole de livrare",
+                "columns": {
+                    "order": "Comandă",
+                    "field": "Câmp",
+                    "article": "Articol",
+                    "quantity": "Cantitate",
+                    "createdAt": "Creat la",
+                    "actions": "Acțiuni"
+                }
+            },
+            "item": {
+                "order": "Comandă",
+                "date": "Data",
+                "field": "Câmp",
+                "article": "Articol",
+                "quantity": "Cantitate",
+                "annotation": "Observație"
+            }
         }
     },
     "homepage": {

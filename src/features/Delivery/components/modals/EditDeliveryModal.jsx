@@ -13,10 +13,7 @@ import useSupervisorContext from '../../../../context/user/supervisorContext'
 const getFormValues = (delivery) => {
     return {
         date: dateStringToDayjs(delivery?.date),
-        field: delivery?.field_id,
-        article: delivery?.article_id,
-        order: delivery?.order_id,
-        quantity: delivery?.quantity,
+        customer: delivery?.customer_id,
         annotation: delivery?.annotation || '',
     }
 }
@@ -40,14 +37,11 @@ const EditDeliveryModal = ({ open, onClose, delivery }) => {
     const onSubmit = async (data) => {
         setConfirmLoading(true)
         const { error } = await supabase
-            .from('delivery_item')
+            .from('delivery')
             .update([
                 {
                     date: data.date.format('YYYY-MM-DD'),
-                    field_id: data.field,
-                    article_id: data.article,
-                    order_id: data.order,
-                    quantity: data.quantity,
+                    customer_id: data.customer,
                     modified_by_id: supervisor.id,
                     modified_at: dayjs().toISOString(),
                     annotation: data.annotation,

@@ -47,3 +47,11 @@ export const getOrderSelectOptions = async (supabase) => {
     }
     return data.map((order) => ({ label: getOrderLabel(order), value: order.id }))
 }
+
+export const getCustomerSelectOptions = async (supabase) => {
+    const { data, error } = await supabase.from('customer').select('*').order('name', { ascending: true })
+    if (error) {
+        throw new Error(error.message)
+    }
+    return data.map((customer) => ({ label: customer.name, value: customer.id }))
+}

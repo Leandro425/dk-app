@@ -137,11 +137,9 @@
         "table": {
             "title": "Delivery table",
             "columns": {
+                "number": "Number",
                 "date": "Date",
-                "order": "Order",
-                "field": "Field",
-                "article": "Article",
-                "quantity": "Quantity",
+                "customer": "Customer",
                 "annotation": "Note",
                 "modifiedBy": "Modified by",
                 "modifiedAt": "Modified at",
@@ -151,12 +149,41 @@
             }
         },
         "delivery": {
-            "order": "Order",
+            "title": "Delivery",
+            "description": "Here you can view and manage the delivery.",
+            "number": "Number",
             "date": "Date",
-            "field": "Field",
-            "article": "Article",
-            "quantity": "Quantity",
+            "customer": "Customer",
             "annotation": "Note"
+        },
+        "items": {
+            "title": "Delivery Items",
+            "actions": {
+                "add": "Add delivery item",
+                "edit": "Edit delivery item",
+                "delete": "Delete delivery item",
+                "deleteConfirmation": "Do you really want to delete this delivery item?",
+                "view": "View delivery item"
+            },
+            "table": {
+                "title": "Delivery items table",
+                "columns": {
+                    "order": "Order",
+                    "field": "Field",
+                    "article": "Article",
+                    "quantity": "Quantity",
+                    "createdAt": "Created at",
+                    "actions": "Actions"
+                }
+            },
+            "item": {
+                "order": "Order",
+                "date": "Date",
+                "field": "Field",
+                "article": "Article",
+                "quantity": "Quantity",
+                "annotation": "Note"
+            }
         }
     },
     "homepage": {

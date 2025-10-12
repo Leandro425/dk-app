@@ -11,7 +11,7 @@ const ContentFrame = ({ title, description, breadcrumbs, children }) => {
                 display: 'flex',
                 flex: 1,
                 width: '100%',
-                maxWidth: '1800px',
+                maxWidth: '2400px',
                 padding: '0 50px',
             }}
         >

@@ -4,21 +4,20 @@ import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useQueryClient } from '@tanstack/react-query'
-import dayjs from 'dayjs'
-import FormDeliveryFields from './FormDeliveryFields'
-import useSupervisorContext from '../../../../context/user/supervisorContext'
+
+import FormDeliveryItemFields from './FormDeliveryItemFields'
 
 const getFormValues = () => {
     return {
-        date: dayjs(),
-        customer: null,
-        annotation: '',
+        field: null,
+        article: null,
+        order: null,
+        quantity: '',
     }
 }
 
-const AddDeliveryModal = ({ open, onClose }) => {
+const AddDeliveryItemModal = ({ open, onClose, deliveryId }) => {
     const { t } = useTranslation()
-    const { supervisor } = useSupervisorContext()
     const { supabase } = useSupabaseContext()
     const queryClient = useQueryClient()
     const [messageApi, contextHolder] = message.useMessage()
@@ -34,12 +33,13 @@ const AddDeliveryModal = ({ open, onClose }) => {
 
     const onSubmit = async (data) => {
         setConfirmLoading(true)
-        const { error } = await supabase.from('delivery').insert([
+        const { error } = await supabase.from('delivery_item').insert([
             {
-                date: dayjs().format('YYYY-MM-DD'),
-                customer_id: data.customer,
-                annotation: data.annotation,
-                created_by_id: supervisor.id,
+                delivery_id: deliveryId,
+                field_id: data.field,
+                article_id: data.article,
+                order_id: data.order,
+                quantity: data.quantity,
             },
         ])
         messageApi.open({
@@ -50,7 +50,7 @@ const AddDeliveryModal = ({ open, onClose }) => {
         onClose()
         setConfirmLoading(false)
         reset()
-        queryClient.invalidateQueries({ queryKey: ['deliveries'] })
+        queryClient.invalidateQueries({ queryKey: ['deliveries', deliveryId, 'items'] })
     }
 
     return (
@@ -58,14 +58,14 @@ const AddDeliveryModal = ({ open, onClose }) => {
             {contextHolder}
             <Form layout="vertical">
                 <Modal
-                    title={t('deliveries.actions.add')}
+                    title={t('deliveries.items.actions.add')}
                     open={open}
                     onOk={handleSubmit(onSubmit)}
                     confirmLoading={confirmLoading}
                     onCancel={onClose}
                     okButtonProps={{ disabled: !isDirty || !isValid || confirmLoading }}
                 >
-                    <FormDeliveryFields
+                    <FormDeliveryItemFields
                         control={control}
                         errors={errors}
                         enabledSelects={open}
@@ -76,4 +76,4 @@ const AddDeliveryModal = ({ open, onClose }) => {
     )
 }
 
-export default AddDeliveryModal
+export default AddDeliveryItemModal

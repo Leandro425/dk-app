@@ -137,11 +137,9 @@
         "table": {
             "title": "Tabela dostaw",
             "columns": {
+                "number": "Numer",
                 "date": "Data",
-                "order": "Zlecenie",
-                "field": "Pole",
-                "article": "Artykuł",
-                "quantity": "Ilość",
+                "customer": "Klient",
                 "annotation": "Notatka",
                 "modifiedBy": "Zmienione przez",
                 "modifiedAt": "Zmienione dnia",
@@ -151,12 +149,41 @@
             }
         },
         "delivery": {
-            "order": "Zlecenie",
+            "title": "Dostawa",
+            "description": "Tutaj możesz przeglądać i zarządzać dostawą.",
+            "number": "Numer",
             "date": "Data",
-            "field": "Pole",
-            "article": "Artykuł",
-            "quantity": "Ilość",
+            "customer": "Klient",
             "annotation": "Notatka"
+        },
+        "items": {
+            "title": "Pozycje dostawy",
+            "actions": {
+                "add": "Dodaj pozycję dostawy",
+                "edit": "Edytuj pozycję dostawy",
+                "delete": "Usuń pozycję dostawy",
+                "deleteConfirmation": "Czy na pewno chcesz usunąć tę pozycję dostawy?",
+                "view": "Zobacz pozycję dostawy"
+            },
+            "table": {
+                "title": "Tabela pozycji dostawy",
+                "columns": {
+                    "order": "Zlecenie",
+                    "field": "Pole",
+                    "article": "Artykuł",
+                    "quantity": "Ilość",
+                    "createdAt": "Utworzone dnia",
+                    "actions": "Akcje"
+                }
+            },
+            "item": {
+                "order": "Zlecenie",
+                "date": "Data",
+                "field": "Pole",
+                "article": "Artykuł",
+                "quantity": "Ilość",
+                "annotation": "Notatka"
+            }
         }
     },
     "homepage": {

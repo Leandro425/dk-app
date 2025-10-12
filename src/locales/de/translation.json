@@ -137,11 +137,9 @@
         "table": {
             "title": "Lieferungstabelle",
             "columns": {
+                "number": "Nummer",
                 "date": "Datum",
-                "order": "Auftrag",
-                "field": "Feld",
-                "article": "Artikel",
-                "quantity": "Menge",
+                "customer": "Kunde",
                 "annotation": "Anmerkung",
                 "modifiedBy": "Geändert von",
                 "modifiedAt": "Geändert am",
@@ -151,12 +149,41 @@
             }
         },
         "delivery": {
-            "order": "Auftrag",
+            "title": "Lieferung",
+            "description": "Hier können Sie die Lieferung anzeigen und verwalten.",
+            "number": "Nummer",
             "date": "Datum",
-            "field": "Feld",
-            "article": "Artikel",
-            "quantity": "Menge",
+            "customer": "Kunde",
             "annotation": "Anmerkung"
+        },
+        "items": {
+            "title": "Lieferpositionen",
+            "actions": {
+                "add": "Lieferposition hinzufügen",
+                "edit": "Lieferposition bearbeiten",
+                "delete": "Lieferposition löschen",
+                "deleteConfirmation": "Möchten Sie diese Lieferposition wirklich löschen?",
+                "view": "Lieferposition ansehen"
+            },
+            "table": {
+                "title": "Lieferpositionentabelle",
+                "columns": {
+                    "order": "Auftrag",
+                    "field": "Feld",
+                    "article": "Artikel",
+                    "quantity": "Menge",
+                    "createdAt": "Erstellt am",
+                    "actions": "Aktionen"
+                }
+            },
+            "item": {
+                "order": "Auftrag",
+                "date": "Datum",
+                "field": "Feld",
+                "article": "Artikel",
+                "quantity": "Menge",
+                "annotation": "Anmerkung"
+            }
         }
     },
     "homepage": {

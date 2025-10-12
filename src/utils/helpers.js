@@ -15,6 +15,8 @@ export const getStaffGroupLabel = (group) =>
 export const getOrderLabel = (order) =>
     order ? `${order.customer} | ${order.description}` : ''
 
+export const getCustomerLabel = (customer) =>
+    customer ? `${customer.name}` : ''
 export const getSupervisorLabel = (sup) => (sup ? `${sup.name}` : '')
 
 export const formatDateTime = (date) => (date ? dayjs(date).format('DD.MM.YYYY HH:mm') : '')

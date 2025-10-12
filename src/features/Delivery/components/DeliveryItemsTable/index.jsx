@@ -3,34 +3,31 @@ import { useTranslation } from 'react-i18next'
 import { Button, Flex, Popconfirm, Table, message } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
-import AddDeliveryModal from '../modals/AddDeliveryModal'
-import EditDeliveryModal from '../modals/EditDeliveryModal'
-import { formatDate, formatDateTime, getCustomerLabel, getSupervisorLabel } from '../../../../utils/helpers'
-import { DeleteFilled, EditFilled, OpenAIFilled, UpSquareFilled } from '@ant-design/icons'
-import { useNavigate } from 'react-router-dom'
 
-const DeliveriesTable = () => {
+import { formatDateTime, getArticleLabel, getFieldLabel, getOrderLabel } from '../../../../utils/helpers'
+import { DeleteFilled, EditFilled } from '@ant-design/icons'
+import AddDeliveryItemModal from '../modals/AddDeliveryItemModal'
+import EditDeliveryItemModal from '../modals/EditDeliveryItemModal'
+
+const DeliveryItemsTable = ({ deliveryId }) => {
     const { t } = useTranslation()
-    const navigate = useNavigate()
     const { supabase } = useSupabaseContext()
     const [messageApi, contextHolder] = message.useMessage()
     const [pagination, setPagination] = useState({ current: 1, pageSize: 10 })
     const [openAddModal, setOpenAddModal] = useState(false)
-    const [selectedDelivery, setSelectedDelivery] = useState(null)
+    const [selectedDeliveryItem, setSelectedDeliveryItem] = useState(null)
     const [openEditModal, setOpenEditModal] = useState(false)
 
     const fetchData = async ({ queryKey }) => {
-        const [, page, pageSize] = queryKey
+        const [, , , page, pageSize] = queryKey
         const from = (page - 1) * pageSize
         const to = page * pageSize - 1
         const { data, count, error } = await supabase
-            .from('delivery')
-            .select(
-                '*, customer:customer(*), created_by:supervisor!delivery_created_by_id_fkey(*), modified_by:supervisor!delivery_modified_by_id_fkey(*)',
-                {
-                    count: 'exact',
-                }
-            )
+            .from('delivery_item')
+            .select('*, order:order(*), field:field(*), article:article(*)', {
+                count: 'exact',
+            })
+            .eq('delivery_id', deliveryId)
             .range(from, to)
             .order('id', { ascending: false })
         if (error) {
@@ -40,13 +37,13 @@ const DeliveriesTable = () => {
     }
 
     const { data, isLoading, refetch } = useQuery({
-        queryKey: ['deliveries', pagination.current, pagination.pageSize],
+        queryKey: ['deliveries', deliveryId, 'items', pagination.current, pagination.pageSize],
         queryFn: fetchData,
         keepPreviousData: true,
     })
 
     const handleDelete = async (deliveryId) => {
-        const { error } = await supabase.from('delivery').delete().eq('id', deliveryId)
+        const { error } = await supabase.from('delivery_item').delete().eq('id', deliveryId)
 
         messageApi.open({
             type: error ? 'error' : 'success',
@@ -60,45 +57,37 @@ const DeliveriesTable = () => {
     }
 
     const columns = [
-        { title: t('deliveries.table.columns.number'), dataIndex: 'number', key: 'number' },
-        { title: t('deliveries.table.columns.date'), dataIndex: 'date', key: 'date', render: formatDate },
         {
-            title: t('deliveries.table.columns.customer'),
-            dataIndex: 'customer',
-            key: 'customer',
-            render: getCustomerLabel,
-        },
-        { title: t('deliveries.table.columns.annotation'), dataIndex: 'annotation', key: 'annotation' },
-        {
-            title: t('deliveries.table.columns.modifiedBy'),
-            dataIndex: 'modified_by',
-            key: 'modified_by',
-            render: getSupervisorLabel,
+            title: t('deliveries.items.table.columns.order'),
+            dataIndex: 'order',
+            key: 'order',
+            render: getOrderLabel,
         },
         {
-            title: t('deliveries.table.columns.modifiedAt'),
-            dataIndex: 'modified_at',
-            key: 'modified_at',
-            render: formatDateTime,
+            title: t('deliveries.items.table.columns.field'),
+            dataIndex: 'field',
+            key: 'field',
+            render: getFieldLabel,
         },
         {
-            title: t('deliveries.table.columns.createdBy'),
-            dataIndex: 'created_by',
-            key: 'created_by',
-            render: getSupervisorLabel,
+            title: t('deliveries.items.table.columns.article'),
+            dataIndex: 'article',
+            key: 'article',
+            render: getArticleLabel,
         },
+        { title: t('deliveries.items.table.columns.quantity'), dataIndex: 'quantity', key: 'quantity', align: 'right' },
         {
-            title: t('deliveries.table.columns.createdAt'),
+            title: t('deliveries.items.table.columns.createdAt'),
             dataIndex: 'created_at',
             key: 'created_at',
             render: formatDateTime,
         },
         {
-            title: t('deliveries.table.columns.actions'),
+            title: t('deliveries.items.table.columns.actions'),
             key: 'operation',
             fixed: 'right',
             width: 100,
-            render: (_, delivery) => (
+            render: (_, deliveryItem) => (
                 <Flex
                     gap={8}
                     flex={1}
@@ -107,23 +96,16 @@ const DeliveriesTable = () => {
                 >
                     <Button
                         type="primary"
-                        icon={<UpSquareFilled />}
-                        onClick={() => {
-                            navigate(`${delivery.id}`)
-                        }}
-                    />
-                    <Button
-                        type="primary"
                         icon={<EditFilled />}
                         onClick={() => {
                             setOpenEditModal(true)
-                            setSelectedDelivery(delivery)
+                            setSelectedDeliveryItem(deliveryItem)
                         }}
                     />
                     <Popconfirm
-                        title={t('deliveries.actions.delete')}
-                        description={t('deliveries.actions.deleteConfirmation')}
-                        onConfirm={() => handleDelete(delivery.id)}
+                        title={t('deliveries.items.actions.delete')}
+                        description={t('deliveries.items.actions.deleteConfirmation')}
+                        onConfirm={() => handleDelete(deliveryItem.id)}
                         onCancel={() => {}}
                         okText={t('common.yes')}
                         cancelText={t('common.no')}
@@ -151,7 +133,7 @@ const DeliveriesTable = () => {
                         type="primary"
                         onClick={() => setOpenAddModal(true)}
                     >
-                        {t('deliveries.actions.add')}
+                        {t('deliveries.items.actions.add')}
                     </Button>
                 </Flex>
                 <Flex
@@ -179,19 +161,21 @@ const DeliveriesTable = () => {
                     />
                 </Flex>
             </Flex>
-            <AddDeliveryModal
+            <AddDeliveryItemModal
                 open={openAddModal}
                 onClose={() => setOpenAddModal(false)}
+                deliveryId={deliveryId}
             />
-            <EditDeliveryModal
+            <EditDeliveryItemModal
                 open={openEditModal}
                 onClose={() => {
                     setOpenEditModal(false)
-                    setSelectedDelivery(null)
+                    setSelectedDeliveryItem(null)
                 }}
-                delivery={selectedDelivery}
+                deliveryId={deliveryId}
+                deliveryItem={selectedDeliveryItem}
             />
         </>
     )
 }
-export default DeliveriesTable
+export default DeliveryItemsTable

@@ -137,11 +137,9 @@
         "table": {
             "title": "Leveringstabel",
             "columns": {
+                "number": "Nummer",
                 "date": "Dato",
-                "order": "Ordre",
-                "field": "Felt",
-                "article": "Artikel",
-                "quantity": "Mængde",
+                "customer": "Kunde",
                 "annotation": "Bemærkning",
                 "modifiedBy": "Ændret af",
                 "modifiedAt": "Ændret den",
@@ -151,12 +149,41 @@
             }
         },
         "delivery": {
-            "order": "Ordre",
+            "title": "Levering",
+            "description": "Her kan du se og administrere leveringen.",
+            "number": "Nummer",
             "date": "Dato",
-            "field": "Felt",
-            "article": "Artikel",
-            "quantity": "Mængde",
+            "customer": "Kunde",
             "annotation": "Bemærkning"
+        },
+        "items": {
+            "title": "Leveringspositioner",
+            "actions": {
+                "add": "Tilføj leveringsposition",
+                "edit": "Rediger leveringsposition",
+                "delete": "Slet leveringsposition",
+                "deleteConfirmation": "Vil du virkelig slette denne leveringsposition?",
+                "view": "Se leveringsposition"
+            },
+            "table": {
+                "title": "Leveringspositionstabel",
+                "columns": {
+                    "order": "Ordre",
+                    "field": "Felt",
+                    "article": "Artikel",
+                    "quantity": "Mængde",
+                    "createdAt": "Oprettet den",
+                    "actions": "Handlinger"
+                }
+            },
+            "item": {
+                "order": "Ordre",
+                "date": "Dato",
+                "field": "Felt",
+                "article": "Artikel",
+                "quantity": "Mængde",
+                "annotation": "Bemærkning"
+            }
         }
     },
     "homepage": {
