@@ -32,7 +32,7 @@ const DeliveriesTable = () => {
                 }
             )
             .range(from, to)
-            .order('id', { ascending: false })
+            .order('date', { ascending: false })
         if (error) {
             return { data: [], total: 0 }
         }
