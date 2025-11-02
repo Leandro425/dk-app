@@ -26,21 +26,27 @@ const ReportsTable = () => {
     const [openAddGroupModal, setOpenAddGroupModal] = useState(false)
     const [selectedReport, setSelectedReport] = useState(null)
     const [openEditModal, setOpenEditModal] = useState(false)
+    const [sorter, setSorter] = useState({
+        column: 'id',
+        options: {
+            ascending: false,
+        },
+    })
 
     const fetchData = async ({ queryKey }) => {
-        const [, page, pageSize] = queryKey
+        const [, page, pageSize, sorterColumn, sorterOptions] = queryKey
         const from = (page - 1) * pageSize
         const to = page * pageSize - 1
         const { data, count, error } = await supabase
             .from('report')
             .select(
-                '*, employee:employee(*), order:order(*), field:field(*), article:article(*), created_by:supervisor!report_created_by_id_fkey(*), modified_by:supervisor!report_modified_by_id_fkey(*)',
+                '*, employee:employee(lastname, *), order:order(*), field:field(*), article:article(*), created_by:supervisor!report_created_by_id_fkey(*), modified_by:supervisor!report_modified_by_id_fkey(*)',
                 {
                     count: 'exact',
                 }
             )
             .range(from, to)
-            .order('id', { ascending: false })
+            .order(sorterColumn, sorterOptions)
         if (error) {
             return { data: [], total: 0 }
         }
@@ -48,7 +54,7 @@ const ReportsTable = () => {
     }
 
     const { data, isLoading, refetch } = useQuery({
-        queryKey: ['reports', pagination.current, pagination.pageSize],
+        queryKey: ['reports', pagination.current, pagination.pageSize, sorter.column, sorter.options],
         queryFn: fetchData,
         keepPreviousData: true,
     })
@@ -68,12 +74,13 @@ const ReportsTable = () => {
     }
 
     const columns = [
-        { title: t('reports.table.columns.date'), dataIndex: 'date', key: 'date', render: formatDate },
+        { title: t('reports.table.columns.date'), dataIndex: 'date', key: 'date', render: formatDate, sorter: true },
         {
             title: t('reports.table.columns.employee'),
             dataIndex: 'employee',
             key: 'employee',
             render: getEmployeeLabel,
+            sorter: false,
         },
         {
             title: t('reports.table.columns.order'),
@@ -93,7 +100,13 @@ const ReportsTable = () => {
             key: 'article',
             render: getArticleLabel,
         },
-        { title: t('reports.table.columns.quantity'), dataIndex: 'quantity', key: 'quantity', align: 'right' },
+        {
+            title: t('reports.table.columns.quantity'),
+            dataIndex: 'quantity',
+            key: 'quantity',
+            align: 'right',
+            sorter: true,
+        },
         {
             title: t('reports.table.columns.specialFeature'),
             dataIndex: 'special_feature',
@@ -118,6 +131,7 @@ const ReportsTable = () => {
             dataIndex: 'modified_at',
             key: 'modified_at',
             render: formatDateTime,
+            sorter: true,
         },
         {
             title: t('reports.table.columns.createdBy'),
@@ -130,6 +144,7 @@ const ReportsTable = () => {
             dataIndex: 'created_at',
             key: 'created_at',
             render: formatDateTime,
+            sorter: true,
         },
         {
             title: t('reports.table.columns.actions'),
@@ -169,6 +184,30 @@ const ReportsTable = () => {
             ),
         },
     ]
+
+    const foreignKeyColumns = {
+        employee: {
+            referencedTable: 'employee',
+            field: 'lastname',
+        },
+    }
+
+    const handleChange = (_, __, sorter) => {
+        if (sorter.columnKey && sorter.order) {
+            const column = sorter.columnKey
+            const ascending = sorter.order === 'ascend'
+            if (foreignKeyColumns[column]) {
+                // setSorter({
+                //     column: foreignKeyColumns[column].field,
+                //     options: { referencedTable: foreignKeyColumns[column].referencedTable, ascending: ascending },
+                // })
+            } else {
+                setSorter({ column: sorter.columnKey, options: { ascending: ascending } })
+            }
+        } else {
+            setSorter({ column: 'id', options: { ascending: true } })
+        }
+    }
 
     return (
         <>
@@ -210,6 +249,7 @@ const ReportsTable = () => {
                             showSizeChanger: true,
                             onChange: (current, pageSize) => setPagination({ current, pageSize }),
                         }}
+                        onChange={handleChange}
                         rowKey="id"
                         scroll={{ x: 'max-content' }}
                         style={{ width: '100%' }}

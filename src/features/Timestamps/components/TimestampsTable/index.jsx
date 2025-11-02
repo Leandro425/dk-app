@@ -18,9 +18,15 @@ const TimestampsTable = () => {
     const [openAddGroupModal, setOpenAddGroupModal] = useState(false)
     const [selectedTimestamp, setSelectedTimestamp] = useState(null)
     const [openEditModal, setOpenEditModal] = useState(false)
+    const [sorter, setSorter] = useState({
+        column: 'id',
+        options: {
+            ascending: false,
+        },
+    })
 
     const fetchData = async ({ queryKey }) => {
-        const [, page, pageSize] = queryKey
+        const [, page, pageSize, sorterColumn, sorterOptions] = queryKey
         const from = (page - 1) * pageSize
         const to = page * pageSize - 1
         const { data, count, error } = await supabase
@@ -32,7 +38,7 @@ const TimestampsTable = () => {
                 }
             )
             .range(from, to)
-            .order('id', { ascending: false })
+            .order(sorterColumn, sorterOptions)
         if (error) {
             return { data: [], total: 0 }
         }
@@ -40,7 +46,7 @@ const TimestampsTable = () => {
     }
 
     const { data, isLoading, refetch } = useQuery({
-        queryKey: ['timestamps', pagination.current, pagination.pageSize],
+        queryKey: ['timestamps', pagination.current, pagination.pageSize, sorter.column, sorter.options],
         queryFn: fetchData,
         keepPreviousData: true,
     })
@@ -60,7 +66,7 @@ const TimestampsTable = () => {
     }
 
     const columns = [
-        { title: t('reports.table.columns.date'), dataIndex: 'date', key: 'date', render: formatDate },
+        { title: t('reports.table.columns.date'), dataIndex: 'date', key: 'date', render: formatDate, sorter: true },
         {
             title: t('timestamps.table.columns.employee'),
             dataIndex: 'employee',
@@ -73,6 +79,7 @@ const TimestampsTable = () => {
             key: 'start_time',
             render: formatTime,
             align: 'right',
+            sorter: true,
         },
         {
             title: t('timestamps.table.columns.endTime'),
@@ -80,6 +87,7 @@ const TimestampsTable = () => {
             key: 'end_time',
             render: formatTime,
             align: 'right',
+            sorter: true,
         },
         {
             title: t('timestamps.table.columns.breaktime'),
@@ -105,6 +113,7 @@ const TimestampsTable = () => {
             dataIndex: 'modified_at',
             key: 'modified_at',
             render: formatDateTime,
+            sorter: true,
         },
         {
             title: t('timestamps.table.columns.createdBy'),
@@ -117,6 +126,7 @@ const TimestampsTable = () => {
             dataIndex: 'created_at',
             key: 'created_at',
             render: formatDateTime,
+            sorter: true,
         },
         {
             title: t('timestamps.table.columns.actions'),
@@ -156,6 +166,30 @@ const TimestampsTable = () => {
             ),
         },
     ]
+
+    const foreignKeyColumns = {
+        employee: {
+            referencedTable: 'employee',
+            field: 'lastname',
+        },
+    }
+
+    const handleChange = (_, __, sorter) => {
+        if (sorter.columnKey && sorter.order) {
+            const column = sorter.columnKey
+            const ascending = sorter.order === 'ascend'
+            if (foreignKeyColumns[column]) {
+                // setSorter({
+                //     column: foreignKeyColumns[column].field,
+                //     options: { referencedTable: foreignKeyColumns[column].referencedTable, ascending: ascending },
+                // })
+            } else {
+                setSorter({ column: sorter.columnKey, options: { ascending: ascending } })
+            }
+        } else {
+            setSorter({ column: 'id', options: { ascending: true } })
+        }
+    }
 
     return (
         <>
@@ -197,6 +231,7 @@ const TimestampsTable = () => {
                             showSizeChanger: true,
                             onChange: (current, pageSize) => setPagination({ current, pageSize }),
                         }}
+                        onChange={handleChange}
                         rowKey="id"
                         scroll={{ x: 'max-content' }}
                         style={{ width: '100%' }}
