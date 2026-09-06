@@ -1,8 +1,8 @@
 import { Card, Flex, Statistic } from 'antd'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
-import { useQuery } from '@tanstack/react-query'
+import { keepPreviousData, useQuery } from '@tanstack/react-query'
 import OrderSelect from '../../../../components/selects/OrderSelect'
 import ArticleSelect from '../../../../components/selects/ArticleSelect'
 import FieldSelect from '../../../../components/selects/FieldSelect'
@@ -11,8 +11,6 @@ const Stats = () => {
     const { t } = useTranslation()
     const { supabase } = useSupabaseContext()
 
-    const [producedAmount, setProducedAmount] = useState(0)
-    const [deliveredAmount, setDeliveredAmount] = useState(0)
     const [orderId, setOrderId] = useState(null)
     const [articleId, setArticleId] = useState(null)
     const [fieldId, setFieldId] = useState(null)
@@ -54,14 +52,10 @@ const Stats = () => {
     const { data } = useQuery({
         queryKey: ['statistics', orderId, articleId, fieldId],
         queryFn: fetchStatistics,
+        placeholderData: keepPreviousData,
     })
-
-    useEffect(() => {
-        if (data) {
-            setProducedAmount(data.produced)
-            setDeliveredAmount(data.delivered)
-        }
-    }, [data])
+    const producedAmount = data?.produced ?? 0
+    const deliveredAmount = data?.delivered ?? 0
 
     return (
         <Card title={t('dashboard.statistics.title')}>
