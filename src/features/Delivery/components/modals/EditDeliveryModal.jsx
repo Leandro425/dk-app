@@ -9,11 +9,13 @@ import FormDeliveryFields from './FormDeliveryFields'
 import { dateStringToDayjs } from '../../../../utils/helpers'
 import dayjs from 'dayjs'
 import useSupervisorContext from '../../../../context/user/supervisorContext'
+import { DEFAULT_LANGUAGE } from '../../../../config/languages'
 
 const getFormValues = (delivery) => {
     return {
         date: dateStringToDayjs(delivery?.date),
         customer: delivery?.customer_id,
+        pdf_language: delivery?.pdf_language || DEFAULT_LANGUAGE,
         annotation: delivery?.annotation || '',
     }
 }
@@ -42,6 +44,7 @@ const EditDeliveryModal = ({ open, onClose, delivery }) => {
                 {
                     date: data.date.format('YYYY-MM-DD'),
                     customer_id: data.customer,
+                    pdf_language: data.pdf_language,
                     modified_by_id: supervisor.id,
                     modified_at: dayjs().toISOString(),
                     annotation: data.annotation,

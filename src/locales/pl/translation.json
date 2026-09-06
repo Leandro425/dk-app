@@ -132,7 +132,14 @@
             "edit": "Edytuj dostawę",
             "delete": "Usuń dostawę",
             "deleteConfirmation": "Czy na pewno chcesz usunąć tę dostawę?",
-            "view": "Zobacz dostawę"
+            "view": "Zobacz dostawę",
+            "createPdf": "Dokument dostawy (PDF)",
+            "downloadPdf": "Pobierz",
+            "openPdfInNewTab": "Otwórz w nowej karcie",
+            "complete": "Oznacz jako dostarczone",
+            "completeConfirmation": "Oznaczyć tę dostawę jako dostarczoną? Zostanie ona zablokowana.",
+            "reopen": "Otwórz ponownie",
+            "reopenConfirmation": "Otworzyć ponownie tę dostawę? Będzie można ją ponownie edytować."
         },
         "table": {
             "title": "Tabela dostaw",
@@ -145,7 +152,10 @@
                 "modifiedAt": "Zmienione dnia",
                 "createdBy": "Utworzone przez",
                 "createdAt": "Utworzone dnia",
-                "actions": "Akcje"
+                "actions": "Akcje",
+                "status": "Status",
+                "language": "Język",
+                "completedAt": "Dostarczono"
             }
         },
         "delivery": {
@@ -154,7 +164,10 @@
             "number": "Numer",
             "date": "Data",
             "customer": "Klient",
-            "annotation": "Notatka"
+            "annotation": "Notatka",
+            "status": "Status",
+            "language": "Język dokumentu dostawy",
+            "completedAt": "Dostarczono"
         },
         "items": {
             "title": "Pozycje dostawy",
@@ -183,6 +196,29 @@
                 "article": "Artykuł",
                 "quantity": "Ilość",
                 "annotation": "Notatka"
+            }
+        },
+        "status": {
+            "open": "Otwarta",
+            "done": "Dostarczona",
+            "lockedHint": "Ta dostawa jest oznaczona jako dostarczona i zablokowana. Aby edytować, otwórz ją ponownie."
+        },
+        "pdf": {
+            "title": "Dokument dostawy",
+            "fileName": "Dokument-dostawy-{{number}}.pdf",
+            "number": "Nr dokumentu",
+            "date": "Data dostawy",
+            "customer": "Klient",
+            "createdBy": "Utworzono przez",
+            "annotation": "Uwagi",
+            "noItems": "Brak pozycji",
+            "deliveredBy": "Dostarczył (data, podpis)",
+            "receivedBy": "Odebrał (data, podpis)",
+            "page": "Strona {{page}} z {{total}}",
+            "columns": {
+                "article": "Artykuł",
+                "order": "Zamówienie",
+                "quantity": "Ilość"
             }
         }
     },

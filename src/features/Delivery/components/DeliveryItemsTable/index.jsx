@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Popconfirm, Table, message } from 'antd'
+import { Alert, Button, Flex, Popconfirm, Table, message } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
 
@@ -9,7 +9,7 @@ import { DeleteFilled, EditFilled } from '@ant-design/icons'
 import AddDeliveryItemModal from '../modals/AddDeliveryItemModal'
 import EditDeliveryItemModal from '../modals/EditDeliveryItemModal'
 
-const DeliveryItemsTable = ({ deliveryId }) => {
+const DeliveryItemsTable = ({ deliveryId, locked = false }) => {
     const { t } = useTranslation()
     const { supabase } = useSupabaseContext()
     const [messageApi, contextHolder] = message.useMessage()
@@ -97,6 +97,7 @@ const DeliveryItemsTable = ({ deliveryId }) => {
                     <Button
                         type="primary"
                         icon={<EditFilled />}
+                        disabled={locked}
                         onClick={() => {
                             setOpenEditModal(true)
                             setSelectedDeliveryItem(deliveryItem)
@@ -109,11 +110,13 @@ const DeliveryItemsTable = ({ deliveryId }) => {
                         onCancel={() => {}}
                         okText={t('common.yes')}
                         cancelText={t('common.no')}
+                        disabled={locked}
                     >
                         <Button
                             type="primary"
                             icon={<DeleteFilled />}
                             danger
+                            disabled={locked}
                         />
                     </Popconfirm>
                 </Flex>
@@ -128,13 +131,24 @@ const DeliveryItemsTable = ({ deliveryId }) => {
                 vertical
                 gap={16}
             >
-                <Flex gap={16}>
+                <Flex
+                    gap={16}
+                    align="center"
+                >
                     <Button
                         type="primary"
+                        disabled={locked}
                         onClick={() => setOpenAddModal(true)}
                     >
                         {t('deliveries.items.actions.add')}
                     </Button>
+                    {locked && (
+                        <Alert
+                            type="info"
+                            showIcon
+                            message={t('deliveries.status.lockedHint')}
+                        />
+                    )}
                 </Flex>
                 <Flex
                     style={{

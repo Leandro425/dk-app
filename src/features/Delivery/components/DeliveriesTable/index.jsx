@@ -1,13 +1,16 @@
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Popconfirm, Table, message } from 'antd'
+import { Button, Flex, Popconfirm, Table, Tooltip, message } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
 import AddDeliveryModal from '../modals/AddDeliveryModal'
 import EditDeliveryModal from '../modals/EditDeliveryModal'
 import { formatDate, formatDateTime, getCustomerLabel, getSupervisorLabel } from '../../../../utils/helpers'
-import { DeleteFilled, EditFilled, OpenAIFilled, UpSquareFilled } from '@ant-design/icons'
+import { DeleteFilled, EditFilled, UpSquareFilled } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
+import DeliveryStatusActions, { DeliveryStatusTag } from '../DeliveryStatusActions'
+import { isDeliveryCompleted } from '../../hooks/useDeliveryStatusActions'
+import { LANGUAGE_LABEL_KEYS } from '../../../../config/languages'
 
 const DeliveriesTable = () => {
     const { t } = useTranslation()
@@ -32,6 +35,7 @@ const DeliveriesTable = () => {
                 }
             )
             .range(from, to)
+            .order('completed_at', { ascending: true, nullsFirst: true })
             .order('date', { ascending: false })
         if (error) {
             return { data: [], total: 0 }
@@ -61,6 +65,11 @@ const DeliveriesTable = () => {
 
     const columns = [
         { title: t('deliveries.table.columns.number'), dataIndex: 'number', key: 'number' },
+        {
+            title: t('deliveries.table.columns.status'),
+            key: 'status',
+            render: (_, delivery) => <DeliveryStatusTag delivery={delivery} />,
+        },
         { title: t('deliveries.table.columns.date'), dataIndex: 'date', key: 'date', render: formatDate },
         {
             title: t('deliveries.table.columns.customer'),
@@ -69,6 +78,18 @@ const DeliveriesTable = () => {
             render: getCustomerLabel,
         },
         { title: t('deliveries.table.columns.annotation'), dataIndex: 'annotation', key: 'annotation' },
+        {
+            title: t('deliveries.table.columns.language'),
+            dataIndex: 'pdf_language',
+            key: 'pdf_language',
+            render: (lang) => (LANGUAGE_LABEL_KEYS[lang] ? t(LANGUAGE_LABEL_KEYS[lang]) : lang),
+        },
+        {
+            title: t('deliveries.table.columns.completedAt'),
+            dataIndex: 'completed_at',
+            key: 'completed_at',
+            render: formatDateTime,
+        },
         {
             title: t('deliveries.table.columns.modifiedBy'),
             dataIndex: 'modified_by',
@@ -97,45 +118,56 @@ const DeliveriesTable = () => {
             title: t('deliveries.table.columns.actions'),
             key: 'operation',
             fixed: 'right',
-            width: 100,
-            render: (_, delivery) => (
-                <Flex
-                    gap={8}
-                    flex={1}
-                    justify="center"
-                    align="center"
-                >
-                    <Button
-                        type="primary"
-                        icon={<UpSquareFilled />}
-                        onClick={() => {
-                            navigate(`${delivery.id}`)
-                        }}
-                    />
-                    <Button
-                        type="primary"
-                        icon={<EditFilled />}
-                        onClick={() => {
-                            setOpenEditModal(true)
-                            setSelectedDelivery(delivery)
-                        }}
-                    />
-                    <Popconfirm
-                        title={t('deliveries.actions.delete')}
-                        description={t('deliveries.actions.deleteConfirmation')}
-                        onConfirm={() => handleDelete(delivery.id)}
-                        onCancel={() => {}}
-                        okText={t('common.yes')}
-                        cancelText={t('common.no')}
+            width: 220,
+            render: (_, delivery) => {
+                const locked = isDeliveryCompleted(delivery)
+                return (
+                    <Flex
+                        gap={8}
+                        flex={1}
+                        justify="center"
+                        align="center"
                     >
+                        <DeliveryStatusActions delivery={delivery} />
                         <Button
                             type="primary"
-                            icon={<DeleteFilled />}
-                            danger
+                            icon={<UpSquareFilled />}
+                            onClick={() => {
+                                navigate(`${delivery.id}`)
+                            }}
                         />
-                    </Popconfirm>
-                </Flex>
-            ),
+                        <Tooltip title={locked ? t('deliveries.status.lockedHint') : null}>
+                            <Button
+                                type="primary"
+                                icon={<EditFilled />}
+                                disabled={locked}
+                                onClick={() => {
+                                    setOpenEditModal(true)
+                                    setSelectedDelivery(delivery)
+                                }}
+                            />
+                        </Tooltip>
+                        <Popconfirm
+                            title={t('deliveries.actions.delete')}
+                            description={t('deliveries.actions.deleteConfirmation')}
+                            onConfirm={() => handleDelete(delivery.id)}
+                            onCancel={() => {}}
+                            okText={t('common.yes')}
+                            cancelText={t('common.no')}
+                            disabled={locked}
+                        >
+                            <Tooltip title={locked ? t('deliveries.status.lockedHint') : null}>
+                                <Button
+                                    type="primary"
+                                    icon={<DeleteFilled />}
+                                    danger
+                                    disabled={locked}
+                                />
+                            </Tooltip>
+                        </Popconfirm>
+                    </Flex>
+                )
+            },
         },
     ]
 

@@ -132,7 +132,14 @@
             "edit": "Rediger levering",
             "delete": "Slet levering",
             "deleteConfirmation": "Vil du virkelig slette denne levering?",
-            "view": "Se levering"
+            "view": "Se levering",
+            "createPdf": "Følgeseddel (PDF)",
+            "downloadPdf": "Download",
+            "openPdfInNewTab": "Åbn i ny fane",
+            "complete": "Markér som leveret",
+            "completeConfirmation": "Markér denne levering som leveret? Den bliver derefter låst.",
+            "reopen": "Genåbn",
+            "reopenConfirmation": "Genåbn denne levering? Den kan derefter redigeres igen."
         },
         "table": {
             "title": "Leveringstabel",
@@ -145,7 +152,10 @@
                 "modifiedAt": "Ændret den",
                 "createdBy": "Oprettet af",
                 "createdAt": "Oprettet den",
-                "actions": "Handlinger"
+                "actions": "Handlinger",
+                "status": "Status",
+                "language": "Sprog",
+                "completedAt": "Leveret den"
             }
         },
         "delivery": {
@@ -154,7 +164,10 @@
             "number": "Nummer",
             "date": "Dato",
             "customer": "Kunde",
-            "annotation": "Bemærkning"
+            "annotation": "Bemærkning",
+            "status": "Status",
+            "language": "Sprog for følgeseddel",
+            "completedAt": "Leveret den"
         },
         "items": {
             "title": "Leveringspositioner",
@@ -183,6 +196,29 @@
                 "article": "Artikel",
                 "quantity": "Mængde",
                 "annotation": "Bemærkning"
+            }
+        },
+        "status": {
+            "open": "Åben",
+            "done": "Leveret",
+            "lockedHint": "Denne levering er markeret som leveret og låst. Genåbn den for at redigere."
+        },
+        "pdf": {
+            "title": "Følgeseddel",
+            "fileName": "Foelgeseddel-{{number}}.pdf",
+            "number": "Følgeseddel-nr.",
+            "date": "Leveringsdato",
+            "customer": "Kunde",
+            "createdBy": "Oprettet af",
+            "annotation": "Bemærkning",
+            "noItems": "Ingen positioner",
+            "deliveredBy": "Leveret af (dato, underskrift)",
+            "receivedBy": "Modtaget af (dato, underskrift)",
+            "page": "Side {{page}} af {{total}}",
+            "columns": {
+                "article": "Artikel",
+                "order": "Ordre",
+                "quantity": "Antal"
             }
         }
     },

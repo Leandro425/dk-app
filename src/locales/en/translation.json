@@ -132,7 +132,14 @@
             "edit": "Edit delivery",
             "delete": "Delete delivery",
             "deleteConfirmation": "Do you really want to delete this delivery?",
-            "view": "View delivery"
+            "view": "View delivery",
+            "createPdf": "Delivery note (PDF)",
+            "downloadPdf": "Download",
+            "openPdfInNewTab": "Open in new tab",
+            "complete": "Mark as delivered",
+            "completeConfirmation": "Mark this delivery as delivered? It will be locked afterwards.",
+            "reopen": "Reopen",
+            "reopenConfirmation": "Reopen this delivery? It can be edited again afterwards."
         },
         "table": {
             "title": "Delivery table",
@@ -145,7 +152,10 @@
                 "modifiedAt": "Modified at",
                 "createdBy": "Created by",
                 "createdAt": "Created at",
-                "actions": "Actions"
+                "actions": "Actions",
+                "status": "Status",
+                "language": "Language",
+                "completedAt": "Delivered at"
             }
         },
         "delivery": {
@@ -154,7 +164,10 @@
             "number": "Number",
             "date": "Date",
             "customer": "Customer",
-            "annotation": "Note"
+            "annotation": "Note",
+            "status": "Status",
+            "language": "Delivery note language",
+            "completedAt": "Delivered at"
         },
         "items": {
             "title": "Delivery Items",
@@ -183,6 +196,29 @@
                 "article": "Article",
                 "quantity": "Quantity",
                 "annotation": "Note"
+            }
+        },
+        "status": {
+            "open": "Open",
+            "done": "Delivered",
+            "lockedHint": "This delivery is marked as delivered and locked. Reopen it to make changes."
+        },
+        "pdf": {
+            "title": "Delivery note",
+            "fileName": "Delivery-note-{{number}}.pdf",
+            "number": "Delivery note no.",
+            "date": "Delivery date",
+            "customer": "Customer",
+            "createdBy": "Created by",
+            "annotation": "Remarks",
+            "noItems": "No items",
+            "deliveredBy": "Delivered by (date, signature)",
+            "receivedBy": "Received by (date, signature)",
+            "page": "Page {{page}} of {{total}}",
+            "columns": {
+                "article": "Article",
+                "order": "Order",
+                "quantity": "Quantity"
             }
         }
     },

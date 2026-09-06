@@ -8,6 +8,7 @@ import useSupabaseContext from '../../../context/supabase/supabaseContext'
 import { useQuery } from '@tanstack/react-query'
 import DeliveryInfoFrame from '../components/DeliveryInfoFrame'
 import DeliveryItemsTable from '../components/DeliveryItemsTable'
+import { isDeliveryCompleted } from '../hooks/useDeliveryStatusActions'
 
 const DeliveryPage = () => {
     const { t } = useTranslation()
@@ -58,7 +59,10 @@ const DeliveryPage = () => {
             <Divider />
             <DeliveryInfoFrame delivery={data} />
             <Divider />
-            <DeliveryItemsTable deliveryId={deliveryId} />
+            <DeliveryItemsTable
+                deliveryId={deliveryId}
+                locked={isDeliveryCompleted(data)}
+            />
         </ContentFrame>
     )
 }

@@ -134,7 +134,14 @@
             "edit": "Editează livrare",
             "delete": "Șterge livrare",
             "deleteConfirmation": "Sunteți sigur că doriți să ștergeți această livrare?",
-            "view": "Vizualizează livrare"
+            "view": "Vizualizează livrare",
+            "createPdf": "Aviz de livrare (PDF)",
+            "downloadPdf": "Descarcă",
+            "openPdfInNewTab": "Deschide în filă nouă",
+            "complete": "Marchează ca livrat",
+            "completeConfirmation": "Marcați această livrare ca livrată? Va fi blocată ulterior.",
+            "reopen": "Redeschide",
+            "reopenConfirmation": "Redeschideți această livrare? Va putea fi editată din nou."
         },
         "table": {
             "title": "Tabel livrări",
@@ -147,7 +154,10 @@
                 "modifiedAt": "Modificat la",
                 "createdBy": "Creat de",
                 "createdAt": "Creat la",
-                "actions": "Acțiuni"
+                "actions": "Acțiuni",
+                "status": "Stare",
+                "language": "Limbă",
+                "completedAt": "Livrat la"
             }
         },
         "delivery": {
@@ -156,7 +166,10 @@
             "number": "Numărul",
             "date": "Data",
             "customer": "Client",
-            "annotation": "Observație"
+            "annotation": "Observație",
+            "status": "Stare",
+            "language": "Limba avizului de livrare",
+            "completedAt": "Livrat la"
         },
         "items": {
             "title": "Articole de livrare",
@@ -185,6 +198,29 @@
                 "article": "Articol",
                 "quantity": "Cantitate",
                 "annotation": "Observație"
+            }
+        },
+        "status": {
+            "open": "Deschisă",
+            "done": "Livrată",
+            "lockedHint": "Această livrare este marcată ca livrată și blocată. Redeschideți-o pentru a o edita."
+        },
+        "pdf": {
+            "title": "Aviz de livrare",
+            "fileName": "Aviz-livrare-{{number}}.pdf",
+            "number": "Nr. aviz",
+            "date": "Data livrării",
+            "customer": "Client",
+            "createdBy": "Creat de",
+            "annotation": "Observații",
+            "noItems": "Fără poziții",
+            "deliveredBy": "Livrat de (data, semnătura)",
+            "receivedBy": "Primit de (data, semnătura)",
+            "page": "Pagina {{page}} din {{total}}",
+            "columns": {
+                "article": "Articol",
+                "order": "Comandă",
+                "quantity": "Cantitate"
             }
         }
     },

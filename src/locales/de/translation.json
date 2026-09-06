@@ -132,7 +132,14 @@
             "edit": "Lieferung bearbeiten",
             "delete": "Lieferung löschen",
             "deleteConfirmation": "Möchten Sie diese Lieferung wirklich löschen?",
-            "view": "Lieferung ansehen"
+            "view": "Lieferung ansehen",
+            "createPdf": "Lieferschein (PDF)",
+            "downloadPdf": "Herunterladen",
+            "openPdfInNewTab": "In neuem Tab öffnen",
+            "complete": "Als geliefert markieren",
+            "completeConfirmation": "Möchten Sie diese Lieferung als geliefert markieren? Sie wird danach gesperrt.",
+            "reopen": "Wieder öffnen",
+            "reopenConfirmation": "Möchten Sie diese Lieferung wieder öffnen? Sie kann danach wieder bearbeitet werden."
         },
         "table": {
             "title": "Lieferungstabelle",
@@ -145,7 +152,10 @@
                 "modifiedAt": "Geändert am",
                 "createdBy": "Erstellt von",
                 "createdAt": "Erstellt am",
-                "actions": "Aktionen"
+                "actions": "Aktionen",
+                "status": "Status",
+                "language": "Sprache",
+                "completedAt": "Geliefert am"
             }
         },
         "delivery": {
@@ -154,7 +164,10 @@
             "number": "Nummer",
             "date": "Datum",
             "customer": "Kunde",
-            "annotation": "Anmerkung"
+            "annotation": "Anmerkung",
+            "status": "Status",
+            "language": "Sprache Lieferschein",
+            "completedAt": "Geliefert am"
         },
         "items": {
             "title": "Lieferpositionen",
@@ -183,6 +196,29 @@
                 "article": "Artikel",
                 "quantity": "Menge",
                 "annotation": "Anmerkung"
+            }
+        },
+        "status": {
+            "open": "Offen",
+            "done": "Geliefert",
+            "lockedHint": "Diese Lieferung ist als geliefert markiert und gesperrt. Zum Bearbeiten zuerst wieder öffnen."
+        },
+        "pdf": {
+            "title": "Lieferschein",
+            "fileName": "Lieferschein-{{number}}.pdf",
+            "number": "Lieferschein-Nr.",
+            "date": "Lieferdatum",
+            "customer": "Kunde",
+            "createdBy": "Erstellt von",
+            "annotation": "Bemerkung",
+            "noItems": "Keine Positionen",
+            "deliveredBy": "Ausgeliefert durch (Datum, Unterschrift)",
+            "receivedBy": "Empfangen von (Datum, Unterschrift)",
+            "page": "Seite {{page}} von {{total}}",
+            "columns": {
+                "article": "Artikel",
+                "order": "Auftrag",
+                "quantity": "Menge"
             }
         }
     },

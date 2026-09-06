@@ -132,7 +132,14 @@
             "edit": "Levering bewerken",
             "delete": "Levering verwijderen",
             "deleteConfirmation": "Wilt u deze levering echt verwijderen?",
-            "view": "Levering bekijken"
+            "view": "Levering bekijken",
+            "createPdf": "Leveringsbon (PDF)",
+            "downloadPdf": "Downloaden",
+            "openPdfInNewTab": "Openen in nieuw tabblad",
+            "complete": "Markeren als geleverd",
+            "completeConfirmation": "Deze levering als geleverd markeren? Ze wordt daarna vergrendeld.",
+            "reopen": "Heropenen",
+            "reopenConfirmation": "Deze levering heropenen? Ze kan daarna weer worden bewerkt."
         },
         "table": {
             "title": "Leveringstabel",
@@ -145,7 +152,10 @@
                 "modifiedAt": "Gewijzigd op",
                 "createdBy": "Gemaakt door",
                 "createdAt": "Gemaakt op",
-                "actions": "Acties"
+                "actions": "Acties",
+                "status": "Status",
+                "language": "Taal",
+                "completedAt": "Geleverd op"
             }
         },
         "delivery": {
@@ -154,7 +164,10 @@
             "number": "Nummer",
             "date": "Datum",
             "customer": "Klant",
-            "annotation": "Opmerking"
+            "annotation": "Opmerking",
+            "status": "Status",
+            "language": "Taal leveringsbon",
+            "completedAt": "Geleverd op"
         },
         "items": {
             "title": "Leveringsartikelen",
@@ -183,6 +196,29 @@
                 "article": "Artikel",
                 "quantity": "Aantal",
                 "annotation": "Opmerking"
+            }
+        },
+        "status": {
+            "open": "Open",
+            "done": "Geleverd",
+            "lockedHint": "Deze levering is gemarkeerd als geleverd en vergrendeld. Heropen ze om te bewerken."
+        },
+        "pdf": {
+            "title": "Leveringsbon",
+            "fileName": "Leveringsbon-{{number}}.pdf",
+            "number": "Leveringsbon-nr.",
+            "date": "Leverdatum",
+            "customer": "Klant",
+            "createdBy": "Aangemaakt door",
+            "annotation": "Opmerking",
+            "noItems": "Geen regels",
+            "deliveredBy": "Geleverd door (datum, handtekening)",
+            "receivedBy": "Ontvangen door (datum, handtekening)",
+            "page": "Pagina {{page}} van {{total}}",
+            "columns": {
+                "article": "Artikel",
+                "order": "Order",
+                "quantity": "Aantal"
             }
         }
     },

@@ -7,11 +7,13 @@ import { useQueryClient } from '@tanstack/react-query'
 import dayjs from 'dayjs'
 import FormDeliveryFields from './FormDeliveryFields'
 import useSupervisorContext from '../../../../context/user/supervisorContext'
+import { DEFAULT_LANGUAGE } from '../../../../config/languages'
 
 const getFormValues = () => {
     return {
         date: dayjs(),
         customer: null,
+        pdf_language: DEFAULT_LANGUAGE,
         annotation: '',
     }
 }
@@ -38,6 +40,7 @@ const AddDeliveryModal = ({ open, onClose }) => {
             {
                 date: data.date.format('YYYY-MM-DD'),
                 customer_id: data.customer,
+                pdf_language: data.pdf_language,
                 annotation: data.annotation,
                 created_by_id: supervisor.id,
             },

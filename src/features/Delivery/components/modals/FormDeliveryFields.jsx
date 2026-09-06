@@ -6,6 +6,8 @@ import FormTextArea from '../../../../components/hookForm/FormTextArea'
 
 import FormDatePicker from '../../../../components/hookForm/FormDatePicker'
 import FormCustomerSelect from '../../../../components/hookForm/FormCustomerSelect'
+import FormBaseSelectWithoutQuery from '../../../../components/hookForm/FormBaseSelectWithoutQuery'
+import { getLanguageOptions } from '../../../../config/languages'
 
 const FormDeliveryFields = ({ control, errors, enabledSelects = false }) => {
     const { supabase } = useSupabaseContext()
@@ -27,6 +29,12 @@ const FormDeliveryFields = ({ control, errors, enabledSelects = false }) => {
                 errors={errors}
                 label={t('deliveries.delivery.customer')}
                 enabled={enabledSelects}
+            />
+            <FormBaseSelectWithoutQuery
+                name="pdf_language"
+                label={t('deliveries.delivery.language')}
+                options={getLanguageOptions(t)}
+                required
             />
             <FormTextArea
                 name="annotation"
