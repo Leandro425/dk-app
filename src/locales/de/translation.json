@@ -17,7 +17,10 @@
             "title": "Statistiken",
             "produced": "Produziert",
             "delivered": "Geliefert",
-            "balance": "Bestand"
+            "balance": "Bestand",
+            "order": "Auftrag",
+            "article": "Artikel",
+            "field": "Feld"
         },
         "reports": {
             "title": "Berichte",

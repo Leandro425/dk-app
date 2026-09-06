@@ -17,7 +17,10 @@
             "title": "Statistici",
             "produced": "Produs",
             "delivered": "Livrat",
-            "balance": "Stoc"
+            "balance": "Stoc",
+            "order": "Comandă",
+            "article": "Articol",
+            "field": "Câmp"
         },
         "reports": {
             "title": "Rapoarte",

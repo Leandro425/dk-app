@@ -17,7 +17,10 @@
             "title": "Statistieken",
             "produced": "Geproduceerd",
             "delivered": "Geleverd",
-            "balance": "Voorraad"
+            "balance": "Voorraad",
+            "order": "Order",
+            "article": "Artikel",
+            "field": "Veld"
         },
         "reports": {
             "title": "Rapporten",

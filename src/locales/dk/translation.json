@@ -17,7 +17,10 @@
             "title": "Statistik",
             "produced": "Produceret",
             "delivered": "Leveret",
-            "balance": "Beholdning"
+            "balance": "Beholdning",
+            "order": "Ordre",
+            "article": "Artikel",
+            "field": "Mark"
         },
         "reports": {
             "title": "Rapporter",

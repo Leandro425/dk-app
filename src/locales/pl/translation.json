@@ -17,7 +17,10 @@
             "title": "Statystyki",
             "produced": "Wyprodukowano",
             "delivered": "Dostarczono",
-            "balance": "Stan magazynu"
+            "balance": "Stan magazynu",
+            "order": "Zamówienie",
+            "article": "Artykuł",
+            "field": "Pole"
         },
         "reports": {
             "title": "Raporty",

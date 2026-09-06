@@ -72,7 +72,7 @@ const Stats = () => {
                         value={orderId}
                         onChange={handleOrderChange}
                         allowClear
-                        placeholder={t('deliveries.delivery.order')}
+                        placeholder={t('dashboard.statistics.order')}
                         enabled={supabase !== null}
                     />
                     <ArticleSelect
@@ -81,7 +81,7 @@ const Stats = () => {
                         value={articleId}
                         onChange={handleArticleChange}
                         allowClear
-                        placeholder={t('deliveries.delivery.article')}
+                        placeholder={t('dashboard.statistics.article')}
                         enabled={supabase !== null}
                     />
                     <FieldSelect
@@ -90,7 +90,7 @@ const Stats = () => {
                         value={fieldId}
                         onChange={handleFieldChange}
                         allowClear
-                        placeholder={t('deliveries.delivery.field')}
+                        placeholder={t('dashboard.statistics.field')}
                         enabled={supabase !== null}
                     />
                 </Flex>
@@ -102,19 +102,19 @@ const Stats = () => {
                     style={{ minWidth: 300 }}
                 >
                     <Statistic
-                        title={t('common.actions.produced')}
+                        title={t('dashboard.statistics.produced')}
                         value={producedAmount}
                         precision={2}
                     />
 
                     <Statistic
-                        title={t('common.actions.delivered')}
+                        title={t('dashboard.statistics.delivered')}
                         value={deliveredAmount}
                         precision={2}
                     />
 
                     <Statistic
-                        title={t('common.balance')}
+                        title={t('dashboard.statistics.balance')}
                         value={producedAmount - deliveredAmount}
                         precision={2}
                     />
