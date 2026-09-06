@@ -297,5 +297,19 @@
             "romanian": "Romanian",
             "bulgarian": "Bulgarian"
         }
+    },
+    "admin": {
+        "title": "Controlling",
+        "menu": {
+            "overview": "Overview"
+        },
+        "nav": {
+            "openControlling": "Open controlling",
+            "backToDashboard": "Back to dashboard"
+        },
+        "overview": {
+            "title": "Overview",
+            "description": "Administration and controlling area. Visible to administrators only."
+        }
     }
 }

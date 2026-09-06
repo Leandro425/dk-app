@@ -297,5 +297,19 @@
             "romanian": "Rumænsk",
             "bulgarian": "Bulgarsk"
         }
+    },
+    "admin": {
+        "title": "Controlling",
+        "menu": {
+            "overview": "Oversigt"
+        },
+        "nav": {
+            "openControlling": "Åbn controlling",
+            "backToDashboard": "Tilbage til dashboard"
+        },
+        "overview": {
+            "title": "Oversigt",
+            "description": "Administrations- og controllingområde. Kun synligt for administratorer."
+        }
     }
 }

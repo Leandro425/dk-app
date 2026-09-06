@@ -5,6 +5,8 @@ import DashboardRoutes from '../features/Dashboard/routes/DashboardRoute'
 import SupabaseAuthGuard from '../components/guards/SupabaseAuthGuard'
 import SupervisorProvider from '../context/user/SupervisorProvider'
 import NotFoundPage from '../components/NotFoundPage'
+import AdminGuard from '../components/guards/AdminGuard'
+import AdminRoutes from '../features/Admin'
 
 const AppRoutes = () => {
     return (
@@ -20,6 +22,18 @@ const AppRoutes = () => {
                         <SupabaseAuthGuard>
                             <SupervisorProvider>
                                 <DashboardRoutes />
+                            </SupervisorProvider>
+                        </SupabaseAuthGuard>
+                    }
+                />
+                <Route
+                    path="/admin/*"
+                    element={
+                        <SupabaseAuthGuard>
+                            <SupervisorProvider>
+                                <AdminGuard>
+                                    <AdminRoutes />
+                                </AdminGuard>
                             </SupervisorProvider>
                         </SupabaseAuthGuard>
                     }

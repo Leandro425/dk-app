@@ -299,5 +299,19 @@
             "romanian": "Română",
             "bulgarian": "Bulgară"
         }
+    },
+    "admin": {
+        "title": "Controlling",
+        "menu": {
+            "overview": "Prezentare generală"
+        },
+        "nav": {
+            "openControlling": "Deschide controlling",
+            "backToDashboard": "Înapoi la tabloul de bord"
+        },
+        "overview": {
+            "title": "Prezentare generală",
+            "description": "Zonă de administrare și controlling. Vizibilă doar pentru administratori."
+        }
     }
 }

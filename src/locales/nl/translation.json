@@ -297,5 +297,19 @@
             "romanian": "Roemeens",
             "bulgarian": "Bulgaars"
         }
+    },
+    "admin": {
+        "title": "Controlling",
+        "menu": {
+            "overview": "Overzicht"
+        },
+        "nav": {
+            "openControlling": "Controlling openen",
+            "backToDashboard": "Terug naar dashboard"
+        },
+        "overview": {
+            "title": "Overzicht",
+            "description": "Beheer- en controllinggedeelte. Alleen zichtbaar voor beheerders."
+        }
     }
 }
