@@ -4,6 +4,7 @@ import {
     ClockCircleOutlined,
     ControlOutlined,
     DashboardOutlined,
+    EuroOutlined,
     FileTextOutlined,
     HomeOutlined,
 } from '@ant-design/icons'
@@ -38,7 +39,10 @@ export const AREAS = {
         icon: ControlOutlined,
         adminOnly: true,
         // Add further modules here as they are built.
-        items: [{ key: '', labelKey: 'admin.menu.overview', icon: AppstoreOutlined }],
+        items: [
+            { key: '', labelKey: 'admin.menu.overview', icon: AppstoreOutlined },
+            { key: 'payroll', labelKey: 'admin.menu.payroll', icon: EuroOutlined },
+        ],
     },
 }
 

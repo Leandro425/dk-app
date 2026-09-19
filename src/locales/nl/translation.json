@@ -294,11 +294,103 @@
     "admin": {
         "title": "Controlling",
         "menu": {
-            "overview": "Overzicht"
+            "overview": "Overzicht",
+            "payroll": "Maandafrekening"
         },
         "overview": {
             "title": "Overzicht",
             "description": "Beheer- en controllinggedeelte. Alleen zichtbaar voor beheerders."
+        },
+        "payroll": {
+            "title": "Maandafrekening",
+            "description": "Stukloon en werktijd van alle medewerkers per maand: maandoverzichten als PDF, Excel-uitwerkingen en het DATEV-voorinvoerblad.",
+            "period": "Afrekeningsmaand",
+            "hideEmpty": "Medewerkers zonder gegevens verbergen",
+            "summary": {
+                "employees": "Medewerkers met gegevens",
+                "revenue": "Stukloon",
+                "hours": "Werkuren",
+                "total": "Totale vergoeding"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "Pers.nr.",
+                    "employee": "Medewerker",
+                    "language": "Taal overzicht",
+                    "revenue": "Stukloon",
+                    "hours": "Uren",
+                    "payRate": "Uurtarief",
+                    "timePay": "Uurloon",
+                    "total": "Totaal",
+                    "counts": "Rapporten / tijden",
+                    "actions": "Acties"
+                }
+            },
+            "actions": {
+                "previewPdf": "Maandoverzicht tonen",
+                "downloadPdf": "PDF downloaden",
+                "downloadXlsx": "Excel downloaden",
+                "downloadDatevXlsx": "DATEV-voorinvoer (Excel)",
+                "downloadDatevCsv": "DATEV (CSV)",
+                "exportAll": "Alles exporteren (ZIP)",
+                "exporting": "Exporteren van {{current}} van {{total}} medewerkers …",
+                "languageUpdated": "Taal opgeslagen."
+            },
+            "datev": {
+                "hint": "De DATEV-kolommen komen overeen met het voorinvoerblad „Lohn und Gehalt”: loonsoort 1000 uurloon (uren) en loonsoort 2035 stukloon (bedrag). De ZIP-export bevat daarnaast per medewerker het maandoverzicht als PDF en Excel."
+            },
+            "export": {
+                "sheets": {
+                    "summary": "Overzicht",
+                    "lines": "Stukloon",
+                    "entries": "Werktijden"
+                },
+                "columns": {
+                    "date": "Datum",
+                    "revenue": "Stukloon",
+                    "lines": "Rapporten",
+                    "hours": "Werkuren",
+                    "timePay": "Uurloon",
+                    "entries": "Tijdregistraties",
+                    "article": "Artikel",
+                    "quantity": "Aantal",
+                    "pieceRate": "Tarief/stuk",
+                    "specialFeature": "Bijzonderheid",
+                    "start": "Begin",
+                    "end": "Einde",
+                    "breakMinutes": "Pauze (min)",
+                    "type": "Type",
+                    "total": "Totaal"
+                }
+            },
+            "statement": {
+                "title": "Maandoverzicht",
+                "staffNumber": "Pers.nr.",
+                "summary": "Maandoverzicht",
+                "piecework": "Stukloon",
+                "reportsCount": "{{count}} rapporten",
+                "timePay": "Tijdgebonden vergoeding",
+                "hoursTimesRate": "{{hours}} u × {{rate}}/u",
+                "total": "Totale vergoeding",
+                "daily": "Dagoverzicht",
+                "noEntries": "Geen rapporten en werktijden in deze maand.",
+                "hours": "{{hours}} u",
+                "unpaid": "onbetaald",
+                "surcharge": "(+{{amount}} per stuk)",
+                "generated": "Dit overzicht is automatisch aangemaakt op {{date}}.",
+                "columns": {
+                    "article": "Artikel",
+                    "quantity": "Aantal",
+                    "pieceRate": "Tarief",
+                    "specialFeature": "Bijzonderheid",
+                    "total": "Totaal",
+                    "start": "Begin",
+                    "end": "Einde",
+                    "breakMinutes": "Pauze (min)",
+                    "type": "Type",
+                    "workHours": "Werkuren"
+                }
+            }
         }
     }
 }

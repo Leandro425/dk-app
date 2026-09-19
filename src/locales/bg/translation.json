@@ -294,11 +294,103 @@
     "admin": {
         "title": "Контролинг",
         "menu": {
-            "overview": "Общ преглед"
+            "overview": "Общ преглед",
+            "payroll": "Месечно изплащане"
         },
         "overview": {
             "title": "Общ преглед",
             "description": "Зона за администрация и контролинг. Видима само за администратори."
+        },
+        "payroll": {
+            "title": "Месечно изплащане",
+            "description": "Заплащане на парче и работно време на всички служители по месеци: месечни отчети като PDF, Excel справки и таблицата за предварително въвеждане в DATEV.",
+            "period": "Месец на изплащане",
+            "hideEmpty": "Скрий служителите без данни",
+            "summary": {
+                "employees": "Служители с данни",
+                "revenue": "Заплащане на парче",
+                "hours": "Работни часове",
+                "total": "Общо възнаграждение"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "Перс. №",
+                    "employee": "Служител",
+                    "language": "Език на отчета",
+                    "revenue": "На парче",
+                    "hours": "Часове",
+                    "payRate": "Часова ставка",
+                    "timePay": "Почасово",
+                    "total": "Общо",
+                    "counts": "Отчети / времена",
+                    "actions": "Действия"
+                }
+            },
+            "actions": {
+                "previewPdf": "Покажи месечния отчет",
+                "downloadPdf": "Изтегли PDF",
+                "downloadXlsx": "Изтегли Excel",
+                "downloadDatevXlsx": "DATEV предварително въвеждане (Excel)",
+                "downloadDatevCsv": "DATEV (CSV)",
+                "exportAll": "Експортирай всичко (ZIP)",
+                "exporting": "Експортиране на {{current}} от {{total}} служители …",
+                "languageUpdated": "Езикът е запазен."
+            },
+            "datev": {
+                "hint": "Колоните на DATEV съответстват на таблицата „Lohn und Gehalt“: вид заплащане 1000 почасово (часове) и вид заплащане 2035 на парче (сума). ZIP експортът съдържа допълнително месечния отчет на всеки служител като PDF и Excel."
+            },
+            "export": {
+                "sheets": {
+                    "summary": "Обзор",
+                    "lines": "На парче",
+                    "entries": "Работно време"
+                },
+                "columns": {
+                    "date": "Дата",
+                    "revenue": "Заплащане на парче",
+                    "lines": "Отчети",
+                    "hours": "Работни часове",
+                    "timePay": "Почасово заплащане",
+                    "entries": "Времеви записи",
+                    "article": "Артикул",
+                    "quantity": "Количество",
+                    "pieceRate": "Ставка/бр.",
+                    "specialFeature": "Особеност",
+                    "start": "Начало",
+                    "end": "Край",
+                    "breakMinutes": "Почивка (мин)",
+                    "type": "Тип",
+                    "total": "Общо"
+                }
+            },
+            "statement": {
+                "title": "Месечен отчет",
+                "staffNumber": "Перс. №",
+                "summary": "Месечен обзор",
+                "piecework": "Заплащане на парче",
+                "reportsCount": "{{count}} отчета",
+                "timePay": "Заплащане по време",
+                "hoursTimesRate": "{{hours}} ч × {{rate}}/ч",
+                "total": "Общо възнаграждение",
+                "daily": "Дневен обзор",
+                "noEntries": "Няма отчети и работно време през този месец.",
+                "hours": "{{hours}} ч",
+                "unpaid": "неплатено",
+                "surcharge": "(+{{amount}} на бр.)",
+                "generated": "Този отчет е генериран автоматично на {{date}}.",
+                "columns": {
+                    "article": "Артикул",
+                    "quantity": "Количество",
+                    "pieceRate": "Ставка",
+                    "specialFeature": "Особеност",
+                    "total": "Общо",
+                    "start": "Начало",
+                    "end": "Край",
+                    "breakMinutes": "Почивка (мин)",
+                    "type": "Тип",
+                    "workHours": "Работни часове"
+                }
+            }
         }
     }
 }

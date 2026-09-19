@@ -296,11 +296,103 @@
     "admin": {
         "title": "Controlling",
         "menu": {
-            "overview": "Prezentare generală"
+            "overview": "Prezentare generală",
+            "payroll": "Decontare lunară"
         },
         "overview": {
             "title": "Prezentare generală",
             "description": "Zonă de administrare și controlling. Vizibilă doar pentru administratori."
+        },
+        "payroll": {
+            "title": "Decontare lunară",
+            "description": "Plata în acord și timpul de lucru al tuturor angajaților pe lună: rapoarte lunare ca PDF, evaluări Excel și foaia de preînregistrare DATEV.",
+            "period": "Luna de decontare",
+            "hideEmpty": "Ascunde angajații fără date",
+            "summary": {
+                "employees": "Angajați cu date",
+                "revenue": "Plată în acord",
+                "hours": "Ore lucrate",
+                "total": "Remunerație totală"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "Nr. pers.",
+                    "employee": "Angajat",
+                    "language": "Limba raportului",
+                    "revenue": "Acord",
+                    "hours": "Ore",
+                    "payRate": "Tarif orar",
+                    "timePay": "Plată orară",
+                    "total": "Total",
+                    "counts": "Rapoarte / timpi",
+                    "actions": "Acțiuni"
+                }
+            },
+            "actions": {
+                "previewPdf": "Afișează raportul lunar",
+                "downloadPdf": "Descarcă PDF",
+                "downloadXlsx": "Descarcă Excel",
+                "downloadDatevXlsx": "Preînregistrare DATEV (Excel)",
+                "downloadDatevCsv": "DATEV (CSV)",
+                "exportAll": "Exportă tot (ZIP)",
+                "exporting": "Se exportă {{current}} din {{total}} angajați …",
+                "languageUpdated": "Limba a fost salvată."
+            },
+            "datev": {
+                "hint": "Coloanele DATEV corespund foii de preînregistrare „Lohn und Gehalt”: tipul de salariu 1000 salariu orar (ore) și tipul de salariu 2035 acord (sumă). Exportul ZIP conține în plus raportul lunar al fiecărui angajat ca PDF și Excel."
+            },
+            "export": {
+                "sheets": {
+                    "summary": "Sumar",
+                    "lines": "Acord",
+                    "entries": "Timp de lucru"
+                },
+                "columns": {
+                    "date": "Data",
+                    "revenue": "Plată în acord",
+                    "lines": "Rapoarte",
+                    "hours": "Ore lucrate",
+                    "timePay": "Plată orară",
+                    "entries": "Înregistrări de timp",
+                    "article": "Articol",
+                    "quantity": "Cantitate",
+                    "pieceRate": "Tarif/buc.",
+                    "specialFeature": "Particularitate",
+                    "start": "Început",
+                    "end": "Sfârșit",
+                    "breakMinutes": "Pauză (min)",
+                    "type": "Tip",
+                    "total": "Total"
+                }
+            },
+            "statement": {
+                "title": "Raport lunar",
+                "staffNumber": "Nr. pers.",
+                "summary": "Sumar lunar",
+                "piecework": "Plată în acord",
+                "reportsCount": "{{count}} rapoarte",
+                "timePay": "Remunerație pe timp",
+                "hoursTimesRate": "{{hours}} h × {{rate}}/h",
+                "total": "Remunerație totală",
+                "daily": "Sumar zilnic",
+                "noEntries": "Nu există rapoarte și timp de lucru în această lună.",
+                "hours": "{{hours}} h",
+                "unpaid": "neplătit",
+                "surcharge": "(+{{amount}} pe buc.)",
+                "generated": "Acest raport a fost generat automat la {{date}}.",
+                "columns": {
+                    "article": "Articol",
+                    "quantity": "Cantitate",
+                    "pieceRate": "Tarif",
+                    "specialFeature": "Particularitate",
+                    "total": "Total",
+                    "start": "Început",
+                    "end": "Sfârșit",
+                    "breakMinutes": "Pauză (min)",
+                    "type": "Tip",
+                    "workHours": "Ore lucrate"
+                }
+            }
         }
     }
 }

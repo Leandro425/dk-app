@@ -294,11 +294,103 @@
     "admin": {
         "title": "Controlling",
         "menu": {
-            "overview": "Przegląd"
+            "overview": "Przegląd",
+            "payroll": "Rozliczenie miesięczne"
         },
         "overview": {
             "title": "Przegląd",
             "description": "Obszar administracji i controllingu. Widoczny tylko dla administratorów."
+        },
+        "payroll": {
+            "title": "Rozliczenie miesięczne",
+            "description": "Wynagrodzenie akordowe i czas pracy wszystkich pracowników w danym miesiącu: raporty miesięczne w PDF, zestawienia Excel oraz arkusz wstępny DATEV.",
+            "period": "Miesiąc rozliczeniowy",
+            "hideEmpty": "Ukryj pracowników bez danych",
+            "summary": {
+                "employees": "Pracownicy z danymi",
+                "revenue": "Wynagrodzenie akordowe",
+                "hours": "Godziny pracy",
+                "total": "Wynagrodzenie łączne"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "Nr pers.",
+                    "employee": "Pracownik",
+                    "language": "Język raportu",
+                    "revenue": "Akord",
+                    "hours": "Godz.",
+                    "payRate": "Stawka godz.",
+                    "timePay": "Wynagr. godzinowe",
+                    "total": "Razem",
+                    "counts": "Raporty / czasy",
+                    "actions": "Akcje"
+                }
+            },
+            "actions": {
+                "previewPdf": "Pokaż raport miesięczny",
+                "downloadPdf": "Pobierz PDF",
+                "downloadXlsx": "Pobierz Excel",
+                "downloadDatevXlsx": "Arkusz DATEV (Excel)",
+                "downloadDatevCsv": "DATEV (CSV)",
+                "exportAll": "Eksportuj wszystko (ZIP)",
+                "exporting": "Eksportowanie {{current}} z {{total}} pracowników …",
+                "languageUpdated": "Język zapisany."
+            },
+            "datev": {
+                "hint": "Kolumny DATEV odpowiadają arkuszowi wstępnemu „Lohn und Gehalt”: rodzaj płacy 1000 stawka godzinowa (godziny) i rodzaj płacy 2035 akord (kwota). Eksport ZIP zawiera dodatkowo raport miesięczny każdego pracownika w PDF i Excel."
+            },
+            "export": {
+                "sheets": {
+                    "summary": "Podsumowanie",
+                    "lines": "Akord",
+                    "entries": "Czas pracy"
+                },
+                "columns": {
+                    "date": "Data",
+                    "revenue": "Wynagrodzenie akordowe",
+                    "lines": "Raporty",
+                    "hours": "Godziny pracy",
+                    "timePay": "Wynagrodzenie godzinowe",
+                    "entries": "Wpisy czasu",
+                    "article": "Artykuł",
+                    "quantity": "Ilość",
+                    "pieceRate": "Stawka/szt.",
+                    "specialFeature": "Cecha szczególna",
+                    "start": "Początek",
+                    "end": "Koniec",
+                    "breakMinutes": "Przerwa (min)",
+                    "type": "Typ",
+                    "total": "Suma"
+                }
+            },
+            "statement": {
+                "title": "Raport miesięczny",
+                "staffNumber": "Nr pers.",
+                "summary": "Przegląd miesiąca",
+                "piecework": "Wynagrodzenie akordowe",
+                "reportsCount": "{{count}} raportów",
+                "timePay": "Wynagrodzenie za czas pracy",
+                "hoursTimesRate": "{{hours}} godz. × {{rate}}/godz.",
+                "total": "Wynagrodzenie łączne",
+                "daily": "Przegląd dzienny",
+                "noEntries": "Brak raportów i czasu pracy w tym miesiącu.",
+                "hours": "{{hours}} godz.",
+                "unpaid": "niepłatne",
+                "surcharge": "(+{{amount}} za szt.)",
+                "generated": "Ten raport został wygenerowany automatycznie {{date}}.",
+                "columns": {
+                    "article": "Artykuł",
+                    "quantity": "Ilość",
+                    "pieceRate": "Stawka",
+                    "specialFeature": "Cecha szczególna",
+                    "total": "Razem",
+                    "start": "Początek",
+                    "end": "Koniec",
+                    "breakMinutes": "Przerwa (min)",
+                    "type": "Typ",
+                    "workHours": "Godziny pracy"
+                }
+            }
         }
     }
 }

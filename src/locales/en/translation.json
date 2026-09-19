@@ -294,11 +294,103 @@
     "admin": {
         "title": "Controlling",
         "menu": {
-            "overview": "Overview"
+            "overview": "Overview",
+            "payroll": "Payroll"
         },
         "overview": {
             "title": "Overview",
             "description": "Administration and controlling area. Visible to administrators only."
+        },
+        "payroll": {
+            "title": "Payroll",
+            "description": "Piecework pay and working time of all employees per month: monthly statements as PDF, Excel evaluations and the DATEV pre-entry sheet.",
+            "period": "Payroll month",
+            "hideEmpty": "Hide employees without data",
+            "summary": {
+                "employees": "Employees with data",
+                "revenue": "Piecework pay",
+                "hours": "Work hours",
+                "total": "Total pay"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "Staff no.",
+                    "employee": "Employee",
+                    "language": "Statement language",
+                    "revenue": "Piecework",
+                    "hours": "Hours",
+                    "payRate": "Hourly rate",
+                    "timePay": "Hourly pay",
+                    "total": "Total",
+                    "counts": "Reports / times",
+                    "actions": "Actions"
+                }
+            },
+            "actions": {
+                "previewPdf": "Show monthly statement",
+                "downloadPdf": "Download PDF",
+                "downloadXlsx": "Download Excel",
+                "downloadDatevXlsx": "DATEV pre-entry (Excel)",
+                "downloadDatevCsv": "DATEV (CSV)",
+                "exportAll": "Export everything (ZIP)",
+                "exporting": "Exporting {{current}} of {{total}} employees …",
+                "languageUpdated": "Language saved."
+            },
+            "datev": {
+                "hint": "The DATEV columns match the “Lohn und Gehalt” pre-entry sheet: wage type 1000 hourly wage (hours) and wage type 2035 piecework (amount). The ZIP export additionally contains each employee's monthly statement as PDF and Excel."
+            },
+            "export": {
+                "sheets": {
+                    "summary": "Summary",
+                    "lines": "Piecework",
+                    "entries": "Working time"
+                },
+                "columns": {
+                    "date": "Date",
+                    "revenue": "Piecework pay",
+                    "lines": "Reports",
+                    "hours": "Work hours",
+                    "timePay": "Hourly pay",
+                    "entries": "Time entries",
+                    "article": "Article",
+                    "quantity": "Quantity",
+                    "pieceRate": "Rate/piece",
+                    "specialFeature": "Special feature",
+                    "start": "Start",
+                    "end": "End",
+                    "breakMinutes": "Break (min)",
+                    "type": "Type",
+                    "total": "Total"
+                }
+            },
+            "statement": {
+                "title": "Monthly statement",
+                "staffNumber": "Staff no.",
+                "summary": "Month overview",
+                "piecework": "Piecework pay",
+                "reportsCount": "{{count}} reports",
+                "timePay": "Time-based pay",
+                "hoursTimesRate": "{{hours}} h × {{rate}}/h",
+                "total": "Total pay",
+                "daily": "Daily overview",
+                "noEntries": "No reports and no working time in this month.",
+                "hours": "{{hours}} h",
+                "unpaid": "unpaid",
+                "surcharge": "(+{{amount}} per piece)",
+                "generated": "This statement was generated automatically on {{date}}.",
+                "columns": {
+                    "article": "Article",
+                    "quantity": "Quantity",
+                    "pieceRate": "Rate",
+                    "specialFeature": "Special feature",
+                    "total": "Total",
+                    "start": "Start",
+                    "end": "End",
+                    "breakMinutes": "Break (min)",
+                    "type": "Type",
+                    "workHours": "Work hours"
+                }
+            }
         }
     }
 }

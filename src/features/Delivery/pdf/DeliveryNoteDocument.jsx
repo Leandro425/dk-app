@@ -1,4 +1,4 @@
-import { Document, Font, Image, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
+import { Document, Image, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
 import company from '../../../config/company'
 import {
     formatDate,
@@ -7,22 +7,13 @@ import {
     getOrderLabel,
     getSupervisorLabel,
 } from '../../../utils/helpers'
-import robotoRegular from '../../../assets/fonts/roboto/Roboto-Regular.ttf'
-import robotoBold from '../../../assets/fonts/roboto/Roboto-Bold.ttf'
+import { PDF_FONT_FAMILY, registerPdfFonts } from '../../../utils/pdfFonts'
 
-// Roboto covers Latin Extended and Cyrillic, which the built-in PDF fonts do not (pl, ro, bg).
-Font.register({
-    family: 'Roboto',
-    fonts: [
-        { src: robotoRegular, fontWeight: 'normal' },
-        { src: robotoBold, fontWeight: 'bold' },
-    ],
-})
-Font.registerHyphenationCallback((word) => [word])
+registerPdfFonts()
 
 const styles = StyleSheet.create({
     page: {
-        fontFamily: 'Roboto',
+        fontFamily: PDF_FONT_FAMILY,
         fontSize: 10,
         paddingTop: 40,
         paddingBottom: 60,

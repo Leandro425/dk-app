@@ -294,11 +294,103 @@
     "admin": {
         "title": "Controlling",
         "menu": {
-            "overview": "Oversigt"
+            "overview": "Oversigt",
+            "payroll": "Månedsafregning"
         },
         "overview": {
             "title": "Oversigt",
             "description": "Administrations- og controllingområde. Kun synligt for administratorer."
+        },
+        "payroll": {
+            "title": "Månedsafregning",
+            "description": "Akkordløn og arbejdstid for alle medarbejdere pr. måned: månedsrapporter som PDF, Excel-opgørelser og DATEV-forregistreringsarket.",
+            "period": "Afregningsmåned",
+            "hideEmpty": "Skjul medarbejdere uden data",
+            "summary": {
+                "employees": "Medarbejdere med data",
+                "revenue": "Akkordløn",
+                "hours": "Arbejdstimer",
+                "total": "Samlet løn"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "Pers.nr.",
+                    "employee": "Medarbejder",
+                    "language": "Sprog rapport",
+                    "revenue": "Akkord",
+                    "hours": "Timer",
+                    "payRate": "Timesats",
+                    "timePay": "Timeløn",
+                    "total": "I alt",
+                    "counts": "Rapporter / tider",
+                    "actions": "Handlinger"
+                }
+            },
+            "actions": {
+                "previewPdf": "Vis månedsrapport",
+                "downloadPdf": "Download PDF",
+                "downloadXlsx": "Download Excel",
+                "downloadDatevXlsx": "DATEV-forregistrering (Excel)",
+                "downloadDatevCsv": "DATEV (CSV)",
+                "exportAll": "Eksportér alt (ZIP)",
+                "exporting": "Eksporterer {{current}} af {{total}} medarbejdere …",
+                "languageUpdated": "Sprog gemt."
+            },
+            "datev": {
+                "hint": "DATEV-kolonnerne svarer til forregistreringsarket „Lohn und Gehalt“: lønart 1000 timeløn (timer) og lønart 2035 akkordløn (beløb). ZIP-eksporten indeholder desuden hver medarbejders månedsrapport som PDF og Excel."
+            },
+            "export": {
+                "sheets": {
+                    "summary": "Oversigt",
+                    "lines": "Akkord",
+                    "entries": "Arbejdstider"
+                },
+                "columns": {
+                    "date": "Dato",
+                    "revenue": "Akkordløn",
+                    "lines": "Rapporter",
+                    "hours": "Arbejdstimer",
+                    "timePay": "Timeløn",
+                    "entries": "Tidsregistreringer",
+                    "article": "Artikel",
+                    "quantity": "Antal",
+                    "pieceRate": "Sats/stk.",
+                    "specialFeature": "Særlighed",
+                    "start": "Start",
+                    "end": "Slut",
+                    "breakMinutes": "Pause (min.)",
+                    "type": "Type",
+                    "total": "I alt"
+                }
+            },
+            "statement": {
+                "title": "Månedsrapport",
+                "staffNumber": "Pers.nr.",
+                "summary": "Månedsoversigt",
+                "piecework": "Akkordløn",
+                "reportsCount": "{{count}} rapporter",
+                "timePay": "Tidsbaseret løn",
+                "hoursTimesRate": "{{hours}} t × {{rate}}/t",
+                "total": "Samlet løn",
+                "daily": "Dagsoversigt",
+                "noEntries": "Ingen rapporter og arbejdstider i denne måned.",
+                "hours": "{{hours}} t",
+                "unpaid": "ulønnet",
+                "surcharge": "(+{{amount}} pr. stk.)",
+                "generated": "Denne rapport blev genereret automatisk den {{date}}.",
+                "columns": {
+                    "article": "Artikel",
+                    "quantity": "Antal",
+                    "pieceRate": "Sats",
+                    "specialFeature": "Særlighed",
+                    "total": "I alt",
+                    "start": "Start",
+                    "end": "Slut",
+                    "breakMinutes": "Pause (min.)",
+                    "type": "Type",
+                    "workHours": "Arbejdstimer"
+                }
+            }
         }
     }
 }

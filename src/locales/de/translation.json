@@ -294,11 +294,103 @@
     "admin": {
         "title": "Controlling",
         "menu": {
-            "overview": "Übersicht"
+            "overview": "Übersicht",
+            "payroll": "Monatsabrechnung"
         },
         "overview": {
             "title": "Übersicht",
             "description": "Administrations- und Controllingbereich. Nur für Administratoren sichtbar."
+        },
+        "payroll": {
+            "title": "Monatsabrechnung",
+            "description": "Stücklohn und Arbeitszeit aller Mitarbeiter je Monat: Monatsberichte als PDF, Excel-Auswertungen und die Vorerfassung für DATEV.",
+            "period": "Abrechnungsmonat",
+            "hideEmpty": "Mitarbeiter ohne Daten ausblenden",
+            "summary": {
+                "employees": "Mitarbeiter mit Daten",
+                "revenue": "Stücklohn",
+                "hours": "Arbeitsstunden",
+                "total": "Gesamtvergütung"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "PN",
+                    "employee": "Mitarbeiter",
+                    "language": "Sprache Bericht",
+                    "revenue": "Stücklohn",
+                    "hours": "Std.",
+                    "payRate": "Stundensatz",
+                    "timePay": "Zeitlohn",
+                    "total": "Gesamt",
+                    "counts": "Berichte / Zeiten",
+                    "actions": "Aktionen"
+                }
+            },
+            "actions": {
+                "previewPdf": "Monatsbericht anzeigen",
+                "downloadPdf": "PDF herunterladen",
+                "downloadXlsx": "Excel herunterladen",
+                "downloadDatevXlsx": "DATEV-Vorerfassung (Excel)",
+                "downloadDatevCsv": "DATEV (CSV)",
+                "exportAll": "Alles exportieren (ZIP)",
+                "exporting": "Exportiere {{current}} von {{total}} Mitarbeitern …",
+                "languageUpdated": "Sprache gespeichert."
+            },
+            "datev": {
+                "hint": "Die DATEV-Spalten entsprechen der Vorerfassung „Lohn und Gehalt“: Lohnart 1000 Stundenlohn (Stunden) und Lohnart 2035 Stücklohn (Betrag). Der ZIP-Export enthält zusätzlich je Mitarbeiter den Monatsbericht als PDF und Excel."
+            },
+            "export": {
+                "sheets": {
+                    "summary": "Übersicht",
+                    "lines": "Stücklohn",
+                    "entries": "Arbeitszeiten"
+                },
+                "columns": {
+                    "date": "Datum",
+                    "revenue": "Stücklohn",
+                    "lines": "Berichte",
+                    "hours": "Arbeitsstunden",
+                    "timePay": "Zeitlohn",
+                    "entries": "Zeiteinträge",
+                    "article": "Artikel",
+                    "quantity": "Menge",
+                    "pieceRate": "Stücklohn/Stk.",
+                    "specialFeature": "Besonderheit",
+                    "start": "Beginn",
+                    "end": "Ende",
+                    "breakMinutes": "Pause (Min.)",
+                    "type": "Typ",
+                    "total": "Summe"
+                }
+            },
+            "statement": {
+                "title": "Monatsbericht",
+                "staffNumber": "PN",
+                "summary": "Monatsübersicht",
+                "piecework": "Stücklohn",
+                "reportsCount": "{{count}} Berichte",
+                "timePay": "Zeitbasierte Vergütung",
+                "hoursTimesRate": "{{hours}} Std. × {{rate}}/Std.",
+                "total": "Gesamtvergütung",
+                "daily": "Tagesübersicht",
+                "noEntries": "Keine Berichte und Arbeitszeiten in diesem Monat.",
+                "hours": "{{hours}} Std.",
+                "unpaid": "nicht vergütet",
+                "surcharge": "(+{{amount}} pro Stk.)",
+                "generated": "Dieser Bericht wurde automatisch am {{date}} erstellt.",
+                "columns": {
+                    "article": "Artikel",
+                    "quantity": "Menge",
+                    "pieceRate": "Stücklohn",
+                    "specialFeature": "Besonderheit",
+                    "total": "Gesamt",
+                    "start": "Beginn",
+                    "end": "Ende",
+                    "breakMinutes": "Pause (Min.)",
+                    "type": "Typ",
+                    "workHours": "Arbeitsstunden"
+                }
+            }
         }
     }
 }
