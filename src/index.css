@@ -1,11 +1,23 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('./assets/fonts/roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./assets/fonts/roboto/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
-
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -13,40 +25,14 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-@font-face {
-    font-family: 'Lowvetica';
-    src: url('./assets/fonts/Lowvetica-UltraThin.ttf') format('truetype');
-    font-weight: 200;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Lowvetica';
-    src: url('./assets/fonts/Lowvetica.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Lowvetica';
-    src: url('./assets/fonts/LowveticaDemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Lowvetica';
-    src: url('./assets/fonts/LowveticaBold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-}
 html,
 body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    background: 'red';
+    /* Same as the light Layout background, so nothing flashes before antd paints. */
+    background: #f3f4ee;
 }
 
 #root {

@@ -10,6 +10,9 @@
             }
         }
     },
+    "home": {
+        "title": "Home"
+    },
     "dashboard": {
         "title": "Dashboard",
         "description": "Dette er dit dashboard, hvor du kan se et overblik over dine data.",
@@ -21,18 +24,6 @@
             "order": "Ordre",
             "article": "Artikel",
             "field": "Mark"
-        },
-        "reports": {
-            "title": "Rapporter",
-            "content": "Dette er indholdet af rapporterne."
-        },
-        "timestamps": {
-            "title": "Tidsregistrering",
-            "content": "Dette er indholdet af tidsregistreringen."
-        },
-        "deliveries": {
-            "title": "Leveringer",
-            "content": "Dette er indholdet af leveringerne."
         }
     },
     "reports": {
@@ -262,7 +253,9 @@
             "goToHomepage": "Gå til startside",
             "goToSignIn": "Gå til login",
             "produced": "Produceret",
-            "delivered": "Leveret"
+            "delivered": "Leveret",
+            "collapseNavigation": "Fold navigation sammen",
+            "expandNavigation": "Fold navigation ud"
         },
         "messages": {
             "successfullyAdded": "Tilføjet med succes.",
@@ -302,10 +295,6 @@
         "title": "Controlling",
         "menu": {
             "overview": "Oversigt"
-        },
-        "nav": {
-            "openControlling": "Åbn controlling",
-            "backToDashboard": "Tilbage til dashboard"
         },
         "overview": {
             "title": "Oversigt",

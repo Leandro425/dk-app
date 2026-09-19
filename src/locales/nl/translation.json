@@ -10,6 +10,9 @@
             }
         }
     },
+    "home": {
+        "title": "Home"
+    },
     "dashboard": {
         "title": "Dashboard",
         "description": "Dit is uw dashboard waar u een overzicht van uw gegevens kunt zien.",
@@ -21,18 +24,6 @@
             "order": "Order",
             "article": "Artikel",
             "field": "Veld"
-        },
-        "reports": {
-            "title": "Rapporten",
-            "content": "Dit is de inhoud van de rapporten."
-        },
-        "timestamps": {
-            "title": "Tijdregistratie",
-            "content": "Dit is de inhoud van de tijdregistratie."
-        },
-        "deliveries": {
-            "title": "Leveringen",
-            "content": "Dit is de inhoud van de leveringen."
         }
     },
     "reports": {
@@ -262,7 +253,9 @@
             "goToHomepage": "Ga naar startpagina",
             "goToSignIn": "Ga naar inloggen",
             "produced": "Geproduceerd",
-            "delivered": "Geleverd"
+            "delivered": "Geleverd",
+            "collapseNavigation": "Navigatie inklappen",
+            "expandNavigation": "Navigatie uitklappen"
         },
         "messages": {
             "successfullyAdded": "Succesvol toegevoegd.",
@@ -302,10 +295,6 @@
         "title": "Controlling",
         "menu": {
             "overview": "Overzicht"
-        },
-        "nav": {
-            "openControlling": "Controlling openen",
-            "backToDashboard": "Terug naar dashboard"
         },
         "overview": {
             "title": "Overzicht",

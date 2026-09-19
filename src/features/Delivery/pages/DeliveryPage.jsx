@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import ContentFrame from '../../../components/ContentFrame'
 import { Divider } from 'antd'
-import { HomeOutlined } from '@ant-design/icons'
 
 import { useParams } from 'react-router-dom'
 import useSupabaseContext from '../../../context/supabase/supabaseContext'
@@ -38,20 +37,9 @@ const DeliveryPage = () => {
         <ContentFrame
             title={t('deliveries.delivery.title')}
             description={t('deliveries.delivery.description')}
-            breadcrumbs={[
+            extraBreadcrumbs={[
                 {
-                    title: <HomeOutlined />,
-                },
-                {
-                    href: '/app/dashboard',
-                    title: t('dashboard.title'),
-                },
-                {
-                    href: '/app/dashboard/deliveries',
-                    title: t('deliveries.title'),
-                },
-                {
-                    href: `/app/dashboard/deliveries/${deliveryId}`,
+                    href: `/app/home/deliveries/${deliveryId}`,
                     title: t('deliveries.delivery.title'),
                 },
             ]}

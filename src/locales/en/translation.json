@@ -10,6 +10,9 @@
             }
         }
     },
+    "home": {
+        "title": "Home"
+    },
     "dashboard": {
         "title": "Dashboard",
         "description": "This is your dashboard where you can see an overview of your data.",
@@ -21,18 +24,6 @@
             "order": "Order",
             "article": "Article",
             "field": "Field"
-        },
-        "reports": {
-            "title": "Reports",
-            "content": "This is the content of the reports."
-        },
-        "timestamps": {
-            "title": "Time Tracking",
-            "content": "This is the content of the time tracking."
-        },
-        "deliveries": {
-            "title": "Deliveries",
-            "content": "This is the content of the deliveries."
         }
     },
     "reports": {
@@ -262,7 +253,9 @@
             "goToHomepage": "Go to homepage",
             "goToSignIn": "Go to login",
             "produced": "Produced",
-            "delivered": "Delivered"
+            "delivered": "Delivered",
+            "collapseNavigation": "Collapse navigation",
+            "expandNavigation": "Expand navigation"
         },
         "messages": {
             "successfullyAdded": "Successfully added.",
@@ -302,10 +295,6 @@
         "title": "Controlling",
         "menu": {
             "overview": "Overview"
-        },
-        "nav": {
-            "openControlling": "Open controlling",
-            "backToDashboard": "Back to dashboard"
         },
         "overview": {
             "title": "Overview",

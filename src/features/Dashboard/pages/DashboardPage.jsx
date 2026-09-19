@@ -1,85 +1,21 @@
-import { Typography, Row, Col, Card, Button, Flex } from 'antd'
-
 import { useTranslation } from 'react-i18next'
-import ContentFrame from '../../../components/ContentFrame'
-import { HomeOutlined } from '@ant-design/icons'
 
-import { useNavigate } from 'react-router-dom'
+import ContentFrame from '../../../components/ContentFrame'
 import Stats from '../components/Stats'
 import useSupervisorContext from '../../../context/user/supervisorContext'
 
 const DashboardPage = () => {
     const { t } = useTranslation()
     const { supervisor } = useSupervisorContext()
-    const navigate = useNavigate()
+
     return (
         <ContentFrame
             title={t('dashboard.title')}
             description={t('dashboard.description')}
-            breadcrumbs={[
-                {
-                    title: <HomeOutlined />,
-                },
-                {
-                    href: '/app/dashboard',
-                    title: t('dashboard.title'),
-                },
-            ]}
         >
-            <Flex
-                vertical
-                gap={16}
-            >
-                {supervisor?.is_admin && <Stats />}
-                <Row gutter={[16, 16]}>
-                    <Col span={12}>
-                        <Card
-                            title={t('dashboard.reports.title')}
-                            extra={
-                                <Button
-                                    type="primary"
-                                    onClick={() => navigate('/app/dashboard/reports')}
-                                >
-                                    {t('common.actions.open')}
-                                </Button>
-                            }
-                        >
-                            <Typography.Text>{t('dashboard.reports.content')}</Typography.Text>
-                        </Card>
-                    </Col>
-                    <Col span={12}>
-                        <Card
-                            title={t('dashboard.timestamps.title')}
-                            extra={
-                                <Button
-                                    type="primary"
-                                    onClick={() => navigate('/app/dashboard/timestamps')}
-                                >
-                                    {t('common.actions.open')}
-                                </Button>
-                            }
-                        >
-                            <Typography.Text>{t('dashboard.timestamps.content')}</Typography.Text>
-                        </Card>
-                    </Col>
-                    <Col span={12}>
-                        <Card
-                            title={t('dashboard.deliveries.title')}
-                            extra={
-                                <Button
-                                    type="primary"
-                                    onClick={() => navigate('/app/dashboard/deliveries')}
-                                >
-                                    {t('common.actions.open')}
-                                </Button>
-                            }
-                        >
-                            <Typography.Text>{t('dashboard.deliveries.content')}</Typography.Text>
-                        </Card>
-                    </Col>
-                </Row>
-            </Flex>
+            {supervisor?.is_admin && <Stats />}
         </ContentFrame>
     )
 }
+
 export default DashboardPage

@@ -10,6 +10,9 @@
             }
         }
     },
+    "home": {
+        "title": "Home"
+    },
     "dashboard": {
         "title": "Panel",
         "description": "To jest Twój panel, w którym możesz zobaczyć podgląd swoich danych.",
@@ -21,18 +24,6 @@
             "order": "Zamówienie",
             "article": "Artykuł",
             "field": "Pole"
-        },
-        "reports": {
-            "title": "Raporty",
-            "content": "To jest zawartość raportów."
-        },
-        "timestamps": {
-            "title": "Rejestr czasu",
-            "content": "To jest zawartość rejestru czasu."
-        },
-        "deliveries": {
-            "title": "Dostawy",
-            "content": "To jest zawartość dostaw."
         }
     },
     "reports": {
@@ -262,7 +253,9 @@
             "goToHomepage": "Przejdź do strony głównej",
             "goToSignIn": "Przejdź do logowania",
             "produced": "Wyprodukowano",
-            "delivered": "Dostarczono"
+            "delivered": "Dostarczono",
+            "collapseNavigation": "Zwiń nawigację",
+            "expandNavigation": "Rozwiń nawigację"
         },
         "messages": {
             "successfullyAdded": "Pomyślnie dodano.",
@@ -302,10 +295,6 @@
         "title": "Controlling",
         "menu": {
             "overview": "Przegląd"
-        },
-        "nav": {
-            "openControlling": "Otwórz controlling",
-            "backToDashboard": "Powrót do panelu"
         },
         "overview": {
             "title": "Przegląd",

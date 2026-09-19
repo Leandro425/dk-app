@@ -10,6 +10,9 @@
             }
         }
     },
+    "home": {
+        "title": "Начало"
+    },
     "dashboard": {
         "title": "Табло",
         "description": "Това е вашето табло, където можете да видите преглед на вашите данни.",
@@ -21,18 +24,6 @@
             "order": "Поръчка",
             "article": "Артикул",
             "field": "Поле"
-        },
-        "reports": {
-            "title": "Отчети",
-            "content": "Това е съдържанието на отчетите."
-        },
-        "timestamps": {
-            "title": "Отчитане на време",
-            "content": "Това е съдържанието на отчитането на време."
-        },
-        "deliveries": {
-            "title": "Доставки",
-            "content": "Това е съдържанието на доставките."
         }
     },
     "reports": {
@@ -262,7 +253,9 @@
             "goToHomepage": "Към началната страница",
             "goToSignIn": "Към входа",
             "produced": "Произведено",
-            "delivered": "Доставено"
+            "delivered": "Доставено",
+            "collapseNavigation": "Свий навигацията",
+            "expandNavigation": "Разгъни навигацията"
         },
         "messages": {
             "successfullyAdded": "Успешно добавено.",
@@ -302,10 +295,6 @@
         "title": "Контролинг",
         "menu": {
             "overview": "Общ преглед"
-        },
-        "nav": {
-            "openControlling": "Отвори контролинг",
-            "backToDashboard": "Обратно към таблото"
         },
         "overview": {
             "title": "Общ преглед",

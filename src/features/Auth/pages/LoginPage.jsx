@@ -37,7 +37,7 @@ const LoginPage = () => {
             })
             return
         }
-        navigate('/app/dashboard')
+        navigate('/app/home')
     }
     return (
         <Layout>

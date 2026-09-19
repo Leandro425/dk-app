@@ -10,6 +10,9 @@
             }
         }
     },
+    "home": {
+        "title": "Home"
+    },
     "dashboard": {
         "title": "Dashboard",
         "description": "Dies ist Ihr Dashboard, auf dem Sie eine Übersicht Ihrer Daten sehen können.",
@@ -21,18 +24,6 @@
             "order": "Auftrag",
             "article": "Artikel",
             "field": "Feld"
-        },
-        "reports": {
-            "title": "Berichte",
-            "content": "Dies ist der Inhalt der Berichte."
-        },
-        "timestamps": {
-            "title": "Zeiterfassung",
-            "content": "Dies ist der Inhalt der Zeiterfassung."
-        },
-        "deliveries": {
-            "title": "Lieferungen",
-            "content": "Dies ist der Inhalt der Lieferungen."
         }
     },
     "reports": {
@@ -262,7 +253,9 @@
             "goToHomepage": "Zur Startseite",
             "goToSignIn": "Zur Anmeldung",
             "produced": "Produziert",
-            "delivered": "Geliefert"
+            "delivered": "Geliefert",
+            "collapseNavigation": "Navigation einklappen",
+            "expandNavigation": "Navigation ausklappen"
         },
         "messages": {
             "successfullyAdded": "Erfolgreich hinzugefügt.",
@@ -302,10 +295,6 @@
         "title": "Controlling",
         "menu": {
             "overview": "Übersicht"
-        },
-        "nav": {
-            "openControlling": "Controlling öffnen",
-            "backToDashboard": "Zurück zum Dashboard"
         },
         "overview": {
             "title": "Übersicht",

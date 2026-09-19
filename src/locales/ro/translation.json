@@ -10,6 +10,9 @@
             }
         }
     },
+    "home": {
+        "title": "Home"
+    },
     "dashboard": {
         "title": "Tablou de bord",
         "description": "Acesta este tabloul de bord unde puteți vedea o privire de ansamblu a datelor dumneavoastră.",
@@ -21,18 +24,6 @@
             "order": "Comandă",
             "article": "Articol",
             "field": "Câmp"
-        },
-        "reports": {
-            "title": "Rapoarte",
-            "content": "Acesta este conținutul rapoartelor."
-        },
-        "timestamps": {
-            "title": "Ștampile de timp",
-            "content": "Acesta este conținutul ștampilelor de timp."
-        },
-        "deliveries": {
-            "title": "Livrări",
-            "content": "Acesta este conținutul livrărilor."
         }
     },
     "reports": {
@@ -264,7 +255,9 @@
             "goToHomepage": "Mergi la pagina principală",
             "goToSignIn": "Mergi la autentificare",
             "produced": "Produs",
-            "delivered": "Livrat"
+            "delivered": "Livrat",
+            "collapseNavigation": "Restrânge navigarea",
+            "expandNavigation": "Extinde navigarea"
         },
         "messages": {
             "successfullyAdded": "Adăugat cu succes.",
@@ -304,10 +297,6 @@
         "title": "Controlling",
         "menu": {
             "overview": "Prezentare generală"
-        },
-        "nav": {
-            "openControlling": "Deschide controlling",
-            "backToDashboard": "Înapoi la tabloul de bord"
         },
         "overview": {
             "title": "Prezentare generală",

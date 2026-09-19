@@ -1,9 +1,10 @@
 import { Navigate } from 'react-router-dom'
 import useSupervisorContext from '../../context/user/supervisorContext'
+import { HOME_BASE } from '../../features/Home/constants'
 
 /**
  * Only lets supervisors with the `is_admin` flag through.
- * Everyone else is silently sent back to the dashboard.
+ * Everyone else is silently sent back to the home area.
  */
 const AdminGuard = ({ children }) => {
     const { supervisor } = useSupervisorContext()
@@ -12,7 +13,7 @@ const AdminGuard = ({ children }) => {
         children
     ) : (
         <Navigate
-            to="/app/dashboard"
+            to={HOME_BASE}
             replace
         />
     )

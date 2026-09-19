@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import SupabaseProvider from '../context/supabase/SupabaseProvider'
 import { AuthRoutes } from '../features/Auth'
-import DashboardRoutes from '../features/Dashboard/routes/DashboardRoute'
+import HomeRoutes from '../features/Home'
 import SupabaseAuthGuard from '../components/guards/SupabaseAuthGuard'
 import SupervisorProvider from '../context/user/SupervisorProvider'
 import NotFoundPage from '../components/NotFoundPage'
@@ -17,11 +17,11 @@ const AppRoutes = () => {
                     element={<AuthRoutes />}
                 />
                 <Route
-                    path="/dashboard/*"
+                    path="/home/*"
                     element={
                         <SupabaseAuthGuard>
                             <SupervisorProvider>
-                                <DashboardRoutes />
+                                <HomeRoutes />
                             </SupervisorProvider>
                         </SupabaseAuthGuard>
                     }
