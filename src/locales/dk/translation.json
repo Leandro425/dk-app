@@ -180,7 +180,8 @@
                     "article": "Artikel",
                     "quantity": "Mængde",
                     "createdAt": "Oprettet den",
-                    "actions": "Handlinger"
+                    "actions": "Handlinger",
+                    "unit": "Enhed"
                 }
             },
             "item": {
@@ -217,7 +218,8 @@
                 "articleNumber": "Varenr.",
                 "article": "Artikel",
                 "order": "Ordre",
-                "quantity": "Antal"
+                "quantity": "Antal",
+                "unit": "Enhed"
             }
         }
     },
@@ -302,6 +304,7 @@
             "overview": "Oversigt",
             "employees": "Medarbejdere",
             "customers": "Kunder",
+            "articles": "Varer",
             "payroll": "Månedsafregning"
         },
         "overview": {
@@ -492,6 +495,71 @@
                 "hasDeliveries": "Kunden har leveringer og kan ikke slettes. Arkivér den i stedet (fjern markeringen i Aktiv)."
             }
         },
+        "articles": {
+            "title": "Varer",
+            "description": "Stamdata, akkordløn og salgspriser for alle varer. Arkiverede varer tilbydes ikke længere til nye rapporter, tidsregistreringer og leveringer.",
+            "searchPlaceholder": "Søg efter varenummer eller navn",
+            "filters": {
+                "active": "Aktive",
+                "archived": "Arkiverede",
+                "all": "Alle"
+            },
+            "status": {
+                "active": "Aktive",
+                "archived": "Arkiverede"
+            },
+            "table": {
+                "columns": {
+                    "articleNumber": "Varenr.",
+                    "name": "Navn",
+                    "unit": "Enhed",
+                    "pieceworkWage": "Akkordløn",
+                    "salesPrice": "Salgspris",
+                    "status": "Status",
+                    "actions": "Handlinger"
+                }
+            },
+            "actions": {
+                "add": "Ny vare",
+                "back": "Tilbage til listen",
+                "delete": "Slet vare",
+                "deleteConfirmation": "Varen slettes permanent. Det er kun muligt, så længe den ikke bruges i nogen rapport eller levering."
+            },
+            "new": {
+                "title": "Ny vare",
+                "description": "Opret en ny vare. Varenummer, navn og enhed er påkrævet."
+            },
+            "edit": {
+                "title": "Vare",
+                "description": "Stamdata, akkord og salgspris for varen."
+            },
+            "sections": {
+                "masterData": "Stamdata",
+                "piecework": "Akkord",
+                "sales": "Salg",
+                "notes": "Noter"
+            },
+            "fields": {
+                "articleNumber": "Varenummer",
+                "name": "Navn",
+                "unit": "Enhed",
+                "status": "Status",
+                "active": "Aktiv (kan vælges til nye registreringer)",
+                "pieceworkWage": "Akkordløn pr. enhed",
+                "pieceworkPackaging": "Akkord emballage",
+                "salesPrice": "Nettosalgspris pr. enhed",
+                "salesPriceHelp": "Kun synlig for administratorer.",
+                "notes": "Noter"
+            },
+            "warnings": {
+                "nameTaken": "Der findes allerede en vare med dette navn (nr. {{number}}).",
+                "pieceworkWageChanged": "Ændringen gælder også, når tidligere måneder genberegnes i månedsafregningen."
+            },
+            "errors": {
+                "articleNumberTaken": "Dette varenummer bruges allerede af en anden vare.",
+                "inUse": "Varen bruges i rapporter eller leveringer og kan ikke slettes. Arkivér den i stedet (fjern markeringen ved Aktiv)."
+            }
+        },
         "payroll": {
             "title": "Månedsafregning",
             "description": "Akkordløn og arbejdstid for alle medarbejdere pr. måned: månedsrapporter som PDF, Excel-opgørelser og DATEV-forregistreringsarket.",
@@ -583,5 +651,13 @@
                 }
             }
         }
+    },
+    "units": {
+        "piece": "Stk.",
+        "kg": "kg",
+        "crate": "Kasse",
+        "box": "Karton",
+        "pallet": "Palle",
+        "bunch": "Bundt"
     }
 }

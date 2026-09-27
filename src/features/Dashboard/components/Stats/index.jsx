@@ -83,6 +83,7 @@ const Stats = () => {
                         allowClear
                         placeholder={t('dashboard.statistics.article')}
                         enabled={supabase !== null}
+                        includeArchived
                     />
                     <FieldSelect
                         supabase={supabase}

@@ -180,7 +180,8 @@
                     "article": "Artikel",
                     "quantity": "Aantal",
                     "createdAt": "Gemaakt op",
-                    "actions": "Acties"
+                    "actions": "Acties",
+                    "unit": "Eenheid"
                 }
             },
             "item": {
@@ -217,7 +218,8 @@
                 "articleNumber": "Art.nr.",
                 "article": "Artikel",
                 "order": "Order",
-                "quantity": "Aantal"
+                "quantity": "Aantal",
+                "unit": "Eenheid"
             }
         }
     },
@@ -302,6 +304,7 @@
             "overview": "Overzicht",
             "employees": "Medewerkers",
             "customers": "Klanten",
+            "articles": "Artikelen",
             "payroll": "Maandafrekening"
         },
         "overview": {
@@ -492,6 +495,71 @@
                 "hasDeliveries": "De klant heeft leveringen en kan niet worden verwijderd. Archiveer de klant in plaats daarvan (Actief uitvinken)."
             }
         },
+        "articles": {
+            "title": "Artikelen",
+            "description": "Stamgegevens, stukloon en verkoopprijzen van alle artikelen. Gearchiveerde artikelen worden niet meer aangeboden voor nieuwe rapporten, tijdregistraties en leveringen.",
+            "searchPlaceholder": "Zoeken op artikelnummer of naam",
+            "filters": {
+                "active": "Actief",
+                "archived": "Gearchiveerd",
+                "all": "Alle"
+            },
+            "status": {
+                "active": "Actief",
+                "archived": "Gearchiveerd"
+            },
+            "table": {
+                "columns": {
+                    "articleNumber": "Art.nr.",
+                    "name": "Naam",
+                    "unit": "Eenheid",
+                    "pieceworkWage": "Stukloon",
+                    "salesPrice": "Verkoopprijs",
+                    "status": "Status",
+                    "actions": "Acties"
+                }
+            },
+            "actions": {
+                "add": "Nieuw artikel",
+                "back": "Terug naar lijst",
+                "delete": "Artikel verwijderen",
+                "deleteConfirmation": "Het artikel wordt definitief verwijderd. Dat kan alleen zolang het in geen enkel rapport of levering wordt gebruikt."
+            },
+            "new": {
+                "title": "Nieuw artikel",
+                "description": "Nieuw artikel aanmaken. Artikelnummer, naam en eenheid zijn verplicht."
+            },
+            "edit": {
+                "title": "Artikel",
+                "description": "Stamgegevens, stukloon en verkoopprijs van het artikel."
+            },
+            "sections": {
+                "masterData": "Stamgegevens",
+                "piecework": "Stukloon",
+                "sales": "Verkoop",
+                "notes": "Notities"
+            },
+            "fields": {
+                "articleNumber": "Artikelnummer",
+                "name": "Naam",
+                "unit": "Eenheid",
+                "status": "Status",
+                "active": "Actief (selecteerbaar voor nieuwe invoer)",
+                "pieceworkWage": "Stukloon per eenheid",
+                "pieceworkPackaging": "Stukloon verpakking",
+                "salesPrice": "Netto verkoopprijs per eenheid",
+                "salesPriceHelp": "Alleen zichtbaar voor beheerders.",
+                "notes": "Notities"
+            },
+            "warnings": {
+                "nameTaken": "Er bestaat al een artikel met deze naam (nr. {{number}}).",
+                "pieceworkWageChanged": "De wijziging geldt ook wanneer eerdere maanden in de maandafrekening opnieuw worden berekend."
+            },
+            "errors": {
+                "articleNumberTaken": "Dit artikelnummer is al aan een ander artikel toegewezen.",
+                "inUse": "Het artikel wordt gebruikt in rapporten of leveringen en kan niet worden verwijderd. Archiveer het in plaats daarvan (Actief uitvinken)."
+            }
+        },
         "payroll": {
             "title": "Maandafrekening",
             "description": "Stukloon en werktijd van alle medewerkers per maand: maandoverzichten als PDF, Excel-uitwerkingen en het DATEV-voorinvoerblad.",
@@ -583,5 +651,13 @@
                 }
             }
         }
+    },
+    "units": {
+        "piece": "Stuk",
+        "kg": "kg",
+        "crate": "Krat",
+        "box": "Doos",
+        "pallet": "Pallet",
+        "bunch": "Bos"
     }
 }

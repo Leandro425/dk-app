@@ -8,6 +8,7 @@ import {
     FileTextOutlined,
     HomeOutlined,
     ShopOutlined,
+    TagsOutlined,
     TeamOutlined,
 } from '@ant-design/icons'
 
@@ -45,6 +46,7 @@ export const AREAS = {
             { key: '', labelKey: 'admin.menu.overview', icon: AppstoreOutlined },
             { key: 'employees', labelKey: 'admin.menu.employees', icon: TeamOutlined },
             { key: 'customers', labelKey: 'admin.menu.customers', icon: ShopOutlined },
+            { key: 'articles', labelKey: 'admin.menu.articles', icon: TagsOutlined },
             { key: 'payroll', labelKey: 'admin.menu.payroll', icon: EuroOutlined },
         ],
     },

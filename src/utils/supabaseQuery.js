@@ -29,6 +29,7 @@ export const getArticleSelectOptions = async (supabase) => {
         label: getArticleLabel(article),
         value: article.id,
         piecework_packaging: article.piecework_packaging,
+        active: article.active,
     }))
 }
 

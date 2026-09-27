@@ -180,7 +180,8 @@
                     "article": "Artykuł",
                     "quantity": "Ilość",
                     "createdAt": "Utworzone dnia",
-                    "actions": "Akcje"
+                    "actions": "Akcje",
+                    "unit": "Jednostka"
                 }
             },
             "item": {
@@ -217,7 +218,8 @@
                 "articleNumber": "Nr art.",
                 "article": "Artykuł",
                 "order": "Zamówienie",
-                "quantity": "Ilość"
+                "quantity": "Ilość",
+                "unit": "Jednostka"
             }
         }
     },
@@ -302,6 +304,7 @@
             "overview": "Przegląd",
             "employees": "Pracownicy",
             "customers": "Klienci",
+            "articles": "Artykuły",
             "payroll": "Rozliczenie miesięczne"
         },
         "overview": {
@@ -492,6 +495,71 @@
                 "hasDeliveries": "Klient ma dostawy i nie może zostać usunięty. Zamiast tego zarchiwizuj go (odznacz Aktywny)."
             }
         },
+        "articles": {
+            "title": "Artykuły",
+            "description": "Dane podstawowe, stawki akordowe i ceny sprzedaży wszystkich artykułów. Zarchiwizowane artykuły nie są już oferowane dla nowych raportów, rejestracji czasu i dostaw.",
+            "searchPlaceholder": "Szukaj po numerze artykułu lub nazwie",
+            "filters": {
+                "active": "Aktywne",
+                "archived": "Zarchiwizowane",
+                "all": "Wszystkie"
+            },
+            "status": {
+                "active": "Aktywne",
+                "archived": "Zarchiwizowane"
+            },
+            "table": {
+                "columns": {
+                    "articleNumber": "Nr art.",
+                    "name": "Nazwa",
+                    "unit": "Jednostka",
+                    "pieceworkWage": "Stawka akordowa",
+                    "salesPrice": "Cena sprzedaży",
+                    "status": "Status",
+                    "actions": "Akcje"
+                }
+            },
+            "actions": {
+                "add": "Nowy artykuł",
+                "back": "Powrót do listy",
+                "delete": "Usuń artykuł",
+                "deleteConfirmation": "Artykuł zostanie trwale usunięty. Jest to możliwe tylko wtedy, gdy nie jest używany w żadnym raporcie ani dostawie."
+            },
+            "new": {
+                "title": "Nowy artykuł",
+                "description": "Utwórz nowy artykuł. Numer artykułu, nazwa i jednostka są wymagane."
+            },
+            "edit": {
+                "title": "Artykuł",
+                "description": "Dane podstawowe, akord i cena sprzedaży artykułu."
+            },
+            "sections": {
+                "masterData": "Dane podstawowe",
+                "piecework": "Akord",
+                "sales": "Sprzedaż",
+                "notes": "Notatki"
+            },
+            "fields": {
+                "articleNumber": "Numer artykułu",
+                "name": "Nazwa",
+                "unit": "Jednostka",
+                "status": "Status",
+                "active": "Aktywny (do wyboru dla nowych wpisów)",
+                "pieceworkWage": "Stawka akordowa za jednostkę",
+                "pieceworkPackaging": "Akord opakowanie",
+                "salesPrice": "Cena sprzedaży netto za jednostkę",
+                "salesPriceHelp": "Widoczne tylko dla administratorów.",
+                "notes": "Notatki"
+            },
+            "warnings": {
+                "nameTaken": "Istnieje już artykuł o tej nazwie (nr {{number}}).",
+                "pieceworkWageChanged": "Zmiana obowiązuje również przy ponownym przeliczeniu wcześniejszych miesięcy w rozliczeniu miesięcznym."
+            },
+            "errors": {
+                "articleNumberTaken": "Ten numer artykułu jest już przypisany do innego artykułu.",
+                "inUse": "Artykuł jest używany w raportach lub dostawach i nie może zostać usunięty. Zamiast tego zarchiwizuj go (odznacz Aktywny)."
+            }
+        },
         "payroll": {
             "title": "Rozliczenie miesięczne",
             "description": "Wynagrodzenie akordowe i czas pracy wszystkich pracowników w danym miesiącu: raporty miesięczne w PDF, zestawienia Excel oraz arkusz wstępny DATEV.",
@@ -583,5 +651,13 @@
                 }
             }
         }
+    },
+    "units": {
+        "piece": "Sztuka",
+        "kg": "kg",
+        "crate": "Skrzynka",
+        "box": "Karton",
+        "pallet": "Paleta",
+        "bunch": "Pęczek"
     }
 }

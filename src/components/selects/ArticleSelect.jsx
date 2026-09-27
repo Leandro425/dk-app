@@ -2,7 +2,10 @@ import { useQuery } from '@tanstack/react-query'
 import { getArticleSelectOptions } from '../../utils/supabaseQuery'
 import { useTranslation } from 'react-i18next'
 import { Select } from 'antd'
-const ArticleSelect = ({ supabase, value, onChange, enabled = false, placeholder }) => {
+import { useMemo } from 'react'
+
+// `includeArchived` also lists archived articles (e.g. for filtering statistics over past data).
+const ArticleSelect = ({ supabase, value, onChange, enabled = false, placeholder, includeArchived = false }) => {
     const { t } = useTranslation()
     const {
         data: options,
@@ -15,6 +18,13 @@ const ArticleSelect = ({ supabase, value, onChange, enabled = false, placeholder
         enabled: enabled,
     })
 
+    // Archived articles are only listed when already selected.
+    const visibleOptions = useMemo(
+        () =>
+            includeArchived ? options : options?.filter((option) => option.active !== false || option.value === value),
+        [options, value, includeArchived]
+    )
+
     return (
         <Select
             showSearch
@@ -23,7 +33,7 @@ const ArticleSelect = ({ supabase, value, onChange, enabled = false, placeholder
             placeholder={placeholder || t('common.placeholders.selectOption')}
             value={value}
             onChange={(value) => onChange(value)}
-            options={options}
+            options={visibleOptions}
             filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
             allowClear
         />

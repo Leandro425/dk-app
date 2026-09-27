@@ -180,7 +180,8 @@
                     "article": "Artikel",
                     "quantity": "Menge",
                     "createdAt": "Erstellt am",
-                    "actions": "Aktionen"
+                    "actions": "Aktionen",
+                    "unit": "Einheit"
                 }
             },
             "item": {
@@ -217,7 +218,8 @@
                 "articleNumber": "Art.-Nr.",
                 "article": "Artikel",
                 "order": "Auftrag",
-                "quantity": "Menge"
+                "quantity": "Menge",
+                "unit": "Einheit"
             }
         }
     },
@@ -302,6 +304,7 @@
             "overview": "Übersicht",
             "employees": "Mitarbeiter",
             "customers": "Kunden",
+            "articles": "Artikel",
             "payroll": "Monatsabrechnung"
         },
         "overview": {
@@ -492,6 +495,71 @@
                 "hasDeliveries": "Der Kunde hat Lieferungen und kann nicht gelöscht werden. Stattdessen archivieren (Aktiv abwählen)."
             }
         },
+        "articles": {
+            "title": "Artikel",
+            "description": "Stammdaten, Akkordlöhne und Verkaufspreise aller Artikel. Archivierte Artikel werden für neue Berichte, Zeiterfassungen und Lieferungen nicht mehr angeboten.",
+            "searchPlaceholder": "Suche nach Artikelnummer oder Name",
+            "filters": {
+                "active": "Aktiv",
+                "archived": "Archiviert",
+                "all": "Alle"
+            },
+            "status": {
+                "active": "Aktiv",
+                "archived": "Archiviert"
+            },
+            "table": {
+                "columns": {
+                    "articleNumber": "Art.-Nr.",
+                    "name": "Name",
+                    "unit": "Einheit",
+                    "pieceworkWage": "Akkordlohn",
+                    "salesPrice": "Verkaufspreis",
+                    "status": "Status",
+                    "actions": "Aktionen"
+                }
+            },
+            "actions": {
+                "add": "Neuer Artikel",
+                "back": "Zurück zur Liste",
+                "delete": "Artikel löschen",
+                "deleteConfirmation": "Der Artikel wird endgültig gelöscht. Das ist nur möglich, solange er in keinem Bericht und keiner Lieferung verwendet wird."
+            },
+            "new": {
+                "title": "Neuer Artikel",
+                "description": "Neuen Artikel anlegen. Artikelnummer, Name und Einheit sind Pflicht."
+            },
+            "edit": {
+                "title": "Artikel",
+                "description": "Stammdaten, Akkord und Verkaufspreis des Artikels."
+            },
+            "sections": {
+                "masterData": "Stammdaten",
+                "piecework": "Akkord",
+                "sales": "Verkauf",
+                "notes": "Notizen"
+            },
+            "fields": {
+                "articleNumber": "Artikelnummer",
+                "name": "Name",
+                "unit": "Einheit",
+                "status": "Status",
+                "active": "Aktiv (für neue Einträge auswählbar)",
+                "pieceworkWage": "Akkordlohn pro Einheit",
+                "pieceworkPackaging": "Akkord Verpackung",
+                "salesPrice": "Verkaufspreis netto pro Einheit",
+                "salesPriceHelp": "Nur für Administratoren sichtbar.",
+                "notes": "Notizen"
+            },
+            "warnings": {
+                "nameTaken": "Es gibt bereits einen Artikel mit diesem Namen (Nr. {{number}}).",
+                "pieceworkWageChanged": "Die Änderung wirkt sich auch aus, wenn frühere Monate in der Monatsabrechnung neu berechnet werden."
+            },
+            "errors": {
+                "articleNumberTaken": "Diese Artikelnummer ist bereits an einen anderen Artikel vergeben.",
+                "inUse": "Der Artikel wird in Berichten oder Lieferungen verwendet und kann nicht gelöscht werden. Stattdessen archivieren (Aktiv abwählen)."
+            }
+        },
         "payroll": {
             "title": "Monatsabrechnung",
             "description": "Stücklohn und Arbeitszeit aller Mitarbeiter je Monat: Monatsberichte als PDF, Excel-Auswertungen und die Vorerfassung für DATEV.",
@@ -583,5 +651,13 @@
                 }
             }
         }
+    },
+    "units": {
+        "piece": "Stück",
+        "kg": "kg",
+        "crate": "Kiste",
+        "box": "Karton",
+        "pallet": "Palette",
+        "bunch": "Bund"
     }
 }

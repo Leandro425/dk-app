@@ -3,6 +3,7 @@ import company from '../../../config/company'
 import { formatDate, getCustomerLabel, getSupervisorLabel } from '../../../utils/helpers'
 import { PDF_FONT_FAMILY, registerPdfFonts } from '../../../utils/pdfFonts'
 import { INTL_LOCALES, getAddressLines } from '../../../utils/address'
+import { getUnitLabel } from '../../../utils/articleUnits'
 
 registerPdfFonts()
 
@@ -84,6 +85,7 @@ const styles = StyleSheet.create({
     colArticle: { flex: 3, paddingHorizontal: 6 },
     colOrder: { flex: 3, paddingHorizontal: 6 },
     colQuantity: { width: 70, paddingHorizontal: 6, textAlign: 'right' },
+    colUnit: { width: 50, paddingHorizontal: 6 },
     cellMuted: { color: '#666' },
     cellSub: { fontSize: 8, color: '#777', marginTop: 1 },
     emptyRow: { paddingVertical: 10, textAlign: 'center', color: '#777', flex: 1 },
@@ -140,6 +142,9 @@ const DeliveryNoteDocument = ({ delivery, items = [], t }) => {
     })
     const formatQuantity = (value) => (value === null || value === undefined ? '' : numberFormat.format(value))
     const totalQuantity = items.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0)
+    // The total only gets a unit when all items share one; mixed units are summed without.
+    const units = new Set(items.map((item) => item.article?.unit ?? null))
+    const totalUnit = units.size === 1 ? [...units][0] : null
     return (
         <Document
             title={`${title} ${delivery?.number ?? ''}`.trim()}
@@ -213,6 +218,7 @@ const DeliveryNoteDocument = ({ delivery, items = [], t }) => {
                         <Text style={styles.colArticle}>{t('deliveries.pdf.columns.article')}</Text>
                         <Text style={styles.colOrder}>{t('deliveries.pdf.columns.order')}</Text>
                         <Text style={styles.colQuantity}>{t('deliveries.pdf.columns.quantity')}</Text>
+                        <Text style={styles.colUnit}>{t('deliveries.pdf.columns.unit')}</Text>
                     </View>
                     {items.map((item, index) => (
                         <View
@@ -230,6 +236,7 @@ const DeliveryNoteDocument = ({ delivery, items = [], t }) => {
                                 {item.order?.customer && <Text style={styles.cellSub}>{item.order.customer}</Text>}
                             </View>
                             <Text style={styles.colQuantity}>{formatQuantity(item.quantity)}</Text>
+                            <Text style={styles.colUnit}>{getUnitLabel(t, item.article?.unit)}</Text>
                         </View>
                     ))}
                     {items.length === 0 ? (
@@ -245,6 +252,7 @@ const DeliveryNoteDocument = ({ delivery, items = [], t }) => {
                                 {t('deliveries.pdf.total', { count: items.length })}
                             </Text>
                             <Text style={styles.colQuantity}>{formatQuantity(totalQuantity)}</Text>
+                            <Text style={styles.colUnit}>{getUnitLabel(t, totalUnit)}</Text>
                         </View>
                     )}
                 </View>

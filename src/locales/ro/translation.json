@@ -182,7 +182,8 @@
                     "article": "Articol",
                     "quantity": "Cantitate",
                     "createdAt": "Creat la",
-                    "actions": "Acțiuni"
+                    "actions": "Acțiuni",
+                    "unit": "Unitate"
                 }
             },
             "item": {
@@ -219,7 +220,8 @@
                 "articleNumber": "Nr. art.",
                 "article": "Articol",
                 "order": "Comandă",
-                "quantity": "Cantitate"
+                "quantity": "Cantitate",
+                "unit": "Unitate"
             }
         }
     },
@@ -304,6 +306,7 @@
             "overview": "Prezentare generală",
             "employees": "Angajați",
             "customers": "Clienți",
+            "articles": "Articole",
             "payroll": "Decontare lunară"
         },
         "overview": {
@@ -494,6 +497,71 @@
                 "hasDeliveries": "Clientul are livrări și nu poate fi șters. Arhivați-l în schimb (debifați Activ)."
             }
         },
+        "articles": {
+            "title": "Articole",
+            "description": "Date de bază, tarife în acord și prețuri de vânzare pentru toate articolele. Articolele arhivate nu mai sunt oferite pentru rapoarte, pontaje și livrări noi.",
+            "searchPlaceholder": "Caută după număr de articol sau nume",
+            "filters": {
+                "active": "Active",
+                "archived": "Arhivate",
+                "all": "Toate"
+            },
+            "status": {
+                "active": "Active",
+                "archived": "Arhivate"
+            },
+            "table": {
+                "columns": {
+                    "articleNumber": "Nr. art.",
+                    "name": "Nume",
+                    "unit": "Unitate",
+                    "pieceworkWage": "Tarif în acord",
+                    "salesPrice": "Preț de vânzare",
+                    "status": "Stare",
+                    "actions": "Acțiuni"
+                }
+            },
+            "actions": {
+                "add": "Articol nou",
+                "back": "Înapoi la listă",
+                "delete": "Șterge articolul",
+                "deleteConfirmation": "Articolul va fi șters definitiv. Acest lucru este posibil doar cât timp nu este folosit în niciun raport sau livrare."
+            },
+            "new": {
+                "title": "Articol nou",
+                "description": "Creează un articol nou. Numărul articolului, numele și unitatea sunt obligatorii."
+            },
+            "edit": {
+                "title": "Articol",
+                "description": "Date de bază, acord și preț de vânzare ale articolului."
+            },
+            "sections": {
+                "masterData": "Date de bază",
+                "piecework": "Acord",
+                "sales": "Vânzare",
+                "notes": "Notițe"
+            },
+            "fields": {
+                "articleNumber": "Număr articol",
+                "name": "Nume",
+                "unit": "Unitate",
+                "status": "Stare",
+                "active": "Activ (selectabil pentru înregistrări noi)",
+                "pieceworkWage": "Tarif în acord pe unitate",
+                "pieceworkPackaging": "Acord ambalare",
+                "salesPrice": "Preț de vânzare net pe unitate",
+                "salesPriceHelp": "Vizibil doar pentru administratori.",
+                "notes": "Notițe"
+            },
+            "warnings": {
+                "nameTaken": "Există deja un articol cu acest nume (nr. {{number}}).",
+                "pieceworkWageChanged": "Modificarea se aplică și la recalcularea lunilor anterioare în decontul lunar."
+            },
+            "errors": {
+                "articleNumberTaken": "Acest număr de articol este deja folosit de alt articol.",
+                "inUse": "Articolul este folosit în rapoarte sau livrări și nu poate fi șters. Arhivează-l în schimb (debifează Activ)."
+            }
+        },
         "payroll": {
             "title": "Decontare lunară",
             "description": "Plata în acord și timpul de lucru al tuturor angajaților pe lună: rapoarte lunare ca PDF, evaluări Excel și foaia de preînregistrare DATEV.",
@@ -585,5 +653,13 @@
                 }
             }
         }
+    },
+    "units": {
+        "piece": "Bucată",
+        "kg": "kg",
+        "crate": "Ladă",
+        "box": "Cutie",
+        "pallet": "Palet",
+        "bunch": "Legătură"
     }
 }

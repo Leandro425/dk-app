@@ -5,6 +5,7 @@ import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
 
 import { formatDateTime, getArticleLabel, getFieldLabel, getOrderLabel } from '../../../../utils/helpers'
+import { getUnitLabel } from '../../../../utils/articleUnits'
 import { DeleteFilled, EditFilled } from '@ant-design/icons'
 import AddDeliveryItemModal from '../modals/AddDeliveryItemModal'
 import EditDeliveryItemModal from '../modals/EditDeliveryItemModal'
@@ -76,6 +77,11 @@ const DeliveryItemsTable = ({ deliveryId, locked = false }) => {
             render: getArticleLabel,
         },
         { title: t('deliveries.items.table.columns.quantity'), dataIndex: 'quantity', key: 'quantity', align: 'right' },
+        {
+            title: t('deliveries.items.table.columns.unit'),
+            key: 'unit',
+            render: (_, deliveryItem) => getUnitLabel(t, deliveryItem.article?.unit),
+        },
         {
             title: t('deliveries.items.table.columns.createdAt'),
             dataIndex: 'created_at',

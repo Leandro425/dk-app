@@ -180,7 +180,8 @@
                     "article": "Article",
                     "quantity": "Quantity",
                     "createdAt": "Created at",
-                    "actions": "Actions"
+                    "actions": "Actions",
+                    "unit": "Unit"
                 }
             },
             "item": {
@@ -217,7 +218,8 @@
                 "articleNumber": "Art. no.",
                 "article": "Article",
                 "order": "Order",
-                "quantity": "Quantity"
+                "quantity": "Quantity",
+                "unit": "Unit"
             }
         }
     },
@@ -302,6 +304,7 @@
             "overview": "Overview",
             "employees": "Employees",
             "customers": "Customers",
+            "articles": "Articles",
             "payroll": "Payroll"
         },
         "overview": {
@@ -492,6 +495,71 @@
                 "hasDeliveries": "The customer has deliveries and cannot be deleted. Archive it instead (uncheck Active)."
             }
         },
+        "articles": {
+            "title": "Articles",
+            "description": "Master data, piecework wages and sales prices of all articles. Archived articles are no longer offered for new reports, timestamps and deliveries.",
+            "searchPlaceholder": "Search by article number or name",
+            "filters": {
+                "active": "Active",
+                "archived": "Archived",
+                "all": "All"
+            },
+            "status": {
+                "active": "Active",
+                "archived": "Archived"
+            },
+            "table": {
+                "columns": {
+                    "articleNumber": "Art. no.",
+                    "name": "Name",
+                    "unit": "Unit",
+                    "pieceworkWage": "Piecework wage",
+                    "salesPrice": "Sales price",
+                    "status": "Status",
+                    "actions": "Actions"
+                }
+            },
+            "actions": {
+                "add": "New article",
+                "back": "Back to list",
+                "delete": "Delete article",
+                "deleteConfirmation": "The article will be deleted permanently. This is only possible while it is not used in any report or delivery."
+            },
+            "new": {
+                "title": "New article",
+                "description": "Create a new article. Article number, name and unit are required."
+            },
+            "edit": {
+                "title": "Article",
+                "description": "Master data, piecework and sales price of the article."
+            },
+            "sections": {
+                "masterData": "Master data",
+                "piecework": "Piecework",
+                "sales": "Sales",
+                "notes": "Notes"
+            },
+            "fields": {
+                "articleNumber": "Article number",
+                "name": "Name",
+                "unit": "Unit",
+                "status": "Status",
+                "active": "Active (selectable for new entries)",
+                "pieceworkWage": "Piecework wage per unit",
+                "pieceworkPackaging": "Piecework packaging",
+                "salesPrice": "Net sales price per unit",
+                "salesPriceHelp": "Only visible to administrators.",
+                "notes": "Notes"
+            },
+            "warnings": {
+                "nameTaken": "An article with this name already exists (no. {{number}}).",
+                "pieceworkWageChanged": "The change also applies when earlier months are recalculated in the monthly payroll."
+            },
+            "errors": {
+                "articleNumberTaken": "This article number is already used by another article.",
+                "inUse": "The article is used in reports or deliveries and cannot be deleted. Archive it instead (uncheck Active)."
+            }
+        },
         "payroll": {
             "title": "Payroll",
             "description": "Piecework pay and working time of all employees per month: monthly statements as PDF, Excel evaluations and the DATEV pre-entry sheet.",
@@ -583,5 +651,13 @@
                 }
             }
         }
+    },
+    "units": {
+        "piece": "Piece",
+        "kg": "kg",
+        "crate": "Crate",
+        "box": "Box",
+        "pallet": "Pallet",
+        "bunch": "Bunch"
     }
 }
