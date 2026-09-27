@@ -203,13 +203,18 @@
             "number": "Følgeseddel-nr.",
             "date": "Leveringsdato",
             "customer": "Kunde",
+            "customerNumber": "Kundenr.",
+            "attention": "Att.",
             "createdBy": "Oprettet af",
             "annotation": "Bemærkning",
             "noItems": "Ingen positioner",
             "deliveredBy": "Leveret af (dato, underskrift)",
             "receivedBy": "Modtaget af (dato, underskrift)",
             "page": "Side {{page}} af {{total}}",
+            "total": "I alt ({{count}} positioner)",
             "columns": {
+                "position": "Pos.",
+                "articleNumber": "Varenr.",
                 "article": "Artikel",
                 "order": "Ordre",
                 "quantity": "Antal"
@@ -296,6 +301,7 @@
         "menu": {
             "overview": "Oversigt",
             "employees": "Medarbejdere",
+            "customers": "Kunder",
             "payroll": "Månedsafregning"
         },
         "overview": {
@@ -407,6 +413,83 @@
                 "staffNumberDkTaken": "Dette personalenummer (DK) er allerede i brug.",
                 "exitBeforeEntry": "Fratrædelsesdatoen må ikke ligge før ansættelsesdatoen.",
                 "hasHistory": "Medarbejderen har rapporter eller tidsregistreringer og kan ikke slettes. Angiv i stedet en fratrædelsesdato."
+            }
+        },
+        "customers": {
+            "title": "Kunder",
+            "description": "Stamdata, adresser og faktureringsdata for alle kunder. Arkiverede kunder tilbydes ikke længere til nye leveringer.",
+            "searchPlaceholder": "Søg efter navn, nummer, by eller kontaktperson",
+            "filters": {
+                "active": "Aktive",
+                "archived": "Arkiverede",
+                "all": "Alle"
+            },
+            "status": {
+                "active": "Aktiv",
+                "archived": "Arkiveret"
+            },
+            "table": {
+                "columns": {
+                    "customerNumber": "Kundenr.",
+                    "name": "Navn",
+                    "city": "By",
+                    "contactPerson": "Kontaktperson",
+                    "phone": "Telefon",
+                    "status": "Status",
+                    "actions": "Handlinger"
+                }
+            },
+            "actions": {
+                "add": "Ny kunde",
+                "back": "Tilbage til listen",
+                "delete": "Slet kunde",
+                "deleteConfirmation": "Kunden slettes permanent. Det er kun muligt uden leveringer."
+            },
+            "new": {
+                "title": "Ny kunde",
+                "description": "Opret en ny kunde. Kun navnet er påkrævet."
+            },
+            "edit": {
+                "title": "Kunde",
+                "description": "Stamdata, adresse, fakturerings- og kontaktdata for kunden."
+            },
+            "sections": {
+                "masterData": "Stamdata",
+                "address": "Adresse",
+                "billing": "Fakturering & betaling",
+                "contact": "Kontakt",
+                "notes": "Noter"
+            },
+            "fields": {
+                "customerNumber": "Kundenummer",
+                "name": "Navn",
+                "status": "Status",
+                "active": "Aktiv (kan vælges til leveringer)",
+                "street": "Gade",
+                "houseNumber": "Husnr.",
+                "zipCode": "Postnr.",
+                "city": "By",
+                "country": "Land",
+                "paymentTermDays": "Betalingsfrist",
+                "days": "dage",
+                "vatId": "Momsnummer",
+                "billingAddress": "Faktureringsadresse",
+                "billingDiffers": "Faktureringsadressen afviger fra adressen",
+                "billingName": "Fakturamodtager",
+                "contactPerson": "Kontaktperson",
+                "email": "E-mail",
+                "phone": "Telefon",
+                "notes": "Noter"
+            },
+            "warnings": {
+                "nameTaken": "Der findes allerede en kunde med dette navn (nr. {{number}}).",
+                "zipCodeFormat": "Usædvanligt format. Tyske postnumre har 5 cifre.",
+                "vatIdFormat": "Usædvanligt format. Forventet f.eks. DE123456789.",
+                "emailFormat": "Det ligner ikke en e-mailadresse."
+            },
+            "errors": {
+                "customerNumberTaken": "Dette kundenummer bruges allerede af en anden kunde.",
+                "hasDeliveries": "Kunden har leveringer og kan ikke slettes. Arkivér den i stedet (fjern markeringen i Aktiv)."
             }
         },
         "payroll": {

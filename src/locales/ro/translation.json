@@ -205,13 +205,18 @@
             "number": "Nr. aviz",
             "date": "Data livrării",
             "customer": "Client",
+            "customerNumber": "Nr. client",
+            "attention": "În atenția",
             "createdBy": "Creat de",
             "annotation": "Observații",
             "noItems": "Fără poziții",
             "deliveredBy": "Livrat de (data, semnătura)",
             "receivedBy": "Primit de (data, semnătura)",
             "page": "Pagina {{page}} din {{total}}",
+            "total": "Total ({{count}} poziții)",
             "columns": {
+                "position": "Poz.",
+                "articleNumber": "Nr. art.",
                 "article": "Articol",
                 "order": "Comandă",
                 "quantity": "Cantitate"
@@ -298,6 +303,7 @@
         "menu": {
             "overview": "Prezentare generală",
             "employees": "Angajați",
+            "customers": "Clienți",
             "payroll": "Decontare lunară"
         },
         "overview": {
@@ -409,6 +415,83 @@
                 "staffNumberDkTaken": "Acest nr. pers. (DK) este deja folosit.",
                 "exitBeforeEntry": "Data plecării nu poate fi înaintea datei angajării.",
                 "hasHistory": "Angajatul are rapoarte sau înregistrări de timp și nu poate fi șters. Setează în schimb o dată de plecare."
+            }
+        },
+        "customers": {
+            "title": "Clienți",
+            "description": "Date de bază, adrese și date de facturare ale tuturor clienților. Clienții arhivați nu mai sunt oferiți pentru livrări noi.",
+            "searchPlaceholder": "Căutare după nume, număr, oraș sau persoană de contact",
+            "filters": {
+                "active": "Activi",
+                "archived": "Arhivați",
+                "all": "Toți"
+            },
+            "status": {
+                "active": "Activ",
+                "archived": "Arhivat"
+            },
+            "table": {
+                "columns": {
+                    "customerNumber": "Nr. client",
+                    "name": "Nume",
+                    "city": "Oraș",
+                    "contactPerson": "Persoană de contact",
+                    "phone": "Telefon",
+                    "status": "Stare",
+                    "actions": "Acțiuni"
+                }
+            },
+            "actions": {
+                "add": "Client nou",
+                "back": "Înapoi la listă",
+                "delete": "Șterge clientul",
+                "deleteConfirmation": "Clientul va fi șters definitiv. Acest lucru este posibil doar fără livrări."
+            },
+            "new": {
+                "title": "Client nou",
+                "description": "Creați un client nou. Doar numele este obligatoriu."
+            },
+            "edit": {
+                "title": "Client",
+                "description": "Date de bază, adresă, date de facturare și de contact ale clientului."
+            },
+            "sections": {
+                "masterData": "Date de bază",
+                "address": "Adresă",
+                "billing": "Facturare și plată",
+                "contact": "Contact",
+                "notes": "Notițe"
+            },
+            "fields": {
+                "customerNumber": "Număr client",
+                "name": "Nume",
+                "status": "Stare",
+                "active": "Activ (disponibil pentru livrări)",
+                "street": "Stradă",
+                "houseNumber": "Nr.",
+                "zipCode": "Cod poștal",
+                "city": "Oraș",
+                "country": "Țară",
+                "paymentTermDays": "Termen de plată",
+                "days": "zile",
+                "vatId": "Cod TVA",
+                "billingAddress": "Adresă de facturare",
+                "billingDiffers": "Adresa de facturare diferă de adresă",
+                "billingName": "Destinatar factură",
+                "contactPerson": "Persoană de contact",
+                "email": "E-mail",
+                "phone": "Telefon",
+                "notes": "Notițe"
+            },
+            "warnings": {
+                "nameTaken": "Există deja un client cu acest nume (nr. {{number}}).",
+                "zipCodeFormat": "Format neobișnuit. Codurile poștale germane au 5 cifre.",
+                "vatIdFormat": "Format neobișnuit. Se așteaptă de ex. DE123456789.",
+                "emailFormat": "Aceasta nu pare a fi o adresă de e-mail."
+            },
+            "errors": {
+                "customerNumberTaken": "Acest număr de client este deja folosit de alt client.",
+                "hasDeliveries": "Clientul are livrări și nu poate fi șters. Arhivați-l în schimb (debifați Activ)."
             }
         },
         "payroll": {

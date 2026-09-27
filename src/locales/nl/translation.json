@@ -203,13 +203,18 @@
             "number": "Leveringsbon-nr.",
             "date": "Leverdatum",
             "customer": "Klant",
+            "customerNumber": "Klantnr.",
+            "attention": "T.a.v.",
             "createdBy": "Aangemaakt door",
             "annotation": "Opmerking",
             "noItems": "Geen regels",
             "deliveredBy": "Geleverd door (datum, handtekening)",
             "receivedBy": "Ontvangen door (datum, handtekening)",
             "page": "Pagina {{page}} van {{total}}",
+            "total": "Totaal ({{count}} posities)",
             "columns": {
+                "position": "Pos.",
+                "articleNumber": "Art.nr.",
                 "article": "Artikel",
                 "order": "Order",
                 "quantity": "Aantal"
@@ -296,6 +301,7 @@
         "menu": {
             "overview": "Overzicht",
             "employees": "Medewerkers",
+            "customers": "Klanten",
             "payroll": "Maandafrekening"
         },
         "overview": {
@@ -407,6 +413,83 @@
                 "staffNumberDkTaken": "Dit personeelsnummer (DK) is al in gebruik.",
                 "exitBeforeEntry": "De datum uit dienst mag niet vóór de datum in dienst liggen.",
                 "hasHistory": "De medewerker heeft rapporten of tijdregistraties en kan niet worden verwijderd. Stel in plaats daarvan een datum uit dienst in."
+            }
+        },
+        "customers": {
+            "title": "Klanten",
+            "description": "Stamgegevens, adressen en factuurgegevens van alle klanten. Gearchiveerde klanten worden niet meer aangeboden voor nieuwe leveringen.",
+            "searchPlaceholder": "Zoeken op naam, nummer, plaats of contactpersoon",
+            "filters": {
+                "active": "Actief",
+                "archived": "Gearchiveerd",
+                "all": "Alle"
+            },
+            "status": {
+                "active": "Actief",
+                "archived": "Gearchiveerd"
+            },
+            "table": {
+                "columns": {
+                    "customerNumber": "Klantnr.",
+                    "name": "Naam",
+                    "city": "Plaats",
+                    "contactPerson": "Contactpersoon",
+                    "phone": "Telefoon",
+                    "status": "Status",
+                    "actions": "Acties"
+                }
+            },
+            "actions": {
+                "add": "Nieuwe klant",
+                "back": "Terug naar lijst",
+                "delete": "Klant verwijderen",
+                "deleteConfirmation": "De klant wordt definitief verwijderd. Dit is alleen mogelijk zonder leveringen."
+            },
+            "new": {
+                "title": "Nieuwe klant",
+                "description": "Maak een nieuwe klant aan. Alleen de naam is verplicht."
+            },
+            "edit": {
+                "title": "Klant",
+                "description": "Stamgegevens, adres, factuur- en contactgegevens van de klant."
+            },
+            "sections": {
+                "masterData": "Stamgegevens",
+                "address": "Adres",
+                "billing": "Facturering & betaling",
+                "contact": "Contact",
+                "notes": "Notities"
+            },
+            "fields": {
+                "customerNumber": "Klantnummer",
+                "name": "Naam",
+                "status": "Status",
+                "active": "Actief (beschikbaar voor leveringen)",
+                "street": "Straat",
+                "houseNumber": "Huisnr.",
+                "zipCode": "Postcode",
+                "city": "Plaats",
+                "country": "Land",
+                "paymentTermDays": "Betalingstermijn",
+                "days": "dagen",
+                "vatId": "Btw-nummer",
+                "billingAddress": "Factuuradres",
+                "billingDiffers": "Factuuradres wijkt af van het adres",
+                "billingName": "Factuurnaam",
+                "contactPerson": "Contactpersoon",
+                "email": "E-mail",
+                "phone": "Telefoon",
+                "notes": "Notities"
+            },
+            "warnings": {
+                "nameTaken": "Er bestaat al een klant met deze naam (nr. {{number}}).",
+                "zipCodeFormat": "Ongebruikelijk formaat. Duitse postcodes hebben 5 cijfers.",
+                "vatIdFormat": "Ongebruikelijk formaat. Verwacht bijv. DE123456789.",
+                "emailFormat": "Dit lijkt geen e-mailadres."
+            },
+            "errors": {
+                "customerNumberTaken": "Dit klantnummer wordt al door een andere klant gebruikt.",
+                "hasDeliveries": "De klant heeft leveringen en kan niet worden verwijderd. Archiveer de klant in plaats daarvan (Actief uitvinken)."
             }
         },
         "payroll": {

@@ -2,3 +2,4 @@
 export const ADMIN_BASE = '/app/admin'
 
 export const EMPLOYEES_BASE = `${ADMIN_BASE}/employees`
+export const CUSTOMERS_BASE = `${ADMIN_BASE}/customers`

@@ -203,13 +203,18 @@
             "number": "Nr dokumentu",
             "date": "Data dostawy",
             "customer": "Klient",
+            "customerNumber": "Nr klienta",
+            "attention": "Do rąk",
             "createdBy": "Utworzono przez",
             "annotation": "Uwagi",
             "noItems": "Brak pozycji",
             "deliveredBy": "Dostarczył (data, podpis)",
             "receivedBy": "Odebrał (data, podpis)",
             "page": "Strona {{page}} z {{total}}",
+            "total": "Razem ({{count}} poz.)",
             "columns": {
+                "position": "Poz.",
+                "articleNumber": "Nr art.",
                 "article": "Artykuł",
                 "order": "Zamówienie",
                 "quantity": "Ilość"
@@ -296,6 +301,7 @@
         "menu": {
             "overview": "Przegląd",
             "employees": "Pracownicy",
+            "customers": "Klienci",
             "payroll": "Rozliczenie miesięczne"
         },
         "overview": {
@@ -407,6 +413,83 @@
                 "staffNumberDkTaken": "Ten numer pers. (DK) jest już zajęty.",
                 "exitBeforeEntry": "Data zakończenia nie może być wcześniejsza niż data rozpoczęcia.",
                 "hasHistory": "Pracownik ma raporty lub wpisy czasu i nie może zostać usunięty. Ustaw zamiast tego datę zakończenia."
+            }
+        },
+        "customers": {
+            "title": "Klienci",
+            "description": "Dane podstawowe, adresy i dane rozliczeniowe wszystkich klientów. Zarchiwizowani klienci nie są już proponowani dla nowych dostaw.",
+            "searchPlaceholder": "Szukaj po nazwie, numerze, mieście lub osobie kontaktowej",
+            "filters": {
+                "active": "Aktywni",
+                "archived": "Zarchiwizowani",
+                "all": "Wszyscy"
+            },
+            "status": {
+                "active": "Aktywny",
+                "archived": "Zarchiwizowany"
+            },
+            "table": {
+                "columns": {
+                    "customerNumber": "Nr klienta",
+                    "name": "Nazwa",
+                    "city": "Miasto",
+                    "contactPerson": "Osoba kontaktowa",
+                    "phone": "Telefon",
+                    "status": "Status",
+                    "actions": "Akcje"
+                }
+            },
+            "actions": {
+                "add": "Nowy klient",
+                "back": "Powrót do listy",
+                "delete": "Usuń klienta",
+                "deleteConfirmation": "Klient zostanie trwale usunięty. Jest to możliwe tylko bez dostaw."
+            },
+            "new": {
+                "title": "Nowy klient",
+                "description": "Utwórz nowego klienta. Wymagana jest tylko nazwa."
+            },
+            "edit": {
+                "title": "Klient",
+                "description": "Dane podstawowe, adres, dane rozliczeniowe i kontaktowe klienta."
+            },
+            "sections": {
+                "masterData": "Dane podstawowe",
+                "address": "Adres",
+                "billing": "Rozliczenie i płatność",
+                "contact": "Kontakt",
+                "notes": "Notatki"
+            },
+            "fields": {
+                "customerNumber": "Numer klienta",
+                "name": "Nazwa",
+                "status": "Status",
+                "active": "Aktywny (dostępny dla dostaw)",
+                "street": "Ulica",
+                "houseNumber": "Nr domu",
+                "zipCode": "Kod pocztowy",
+                "city": "Miasto",
+                "country": "Kraj",
+                "paymentTermDays": "Termin płatności",
+                "days": "dni",
+                "vatId": "NIP UE",
+                "billingAddress": "Adres rozliczeniowy",
+                "billingDiffers": "Adres rozliczeniowy różni się od adresu",
+                "billingName": "Odbiorca faktury",
+                "contactPerson": "Osoba kontaktowa",
+                "email": "E-mail",
+                "phone": "Telefon",
+                "notes": "Notatki"
+            },
+            "warnings": {
+                "nameTaken": "Klient o tej nazwie już istnieje (nr {{number}}).",
+                "zipCodeFormat": "Nietypowy format. Niemieckie kody pocztowe mają 5 cyfr.",
+                "vatIdFormat": "Nietypowy format. Oczekiwano np. DE123456789.",
+                "emailFormat": "To nie wygląda na adres e-mail."
+            },
+            "errors": {
+                "customerNumberTaken": "Ten numer klienta jest już używany przez innego klienta.",
+                "hasDeliveries": "Klient ma dostawy i nie może zostać usunięty. Zamiast tego zarchiwizuj go (odznacz Aktywny)."
             }
         },
         "payroll": {

@@ -56,10 +56,14 @@ export const getOrderSelectOptions = async (supabase) => {
     return data.map((order) => ({ label: getOrderLabel(order), value: order.id }))
 }
 
+// All customers incl. archived ones (`active`), so a delivery keeps showing its archived customer.
 export const getCustomerSelectOptions = async (supabase) => {
-    const { data, error } = await supabase.from('customer').select('*').order('name', { ascending: true })
+    const { data, error } = await supabase
+        .from('customer')
+        .select('id, name, active')
+        .order('name', { ascending: true })
     if (error) {
         throw new Error(error.message)
     }
-    return data.map((customer) => ({ label: customer.name, value: customer.id }))
+    return data.map((customer) => ({ label: customer.name, value: customer.id, active: customer.active }))
 }

@@ -203,13 +203,18 @@
             "number": "Delivery note no.",
             "date": "Delivery date",
             "customer": "Customer",
+            "customerNumber": "Customer no.",
+            "attention": "Attn.",
             "createdBy": "Created by",
             "annotation": "Remarks",
             "noItems": "No items",
             "deliveredBy": "Delivered by (date, signature)",
             "receivedBy": "Received by (date, signature)",
             "page": "Page {{page}} of {{total}}",
+            "total": "Total ({{count}} items)",
             "columns": {
+                "position": "Pos.",
+                "articleNumber": "Art. no.",
                 "article": "Article",
                 "order": "Order",
                 "quantity": "Quantity"
@@ -296,6 +301,7 @@
         "menu": {
             "overview": "Overview",
             "employees": "Employees",
+            "customers": "Customers",
             "payroll": "Payroll"
         },
         "overview": {
@@ -407,6 +413,83 @@
                 "staffNumberDkTaken": "This staff number (DK) is already used by another employee.",
                 "exitBeforeEntry": "The exit date must not be before the entry date.",
                 "hasHistory": "The employee has reports or time entries and cannot be deleted. Set an exit date instead."
+            }
+        },
+        "customers": {
+            "title": "Customers",
+            "description": "Master data, addresses and billing data of all customers. Archived customers are no longer offered for new deliveries.",
+            "searchPlaceholder": "Search by name, number, city or contact",
+            "filters": {
+                "active": "Active",
+                "archived": "Archived",
+                "all": "All"
+            },
+            "status": {
+                "active": "Active",
+                "archived": "Archived"
+            },
+            "table": {
+                "columns": {
+                    "customerNumber": "Cust. no.",
+                    "name": "Name",
+                    "city": "City",
+                    "contactPerson": "Contact person",
+                    "phone": "Phone",
+                    "status": "Status",
+                    "actions": "Actions"
+                }
+            },
+            "actions": {
+                "add": "New customer",
+                "back": "Back to list",
+                "delete": "Delete customer",
+                "deleteConfirmation": "The customer will be deleted permanently. This is only possible without deliveries."
+            },
+            "new": {
+                "title": "New customer",
+                "description": "Create a new customer. Only the name is required."
+            },
+            "edit": {
+                "title": "Customer",
+                "description": "Master data, address, billing and contact data of the customer."
+            },
+            "sections": {
+                "masterData": "Master data",
+                "address": "Address",
+                "billing": "Billing & payment",
+                "contact": "Contact",
+                "notes": "Notes"
+            },
+            "fields": {
+                "customerNumber": "Customer number",
+                "name": "Name",
+                "status": "Status",
+                "active": "Active (offered for deliveries)",
+                "street": "Street",
+                "houseNumber": "House no.",
+                "zipCode": "ZIP code",
+                "city": "City",
+                "country": "Country",
+                "paymentTermDays": "Payment term",
+                "days": "days",
+                "vatId": "VAT ID",
+                "billingAddress": "Billing address",
+                "billingDiffers": "Billing address differs from the address",
+                "billingName": "Billing name",
+                "contactPerson": "Contact person",
+                "email": "Email",
+                "phone": "Phone",
+                "notes": "Notes"
+            },
+            "warnings": {
+                "nameTaken": "A customer with this name already exists (no. {{number}}).",
+                "zipCodeFormat": "Unusual format. German ZIP codes have 5 digits.",
+                "vatIdFormat": "Unusual format. Expected e.g. DE123456789.",
+                "emailFormat": "This does not look like an email address."
+            },
+            "errors": {
+                "customerNumberTaken": "This customer number is already used by another customer.",
+                "hasDeliveries": "The customer has deliveries and cannot be deleted. Archive it instead (uncheck Active)."
             }
         },
         "payroll": {

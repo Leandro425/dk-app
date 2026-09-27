@@ -203,13 +203,18 @@
             "number": "Lieferschein-Nr.",
             "date": "Lieferdatum",
             "customer": "Kunde",
+            "customerNumber": "Kunden-Nr.",
+            "attention": "z. Hd.",
             "createdBy": "Erstellt von",
             "annotation": "Bemerkung",
             "noItems": "Keine Positionen",
             "deliveredBy": "Ausgeliefert durch (Datum, Unterschrift)",
             "receivedBy": "Empfangen von (Datum, Unterschrift)",
             "page": "Seite {{page}} von {{total}}",
+            "total": "Gesamt ({{count}} Positionen)",
             "columns": {
+                "position": "Pos.",
+                "articleNumber": "Art.-Nr.",
                 "article": "Artikel",
                 "order": "Auftrag",
                 "quantity": "Menge"
@@ -296,6 +301,7 @@
         "menu": {
             "overview": "Übersicht",
             "employees": "Mitarbeiter",
+            "customers": "Kunden",
             "payroll": "Monatsabrechnung"
         },
         "overview": {
@@ -407,6 +413,83 @@
                 "staffNumberDkTaken": "Diese Personalnummer (DK) ist bereits vergeben.",
                 "exitBeforeEntry": "Das Austrittsdatum darf nicht vor dem Eintrittsdatum liegen.",
                 "hasHistory": "Der Mitarbeiter hat Berichte oder Zeiteinträge und kann nicht gelöscht werden. Setze stattdessen ein Austrittsdatum."
+            }
+        },
+        "customers": {
+            "title": "Kunden",
+            "description": "Stammdaten, Adressen und Rechnungsdaten aller Kunden. Archivierte Kunden werden für neue Lieferungen nicht mehr angeboten.",
+            "searchPlaceholder": "Suche nach Name, Nummer, Ort oder Ansprechpartner",
+            "filters": {
+                "active": "Aktiv",
+                "archived": "Archiviert",
+                "all": "Alle"
+            },
+            "status": {
+                "active": "Aktiv",
+                "archived": "Archiviert"
+            },
+            "table": {
+                "columns": {
+                    "customerNumber": "Kd.-Nr.",
+                    "name": "Name",
+                    "city": "Ort",
+                    "contactPerson": "Ansprechpartner",
+                    "phone": "Telefon",
+                    "status": "Status",
+                    "actions": "Aktionen"
+                }
+            },
+            "actions": {
+                "add": "Neuer Kunde",
+                "back": "Zurück zur Liste",
+                "delete": "Kunde löschen",
+                "deleteConfirmation": "Der Kunde wird endgültig gelöscht. Das ist nur ohne Lieferungen möglich."
+            },
+            "new": {
+                "title": "Neuer Kunde",
+                "description": "Neuen Kunden anlegen. Nur der Name ist Pflicht."
+            },
+            "edit": {
+                "title": "Kunde",
+                "description": "Stammdaten, Adresse, Rechnungs- und Kontaktdaten des Kunden."
+            },
+            "sections": {
+                "masterData": "Stammdaten",
+                "address": "Adresse",
+                "billing": "Rechnung & Zahlung",
+                "contact": "Kontakt",
+                "notes": "Notizen"
+            },
+            "fields": {
+                "customerNumber": "Kundennummer",
+                "name": "Name",
+                "status": "Status",
+                "active": "Aktiv (für Lieferungen auswählbar)",
+                "street": "Straße",
+                "houseNumber": "Hausnr.",
+                "zipCode": "PLZ",
+                "city": "Ort",
+                "country": "Land",
+                "paymentTermDays": "Zahlungsziel",
+                "days": "Tage",
+                "vatId": "USt-IdNr.",
+                "billingAddress": "Rechnungsadresse",
+                "billingDiffers": "Rechnungsadresse weicht von der Adresse ab",
+                "billingName": "Rechnungsempfänger",
+                "contactPerson": "Ansprechpartner",
+                "email": "E-Mail",
+                "phone": "Telefon",
+                "notes": "Notizen"
+            },
+            "warnings": {
+                "nameTaken": "Es gibt bereits einen Kunden mit diesem Namen (Nr. {{number}}).",
+                "zipCodeFormat": "Ungewöhnliches Format. Deutsche Postleitzahlen haben 5 Ziffern.",
+                "vatIdFormat": "Ungewöhnliches Format. Erwartet z. B. DE123456789.",
+                "emailFormat": "Das sieht nicht wie eine E-Mail-Adresse aus."
+            },
+            "errors": {
+                "customerNumberTaken": "Diese Kundennummer ist bereits an einen anderen Kunden vergeben.",
+                "hasDeliveries": "Der Kunde hat Lieferungen und kann nicht gelöscht werden. Stattdessen archivieren (Aktiv abwählen)."
             }
         },
         "payroll": {
