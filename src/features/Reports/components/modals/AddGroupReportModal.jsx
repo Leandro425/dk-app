@@ -6,6 +6,7 @@ import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useQueryClient } from '@tanstack/react-query'
 import dayjs from 'dayjs'
 
+import { EMPLOYEE_COLUMNS, activeEmployeeFilter } from '../../../../utils/helpers'
 import useSupervisorContext from '../../../../context/user/supervisorContext'
 import FormStaffGroupSelect from '../../../../components/hookForm/FormStaffGroupSelect'
 import FormOrderSelect from '../../../../components/hookForm/FormOrderSelect'
@@ -108,8 +109,9 @@ const AddGroupReportModal = ({ open, onClose }) => {
         } else {
             const query = supabase
                 .from('employee')
-                .select('*')
+                .select(EMPLOYEE_COLUMNS)
                 .eq('staff_group_id', currentStaffGroup)
+                .or(activeEmployeeFilter())
                 .order('staff_number', { ascending: true })
             query.then(({ data, error }) => {
                 if (error) {

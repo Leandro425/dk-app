@@ -295,11 +295,119 @@
         "title": "Controlling",
         "menu": {
             "overview": "Overview",
+            "employees": "Employees",
             "payroll": "Payroll"
         },
         "overview": {
             "title": "Overview",
             "description": "Administration and controlling area. Visible to administrators only."
+        },
+        "employees": {
+            "title": "Employees",
+            "description": "Master data, contract and pay data of all employees. Personal, tax and pay data is visible to administrators only.",
+            "searchPlaceholder": "Search by name or staff number",
+            "filters": {
+                "active": "Active",
+                "inactive": "Left",
+                "all": "All"
+            },
+            "status": {
+                "active": "Active",
+                "inactive": "Left"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "Staff no.",
+                    "staffNumberDk": "Staff no. (DK)",
+                    "lastname": "Last name",
+                    "firstname": "First name",
+                    "staffGroup": "Staff group",
+                    "language": "Language",
+                    "entryDate": "Entry",
+                    "exitDate": "Exit",
+                    "status": "Status",
+                    "actions": "Actions"
+                }
+            },
+            "actions": {
+                "add": "New employee",
+                "back": "Back to list",
+                "delete": "Delete employee",
+                "deleteConfirmation": "The employee will be deleted permanently. This is only possible without reports and time entries."
+            },
+            "new": {
+                "title": "New employee",
+                "description": "Create a new employee. Only staff number, name and language are required."
+            },
+            "edit": {
+                "title": "Employee",
+                "description": "Master data, contract and pay data of the employee."
+            },
+            "sections": {
+                "masterData": "Master data",
+                "address": "Address",
+                "personal": "Personal data",
+                "contract": "Contract & pay",
+                "tax": "Tax & social security"
+            },
+            "fields": {
+                "staffNumber": "Staff number",
+                "staffNumberDk": "Staff number (DK)",
+                "staffGroup": "Staff group",
+                "firstname": "First name",
+                "lastname": "Last name",
+                "language": "Statement language",
+                "entryDate": "Entry date",
+                "exitDate": "Exit date",
+                "addressStreet": "Street",
+                "addressHouseNumber": "House no.",
+                "addressZipCode": "ZIP code",
+                "addressCity": "City",
+                "birthday": "Date of birth",
+                "placeOfBirth": "Place of birth",
+                "countryOfBirth": "Country of birth",
+                "nationality": "Nationality",
+                "gender": "Gender",
+                "maritalStatus": "Marital status",
+                "children": "Children",
+                "jobTitle": "Job title",
+                "contractType": "Contract type",
+                "payType": "Pay type",
+                "standardPay": "Standard pay",
+                "payRate": "Hourly rate",
+                "payRateValidFrom": "Hourly rate valid from",
+                "socialSecurityNumber": "Social security number",
+                "taxId": "Tax ID"
+            },
+            "values": {
+                "gender": {
+                    "male": "Male",
+                    "female": "Female",
+                    "diverse": "Diverse"
+                },
+                "marital_status": {
+                    "single": "Single",
+                    "married": "Married",
+                    "widowed": "Widowed",
+                    "divorced": "Divorced",
+                    "civilPartnership": "Civil partnership"
+                },
+                "contract_type": {
+                    "permanent": "Permanent",
+                    "fixedTerm": "Fixed-term",
+                    "purposeLimited": "Fixed-term (purpose-limited)"
+                }
+            },
+            "warnings": {
+                "staffNumberTaken": "This staff number is already used by {{name}}.",
+                "socialSecurityNumberFormat": "Unusual format. Expected e.g. 12010180M123 (8 digits, letter, 3 digits).",
+                "taxIdFormat": "Unusual format. Expected 11 digits."
+            },
+            "errors": {
+                "staffNumberDkTaken": "This staff number (DK) is already used by another employee.",
+                "exitBeforeEntry": "The exit date must not be before the entry date.",
+                "hasHistory": "The employee has reports or time entries and cannot be deleted. Set an exit date instead."
+            }
         },
         "payroll": {
             "title": "Payroll",

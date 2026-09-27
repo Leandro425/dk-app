@@ -32,7 +32,7 @@ const TimestampsTable = () => {
         const { data, count, error } = await supabase
             .from('timestamp')
             .select(
-                '*, employee:employee(*), created_by:supervisor!timestamp_created_by_id_fkey(*), modified_by:supervisor!timestamp_modified_by_id_fkey(*)',
+                '*, employee:employee(id, staff_number, firstname, lastname), created_by:supervisor!timestamp_created_by_id_fkey(*), modified_by:supervisor!timestamp_modified_by_id_fkey(*)',
                 {
                     count: 'exact',
                 }

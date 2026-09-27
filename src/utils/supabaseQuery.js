@@ -1,7 +1,15 @@
-import { getArticleLabel, getEmployeeLabel, getFieldLabel, getStaffGroupLabel, getOrderLabel } from './helpers'
+import {
+    EMPLOYEE_COLUMNS,
+    getArticleLabel,
+    getEmployeeLabel,
+    isEmployeeActive,
+    getFieldLabel,
+    getStaffGroupLabel,
+    getOrderLabel,
+} from './helpers'
 
 export const getEmployeeSelectOptions = async (supabase, staffGroup = null) => {
-    const query = supabase.from('employee').select('*').order('staff_number', { ascending: true })
+    const query = supabase.from('employee').select(EMPLOYEE_COLUMNS).order('staff_number', { ascending: true })
     if (staffGroup) {
         query.eq('staff_group_id', staffGroup)
     }
@@ -9,7 +17,7 @@ export const getEmployeeSelectOptions = async (supabase, staffGroup = null) => {
     if (error) {
         throw new Error(error.message)
     }
-    return data.map((emp) => ({ label: getEmployeeLabel(emp), value: emp.id }))
+    return data.map((emp) => ({ label: getEmployeeLabel(emp), value: emp.id, active: isEmployeeActive(emp) }))
 }
 
 export const getArticleSelectOptions = async (supabase) => {

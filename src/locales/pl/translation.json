@@ -295,11 +295,119 @@
         "title": "Controlling",
         "menu": {
             "overview": "Przegląd",
+            "employees": "Pracownicy",
             "payroll": "Rozliczenie miesięczne"
         },
         "overview": {
             "title": "Przegląd",
             "description": "Obszar administracji i controllingu. Widoczny tylko dla administratorów."
+        },
+        "employees": {
+            "title": "Pracownicy",
+            "description": "Dane podstawowe, umowy i wynagrodzenia wszystkich pracowników. Dane osobowe, podatkowe i płacowe widzą tylko administratorzy.",
+            "searchPlaceholder": "Szukaj po nazwisku lub numerze pers.",
+            "filters": {
+                "active": "Aktywni",
+                "inactive": "Odeszli",
+                "all": "Wszyscy"
+            },
+            "status": {
+                "active": "Aktywny",
+                "inactive": "Odszedł"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "Nr pers.",
+                    "staffNumberDk": "Nr pers. (DK)",
+                    "lastname": "Nazwisko",
+                    "firstname": "Imię",
+                    "staffGroup": "Grupa pracowników",
+                    "language": "Język",
+                    "entryDate": "Wejście",
+                    "exitDate": "Wyjście",
+                    "status": "Status",
+                    "actions": "Akcje"
+                }
+            },
+            "actions": {
+                "add": "Nowy pracownik",
+                "back": "Powrót do listy",
+                "delete": "Usuń pracownika",
+                "deleteConfirmation": "Pracownik zostanie trwale usunięty. Jest to możliwe tylko bez raportów i wpisów czasu."
+            },
+            "new": {
+                "title": "Nowy pracownik",
+                "description": "Utwórz nowego pracownika. Wymagane są tylko numer pers., imię, nazwisko i język."
+            },
+            "edit": {
+                "title": "Pracownik",
+                "description": "Dane podstawowe, umowy i wynagrodzenia pracownika."
+            },
+            "sections": {
+                "masterData": "Dane podstawowe",
+                "address": "Adres",
+                "personal": "Dane osobowe",
+                "contract": "Umowa i wynagrodzenie",
+                "tax": "Podatki i ubezpieczenie społeczne"
+            },
+            "fields": {
+                "staffNumber": "Numer personalny",
+                "staffNumberDk": "Numer personalny (DK)",
+                "staffGroup": "Grupa pracowników",
+                "firstname": "Imię",
+                "lastname": "Nazwisko",
+                "language": "Język rozliczenia",
+                "entryDate": "Data rozpoczęcia",
+                "exitDate": "Data zakończenia",
+                "addressStreet": "Ulica",
+                "addressHouseNumber": "Nr domu",
+                "addressZipCode": "Kod pocztowy",
+                "addressCity": "Miejscowość",
+                "birthday": "Data urodzenia",
+                "placeOfBirth": "Miejsce urodzenia",
+                "countryOfBirth": "Kraj urodzenia",
+                "nationality": "Obywatelstwo",
+                "gender": "Płeć",
+                "maritalStatus": "Stan cywilny",
+                "children": "Dzieci",
+                "jobTitle": "Stanowisko",
+                "contractType": "Rodzaj umowy",
+                "payType": "Rodzaj wynagrodzenia",
+                "standardPay": "Wynagrodzenie standardowe",
+                "payRate": "Stawka godzinowa",
+                "payRateValidFrom": "Stawka ważna od",
+                "socialSecurityNumber": "Numer ubezpieczenia społecznego",
+                "taxId": "Numer identyfikacji podatkowej"
+            },
+            "values": {
+                "gender": {
+                    "male": "Mężczyzna",
+                    "female": "Kobieta",
+                    "diverse": "Inna"
+                },
+                "marital_status": {
+                    "single": "Stan wolny",
+                    "married": "Żonaty/zamężna",
+                    "widowed": "Wdowiec/wdowa",
+                    "divorced": "Rozwiedziony/a",
+                    "civilPartnership": "Zarejestrowany związek partnerski"
+                },
+                "contract_type": {
+                    "permanent": "Na czas nieokreślony",
+                    "fixedTerm": "Na czas określony",
+                    "purposeLimited": "Na czas określony (celowa)"
+                }
+            },
+            "warnings": {
+                "staffNumberTaken": "Ten numer pers. ma już {{name}}.",
+                "socialSecurityNumberFormat": "Nietypowy format. Oczekiwano np. 12010180M123 (8 cyfr, litera, 3 cyfry).",
+                "taxIdFormat": "Nietypowy format. Oczekiwano 11 cyfr."
+            },
+            "errors": {
+                "staffNumberDkTaken": "Ten numer pers. (DK) jest już zajęty.",
+                "exitBeforeEntry": "Data zakończenia nie może być wcześniejsza niż data rozpoczęcia.",
+                "hasHistory": "Pracownik ma raporty lub wpisy czasu i nie może zostać usunięty. Ustaw zamiast tego datę zakończenia."
+            }
         },
         "payroll": {
             "title": "Rozliczenie miesięczne",

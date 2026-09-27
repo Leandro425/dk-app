@@ -295,11 +295,119 @@
         "title": "Контролинг",
         "menu": {
             "overview": "Общ преглед",
+            "employees": "Служители",
             "payroll": "Месечно изплащане"
         },
         "overview": {
             "title": "Общ преглед",
             "description": "Зона за администрация и контролинг. Видима само за администратори."
+        },
+        "employees": {
+            "title": "Служители",
+            "description": "Основни, договорни и заплатни данни на всички служители. Личните, данъчните и заплатните данни са видими само за администратори.",
+            "searchPlaceholder": "Търсене по име или перс. №",
+            "filters": {
+                "active": "Активни",
+                "inactive": "Напуснали",
+                "all": "Всички"
+            },
+            "status": {
+                "active": "Активен",
+                "inactive": "Напуснал"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "Перс. №",
+                    "staffNumberDk": "Перс. № (DK)",
+                    "lastname": "Фамилия",
+                    "firstname": "Име",
+                    "staffGroup": "Група служители",
+                    "language": "Език",
+                    "entryDate": "Постъпване",
+                    "exitDate": "Напускане",
+                    "status": "Статус",
+                    "actions": "Действия"
+                }
+            },
+            "actions": {
+                "add": "Нов служител",
+                "back": "Обратно към списъка",
+                "delete": "Изтрий служителя",
+                "deleteConfirmation": "Служителят ще бъде изтрит окончателно. Това е възможно само без отчети и записи за време."
+            },
+            "new": {
+                "title": "Нов служител",
+                "description": "Създаване на нов служител. Задължителни са само перс. №, име и език."
+            },
+            "edit": {
+                "title": "Служител",
+                "description": "Основни, договорни и заплатни данни на служителя."
+            },
+            "sections": {
+                "masterData": "Основни данни",
+                "address": "Адрес",
+                "personal": "Лични данни",
+                "contract": "Договор и заплащане",
+                "tax": "Данъци и социално осигуряване"
+            },
+            "fields": {
+                "staffNumber": "Персонален номер",
+                "staffNumberDk": "Персонален номер (DK)",
+                "staffGroup": "Група служители",
+                "firstname": "Име",
+                "lastname": "Фамилия",
+                "language": "Език на месечния отчет",
+                "entryDate": "Дата на постъпване",
+                "exitDate": "Дата на напускане",
+                "addressStreet": "Улица",
+                "addressHouseNumber": "№",
+                "addressZipCode": "Пощенски код",
+                "addressCity": "Населено място",
+                "birthday": "Дата на раждане",
+                "placeOfBirth": "Място на раждане",
+                "countryOfBirth": "Държава на раждане",
+                "nationality": "Гражданство",
+                "gender": "Пол",
+                "maritalStatus": "Семейно положение",
+                "children": "Деца",
+                "jobTitle": "Длъжност",
+                "contractType": "Вид договор",
+                "payType": "Вид заплащане",
+                "standardPay": "Стандартно заплащане",
+                "payRate": "Почасова ставка",
+                "payRateValidFrom": "Почасова ставка валидна от",
+                "socialSecurityNumber": "Осигурителен номер",
+                "taxId": "Данъчен номер"
+            },
+            "values": {
+                "gender": {
+                    "male": "Мъж",
+                    "female": "Жена",
+                    "diverse": "Друго"
+                },
+                "marital_status": {
+                    "single": "Неженен/неомъжена",
+                    "married": "Женен/омъжена",
+                    "widowed": "Вдовец/вдовица",
+                    "divorced": "Разведен/а",
+                    "civilPartnership": "Регистрирано партньорство"
+                },
+                "contract_type": {
+                    "permanent": "Безсрочен",
+                    "fixedTerm": "Срочен",
+                    "purposeLimited": "Срочен (целеви)"
+                }
+            },
+            "warnings": {
+                "staffNumberTaken": "Този перс. № вече се използва от {{name}}.",
+                "socialSecurityNumberFormat": "Необичаен формат. Очаква се напр. 12010180M123 (8 цифри, буква, 3 цифри).",
+                "taxIdFormat": "Необичаен формат. Очакват се 11 цифри."
+            },
+            "errors": {
+                "staffNumberDkTaken": "Този перс. № (DK) вече се използва.",
+                "exitBeforeEntry": "Датата на напускане не може да е преди датата на постъпване.",
+                "hasHistory": "Служителят има отчети или записи за време и не може да бъде изтрит. Вместо това задайте дата на напускане."
+            }
         },
         "payroll": {
             "title": "Месечно изплащане",

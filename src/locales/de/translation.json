@@ -295,11 +295,119 @@
         "title": "Controlling",
         "menu": {
             "overview": "Übersicht",
+            "employees": "Mitarbeiter",
             "payroll": "Monatsabrechnung"
         },
         "overview": {
             "title": "Übersicht",
             "description": "Administrations- und Controllingbereich. Nur für Administratoren sichtbar."
+        },
+        "employees": {
+            "title": "Mitarbeiter",
+            "description": "Stamm-, Vertrags- und Lohndaten aller Mitarbeiter. Persönliche, steuerliche und Lohndaten sind nur für Administratoren sichtbar.",
+            "searchPlaceholder": "Nach Name oder Personalnummer suchen",
+            "filters": {
+                "active": "Aktiv",
+                "inactive": "Ausgetreten",
+                "all": "Alle"
+            },
+            "status": {
+                "active": "Aktiv",
+                "inactive": "Ausgetreten"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "PN",
+                    "staffNumberDk": "PN (DK)",
+                    "lastname": "Nachname",
+                    "firstname": "Vorname",
+                    "staffGroup": "Mitarbeitergruppe",
+                    "language": "Sprache",
+                    "entryDate": "Eintritt",
+                    "exitDate": "Austritt",
+                    "status": "Status",
+                    "actions": "Aktionen"
+                }
+            },
+            "actions": {
+                "add": "Neuer Mitarbeiter",
+                "back": "Zurück zur Liste",
+                "delete": "Mitarbeiter löschen",
+                "deleteConfirmation": "Der Mitarbeiter wird endgültig gelöscht. Das ist nur ohne Berichte und Zeiteinträge möglich."
+            },
+            "new": {
+                "title": "Neuer Mitarbeiter",
+                "description": "Neuen Mitarbeiter anlegen. Pflicht sind nur Personalnummer, Name und Sprache."
+            },
+            "edit": {
+                "title": "Mitarbeiter",
+                "description": "Stamm-, Vertrags- und Lohndaten des Mitarbeiters."
+            },
+            "sections": {
+                "masterData": "Stammdaten",
+                "address": "Adresse",
+                "personal": "Persönliche Daten",
+                "contract": "Vertrag & Lohn",
+                "tax": "Steuer & Sozialversicherung"
+            },
+            "fields": {
+                "staffNumber": "Personalnummer",
+                "staffNumberDk": "Personalnummer (DK)",
+                "staffGroup": "Mitarbeitergruppe",
+                "firstname": "Vorname",
+                "lastname": "Nachname",
+                "language": "Sprache der Monatsabrechnung",
+                "entryDate": "Eintrittsdatum",
+                "exitDate": "Austrittsdatum",
+                "addressStreet": "Straße",
+                "addressHouseNumber": "Hausnr.",
+                "addressZipCode": "PLZ",
+                "addressCity": "Ort",
+                "birthday": "Geburtsdatum",
+                "placeOfBirth": "Geburtsort",
+                "countryOfBirth": "Geburtsland",
+                "nationality": "Staatsangehörigkeit",
+                "gender": "Geschlecht",
+                "maritalStatus": "Familienstand",
+                "children": "Kinder",
+                "jobTitle": "Tätigkeit",
+                "contractType": "Vertragsart",
+                "payType": "Lohnart",
+                "standardPay": "Standardlohn",
+                "payRate": "Stundenlohn",
+                "payRateValidFrom": "Stundenlohn gültig ab",
+                "socialSecurityNumber": "Sozialversicherungsnummer",
+                "taxId": "Steuer-ID"
+            },
+            "values": {
+                "gender": {
+                    "male": "Männlich",
+                    "female": "Weiblich",
+                    "diverse": "Divers"
+                },
+                "marital_status": {
+                    "single": "Ledig",
+                    "married": "Verheiratet",
+                    "widowed": "Verwitwet",
+                    "divorced": "Geschieden",
+                    "civilPartnership": "Eingetragene Lebenspartnerschaft"
+                },
+                "contract_type": {
+                    "permanent": "Unbefristet",
+                    "fixedTerm": "Befristet",
+                    "purposeLimited": "Zweckbefristet"
+                }
+            },
+            "warnings": {
+                "staffNumberTaken": "Diese Personalnummer hat bereits {{name}}.",
+                "socialSecurityNumberFormat": "Ungewöhnliches Format. Erwartet z. B. 12010180M123 (8 Ziffern, Buchstabe, 3 Ziffern).",
+                "taxIdFormat": "Ungewöhnliches Format. Erwartet werden 11 Ziffern."
+            },
+            "errors": {
+                "staffNumberDkTaken": "Diese Personalnummer (DK) ist bereits vergeben.",
+                "exitBeforeEntry": "Das Austrittsdatum darf nicht vor dem Eintrittsdatum liegen.",
+                "hasHistory": "Der Mitarbeiter hat Berichte oder Zeiteinträge und kann nicht gelöscht werden. Setze stattdessen ein Austrittsdatum."
+            }
         },
         "payroll": {
             "title": "Monatsabrechnung",

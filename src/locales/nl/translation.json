@@ -295,11 +295,119 @@
         "title": "Controlling",
         "menu": {
             "overview": "Overzicht",
+            "employees": "Medewerkers",
             "payroll": "Maandafrekening"
         },
         "overview": {
             "title": "Overzicht",
             "description": "Beheer- en controllinggedeelte. Alleen zichtbaar voor beheerders."
+        },
+        "employees": {
+            "title": "Medewerkers",
+            "description": "Stam-, contract- en loongegevens van alle medewerkers. Persoonlijke, fiscale en loongegevens zijn alleen zichtbaar voor beheerders.",
+            "searchPlaceholder": "Zoeken op naam of personeelsnummer",
+            "filters": {
+                "active": "Actief",
+                "inactive": "Uit dienst",
+                "all": "Alle"
+            },
+            "status": {
+                "active": "Actief",
+                "inactive": "Uit dienst"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "Pers.nr.",
+                    "staffNumberDk": "Pers.nr. (DK)",
+                    "lastname": "Achternaam",
+                    "firstname": "Voornaam",
+                    "staffGroup": "Werknemersgroep",
+                    "language": "Taal",
+                    "entryDate": "In dienst",
+                    "exitDate": "Uit dienst",
+                    "status": "Status",
+                    "actions": "Acties"
+                }
+            },
+            "actions": {
+                "add": "Nieuwe medewerker",
+                "back": "Terug naar lijst",
+                "delete": "Medewerker verwijderen",
+                "deleteConfirmation": "De medewerker wordt definitief verwijderd. Dit kan alleen zonder rapporten en tijdregistraties."
+            },
+            "new": {
+                "title": "Nieuwe medewerker",
+                "description": "Nieuwe medewerker aanmaken. Alleen personeelsnummer, naam en taal zijn verplicht."
+            },
+            "edit": {
+                "title": "Medewerker",
+                "description": "Stam-, contract- en loongegevens van de medewerker."
+            },
+            "sections": {
+                "masterData": "Stamgegevens",
+                "address": "Adres",
+                "personal": "Persoonlijke gegevens",
+                "contract": "Contract & loon",
+                "tax": "Belasting & sociale verzekering"
+            },
+            "fields": {
+                "staffNumber": "Personeelsnummer",
+                "staffNumberDk": "Personeelsnummer (DK)",
+                "staffGroup": "Werknemersgroep",
+                "firstname": "Voornaam",
+                "lastname": "Achternaam",
+                "language": "Taal van het maandoverzicht",
+                "entryDate": "Datum in dienst",
+                "exitDate": "Datum uit dienst",
+                "addressStreet": "Straat",
+                "addressHouseNumber": "Huisnr.",
+                "addressZipCode": "Postcode",
+                "addressCity": "Plaats",
+                "birthday": "Geboortedatum",
+                "placeOfBirth": "Geboorteplaats",
+                "countryOfBirth": "Geboorteland",
+                "nationality": "Nationaliteit",
+                "gender": "Geslacht",
+                "maritalStatus": "Burgerlijke staat",
+                "children": "Kinderen",
+                "jobTitle": "Functie",
+                "contractType": "Contractsoort",
+                "payType": "Loonsoort",
+                "standardPay": "Standaardloon",
+                "payRate": "Uurloon",
+                "payRateValidFrom": "Uurloon geldig vanaf",
+                "socialSecurityNumber": "Sociaalverzekeringsnummer",
+                "taxId": "Fiscaal nummer"
+            },
+            "values": {
+                "gender": {
+                    "male": "Man",
+                    "female": "Vrouw",
+                    "diverse": "Divers"
+                },
+                "marital_status": {
+                    "single": "Ongehuwd",
+                    "married": "Gehuwd",
+                    "widowed": "Weduwe/weduwnaar",
+                    "divorced": "Gescheiden",
+                    "civilPartnership": "Geregistreerd partnerschap"
+                },
+                "contract_type": {
+                    "permanent": "Onbepaalde tijd",
+                    "fixedTerm": "Bepaalde tijd",
+                    "purposeLimited": "Bepaalde tijd (doelgebonden)"
+                }
+            },
+            "warnings": {
+                "staffNumberTaken": "Dit personeelsnummer is al in gebruik bij {{name}}.",
+                "socialSecurityNumberFormat": "Ongebruikelijk formaat. Verwacht bijv. 12010180M123 (8 cijfers, letter, 3 cijfers).",
+                "taxIdFormat": "Ongebruikelijk formaat. Verwacht 11 cijfers."
+            },
+            "errors": {
+                "staffNumberDkTaken": "Dit personeelsnummer (DK) is al in gebruik.",
+                "exitBeforeEntry": "De datum uit dienst mag niet vóór de datum in dienst liggen.",
+                "hasHistory": "De medewerker heeft rapporten of tijdregistraties en kan niet worden verwijderd. Stel in plaats daarvan een datum uit dienst in."
+            }
         },
         "payroll": {
             "title": "Maandafrekening",

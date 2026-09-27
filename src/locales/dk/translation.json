@@ -295,11 +295,119 @@
         "title": "Controlling",
         "menu": {
             "overview": "Oversigt",
+            "employees": "Medarbejdere",
             "payroll": "Månedsafregning"
         },
         "overview": {
             "title": "Oversigt",
             "description": "Administrations- og controllingområde. Kun synligt for administratorer."
+        },
+        "employees": {
+            "title": "Medarbejdere",
+            "description": "Stam-, kontrakt- og lønoplysninger for alle medarbejdere. Personlige, skatte- og lønoplysninger er kun synlige for administratorer.",
+            "searchPlaceholder": "Søg efter navn eller personalenummer",
+            "filters": {
+                "active": "Aktive",
+                "inactive": "Fratrådt",
+                "all": "Alle"
+            },
+            "status": {
+                "active": "Aktiv",
+                "inactive": "Fratrådt"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "Pers.nr.",
+                    "staffNumberDk": "Pers.nr. (DK)",
+                    "lastname": "Efternavn",
+                    "firstname": "Fornavn",
+                    "staffGroup": "Medarbejdergruppe",
+                    "language": "Sprog",
+                    "entryDate": "Ansat",
+                    "exitDate": "Fratrådt",
+                    "status": "Status",
+                    "actions": "Handlinger"
+                }
+            },
+            "actions": {
+                "add": "Ny medarbejder",
+                "back": "Tilbage til listen",
+                "delete": "Slet medarbejder",
+                "deleteConfirmation": "Medarbejderen slettes permanent. Det er kun muligt uden rapporter og tidsregistreringer."
+            },
+            "new": {
+                "title": "Ny medarbejder",
+                "description": "Opret en ny medarbejder. Kun personalenummer, navn og sprog er påkrævet."
+            },
+            "edit": {
+                "title": "Medarbejder",
+                "description": "Stam-, kontrakt- og lønoplysninger for medarbejderen."
+            },
+            "sections": {
+                "masterData": "Stamdata",
+                "address": "Adresse",
+                "personal": "Personlige oplysninger",
+                "contract": "Kontrakt & løn",
+                "tax": "Skat & social sikring"
+            },
+            "fields": {
+                "staffNumber": "Personalenummer",
+                "staffNumberDk": "Personalenummer (DK)",
+                "staffGroup": "Medarbejdergruppe",
+                "firstname": "Fornavn",
+                "lastname": "Efternavn",
+                "language": "Sprog for månedsopgørelsen",
+                "entryDate": "Ansættelsesdato",
+                "exitDate": "Fratrædelsesdato",
+                "addressStreet": "Gade",
+                "addressHouseNumber": "Husnr.",
+                "addressZipCode": "Postnr.",
+                "addressCity": "By",
+                "birthday": "Fødselsdato",
+                "placeOfBirth": "Fødested",
+                "countryOfBirth": "Fødeland",
+                "nationality": "Statsborgerskab",
+                "gender": "Køn",
+                "maritalStatus": "Civilstand",
+                "children": "Børn",
+                "jobTitle": "Stilling",
+                "contractType": "Kontrakttype",
+                "payType": "Lønart",
+                "standardPay": "Standardløn",
+                "payRate": "Timeløn",
+                "payRateValidFrom": "Timeløn gyldig fra",
+                "socialSecurityNumber": "Socialsikringsnummer",
+                "taxId": "Skatte-ID"
+            },
+            "values": {
+                "gender": {
+                    "male": "Mand",
+                    "female": "Kvinde",
+                    "diverse": "Andet"
+                },
+                "marital_status": {
+                    "single": "Ugift",
+                    "married": "Gift",
+                    "widowed": "Enke/enkemand",
+                    "divorced": "Skilt",
+                    "civilPartnership": "Registreret partnerskab"
+                },
+                "contract_type": {
+                    "permanent": "Tidsubegrænset",
+                    "fixedTerm": "Tidsbegrænset",
+                    "purposeLimited": "Tidsbegrænset (formålsbestemt)"
+                }
+            },
+            "warnings": {
+                "staffNumberTaken": "Dette personalenummer bruges allerede af {{name}}.",
+                "socialSecurityNumberFormat": "Usædvanligt format. Forventet f.eks. 12010180M123 (8 cifre, bogstav, 3 cifre).",
+                "taxIdFormat": "Usædvanligt format. Forventet 11 cifre."
+            },
+            "errors": {
+                "staffNumberDkTaken": "Dette personalenummer (DK) er allerede i brug.",
+                "exitBeforeEntry": "Fratrædelsesdatoen må ikke ligge før ansættelsesdatoen.",
+                "hasHistory": "Medarbejderen har rapporter eller tidsregistreringer og kan ikke slettes. Angiv i stedet en fratrædelsesdato."
+            }
         },
         "payroll": {
             "title": "Månedsafregning",

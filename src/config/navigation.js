@@ -7,6 +7,7 @@ import {
     EuroOutlined,
     FileTextOutlined,
     HomeOutlined,
+    TeamOutlined,
 } from '@ant-design/icons'
 
 /**
@@ -41,6 +42,7 @@ export const AREAS = {
         // Add further modules here as they are built.
         items: [
             { key: '', labelKey: 'admin.menu.overview', icon: AppstoreOutlined },
+            { key: 'employees', labelKey: 'admin.menu.employees', icon: TeamOutlined },
             { key: 'payroll', labelKey: 'admin.menu.payroll', icon: EuroOutlined },
         ],
     },

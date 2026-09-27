@@ -1,11 +1,10 @@
-import { Form, Select } from 'antd'
+import { AutoComplete, Form } from 'antd'
 
 import { Controller, useFormContext } from 'react-hook-form'
-import { useTranslation } from 'react-i18next'
 
-const FormBaseSelectWithoutQuery = ({ name, label = '', required = false, rules = {}, options = [], style = {} }) => {
+/** Free text input that suggests `suggestions` (strings) while typing. */
+const FormAutoComplete = ({ name, label = '', required = false, rules = {}, suggestions = [] }) => {
     const { control } = useFormContext()
-    const { t } = useTranslation()
 
     return (
         <Controller
@@ -20,16 +19,15 @@ const FormBaseSelectWithoutQuery = ({ name, label = '', required = false, rules 
                     label={label}
                     required={required}
                 >
-                    <Select
-                        showSearch
-                        optionFilterProp="label"
-                        notFoundContent={t('common.placeholders.noData')}
-                        placeholder={t('common.placeholders.selectOption')}
+                    <AutoComplete
                         value={value}
                         onChange={(value) => onChange(value)}
-                        options={options}
+                        options={suggestions.map((suggestion) => ({ value: suggestion }))}
+                        filterOption={(input, option) =>
+                            (option?.value ?? '').toLowerCase().includes(input.toLowerCase())
+                        }
+                        placeholder={label}
                         allowClear
-                        style={style}
                     />
                 </Form.Item>
             )}
@@ -37,4 +35,4 @@ const FormBaseSelectWithoutQuery = ({ name, label = '', required = false, rules 
     )
 }
 
-export default FormBaseSelectWithoutQuery
+export default FormAutoComplete

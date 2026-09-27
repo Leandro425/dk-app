@@ -4,6 +4,8 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 
 import AppShell from '../../../components/AppShell'
 import OverviewPage from '../pages/OverviewPage'
+import EmployeesPage from '../pages/EmployeesPage'
+import EmployeePage from '../pages/EmployeePage'
 
 // Loaded on demand: pulls in the PDF renderer and the Excel/ZIP libraries.
 const PayrollPage = lazy(() => import('../pages/PayrollPage'))
@@ -23,6 +25,14 @@ const AdminRoutes = () => {
                 <Route
                     index={true}
                     element={<OverviewPage />}
+                />
+                <Route
+                    path="employees"
+                    element={<EmployeesPage />}
+                />
+                <Route
+                    path="employees/:employeeId"
+                    element={<EmployeePage />}
                 />
                 <Route
                     path="payroll"

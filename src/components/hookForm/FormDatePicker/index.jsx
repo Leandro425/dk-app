@@ -2,7 +2,7 @@ import { Form, DatePicker } from 'antd'
 
 import { Controller, useFormContext } from 'react-hook-form'
 
-const FormDatePicker = ({ name, label = '', required = false, rules = {} }) => {
+const FormDatePicker = ({ name, label = '', required = false, rules = {}, help, validateStatus }) => {
     const { control } = useFormContext()
 
     return (
@@ -17,6 +17,8 @@ const FormDatePicker = ({ name, label = '', required = false, rules = {} }) => {
                 <Form.Item
                     label={label}
                     required={required}
+                    help={help}
+                    validateStatus={validateStatus}
                 >
                     <DatePicker
                         onChange={(range) => onChange(range)}

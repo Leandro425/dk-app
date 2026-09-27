@@ -297,11 +297,119 @@
         "title": "Controlling",
         "menu": {
             "overview": "Prezentare generală",
+            "employees": "Angajați",
             "payroll": "Decontare lunară"
         },
         "overview": {
             "title": "Prezentare generală",
             "description": "Zonă de administrare și controlling. Vizibilă doar pentru administratori."
+        },
+        "employees": {
+            "title": "Angajați",
+            "description": "Date de bază, de contract și salariale ale tuturor angajaților. Datele personale, fiscale și salariale sunt vizibile doar pentru administratori.",
+            "searchPlaceholder": "Caută după nume sau nr. pers.",
+            "filters": {
+                "active": "Activi",
+                "inactive": "Plecați",
+                "all": "Toți"
+            },
+            "status": {
+                "active": "Activ",
+                "inactive": "Plecat"
+            },
+            "table": {
+                "columns": {
+                    "staffNumber": "Nr. pers.",
+                    "staffNumberDk": "Nr. pers. (DK)",
+                    "lastname": "Nume",
+                    "firstname": "Prenume",
+                    "staffGroup": "Grup angajați",
+                    "language": "Limbă",
+                    "entryDate": "Angajare",
+                    "exitDate": "Plecare",
+                    "status": "Stare",
+                    "actions": "Acțiuni"
+                }
+            },
+            "actions": {
+                "add": "Angajat nou",
+                "back": "Înapoi la listă",
+                "delete": "Șterge angajatul",
+                "deleteConfirmation": "Angajatul va fi șters definitiv. Acest lucru este posibil doar fără rapoarte și înregistrări de timp."
+            },
+            "new": {
+                "title": "Angajat nou",
+                "description": "Creează un angajat nou. Obligatorii sunt doar nr. pers., numele și limba."
+            },
+            "edit": {
+                "title": "Angajat",
+                "description": "Date de bază, de contract și salariale ale angajatului."
+            },
+            "sections": {
+                "masterData": "Date de bază",
+                "address": "Adresă",
+                "personal": "Date personale",
+                "contract": "Contract și salariu",
+                "tax": "Impozite și asigurări sociale"
+            },
+            "fields": {
+                "staffNumber": "Număr personal",
+                "staffNumberDk": "Număr personal (DK)",
+                "staffGroup": "Grup angajați",
+                "firstname": "Prenume",
+                "lastname": "Nume",
+                "language": "Limba decontului lunar",
+                "entryDate": "Data angajării",
+                "exitDate": "Data plecării",
+                "addressStreet": "Stradă",
+                "addressHouseNumber": "Nr.",
+                "addressZipCode": "Cod poștal",
+                "addressCity": "Localitate",
+                "birthday": "Data nașterii",
+                "placeOfBirth": "Locul nașterii",
+                "countryOfBirth": "Țara nașterii",
+                "nationality": "Cetățenie",
+                "gender": "Sex",
+                "maritalStatus": "Stare civilă",
+                "children": "Copii",
+                "jobTitle": "Funcție",
+                "contractType": "Tip contract",
+                "payType": "Tip salariu",
+                "standardPay": "Salariu standard",
+                "payRate": "Tarif orar",
+                "payRateValidFrom": "Tarif orar valabil din",
+                "socialSecurityNumber": "Număr de asigurare socială",
+                "taxId": "Cod fiscal"
+            },
+            "values": {
+                "gender": {
+                    "male": "Masculin",
+                    "female": "Feminin",
+                    "diverse": "Divers"
+                },
+                "marital_status": {
+                    "single": "Necăsătorit(ă)",
+                    "married": "Căsătorit(ă)",
+                    "widowed": "Văduv(ă)",
+                    "divorced": "Divorțat(ă)",
+                    "civilPartnership": "Parteneriat înregistrat"
+                },
+                "contract_type": {
+                    "permanent": "Pe durată nedeterminată",
+                    "fixedTerm": "Pe durată determinată",
+                    "purposeLimited": "Pe durată determinată (scop)"
+                }
+            },
+            "warnings": {
+                "staffNumberTaken": "Acest nr. pers. este deja folosit de {{name}}.",
+                "socialSecurityNumberFormat": "Format neobișnuit. Se așteaptă de ex. 12010180M123 (8 cifre, literă, 3 cifre).",
+                "taxIdFormat": "Format neobișnuit. Se așteaptă 11 cifre."
+            },
+            "errors": {
+                "staffNumberDkTaken": "Acest nr. pers. (DK) este deja folosit.",
+                "exitBeforeEntry": "Data plecării nu poate fi înaintea datei angajării.",
+                "hasHistory": "Angajatul are rapoarte sau înregistrări de timp și nu poate fi șters. Setează în schimb o dată de plecare."
+            }
         },
         "payroll": {
             "title": "Decontare lunară",

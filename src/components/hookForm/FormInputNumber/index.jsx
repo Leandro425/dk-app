@@ -2,7 +2,16 @@ import { Form, InputNumber } from 'antd'
 
 import { Controller, useFormContext } from 'react-hook-form'
 
-const FormInputNumber = ({ name, label = '', required = false, rules = {}, layout = 'vertical', ...props }) => {
+const FormInputNumber = ({
+    name,
+    label = '',
+    required = false,
+    rules = {},
+    layout = 'vertical',
+    help,
+    validateStatus,
+    ...props
+}) => {
     const { control } = useFormContext()
 
     return (
@@ -18,6 +27,8 @@ const FormInputNumber = ({ name, label = '', required = false, rules = {}, layou
                     label={label}
                     required={required}
                     layout={layout}
+                    help={help}
+                    validateStatus={validateStatus}
                 >
                     <InputNumber
                         onChange={(value) => onChange(value)}

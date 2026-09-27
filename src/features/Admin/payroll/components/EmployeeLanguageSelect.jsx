@@ -24,6 +24,7 @@ const EmployeeLanguageSelect = ({ employee }) => {
         })
         if (!error) {
             queryClient.invalidateQueries({ queryKey: ['payroll'] })
+            queryClient.invalidateQueries({ queryKey: ['employees'] })
         }
     }
 
