@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     colPos: { width: 34, paddingHorizontal: 6, textAlign: 'right' },
     colArticleNumber: { width: 70, paddingHorizontal: 6 },
     colArticle: { flex: 3, paddingHorizontal: 6 },
+    colBatch: { width: 76, paddingHorizontal: 6 },
     colOrder: { flex: 3, paddingHorizontal: 6 },
     colQuantity: { width: 70, paddingHorizontal: 6, textAlign: 'right' },
     colUnit: { width: 50, paddingHorizontal: 6 },
@@ -216,6 +217,7 @@ const DeliveryNoteDocument = ({ delivery, items = [], t }) => {
                         <Text style={styles.colPos}>{t('deliveries.pdf.columns.position')}</Text>
                         <Text style={styles.colArticleNumber}>{t('deliveries.pdf.columns.articleNumber')}</Text>
                         <Text style={styles.colArticle}>{t('deliveries.pdf.columns.article')}</Text>
+                        <Text style={styles.colBatch}>{t('deliveries.pdf.columns.batch')}</Text>
                         <Text style={styles.colOrder}>{t('deliveries.pdf.columns.order')}</Text>
                         <Text style={styles.colQuantity}>{t('deliveries.pdf.columns.quantity')}</Text>
                         <Text style={styles.colUnit}>{t('deliveries.pdf.columns.unit')}</Text>
@@ -231,6 +233,7 @@ const DeliveryNoteDocument = ({ delivery, items = [], t }) => {
                                 {item.article?.external_id ?? ''}
                             </Text>
                             <Text style={styles.colArticle}>{item.article?.name ?? ''}</Text>
+                            <Text style={styles.colBatch}>{item.batch?.batch_number ?? ''}</Text>
                             <View style={styles.colOrder}>
                                 <Text>{item.order?.description ?? ''}</Text>
                                 {item.order?.customer && <Text style={styles.cellSub}>{item.order.customer}</Text>}

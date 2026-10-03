@@ -3,7 +3,7 @@ import {
     getArticleLabel,
     getEmployeeLabel,
     isEmployeeActive,
-    getFieldLabel,
+    getBatchLabel,
     getStaffGroupLabel,
     getOrderLabel,
 } from './helpers'
@@ -33,12 +33,23 @@ export const getArticleSelectOptions = async (supabase) => {
     }))
 }
 
-export const getFieldSelectOptions = async (supabase) => {
-    const { data, error } = await supabase.from('field').select('*').order('name', { ascending: true })
+// All batches incl. archived ones (`active`), so an entry keeps showing its archived batch.
+// `external_number` (old field number, supplier lot) is not shown but can be searched.
+export const getBatchSelectOptions = async (supabase) => {
+    const { data, error } = await supabase
+        .from('batch')
+        .select('id, type, batch_number, external_number, name, description, active')
+        .order('batch_number', { ascending: true })
     if (error) {
         throw new Error(error.message)
     }
-    return data.map((field) => ({ label: getFieldLabel(field), value: field.id }))
+    return data.map((batch) => ({
+        label: getBatchLabel(batch),
+        value: batch.id,
+        type: batch.type,
+        active: batch.active,
+        search: [getBatchLabel(batch), batch.external_number].filter(Boolean).join(' ').toLowerCase(),
+    }))
 }
 
 export const getStaffGroupSelectOptions = async (supabase) => {

@@ -23,7 +23,7 @@
             "balance": "Voorraad",
             "order": "Order",
             "article": "Artikel",
-            "field": "Veld"
+            "batch": "Partij"
         }
     },
     "reports": {
@@ -176,7 +176,7 @@
                 "title": "Leveringsartikelen tabel",
                 "columns": {
                     "order": "Opdracht",
-                    "field": "Veld",
+                    "batch": "Partij",
                     "article": "Artikel",
                     "quantity": "Aantal",
                     "createdAt": "Gemaakt op",
@@ -187,7 +187,7 @@
             "item": {
                 "order": "Opdracht",
                 "date": "Datum",
-                "field": "Veld",
+                "batch": "Partij",
                 "article": "Artikel",
                 "quantity": "Aantal",
                 "annotation": "Opmerking"
@@ -217,6 +217,7 @@
                 "position": "Pos.",
                 "articleNumber": "Art.nr.",
                 "article": "Artikel",
+                "batch": "Partij",
                 "order": "Order",
                 "quantity": "Aantal",
                 "unit": "Eenheid"
@@ -305,6 +306,7 @@
             "employees": "Medewerkers",
             "customers": "Klanten",
             "articles": "Artikelen",
+            "batches": "Partijen",
             "payroll": "Maandafrekening"
         },
         "overview": {
@@ -558,6 +560,70 @@
             "errors": {
                 "articleNumberTaken": "Dit artikelnummer is al aan een ander artikel toegewezen.",
                 "inUse": "Het artikel wordt gebruikt in rapporten of leveringen en kan niet worden verwijderd. Archiveer het in plaats daarvan (Actief uitvinken)."
+            }
+        },
+        "batches": {
+            "title": "Partijen",
+            "description": "Herkomst van de goederen: eigen velden en inkopen. Het partijnummer staat op elke regel van de pakbon. Gearchiveerde partijen worden niet meer aangeboden voor nieuwe rapporten en leveringen.",
+            "searchPlaceholder": "Zoeken op partijnummer, extern nummer, naam of omschrijving",
+            "filters": {
+                "active": "Actief",
+                "archived": "Gearchiveerd",
+                "all": "Alle",
+                "allTypes": "Alle soorten"
+            },
+            "status": {
+                "active": "Actief",
+                "archived": "Gearchiveerd"
+            },
+            "types": {
+                "field": "Veld",
+                "purchase": "Inkoop"
+            },
+            "table": {
+                "columns": {
+                    "batchNumber": "Partij",
+                    "type": "Soort",
+                    "name": "Naam",
+                    "description": "Omschrijving",
+                    "externalNumber": "Extern nr.",
+                    "status": "Status",
+                    "actions": "Acties"
+                }
+            },
+            "actions": {
+                "add": "Nieuwe partij",
+                "back": "Terug naar lijst",
+                "delete": "Partij verwijderen",
+                "deleteConfirmation": "De partij wordt definitief verwijderd. Dit kan alleen zolang ze in geen enkel rapport of levering wordt gebruikt."
+            },
+            "new": {
+                "title": "Nieuwe partij",
+                "description": "Nieuwe partij aanmaken. Soort en naam zijn verplicht, het partijnummer wordt bij het opslaan toegekend."
+            },
+            "edit": {
+                "title": "Partij",
+                "description": "Stamgegevens van de partij."
+            },
+            "fields": {
+                "batchNumber": "Partijnummer",
+                "batchNumberHelp": "Wordt bij het opslaan automatisch toegekend (F-/P-jaar-nummer).",
+                "batchNumberPlaceholder": "wordt automatisch toegekend",
+                "type": "Soort",
+                "typeHelp": "Soort en partijnummer kunnen niet worden gewijzigd.",
+                "status": "Status",
+                "active": "Actief (tonen in keuzelijsten)",
+                "name": "Naam",
+                "description": "Omschrijving",
+                "externalNumberField": "Extern nummer",
+                "externalNumberPurchase": "Partij- / pakbonnr. van de leverancier",
+                "externalNumberHelp": "Alleen om te zoeken, staat niet op de pakbon."
+            },
+            "warnings": {
+                "nameTaken": "Er bestaat al een partij van deze soort met deze naam ({{number}})."
+            },
+            "errors": {
+                "inUse": "De partij wordt gebruikt in rapporten of leveringen en kan niet worden verwijderd. Archiveer haar in plaats daarvan (Actief uitvinken)."
             }
         },
         "payroll": {

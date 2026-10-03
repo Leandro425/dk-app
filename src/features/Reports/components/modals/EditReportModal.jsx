@@ -14,7 +14,7 @@ const getFormValues = (report) => {
     return {
         employee: report?.employee_id,
         date: dateStringToDayjs(report?.date),
-        field: report?.field_id,
+        batch: report?.batch_id,
         article: report?.article_id,
         order: report?.order_id,
         quantity: report?.quantity,
@@ -48,7 +48,7 @@ const EditReportModal = ({ open, onClose, report }) => {
                 {
                     employee_id: data.employee,
                     date: data.date.format('YYYY-MM-DD'),
-                    field_id: data.field,
+                    batch_id: data.batch,
                     article_id: data.article,
                     order_id: data.order,
                     quantity: data.quantity,

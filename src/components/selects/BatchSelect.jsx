@@ -1,8 +1,20 @@
 import { useQuery } from '@tanstack/react-query'
-import { getFieldSelectOptions } from '../../utils/supabaseQuery'
+import { getBatchSelectOptions } from '../../utils/supabaseQuery'
 import { useTranslation } from 'react-i18next'
 import { Select } from 'antd'
-const FieldSelect = ({ supabase, value, onChange, enabled = false, placeholder }) => {
+import { useMemo } from 'react'
+
+// `type` limits the list to 'field' or 'purchase' batches (reports only take fields).
+// `includeArchived` also lists archived batches (e.g. for filtering statistics over past data).
+const BatchSelect = ({
+    supabase,
+    value,
+    onChange,
+    enabled = false,
+    placeholder,
+    type = null,
+    includeArchived = false,
+}) => {
     const { t } = useTranslation()
     const {
         data: options,
@@ -10,10 +22,21 @@ const FieldSelect = ({ supabase, value, onChange, enabled = false, placeholder }
         isFetching,
         isError,
     } = useQuery({
-        queryKey: ['fields', 'select'],
-        queryFn: () => getFieldSelectOptions(supabase),
+        queryKey: ['batches', 'select'],
+        queryFn: () => getBatchSelectOptions(supabase),
         enabled: enabled,
     })
+
+    // Archived batches are only listed when already selected.
+    const visibleOptions = useMemo(
+        () =>
+            options?.filter(
+                (option) =>
+                    (!type || option.type === type) &&
+                    (includeArchived || option.active !== false || option.value === value)
+            ),
+        [options, value, type, includeArchived]
+    )
 
     return (
         <Select
@@ -23,12 +46,12 @@ const FieldSelect = ({ supabase, value, onChange, enabled = false, placeholder }
             placeholder={placeholder || t('common.placeholders.selectOption')}
             value={value}
             onChange={(value) => onChange(value)}
-            options={options}
-            filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
+            options={visibleOptions}
+            filterOption={(input, option) => (option?.search ?? '').includes(input.toLowerCase())}
             style={{ width: '100%' }}
             allowClear
         />
     )
 }
 
-export default FieldSelect
+export default BatchSelect

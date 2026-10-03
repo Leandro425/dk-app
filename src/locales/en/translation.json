@@ -23,7 +23,7 @@
             "balance": "Balance",
             "order": "Order",
             "article": "Article",
-            "field": "Field"
+            "batch": "Batch"
         }
     },
     "reports": {
@@ -176,7 +176,7 @@
                 "title": "Delivery items table",
                 "columns": {
                     "order": "Order",
-                    "field": "Field",
+                    "batch": "Batch",
                     "article": "Article",
                     "quantity": "Quantity",
                     "createdAt": "Created at",
@@ -187,7 +187,7 @@
             "item": {
                 "order": "Order",
                 "date": "Date",
-                "field": "Field",
+                "batch": "Batch",
                 "article": "Article",
                 "quantity": "Quantity",
                 "annotation": "Note"
@@ -217,6 +217,7 @@
                 "position": "Pos.",
                 "articleNumber": "Art. no.",
                 "article": "Article",
+                "batch": "Batch",
                 "order": "Order",
                 "quantity": "Quantity",
                 "unit": "Unit"
@@ -305,6 +306,7 @@
             "employees": "Employees",
             "customers": "Customers",
             "articles": "Articles",
+            "batches": "Batches",
             "payroll": "Payroll"
         },
         "overview": {
@@ -558,6 +560,70 @@
             "errors": {
                 "articleNumberTaken": "This article number is already used by another article.",
                 "inUse": "The article is used in reports or deliveries and cannot be deleted. Archive it instead (uncheck Active)."
+            }
+        },
+        "batches": {
+            "title": "Batches",
+            "description": "Origin of goods: own fields and purchases. The batch number is printed on every delivery note line. Archived batches are no longer offered for new reports and deliveries.",
+            "searchPlaceholder": "Search by batch number, external number, name or description",
+            "filters": {
+                "active": "Active",
+                "archived": "Archived",
+                "all": "All",
+                "allTypes": "All types"
+            },
+            "status": {
+                "active": "Active",
+                "archived": "Archived"
+            },
+            "types": {
+                "field": "Field",
+                "purchase": "Purchase"
+            },
+            "table": {
+                "columns": {
+                    "batchNumber": "Batch",
+                    "type": "Type",
+                    "name": "Name",
+                    "description": "Description",
+                    "externalNumber": "External no.",
+                    "status": "Status",
+                    "actions": "Actions"
+                }
+            },
+            "actions": {
+                "add": "New batch",
+                "back": "Back to list",
+                "delete": "Delete batch",
+                "deleteConfirmation": "The batch will be deleted permanently. This is only possible while it is not used in any report or delivery."
+            },
+            "new": {
+                "title": "New batch",
+                "description": "Create a new batch. Type and name are required, the batch number is assigned on save."
+            },
+            "edit": {
+                "title": "Batch",
+                "description": "Master data of the batch."
+            },
+            "fields": {
+                "batchNumber": "Batch number",
+                "batchNumberHelp": "Assigned automatically on save (F-/P-year-number).",
+                "batchNumberPlaceholder": "assigned automatically",
+                "type": "Type",
+                "typeHelp": "Type and batch number cannot be changed.",
+                "status": "Status",
+                "active": "Active (show in pickers)",
+                "name": "Name",
+                "description": "Description",
+                "externalNumberField": "External number",
+                "externalNumberPurchase": "Supplier's lot / delivery note no.",
+                "externalNumberHelp": "For searching only, not printed on the delivery note."
+            },
+            "warnings": {
+                "nameTaken": "A batch of this type with this name already exists ({{number}})."
+            },
+            "errors": {
+                "inUse": "The batch is used in reports or deliveries and cannot be deleted. Archive it instead (uncheck Active)."
             }
         },
         "payroll": {

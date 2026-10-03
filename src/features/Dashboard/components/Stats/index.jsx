@@ -5,7 +5,7 @@ import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { keepPreviousData, useQuery } from '@tanstack/react-query'
 import OrderSelect from '../../../../components/selects/OrderSelect'
 import ArticleSelect from '../../../../components/selects/ArticleSelect'
-import FieldSelect from '../../../../components/selects/FieldSelect'
+import BatchSelect from '../../../../components/selects/BatchSelect'
 
 const Stats = () => {
     const { t } = useTranslation()
@@ -13,7 +13,7 @@ const Stats = () => {
 
     const [orderId, setOrderId] = useState(null)
     const [articleId, setArticleId] = useState(null)
-    const [fieldId, setFieldId] = useState(null)
+    const [batchId, setBatchId] = useState(null)
 
     const handleOrderChange = (value) => {
         setOrderId(value)
@@ -21,13 +21,13 @@ const Stats = () => {
     const handleArticleChange = (value) => {
         setArticleId(value)
     }
-    const handleFieldChange = (value) => {
-        setFieldId(value)
+    const handleBatchChange = (value) => {
+        setBatchId(value)
     }
 
     const fetchStatistics = async () => {
         const { data: reportsTotalQuantity, error: reportsError } = await supabase.rpc('get_report_total_quantity', {
-            p_field_id: fieldId,
+            p_batch_id: batchId,
             p_order_id: orderId,
             p_article_id: articleId,
         })
@@ -36,7 +36,7 @@ const Stats = () => {
         const { data: deliveryTotalQuantity, error: deliveriesError } = await supabase.rpc(
             'get_delivery_total_quantity',
             {
-                p_field_id: fieldId,
+                p_batch_id: batchId,
                 p_order_id: orderId,
                 p_article_id: articleId,
             }
@@ -50,7 +50,7 @@ const Stats = () => {
     }
 
     const { data } = useQuery({
-        queryKey: ['statistics', orderId, articleId, fieldId],
+        queryKey: ['statistics', orderId, articleId, batchId],
         queryFn: fetchStatistics,
         placeholderData: keepPreviousData,
     })
@@ -85,14 +85,15 @@ const Stats = () => {
                         enabled={supabase !== null}
                         includeArchived
                     />
-                    <FieldSelect
+                    <BatchSelect
                         supabase={supabase}
                         style={{ width: '100%' }}
-                        value={fieldId}
-                        onChange={handleFieldChange}
+                        value={batchId}
+                        onChange={handleBatchChange}
                         allowClear
-                        placeholder={t('dashboard.statistics.field')}
+                        placeholder={t('dashboard.statistics.batch')}
                         enabled={supabase !== null}
+                        includeArchived
                     />
                 </Flex>
                 <Flex

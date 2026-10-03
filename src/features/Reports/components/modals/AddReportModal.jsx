@@ -12,7 +12,7 @@ const getFormValues = () => {
     return {
         employee: null,
         date: dayjs(),
-        field: null,
+        batch: null,
         article: null,
         order: null,
         quantity: '',
@@ -44,7 +44,7 @@ const AddReportModal = ({ open, onClose }) => {
             {
                 employee_id: data.employee,
                 date: data.date.format('YYYY-MM-DD'),
-                field_id: data.field,
+                batch_id: data.batch,
                 article_id: data.article,
                 order_id: data.order,
                 quantity: data.quantity,

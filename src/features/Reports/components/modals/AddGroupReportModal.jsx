@@ -11,7 +11,7 @@ import useSupervisorContext from '../../../../context/user/supervisorContext'
 import FormStaffGroupSelect from '../../../../components/hookForm/FormStaffGroupSelect'
 import FormOrderSelect from '../../../../components/hookForm/FormOrderSelect'
 import FormArticleSelect from '../../../../components/hookForm/FormArticleSelect'
-import FormFieldSelect from '../../../../components/hookForm/FormFieldSelect'
+import FormBatchSelect from '../../../../components/hookForm/FormBatchSelect'
 import FormDatePicker from '../../../../components/hookForm/FormDatePicker'
 import FormBaseSelectWithoutQuery from '../../../../components/hookForm/FormBaseSelectWithoutQuery'
 import FormCheckbox from '../../../../components/hookForm/FormCheckbox'
@@ -23,7 +23,7 @@ import { CloseOutlined } from '@ant-design/icons'
 const getFormValues = () => {
     return {
         date: dayjs(),
-        field: null,
+        batch: null,
         article: null,
         order: null,
         quantity: '',
@@ -62,7 +62,7 @@ const AddGroupReportModal = ({ open, onClose }) => {
         const reports = data.reports.map((report) => ({
             employee_id: report.employee,
             date: data.date.format('YYYY-MM-DD'),
-            field_id: data.field,
+            batch_id: data.batch,
             article_id: data.article,
             order_id: data.order,
             quantity: report.quantity,
@@ -195,8 +195,9 @@ const AddGroupReportModal = ({ open, onClose }) => {
                                 required
                                 enabled={enabledSelects}
                             />
-                            <FormFieldSelect
-                                name="field"
+                            <FormBatchSelect
+                                name="batch"
+                                type="field"
                                 supabase={supabase}
                                 control={control}
                                 errors={errors}

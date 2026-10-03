@@ -11,7 +11,7 @@ import {
     formatDateTime,
     getArticleLabel,
     getEmployeeLabel,
-    getFieldLabel,
+    getBatchLabel,
     getOrderLabel,
     getSupervisorLabel,
 } from '../../../../utils/helpers'
@@ -40,7 +40,7 @@ const ReportsTable = () => {
         const { data, count, error } = await supabase
             .from('report')
             .select(
-                '*, employee:employee(id, staff_number, firstname, lastname), order:order(*), field:field(*), article:article(*), created_by:supervisor!report_created_by_id_fkey(*), modified_by:supervisor!report_modified_by_id_fkey(*)',
+                '*, employee:employee(id, staff_number, firstname, lastname), order:order(*), batch:batch(*), article:article(*), created_by:supervisor!report_created_by_id_fkey(*), modified_by:supervisor!report_modified_by_id_fkey(*)',
                 {
                     count: 'exact',
                 }
@@ -90,9 +90,9 @@ const ReportsTable = () => {
         },
         {
             title: t('reports.table.columns.field'),
-            dataIndex: 'field',
-            key: 'field',
-            render: getFieldLabel,
+            dataIndex: 'batch',
+            key: 'batch',
+            render: getBatchLabel,
         },
         {
             title: t('reports.table.columns.article'),

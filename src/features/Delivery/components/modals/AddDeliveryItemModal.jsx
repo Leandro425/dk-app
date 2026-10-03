@@ -9,7 +9,7 @@ import FormDeliveryItemFields from './FormDeliveryItemFields'
 
 const getFormValues = () => {
     return {
-        field: null,
+        batch: null,
         article: null,
         order: null,
         quantity: '',
@@ -36,7 +36,7 @@ const AddDeliveryItemModal = ({ open, onClose, deliveryId }) => {
         const { error } = await supabase.from('delivery_item').insert([
             {
                 delivery_id: deliveryId,
-                field_id: data.field,
+                batch_id: data.batch,
                 article_id: data.article,
                 order_id: data.order,
                 quantity: data.quantity,

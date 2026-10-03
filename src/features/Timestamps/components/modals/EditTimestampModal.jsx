@@ -14,7 +14,6 @@ const getFormValues = (timestamp) => {
     return {
         employee: timestamp?.employee_id,
         date: dateStringToDayjs(timestamp?.date),
-        field: timestamp?.field_id,
         article: timestamp?.article_id,
         quantity: timestamp?.quantity,
         timeRange: [timeStringToDayjs(timestamp?.start_time), timeStringToDayjs(timestamp?.end_time)],

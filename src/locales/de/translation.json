@@ -23,7 +23,7 @@
             "balance": "Bestand",
             "order": "Auftrag",
             "article": "Artikel",
-            "field": "Feld"
+            "batch": "Charge"
         }
     },
     "reports": {
@@ -176,7 +176,7 @@
                 "title": "Lieferpositionentabelle",
                 "columns": {
                     "order": "Auftrag",
-                    "field": "Feld",
+                    "batch": "Charge",
                     "article": "Artikel",
                     "quantity": "Menge",
                     "createdAt": "Erstellt am",
@@ -187,7 +187,7 @@
             "item": {
                 "order": "Auftrag",
                 "date": "Datum",
-                "field": "Feld",
+                "batch": "Charge",
                 "article": "Artikel",
                 "quantity": "Menge",
                 "annotation": "Anmerkung"
@@ -217,6 +217,7 @@
                 "position": "Pos.",
                 "articleNumber": "Art.-Nr.",
                 "article": "Artikel",
+                "batch": "Charge",
                 "order": "Auftrag",
                 "quantity": "Menge",
                 "unit": "Einheit"
@@ -305,6 +306,7 @@
             "employees": "Mitarbeiter",
             "customers": "Kunden",
             "articles": "Artikel",
+            "batches": "Chargen",
             "payroll": "Monatsabrechnung"
         },
         "overview": {
@@ -558,6 +560,70 @@
             "errors": {
                 "articleNumberTaken": "Diese Artikelnummer ist bereits an einen anderen Artikel vergeben.",
                 "inUse": "Der Artikel wird in Berichten oder Lieferungen verwendet und kann nicht gelöscht werden. Stattdessen archivieren (Aktiv abwählen)."
+            }
+        },
+        "batches": {
+            "title": "Chargen",
+            "description": "Herkunft der Ware: eigene Felder und Zukäufe. Die Chargennummer steht auf jeder Lieferscheinzeile. Archivierte Chargen werden für neue Berichte und Lieferungen nicht mehr angeboten.",
+            "searchPlaceholder": "Nach Chargennummer, externer Nummer, Name oder Beschreibung suchen",
+            "filters": {
+                "active": "Aktiv",
+                "archived": "Archiviert",
+                "all": "Alle",
+                "allTypes": "Alle Arten"
+            },
+            "status": {
+                "active": "Aktiv",
+                "archived": "Archiviert"
+            },
+            "types": {
+                "field": "Feld",
+                "purchase": "Zukauf"
+            },
+            "table": {
+                "columns": {
+                    "batchNumber": "Charge",
+                    "type": "Art",
+                    "name": "Name",
+                    "description": "Beschreibung",
+                    "externalNumber": "Externe Nummer",
+                    "status": "Status",
+                    "actions": "Aktionen"
+                }
+            },
+            "actions": {
+                "add": "Neue Charge",
+                "back": "Zurück zur Liste",
+                "delete": "Charge löschen",
+                "deleteConfirmation": "Die Charge wird endgültig gelöscht. Das ist nur möglich, solange sie in keinem Bericht und keiner Lieferung verwendet wird."
+            },
+            "new": {
+                "title": "Neue Charge",
+                "description": "Neue Charge anlegen. Art und Name sind Pflicht, die Chargennummer wird beim Speichern vergeben."
+            },
+            "edit": {
+                "title": "Charge",
+                "description": "Stammdaten der Charge."
+            },
+            "fields": {
+                "batchNumber": "Chargennummer",
+                "batchNumberHelp": "Wird beim Speichern automatisch vergeben (F-/P-Jahr-Nummer).",
+                "batchNumberPlaceholder": "wird automatisch vergeben",
+                "type": "Art",
+                "typeHelp": "Art und Chargennummer können nicht geändert werden.",
+                "status": "Status",
+                "active": "Aktiv (in Auswahllisten anzeigen)",
+                "name": "Name",
+                "description": "Beschreibung",
+                "externalNumberField": "Externe Nummer",
+                "externalNumberPurchase": "Charge / Lieferschein-Nr. des Lieferanten",
+                "externalNumberHelp": "Nur zur Suche, erscheint nicht auf dem Lieferschein."
+            },
+            "warnings": {
+                "nameTaken": "Eine Charge dieser Art mit diesem Namen existiert bereits ({{number}})."
+            },
+            "errors": {
+                "inUse": "Die Charge wird in Berichten oder Lieferungen verwendet und kann nicht gelöscht werden. Stattdessen archivieren (Aktiv abwählen)."
             }
         },
         "payroll": {

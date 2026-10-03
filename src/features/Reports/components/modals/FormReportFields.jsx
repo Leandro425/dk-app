@@ -7,7 +7,7 @@ import { useWatch } from 'react-hook-form'
 import FormCheckbox from '../../../../components/hookForm/FormCheckbox'
 import FormOrderSelect from '../../../../components/hookForm/FormOrderSelect'
 import FormArticleSelect from '../../../../components/hookForm/FormArticleSelect'
-import FormFieldSelect from '../../../../components/hookForm/FormFieldSelect'
+import FormBatchSelect from '../../../../components/hookForm/FormBatchSelect'
 import FormEmployeeSelect from '../../../../components/hookForm/FormEmployeeSelect'
 import FormStaffGroupSelect from '../../../../components/hookForm/FormStaffGroupSelect'
 import FormBaseSelectWithoutQuery from '../../../../components/hookForm/FormBaseSelectWithoutQuery'
@@ -66,8 +66,9 @@ const FormReportFields = ({ control, errors, enabledSelects = false }) => {
                 required
                 enabled={enabledSelects}
             />
-            <FormFieldSelect
-                name="field"
+            <FormBatchSelect
+                name="batch"
+                type="field"
                 supabase={supabase}
                 control={control}
                 errors={errors}

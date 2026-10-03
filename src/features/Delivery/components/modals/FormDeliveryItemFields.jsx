@@ -5,7 +5,7 @@ import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import FormInputNumber from '../../../../components/hookForm/FormInputNumber'
 import FormOrderSelect from '../../../../components/hookForm/FormOrderSelect'
 import FormArticleSelect from '../../../../components/hookForm/FormArticleSelect'
-import FormFieldSelect from '../../../../components/hookForm/FormFieldSelect'
+import FormBatchSelect from '../../../../components/hookForm/FormBatchSelect'
 
 const FormDeliveryItemFields = ({ control, errors, enabledSelects = false }) => {
     const { supabase } = useSupabaseContext()
@@ -30,12 +30,12 @@ const FormDeliveryItemFields = ({ control, errors, enabledSelects = false }) => 
                 required
                 enabled={enabledSelects}
             />
-            <FormFieldSelect
-                name="field"
+            <FormBatchSelect
+                name="batch"
                 supabase={supabase}
                 control={control}
                 errors={errors}
-                label={t('deliveries.items.item.field')}
+                label={t('deliveries.items.item.batch')}
                 required
                 enabled={enabledSelects}
             />

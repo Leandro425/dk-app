@@ -2,9 +2,17 @@ import { Form } from 'antd'
 
 import { Controller, useFormContext } from 'react-hook-form'
 
-import FieldSelect from '../../selects/FieldSelect'
+import BatchSelect from '../../selects/BatchSelect'
 
-const FormFieldSelect = ({ name, label = '', required = false, rules = {}, supabase, enabled = false }) => {
+const FormBatchSelect = ({
+    name,
+    label = '',
+    required = false,
+    rules = {},
+    supabase,
+    enabled = false,
+    type = null,
+}) => {
     const { control } = useFormContext()
 
     return (
@@ -20,13 +28,14 @@ const FormFieldSelect = ({ name, label = '', required = false, rules = {}, supab
                     label={label}
                     required={required}
                 >
-                    <FieldSelect
+                    <BatchSelect
                         supabase={supabase}
                         style={{ width: '100%' }}
                         value={value}
                         onChange={onChange}
                         allowClear
                         enabled={supabase !== null && enabled}
+                        type={type}
                     />
                 </Form.Item>
             )}
@@ -34,4 +43,4 @@ const FormFieldSelect = ({ name, label = '', required = false, rules = {}, supab
     )
 }
 
-export default FormFieldSelect
+export default FormBatchSelect

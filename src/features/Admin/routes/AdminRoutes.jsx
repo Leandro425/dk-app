@@ -10,6 +10,8 @@ import CustomersPage from '../pages/CustomersPage'
 import CustomerPage from '../pages/CustomerPage'
 import ArticlesPage from '../pages/ArticlesPage'
 import ArticlePage from '../pages/ArticlePage'
+import BatchesPage from '../pages/BatchesPage'
+import BatchPage from '../pages/BatchPage'
 
 // Loaded on demand: pulls in the PDF renderer and the Excel/ZIP libraries.
 const PayrollPage = lazy(() => import('../pages/PayrollPage'))
@@ -53,6 +55,14 @@ const AdminRoutes = () => {
                 <Route
                     path="articles/:articleId"
                     element={<ArticlePage />}
+                />
+                <Route
+                    path="batches"
+                    element={<BatchesPage />}
+                />
+                <Route
+                    path="batches/:batchId"
+                    element={<BatchPage />}
                 />
                 <Route
                     path="payroll"

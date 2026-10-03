@@ -23,7 +23,7 @@
             "balance": "Beholdning",
             "order": "Ordre",
             "article": "Artikel",
-            "field": "Mark"
+            "batch": "Parti"
         }
     },
     "reports": {
@@ -176,7 +176,7 @@
                 "title": "Leveringspositionstabel",
                 "columns": {
                     "order": "Ordre",
-                    "field": "Felt",
+                    "batch": "Parti",
                     "article": "Artikel",
                     "quantity": "Mængde",
                     "createdAt": "Oprettet den",
@@ -187,7 +187,7 @@
             "item": {
                 "order": "Ordre",
                 "date": "Dato",
-                "field": "Felt",
+                "batch": "Parti",
                 "article": "Artikel",
                 "quantity": "Mængde",
                 "annotation": "Bemærkning"
@@ -217,6 +217,7 @@
                 "position": "Pos.",
                 "articleNumber": "Varenr.",
                 "article": "Artikel",
+                "batch": "Parti",
                 "order": "Ordre",
                 "quantity": "Antal",
                 "unit": "Enhed"
@@ -305,6 +306,7 @@
             "employees": "Medarbejdere",
             "customers": "Kunder",
             "articles": "Varer",
+            "batches": "Partier",
             "payroll": "Månedsafregning"
         },
         "overview": {
@@ -558,6 +560,70 @@
             "errors": {
                 "articleNumberTaken": "Dette varenummer bruges allerede af en anden vare.",
                 "inUse": "Varen bruges i rapporter eller leveringer og kan ikke slettes. Arkivér den i stedet (fjern markeringen ved Aktiv)."
+            }
+        },
+        "batches": {
+            "title": "Partier",
+            "description": "Varernes oprindelse: egne marker og indkøb. Partinummeret står på hver linje i følgesedlen. Arkiverede partier tilbydes ikke længere til nye rapporter og leverancer.",
+            "searchPlaceholder": "Søg efter partinummer, eksternt nummer, navn eller beskrivelse",
+            "filters": {
+                "active": "Aktiv",
+                "archived": "Arkiveret",
+                "all": "Alle",
+                "allTypes": "Alle typer"
+            },
+            "status": {
+                "active": "Aktiv",
+                "archived": "Arkiveret"
+            },
+            "types": {
+                "field": "Mark",
+                "purchase": "Indkøb"
+            },
+            "table": {
+                "columns": {
+                    "batchNumber": "Parti",
+                    "type": "Type",
+                    "name": "Navn",
+                    "description": "Beskrivelse",
+                    "externalNumber": "Eksternt nr.",
+                    "status": "Status",
+                    "actions": "Handlinger"
+                }
+            },
+            "actions": {
+                "add": "Nyt parti",
+                "back": "Tilbage til listen",
+                "delete": "Slet parti",
+                "deleteConfirmation": "Partiet slettes permanent. Det er kun muligt, så længe det ikke bruges i nogen rapport eller leverance."
+            },
+            "new": {
+                "title": "Nyt parti",
+                "description": "Opret et nyt parti. Type og navn er obligatoriske, partinummeret tildeles ved gemning."
+            },
+            "edit": {
+                "title": "Parti",
+                "description": "Stamdata for partiet."
+            },
+            "fields": {
+                "batchNumber": "Partinummer",
+                "batchNumberHelp": "Tildeles automatisk ved gemning (F-/P-år-nummer).",
+                "batchNumberPlaceholder": "tildeles automatisk",
+                "type": "Type",
+                "typeHelp": "Type og partinummer kan ikke ændres.",
+                "status": "Status",
+                "active": "Aktiv (vis i valglister)",
+                "name": "Navn",
+                "description": "Beskrivelse",
+                "externalNumberField": "Eksternt nummer",
+                "externalNumberPurchase": "Leverandørens parti- / følgeseddelnr.",
+                "externalNumberHelp": "Kun til søgning, står ikke på følgesedlen."
+            },
+            "warnings": {
+                "nameTaken": "Et parti af denne type med dette navn findes allerede ({{number}})."
+            },
+            "errors": {
+                "inUse": "Partiet bruges i rapporter eller leverancer og kan ikke slettes. Arkivér det i stedet (fjern Aktiv)."
             }
         },
         "payroll": {

@@ -8,7 +8,7 @@ import FormDeliveryItemFields from './FormDeliveryItemFields'
 
 const getFormValues = (deliveryItem) => {
     return {
-        field: deliveryItem?.field_id,
+        batch: deliveryItem?.batch_id,
         article: deliveryItem?.article_id,
         order: deliveryItem?.order_id,
         quantity: deliveryItem?.quantity,
@@ -36,7 +36,7 @@ const EditDeliveryItemModal = ({ open, onClose, deliveryId, deliveryItem }) => {
             .from('delivery_item')
             .update([
                 {
-                    field_id: data.field,
+                    batch_id: data.batch,
                     article_id: data.article,
                     order_id: data.order,
                     quantity: data.quantity,

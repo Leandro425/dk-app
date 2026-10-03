@@ -23,7 +23,7 @@ const DeliveryPdfModal = ({ open, onClose, delivery }) => {
     const fetchItems = async () => {
         const { data, error } = await supabase
             .from('delivery_item')
-            .select('*, order:order(*), field:field(*), article:article(*)')
+            .select('*, order:order(*), batch:batch(batch_number), article:article(*)')
             .eq('delivery_id', delivery.id)
             .order('id', { ascending: true })
         if (error) throw error

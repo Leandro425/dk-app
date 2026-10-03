@@ -4,7 +4,7 @@ import { Alert, Button, Flex, Popconfirm, Table, message } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
 import { useState } from 'react'
 
-import { formatDateTime, getArticleLabel, getFieldLabel, getOrderLabel } from '../../../../utils/helpers'
+import { formatDateTime, getArticleLabel, getBatchLabel, getOrderLabel } from '../../../../utils/helpers'
 import { getUnitLabel } from '../../../../utils/articleUnits'
 import { DeleteFilled, EditFilled } from '@ant-design/icons'
 import AddDeliveryItemModal from '../modals/AddDeliveryItemModal'
@@ -25,7 +25,7 @@ const DeliveryItemsTable = ({ deliveryId, locked = false }) => {
         const to = page * pageSize - 1
         const { data, count, error } = await supabase
             .from('delivery_item')
-            .select('*, order:order(*), field:field(*), article:article(*)', {
+            .select('*, order:order(*), batch:batch(*), article:article(*)', {
                 count: 'exact',
             })
             .eq('delivery_id', deliveryId)
@@ -65,10 +65,10 @@ const DeliveryItemsTable = ({ deliveryId, locked = false }) => {
             render: getOrderLabel,
         },
         {
-            title: t('deliveries.items.table.columns.field'),
-            dataIndex: 'field',
-            key: 'field',
-            render: getFieldLabel,
+            title: t('deliveries.items.table.columns.batch'),
+            dataIndex: 'batch',
+            key: 'batch',
+            render: getBatchLabel,
         },
         {
             title: t('deliveries.items.table.columns.article'),

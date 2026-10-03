@@ -23,7 +23,7 @@
             "balance": "Stan magazynu",
             "order": "Zamówienie",
             "article": "Artykuł",
-            "field": "Pole"
+            "batch": "Partia"
         }
     },
     "reports": {
@@ -176,7 +176,7 @@
                 "title": "Tabela pozycji dostawy",
                 "columns": {
                     "order": "Zlecenie",
-                    "field": "Pole",
+                    "batch": "Partia",
                     "article": "Artykuł",
                     "quantity": "Ilość",
                     "createdAt": "Utworzone dnia",
@@ -187,7 +187,7 @@
             "item": {
                 "order": "Zlecenie",
                 "date": "Data",
-                "field": "Pole",
+                "batch": "Partia",
                 "article": "Artykuł",
                 "quantity": "Ilość",
                 "annotation": "Notatka"
@@ -217,6 +217,7 @@
                 "position": "Poz.",
                 "articleNumber": "Nr art.",
                 "article": "Artykuł",
+                "batch": "Partia",
                 "order": "Zamówienie",
                 "quantity": "Ilość",
                 "unit": "Jednostka"
@@ -305,6 +306,7 @@
             "employees": "Pracownicy",
             "customers": "Klienci",
             "articles": "Artykuły",
+            "batches": "Partie",
             "payroll": "Rozliczenie miesięczne"
         },
         "overview": {
@@ -558,6 +560,70 @@
             "errors": {
                 "articleNumberTaken": "Ten numer artykułu jest już przypisany do innego artykułu.",
                 "inUse": "Artykuł jest używany w raportach lub dostawach i nie może zostać usunięty. Zamiast tego zarchiwizuj go (odznacz Aktywny)."
+            }
+        },
+        "batches": {
+            "title": "Partie",
+            "description": "Pochodzenie towaru: własne pola i zakupy. Numer partii jest drukowany w każdej pozycji dowodu dostawy. Zarchiwizowane partie nie są już oferowane dla nowych raportów i dostaw.",
+            "searchPlaceholder": "Szukaj po numerze partii, numerze zewnętrznym, nazwie lub opisie",
+            "filters": {
+                "active": "Aktywne",
+                "archived": "Zarchiwizowane",
+                "all": "Wszystkie",
+                "allTypes": "Wszystkie rodzaje"
+            },
+            "status": {
+                "active": "Aktywne",
+                "archived": "Zarchiwizowane"
+            },
+            "types": {
+                "field": "Pole",
+                "purchase": "Zakup"
+            },
+            "table": {
+                "columns": {
+                    "batchNumber": "Partia",
+                    "type": "Rodzaj",
+                    "name": "Nazwa",
+                    "description": "Opis",
+                    "externalNumber": "Nr zewn.",
+                    "status": "Status",
+                    "actions": "Akcje"
+                }
+            },
+            "actions": {
+                "add": "Nowa partia",
+                "back": "Powrót do listy",
+                "delete": "Usuń partię",
+                "deleteConfirmation": "Partia zostanie trwale usunięta. Jest to możliwe tylko, dopóki nie jest używana w żadnym raporcie ani dostawie."
+            },
+            "new": {
+                "title": "Nowa partia",
+                "description": "Utwórz nową partię. Rodzaj i nazwa są wymagane, numer partii nadawany jest przy zapisie."
+            },
+            "edit": {
+                "title": "Partia",
+                "description": "Dane podstawowe partii."
+            },
+            "fields": {
+                "batchNumber": "Numer partii",
+                "batchNumberHelp": "Nadawany automatycznie przy zapisie (F-/P-rok-numer).",
+                "batchNumberPlaceholder": "nadawany automatycznie",
+                "type": "Rodzaj",
+                "typeHelp": "Rodzaju i numeru partii nie można zmienić.",
+                "status": "Status",
+                "active": "Aktywna (pokazuj na listach wyboru)",
+                "name": "Nazwa",
+                "description": "Opis",
+                "externalNumberField": "Numer zewnętrzny",
+                "externalNumberPurchase": "Nr partii / dowodu dostawy dostawcy",
+                "externalNumberHelp": "Tylko do wyszukiwania, nie jest drukowany na dowodzie dostawy."
+            },
+            "warnings": {
+                "nameTaken": "Partia tego rodzaju o tej nazwie już istnieje ({{number}})."
+            },
+            "errors": {
+                "inUse": "Partia jest używana w raportach lub dostawach i nie może zostać usunięta. Zamiast tego zarchiwizuj ją (odznacz Aktywna)."
             }
         },
         "payroll": {
