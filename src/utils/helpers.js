@@ -17,7 +17,7 @@ export const getEmployeeLabel = (emp) => (emp ? `${emp.staff_number} | ${emp.fir
 
 export const getArticleLabel = (article) => (article ? `${article.external_id} | ${article.name}` : '')
 
-/** `F-2026-0001 | Nord 2 - Hof West`; the description part only when set. */
+/** `F-0001 | Nord 2 - Hof West`; the description part only when set. */
 export const getBatchLabel = (batch) =>
     batch ? `${batch.batch_number} | ${batch.name}${batch.description ? ` - ${batch.description}` : ''}` : ''
 
