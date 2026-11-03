@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { Alert, Button, Flex, Input, Segmented, Table, Tag, Tooltip } from 'antd'
 import { PlusOutlined, UpSquareFilled } from '@ant-design/icons'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import useLocalStorage from '../../../../../hooks/useLocalStorage'
 import { useBatches } from '../../hooks/useBatches'
 import { BATCH_TYPES } from '../../lib/batch'
 import { BATCHES_BASE } from '../../../constants'
@@ -47,9 +48,11 @@ const BatchesTable = () => {
     const { t } = useTranslation()
     const navigate = useNavigate()
     const { data: batches = [], isLoading, isError, error } = useBatches()
-    const [status, setStatus] = useState('active')
-    const [type, setType] = useState('all')
-    const [search, setSearch] = useState('')
+    const [storedStatus, setStatus] = useLocalStorage('admin.batches.filters.status', 'active')
+    const status = STATUS_FILTERS[storedStatus] ? storedStatus : 'active'
+    const [storedType, setType] = useLocalStorage('admin.batches.filters.type', 'all')
+    const type = TYPE_FILTERS.includes(storedType) ? storedType : 'all'
+    const [search, setSearch] = useLocalStorage('admin.batches.filters.search', '')
 
     const visibleBatches = useMemo(
         () =>

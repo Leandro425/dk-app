@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { Alert, Button, Flex, Input, Segmented, Table, Tag, Tooltip } from 'antd'
 import { PlusOutlined, UpSquareFilled } from '@ant-design/icons'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import useLocalStorage from '../../../../../hooks/useLocalStorage'
 import { useArticles } from '../../hooks/useArticles'
 import { getUnitLabel } from '../../../../../utils/articleUnits'
 import { INTL_LOCALES } from '../../../../../utils/address'
@@ -39,8 +40,9 @@ const ArticlesTable = () => {
     const { t, i18n } = useTranslation()
     const navigate = useNavigate()
     const { data: articles = [], isLoading, isError, error } = useArticles()
-    const [status, setStatus] = useState('active')
-    const [search, setSearch] = useState('')
+    const [storedStatus, setStatus] = useLocalStorage('admin.articles.filters.status', 'active')
+    const status = STATUS_FILTERS[storedStatus] ? storedStatus : 'active'
+    const [search, setSearch] = useLocalStorage('admin.articles.filters.search', '')
 
     const visibleArticles = useMemo(
         () => articles.filter((article) => STATUS_FILTERS[status](article) && matchesSearch(article, search)),

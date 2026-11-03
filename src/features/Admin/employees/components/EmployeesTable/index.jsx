@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { Alert, Button, Flex, Input, Segmented, Table, Tag, Tooltip } from 'antd'
 import { PlusOutlined, UpSquareFilled } from '@ant-design/icons'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import useLocalStorage from '../../../../../hooks/useLocalStorage'
 import { LANGUAGE_LABEL_KEYS } from '../../../../../config/languages'
 import { formatDate, isEmployeeActive } from '../../../../../utils/helpers'
 import { useEmployees } from '../../hooks/useEmployees'
@@ -41,8 +42,9 @@ const EmployeesTable = () => {
     const { t } = useTranslation()
     const navigate = useNavigate()
     const { data: employees = [], isLoading, isError, error } = useEmployees()
-    const [status, setStatus] = useState('active')
-    const [search, setSearch] = useState('')
+    const [storedStatus, setStatus] = useLocalStorage('admin.employees.filters.status', 'active')
+    const status = STATUS_FILTERS[storedStatus] ? storedStatus : 'active'
+    const [search, setSearch] = useLocalStorage('admin.employees.filters.search', '')
 
     const visibleEmployees = useMemo(
         () => employees.filter((employee) => STATUS_FILTERS[status](employee) && matchesSearch(employee, search)),

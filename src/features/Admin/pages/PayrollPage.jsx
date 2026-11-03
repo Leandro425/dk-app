@@ -20,6 +20,7 @@ import { ClearOutlined, DownloadOutlined, FileExcelOutlined, FileZipOutlined } f
 import { useTranslation } from 'react-i18next'
 import dayjs from 'dayjs'
 import ContentFrame from '../../../components/ContentFrame'
+import useLocalStorage from '../../../hooks/useLocalStorage'
 import usePayrollData from '../payroll/hooks/usePayrollData'
 import useStatementRenderer from '../payroll/hooks/useStatementRenderer'
 import PayrollTable from '../payroll/components/PayrollTable'
@@ -43,6 +44,16 @@ const DATA_FILTERS = {
 }
 
 const DEFAULT_FILTERS = { data: 'withData', languages: [], search: '' }
+const DEFAULT_PAGINATION = { current: 1, pageSize: 20 }
+
+const FILTERS_STORAGE_KEY = 'admin.payroll.filters'
+const PAGINATION_STORAGE_KEY = 'admin.payroll.pagination'
+
+// Stored filters may come from an older version of the page: fill gaps and drop unknown values.
+const sanitizeFilters = (stored) => {
+    const filters = { ...DEFAULT_FILTERS, ...stored }
+    return DATA_FILTERS[filters.data] ? filters : { ...filters, data: DEFAULT_FILTERS.data }
+}
 
 const matchesSearch = (statement, search) => {
     if (!search) return true
@@ -65,8 +76,18 @@ const PayrollPage = () => {
     const month = period.month() + 1
     const year = period.year()
 
-    const [filters, setFilters] = useState(DEFAULT_FILTERS)
-    const setFilter = (key) => (value) => setFilters((current) => ({ ...current, [key]: value }))
+    const [storedFilters, setFilters] = useLocalStorage(FILTERS_STORAGE_KEY, DEFAULT_FILTERS)
+    const filters = useMemo(() => sanitizeFilters(storedFilters), [storedFilters])
+    const [pagination, setPagination] = useLocalStorage(PAGINATION_STORAGE_KEY, DEFAULT_PAGINATION)
+    const resetPage = () => setPagination((current) => ({ ...current, current: 1 }))
+    const setFilter = (key) => (value) => {
+        setFilters((current) => ({ ...sanitizeFilters(current), [key]: value }))
+        resetPage()
+    }
+    const resetFilters = () => {
+        setFilters(DEFAULT_FILTERS)
+        resetPage()
+    }
     const filtersActive = filters.data !== DEFAULT_FILTERS.data || filters.languages.length > 0 || filters.search !== ''
     const [preview, setPreview] = useState(null)
     const [busy, setBusy] = useState(false)
@@ -146,7 +167,11 @@ const PayrollPage = () => {
                                 picker="month"
                                 value={period}
                                 allowClear={false}
-                                onChange={(value) => value && setPeriod(value.startOf('month'))}
+                                onChange={(value) => {
+                                    if (!value) return
+                                    setPeriod(value.startOf('month'))
+                                    resetPage()
+                                }}
                                 disabledDate={(date) => date.isAfter(dayjs().endOf('month'))}
                             />
                         </Space>
@@ -290,7 +315,7 @@ const PayrollPage = () => {
                             {filtersActive && (
                                 <Button
                                     icon={<ClearOutlined />}
-                                    onClick={() => setFilters(DEFAULT_FILTERS)}
+                                    onClick={resetFilters}
                                 >
                                     {t('admin.payroll.filters.reset')}
                                 </Button>
@@ -300,6 +325,8 @@ const PayrollPage = () => {
                     <PayrollTable
                         statements={visibleStatements}
                         loading={isLoading}
+                        pagination={pagination}
+                        onPaginationChange={setPagination}
                         onPreview={setPreview}
                         onDownloadXlsx={downloadStatementXlsx}
                     />

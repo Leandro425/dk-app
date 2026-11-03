@@ -15,7 +15,7 @@ const compareText = (a, b) => (a ?? '').localeCompare(b ?? '')
 const byTotal = (key) => (a, b) => a.totals[key] - b.totals[key]
 
 /** One row per employee with the month's totals and document actions. */
-const PayrollTable = ({ statements = [], loading, onPreview, onDownloadXlsx }) => {
+const PayrollTable = ({ statements = [], loading, pagination, onPaginationChange, onPreview, onDownloadXlsx }) => {
     const { t, i18n } = useTranslation()
     const language = i18n.language
     const col = (key) => t(`admin.payroll.table.columns.${key}`)
@@ -129,7 +129,13 @@ const PayrollTable = ({ statements = [], loading, onPreview, onDownloadXlsx }) =
             dataSource={statements}
             loading={loading}
             size="middle"
-            pagination={false}
+            pagination={{
+                current: pagination.current,
+                pageSize: pagination.pageSize,
+                showSizeChanger: true,
+                style: { margin: 0, padding: 16 },
+                onChange: (current, pageSize) => onPaginationChange({ current, pageSize }),
+            }}
             scroll={{ x: 1100 }}
         />
     )

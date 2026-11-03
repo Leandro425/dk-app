@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { Alert, Button, Flex, Input, Segmented, Table, Tag, Tooltip } from 'antd'
 import { PlusOutlined, UpSquareFilled } from '@ant-design/icons'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import useLocalStorage from '../../../../../hooks/useLocalStorage'
 import { useCustomers } from '../../hooks/useCustomers'
 import { CUSTOMERS_BASE } from '../../../constants'
 
@@ -39,8 +40,9 @@ const CustomersTable = () => {
     const { t } = useTranslation()
     const navigate = useNavigate()
     const { data: customers = [], isLoading, isError, error } = useCustomers()
-    const [status, setStatus] = useState('active')
-    const [search, setSearch] = useState('')
+    const [storedStatus, setStatus] = useLocalStorage('admin.customers.filters.status', 'active')
+    const status = STATUS_FILTERS[storedStatus] ? storedStatus : 'active'
+    const [search, setSearch] = useLocalStorage('admin.customers.filters.search', '')
 
     const visibleCustomers = useMemo(
         () => customers.filter((customer) => STATUS_FILTERS[status](customer) && matchesSearch(customer, search)),
