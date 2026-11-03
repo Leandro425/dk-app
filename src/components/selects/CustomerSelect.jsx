@@ -3,7 +3,16 @@ import { getCustomerSelectOptions } from '../../utils/supabaseQuery'
 import { useTranslation } from 'react-i18next'
 import { Select } from 'antd'
 import { useMemo } from 'react'
-const CustomerSelect = ({ supabase, value, onChange, enabled = false, placeholder }) => {
+// `includeArchived` also lists archived customers (e.g. for filtering past deliveries).
+const CustomerSelect = ({
+    supabase,
+    value,
+    onChange,
+    enabled = false,
+    placeholder,
+    includeArchived = false,
+    style,
+}) => {
     const { t } = useTranslation()
     const {
         data: options,
@@ -18,8 +27,9 @@ const CustomerSelect = ({ supabase, value, onChange, enabled = false, placeholde
 
     // Archived customers are only listed when already selected.
     const visibleOptions = useMemo(
-        () => options?.filter((option) => option.active !== false || option.value === value),
-        [options, value]
+        () =>
+            includeArchived ? options : options?.filter((option) => option.active !== false || option.value === value),
+        [options, value, includeArchived]
     )
 
     return (
@@ -33,6 +43,7 @@ const CustomerSelect = ({ supabase, value, onChange, enabled = false, placeholde
             filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
             options={visibleOptions}
             allowClear
+            style={style}
         />
     )
 }

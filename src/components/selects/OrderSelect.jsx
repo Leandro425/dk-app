@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getOrderSelectOptions } from '../../utils/supabaseQuery'
 import { useTranslation } from 'react-i18next'
 import { Select } from 'antd'
-const OrderSelect = ({ supabase, value, onChange, enabled = false, placeholder }) => {
+const OrderSelect = ({ supabase, value, onChange, enabled = false, placeholder, style }) => {
     const { t } = useTranslation()
     const {
         data: options,
@@ -26,6 +26,7 @@ const OrderSelect = ({ supabase, value, onChange, enabled = false, placeholder }
             filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
             options={options}
             allowClear
+            style={style}
         />
     )
 }

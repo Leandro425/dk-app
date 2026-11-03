@@ -70,6 +70,10 @@
             "specialFeatures": {
                 "barShears": "Stangsaks"
             }
+        },
+        "filters": {
+            "count": "{{count}} rapporten",
+            "reset": "Filters wissen"
         }
     },
     "timestamps": {
@@ -116,6 +120,10 @@
                 "vacation": "Vakantie",
                 "sickness": "Ziekte"
             }
+        },
+        "filters": {
+            "count": "{{count}} tijdregistraties",
+            "reset": "Filters wissen"
         }
     },
     "deliveries": {
@@ -222,6 +230,11 @@
                 "quantity": "Aantal",
                 "unit": "Eenheid"
             }
+        },
+        "filters": {
+            "all": "Alle",
+            "count": "{{count}} pakbonnen",
+            "reset": "Filters wissen"
         }
     },
     "homepage": {

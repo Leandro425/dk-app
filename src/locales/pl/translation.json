@@ -70,6 +70,10 @@
             "specialFeatures": {
                 "barShears": "Sekator z przedłużeniem"
             }
+        },
+        "filters": {
+            "count": "Raporty: {{count}}",
+            "reset": "Resetuj filtry"
         }
     },
     "timestamps": {
@@ -116,6 +120,10 @@
                 "vacation": "Urlop",
                 "sickness": "Choroba"
             }
+        },
+        "filters": {
+            "count": "Wpisy czasu: {{count}}",
+            "reset": "Resetuj filtry"
         }
     },
     "deliveries": {
@@ -222,6 +230,11 @@
                 "quantity": "Ilość",
                 "unit": "Jednostka"
             }
+        },
+        "filters": {
+            "all": "Wszystkie",
+            "count": "Dowody dostawy: {{count}}",
+            "reset": "Resetuj filtry"
         }
     },
     "homepage": {

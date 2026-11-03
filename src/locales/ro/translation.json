@@ -72,6 +72,10 @@
             "specialFeatures": {
                 "barShears": "Foarfece pentru bare"
             }
+        },
+        "filters": {
+            "count": "{{count}} rapoarte",
+            "reset": "Resetează filtrele"
         }
     },
     "timestamps": {
@@ -118,6 +122,10 @@
                 "vacation": "Concediu",
                 "sickness": "Boală"
             }
+        },
+        "filters": {
+            "count": "{{count}} pontaje",
+            "reset": "Resetează filtrele"
         }
     },
     "deliveries": {
@@ -223,6 +231,11 @@
                 "quantity": "Cantitate",
                 "unit": "Unitate"
             }
+        },
+        "filters": {
+            "all": "Toate",
+            "count": "{{count}} avize de livrare",
+            "reset": "Resetează filtrele"
         }
     },
     "homepage": {

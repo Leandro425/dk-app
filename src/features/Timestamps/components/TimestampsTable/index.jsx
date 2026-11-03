@@ -1,13 +1,34 @@
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Popconfirm, Table, message } from 'antd'
+import { Button, Card, DatePicker, Flex, Popconfirm, Select, Space, Table, Typography, message } from 'antd'
 import useSupabaseContext from '../../../../context/supabase/supabaseContext'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
+import dayjs from 'dayjs'
 import AddTimestampModal from '../modals/AddTimestampModal'
 import EditTimestampModal from '../modals/EditTimestampModal'
 import { formatDate, formatDateTime, formatTime, getEmployeeLabel, getSupervisorLabel } from '../../../../utils/helpers'
-import { DeleteFilled, EditFilled } from '@ant-design/icons'
+import { ClearOutlined, DeleteFilled, EditFilled } from '@ant-design/icons'
 import AddGroupTimestampModal from '../modals/AddGroupTimestampModal'
+import useLocalStorage from '../../../../hooks/useLocalStorage'
+import EmployeeSelect from '../../../../components/selects/EmployeeSelect'
+
+const { Text } = Typography
+
+const DATE_FORMAT = 'YYYY-MM-DD'
+const TIMESTAMP_TYPES = ['workingTime', 'vacation', 'sickness']
+const DEFAULT_FILTERS = { dateFrom: null, dateTo: null, employee: null, type: null }
+const FILTERS_STORAGE_KEY = 'timestamps.filters'
+const FILTER_SELECT_STYLE = { width: 220 }
+
+// Stored filters may come from an older version of the page: fill gaps and drop unknown keys.
+const sanitizeFilters = (stored) => {
+    const filters = Object.fromEntries(
+        Object.keys(DEFAULT_FILTERS).map((key) => [key, stored?.[key] ?? DEFAULT_FILTERS[key]])
+    )
+    return TIMESTAMP_TYPES.includes(filters.type) ? filters : { ...filters, type: null }
+}
+
+const filtersActive = (filters) => Object.values(filters).some((value) => value !== null)
 
 const TimestampsTable = () => {
     const { t } = useTranslation()
@@ -18,6 +39,27 @@ const TimestampsTable = () => {
     const [openAddGroupModal, setOpenAddGroupModal] = useState(false)
     const [selectedTimestamp, setSelectedTimestamp] = useState(null)
     const [openEditModal, setOpenEditModal] = useState(false)
+    const [storedFilters, setFilters] = useLocalStorage(FILTERS_STORAGE_KEY, DEFAULT_FILTERS)
+    const filters = useMemo(() => sanitizeFilters(storedFilters), [storedFilters])
+
+    const resetPage = () => setPagination((current) => ({ ...current, current: 1 }))
+    const setFilter = (key) => (value) => {
+        setFilters((current) => ({ ...sanitizeFilters(current), [key]: value ?? null }))
+        resetPage()
+    }
+    const setDateRange = (range) => {
+        setFilters((current) => ({
+            ...sanitizeFilters(current),
+            dateFrom: range?.[0] ? range[0].format(DATE_FORMAT) : null,
+            dateTo: range?.[1] ? range[1].format(DATE_FORMAT) : null,
+        }))
+        resetPage()
+    }
+    const resetFilters = () => {
+        setFilters(DEFAULT_FILTERS)
+        resetPage()
+    }
+
     const [sorter, setSorter] = useState({
         column: 'id',
         options: {
@@ -26,10 +68,10 @@ const TimestampsTable = () => {
     })
 
     const fetchData = async ({ queryKey }) => {
-        const [, page, pageSize, sorterColumn, sorterOptions] = queryKey
+        const [, page, pageSize, sorterColumn, sorterOptions, filters] = queryKey
         const from = (page - 1) * pageSize
         const to = page * pageSize - 1
-        const { data, count, error } = await supabase
+        let query = supabase
             .from('timestamp')
             .select(
                 '*, employee:employee(id, staff_number, firstname, lastname), created_by:supervisor!timestamp_created_by_id_fkey(*), modified_by:supervisor!timestamp_modified_by_id_fkey(*)',
@@ -37,8 +79,11 @@ const TimestampsTable = () => {
                     count: 'exact',
                 }
             )
-            .range(from, to)
-            .order(sorterColumn, sorterOptions)
+        if (filters.dateFrom) query = query.gte('date', filters.dateFrom)
+        if (filters.dateTo) query = query.lte('date', filters.dateTo)
+        if (filters.employee) query = query.eq('employee_id', filters.employee)
+        if (filters.type) query = query.eq('type', filters.type)
+        const { data, count, error } = await query.range(from, to).order(sorterColumn, sorterOptions)
         if (error) {
             return { data: [], total: 0 }
         }
@@ -46,7 +91,7 @@ const TimestampsTable = () => {
     }
 
     const { data, isLoading, refetch } = useQuery({
-        queryKey: ['timestamps', pagination.current, pagination.pageSize, sorter.column, sorter.options],
+        queryKey: ['timestamps', pagination.current, pagination.pageSize, sorter.column, sorter.options, filters],
         queryFn: fetchData,
         keepPreviousData: true,
     })
@@ -212,13 +257,60 @@ const TimestampsTable = () => {
                         {t('timestamps.actions.addGroup')}
                     </Button>
                 </Flex>
-                <Flex
-                    style={{
-                        padding: 0,
-                        borderRadius: 8,
-                        overflow: 'hidden',
-                    }}
-                >
+                <Card styles={{ body: { padding: 0 } }}>
+                    <Flex
+                        wrap
+                        gap={16}
+                        align="center"
+                        justify="space-between"
+                        style={{ padding: 16 }}
+                    >
+                        <Flex
+                            wrap
+                            gap={16}
+                            align="center"
+                        >
+                            <DatePicker.RangePicker
+                                allowEmpty={[true, true]}
+                                format="DD.MM.YYYY"
+                                value={[
+                                    filters.dateFrom ? dayjs(filters.dateFrom) : null,
+                                    filters.dateTo ? dayjs(filters.dateTo) : null,
+                                ]}
+                                onChange={setDateRange}
+                            />
+                            <EmployeeSelect
+                                supabase={supabase}
+                                enabled
+                                style={FILTER_SELECT_STYLE}
+                                placeholder={t('timestamps.table.columns.employee')}
+                                value={filters.employee}
+                                onChange={setFilter('employee')}
+                            />
+                            <Select
+                                allowClear
+                                style={FILTER_SELECT_STYLE}
+                                placeholder={t('timestamps.table.columns.type')}
+                                value={filters.type}
+                                onChange={setFilter('type')}
+                                options={TIMESTAMP_TYPES.map((type) => ({
+                                    value: type,
+                                    label: t(`timestamps.timestamp.types.${type}`),
+                                }))}
+                            />
+                        </Flex>
+                        <Space>
+                            <Text type="secondary">{t('timestamps.filters.count', { count: data?.total || 0 })}</Text>
+                            {filtersActive(filters) && (
+                                <Button
+                                    icon={<ClearOutlined />}
+                                    onClick={resetFilters}
+                                >
+                                    {t('timestamps.filters.reset')}
+                                </Button>
+                            )}
+                        </Space>
+                    </Flex>
                     <Table
                         size="small"
                         loading={isLoading}
@@ -229,14 +321,14 @@ const TimestampsTable = () => {
                             pageSize: pagination.pageSize,
                             total: data?.total || 0,
                             showSizeChanger: true,
+                            style: { margin: 0, padding: 16 },
                             onChange: (current, pageSize) => setPagination({ current, pageSize }),
                         }}
                         onChange={handleChange}
                         rowKey="id"
                         scroll={{ x: 'max-content' }}
-                        style={{ width: '100%' }}
                     />
-                </Flex>
+                </Card>
             </Flex>
             <AddTimestampModal
                 open={openAddModal}

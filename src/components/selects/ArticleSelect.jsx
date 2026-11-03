@@ -5,7 +5,7 @@ import { Select } from 'antd'
 import { useMemo } from 'react'
 
 // `includeArchived` also lists archived articles (e.g. for filtering statistics over past data).
-const ArticleSelect = ({ supabase, value, onChange, enabled = false, placeholder, includeArchived = false }) => {
+const ArticleSelect = ({ supabase, value, onChange, enabled = false, placeholder, includeArchived = false, style }) => {
     const { t } = useTranslation()
     const {
         data: options,
@@ -36,6 +36,7 @@ const ArticleSelect = ({ supabase, value, onChange, enabled = false, placeholder
             options={visibleOptions}
             filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
             allowClear
+            style={style}
         />
     )
 }

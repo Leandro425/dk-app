@@ -70,6 +70,10 @@
             "specialFeatures": {
                 "barShears": "Щангенножица"
             }
+        },
+        "filters": {
+            "count": "Отчети: {{count}}",
+            "reset": "Нулирай филтрите"
         }
     },
     "timestamps": {
@@ -116,6 +120,10 @@
                 "vacation": "Отпуска",
                 "sickness": "Болест"
             }
+        },
+        "filters": {
+            "count": "Записи на време: {{count}}",
+            "reset": "Нулирай филтрите"
         }
     },
     "deliveries": {
@@ -221,6 +229,11 @@
                 "quantity": "Количество",
                 "unit": "Мярка"
             }
+        },
+        "filters": {
+            "all": "Всички",
+            "count": "Стокови разписки: {{count}}",
+            "reset": "Нулирай филтрите"
         }
     },
     "homepage": {

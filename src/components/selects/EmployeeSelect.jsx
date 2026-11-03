@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Select } from 'antd'
 import { useMemo } from 'react'
 
-const EmployeeSelect = ({ supabase, value, onChange, staffgroup, enabled = false, placeholder }) => {
+const EmployeeSelect = ({ supabase, value, onChange, staffgroup, enabled = false, placeholder, style }) => {
     const { t } = useTranslation()
 
     const {
@@ -35,6 +35,7 @@ const EmployeeSelect = ({ supabase, value, onChange, staffgroup, enabled = false
             filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
             options={visibleOptions}
             allowClear
+            style={style}
         />
     )
 }

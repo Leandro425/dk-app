@@ -14,6 +14,7 @@ const BatchSelect = ({
     placeholder,
     type = null,
     includeArchived = false,
+    style = { width: '100%' },
 }) => {
     const { t } = useTranslation()
     const {
@@ -48,7 +49,7 @@ const BatchSelect = ({
             onChange={(value) => onChange(value)}
             options={visibleOptions}
             filterOption={(input, option) => (option?.search ?? '').includes(input.toLowerCase())}
-            style={{ width: '100%' }}
+            style={style}
             allowClear
         />
     )
