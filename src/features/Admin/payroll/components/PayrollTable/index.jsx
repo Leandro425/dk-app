@@ -8,6 +8,12 @@ const { Text } = Typography
 
 const hasData = (statement) => statement.totals.lineCount + statement.totals.entryCount > 0
 
+const fullName = (employee) => `${employee.firstname ?? ''} ${employee.lastname ?? ''}`.trim()
+
+const compareText = (a, b) => (a ?? '').localeCompare(b ?? '')
+
+const byTotal = (key) => (a, b) => a.totals[key] - b.totals[key]
+
 /** One row per employee with the month's totals and document actions. */
 const PayrollTable = ({ statements = [], loading, onPreview, onDownloadXlsx }) => {
     const { t, i18n } = useTranslation()
@@ -22,13 +28,15 @@ const PayrollTable = ({ statements = [], loading, onPreview, onDownloadXlsx }) =
             dataIndex: ['employee', 'staff_number'],
             key: 'staff_number',
             width: 90,
+            sorter: (a, b) => a.employee.staff_number - b.employee.staff_number,
+            defaultSortOrder: 'ascend',
             render: (value, statement) => muted(statement, value),
         },
         {
             title: col('employee'),
             key: 'employee',
-            render: (_, statement) =>
-                muted(statement, `${statement.employee.firstname ?? ''} ${statement.employee.lastname ?? ''}`.trim()),
+            sorter: (a, b) => compareText(fullName(a.employee), fullName(b.employee)),
+            render: (_, statement) => muted(statement, fullName(statement.employee)),
         },
         {
             title: col('language'),
@@ -41,6 +49,7 @@ const PayrollTable = ({ statements = [], loading, onPreview, onDownloadXlsx }) =
             key: 'revenue',
             align: 'right',
             width: 130,
+            sorter: byTotal('revenue'),
             render: (_, statement) => muted(statement, formatMoney(statement.totals.revenue, language)),
         },
         {
@@ -48,6 +57,7 @@ const PayrollTable = ({ statements = [], loading, onPreview, onDownloadXlsx }) =
             key: 'hours',
             align: 'right',
             width: 100,
+            sorter: byTotal('hours'),
             render: (_, statement) => muted(statement, formatNumber(statement.totals.hours, language)),
         },
         {
@@ -55,6 +65,7 @@ const PayrollTable = ({ statements = [], loading, onPreview, onDownloadXlsx }) =
             key: 'payRate',
             align: 'right',
             width: 110,
+            sorter: (a, b) => (a.payRate ?? 0) - (b.payRate ?? 0),
             render: (_, statement) => muted(statement, formatMoney(statement.payRate, language)),
         },
         {
@@ -62,6 +73,7 @@ const PayrollTable = ({ statements = [], loading, onPreview, onDownloadXlsx }) =
             key: 'timePay',
             align: 'right',
             width: 130,
+            sorter: byTotal('timePay'),
             render: (_, statement) => muted(statement, formatMoney(statement.totals.timePay, language)),
         },
         {
@@ -69,6 +81,7 @@ const PayrollTable = ({ statements = [], loading, onPreview, onDownloadXlsx }) =
             key: 'total',
             align: 'right',
             width: 140,
+            sorter: byTotal('total'),
             render: (_, statement) =>
                 hasData(statement) ? (
                     <Text strong>{formatMoney(statement.totals.total, language)}</Text>

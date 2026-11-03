@@ -630,7 +630,15 @@
             "title": "Payroll",
             "description": "Piecework pay and working time of all employees per month: monthly statements as PDF, Excel evaluations and the DATEV pre-entry sheet.",
             "period": "Payroll month",
-            "hideEmpty": "Hide employees without data",
+            "searchPlaceholder": "Search by name or staff number",
+            "filters": {
+                "withData": "With data",
+                "withoutData": "Without data",
+                "all": "All",
+                "allLanguages": "All languages",
+                "shown": "{{count}} of {{total}} employees",
+                "reset": "Reset filters"
+            },
             "summary": {
                 "employees": "Employees with data",
                 "revenue": "Piecework pay",

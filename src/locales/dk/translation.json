@@ -630,7 +630,15 @@
             "title": "Månedsafregning",
             "description": "Akkordløn og arbejdstid for alle medarbejdere pr. måned: månedsrapporter som PDF, Excel-opgørelser og DATEV-forregistreringsarket.",
             "period": "Afregningsmåned",
-            "hideEmpty": "Skjul medarbejdere uden data",
+            "searchPlaceholder": "Søg efter navn eller personalenummer",
+            "filters": {
+                "withData": "Med data",
+                "withoutData": "Uden data",
+                "all": "Alle",
+                "allLanguages": "Alle sprog",
+                "shown": "{{count}} af {{total}} medarbejdere",
+                "reset": "Nulstil filtre"
+            },
             "summary": {
                 "employees": "Medarbejdere med data",
                 "revenue": "Akkordløn",

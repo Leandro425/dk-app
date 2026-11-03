@@ -6,15 +6,17 @@ import {
     Col,
     DatePicker,
     Flex,
+    Input,
     Modal,
     Progress,
     Row,
+    Segmented,
+    Select,
     Space,
     Statistic,
-    Switch,
     Typography,
 } from 'antd'
-import { DownloadOutlined, FileExcelOutlined, FileZipOutlined } from '@ant-design/icons'
+import { ClearOutlined, DownloadOutlined, FileExcelOutlined, FileZipOutlined } from '@ant-design/icons'
 import { useTranslation } from 'react-i18next'
 import dayjs from 'dayjs'
 import ContentFrame from '../../../components/ContentFrame'
@@ -28,10 +30,32 @@ import { buildDatevCsvBlob, buildDatevWorkbookBlob } from '../payroll/export/exc
 import { buildMonthExportZip } from '../payroll/export/zip'
 import { saveBlob } from '../payroll/export/download'
 import { datevFileBase, monthFolderName, statementFileBase } from '../payroll/export/fileNames'
+import { DEFAULT_LANGUAGE, getLanguageOptions } from '../../../config/languages'
 
 const { Text } = Typography
 
 const hasData = (statement) => statement.totals.lineCount + statement.totals.entryCount > 0
+
+const DATA_FILTERS = {
+    withData: hasData,
+    withoutData: (statement) => !hasData(statement),
+    all: () => true,
+}
+
+const DEFAULT_FILTERS = { data: 'withData', languages: [], search: '' }
+
+const matchesSearch = (statement, search) => {
+    if (!search) return true
+    const { staff_number, firstname, lastname } = statement.employee
+    const haystack = [staff_number, firstname, lastname]
+        .filter((part) => part !== null && part !== undefined)
+        .join(' ')
+        .toLowerCase()
+    return search
+        .toLowerCase()
+        .split(/\s+/)
+        .every((term) => haystack.includes(term))
+}
 
 const PayrollPage = () => {
     const { t, i18n } = useTranslation()
@@ -41,7 +65,9 @@ const PayrollPage = () => {
     const month = period.month() + 1
     const year = period.year()
 
-    const [hideEmpty, setHideEmpty] = useState(true)
+    const [filters, setFilters] = useState(DEFAULT_FILTERS)
+    const setFilter = (key) => (value) => setFilters((current) => ({ ...current, [key]: value }))
+    const filtersActive = filters.data !== DEFAULT_FILTERS.data || filters.languages.length > 0 || filters.search !== ''
     const [preview, setPreview] = useState(null)
     const [busy, setBusy] = useState(false)
     const [progress, setProgress] = useState(null)
@@ -50,8 +76,15 @@ const PayrollPage = () => {
     const { renderPdfBlob, renderWorkbookBlob } = useStatementRenderer()
 
     const visibleStatements = useMemo(
-        () => (hideEmpty ? statements.filter(hasData) : statements),
-        [statements, hideEmpty]
+        () =>
+            statements.filter(
+                (statement) =>
+                    DATA_FILTERS[filters.data](statement) &&
+                    (filters.languages.length === 0 ||
+                        filters.languages.includes(statement.employee.language || DEFAULT_LANGUAGE)) &&
+                    matchesSearch(statement, filters.search)
+            ),
+        [statements, filters]
     )
     const summary = useMemo(() => sumStatements(statements), [statements])
 
@@ -116,11 +149,6 @@ const PayrollPage = () => {
                                 onChange={(value) => value && setPeriod(value.startOf('month'))}
                                 disabledDate={(date) => date.isAfter(dayjs().endOf('month'))}
                             />
-                            <Switch
-                                checked={hideEmpty}
-                                onChange={setHideEmpty}
-                            />
-                            <Text>{t('admin.payroll.hideEmpty')}</Text>
                         </Space>
                         <Space wrap>
                             <Button
@@ -213,7 +241,62 @@ const PayrollPage = () => {
                     </Col>
                 </Row>
 
-                <Card>
+                <Card styles={{ body: { padding: 0 } }}>
+                    <Flex
+                        wrap
+                        gap={16}
+                        align="center"
+                        justify="space-between"
+                        style={{ padding: 16 }}
+                    >
+                        <Flex
+                            wrap
+                            gap={16}
+                            align="center"
+                        >
+                            <Input.Search
+                                allowClear
+                                placeholder={t('admin.payroll.searchPlaceholder')}
+                                style={{ width: 280 }}
+                                value={filters.search}
+                                onChange={(event) => setFilter('search')(event.target.value)}
+                            />
+                            <Segmented
+                                value={filters.data}
+                                onChange={setFilter('data')}
+                                options={Object.keys(DATA_FILTERS).map((key) => ({
+                                    value: key,
+                                    label: t(`admin.payroll.filters.${key}`),
+                                }))}
+                            />
+                            <Select
+                                mode="multiple"
+                                allowClear
+                                maxTagCount="responsive"
+                                placeholder={t('admin.payroll.filters.allLanguages')}
+                                style={{ minWidth: 200 }}
+                                value={filters.languages}
+                                onChange={setFilter('languages')}
+                                options={getLanguageOptions(t)}
+                            />
+                        </Flex>
+                        <Space>
+                            <Text type="secondary">
+                                {t('admin.payroll.filters.shown', {
+                                    count: visibleStatements.length,
+                                    total: statements.length,
+                                })}
+                            </Text>
+                            {filtersActive && (
+                                <Button
+                                    icon={<ClearOutlined />}
+                                    onClick={() => setFilters(DEFAULT_FILTERS)}
+                                >
+                                    {t('admin.payroll.filters.reset')}
+                                </Button>
+                            )}
+                        </Space>
+                    </Flex>
                     <PayrollTable
                         statements={visibleStatements}
                         loading={isLoading}

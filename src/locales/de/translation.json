@@ -630,7 +630,15 @@
             "title": "Monatsabrechnung",
             "description": "Stücklohn und Arbeitszeit aller Mitarbeiter je Monat: Monatsberichte als PDF, Excel-Auswertungen und die Vorerfassung für DATEV.",
             "period": "Abrechnungsmonat",
-            "hideEmpty": "Mitarbeiter ohne Daten ausblenden",
+            "searchPlaceholder": "Nach Name oder Personalnummer suchen",
+            "filters": {
+                "withData": "Mit Daten",
+                "withoutData": "Ohne Daten",
+                "all": "Alle",
+                "allLanguages": "Alle Sprachen",
+                "shown": "{{count}} von {{total}} Mitarbeitern",
+                "reset": "Filter zurücksetzen"
+            },
             "summary": {
                 "employees": "Mitarbeiter mit Daten",
                 "revenue": "Stücklohn",

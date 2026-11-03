@@ -630,7 +630,15 @@
             "title": "Rozliczenie miesięczne",
             "description": "Wynagrodzenie akordowe i czas pracy wszystkich pracowników w danym miesiącu: raporty miesięczne w PDF, zestawienia Excel oraz arkusz wstępny DATEV.",
             "period": "Miesiąc rozliczeniowy",
-            "hideEmpty": "Ukryj pracowników bez danych",
+            "searchPlaceholder": "Szukaj po nazwisku lub numerze pers.",
+            "filters": {
+                "withData": "Z danymi",
+                "withoutData": "Bez danych",
+                "all": "Wszyscy",
+                "allLanguages": "Wszystkie języki",
+                "shown": "{{count}} z {{total}} pracowników",
+                "reset": "Resetuj filtry"
+            },
             "summary": {
                 "employees": "Pracownicy z danymi",
                 "revenue": "Wynagrodzenie akordowe",

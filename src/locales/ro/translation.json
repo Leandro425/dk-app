@@ -566,7 +566,15 @@
             "title": "Decontare lunară",
             "description": "Plata în acord și timpul de lucru al tuturor angajaților pe lună: rapoarte lunare ca PDF, evaluări Excel și foaia de preînregistrare DATEV.",
             "period": "Luna de decontare",
-            "hideEmpty": "Ascunde angajații fără date",
+            "searchPlaceholder": "Caută după nume sau nr. pers.",
+            "filters": {
+                "withData": "Cu date",
+                "withoutData": "Fără date",
+                "all": "Toți",
+                "allLanguages": "Toate limbile",
+                "shown": "{{count}} din {{total}} angajați",
+                "reset": "Resetează filtrele"
+            },
             "summary": {
                 "employees": "Angajați cu date",
                 "revenue": "Plată în acord",

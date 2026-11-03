@@ -630,7 +630,15 @@
             "title": "Maandafrekening",
             "description": "Stukloon en werktijd van alle medewerkers per maand: maandoverzichten als PDF, Excel-uitwerkingen en het DATEV-voorinvoerblad.",
             "period": "Afrekeningsmaand",
-            "hideEmpty": "Medewerkers zonder gegevens verbergen",
+            "searchPlaceholder": "Zoeken op naam of personeelsnummer",
+            "filters": {
+                "withData": "Met gegevens",
+                "withoutData": "Zonder gegevens",
+                "all": "Alle",
+                "allLanguages": "Alle talen",
+                "shown": "{{count}} van {{total}} medewerkers",
+                "reset": "Filters wissen"
+            },
             "summary": {
                 "employees": "Medewerkers met gegevens",
                 "revenue": "Stukloon",
