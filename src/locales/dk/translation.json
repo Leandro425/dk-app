@@ -748,6 +748,7 @@
         "crate": "Kasse",
         "box": "Karton",
         "pallet": "Palle",
-        "bunch": "Bundt"
+        "bunch": "Bundt",
+        "hb": "HB"
     }
 }

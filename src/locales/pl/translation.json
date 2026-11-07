@@ -748,6 +748,7 @@
         "crate": "Skrzynka",
         "box": "Karton",
         "pallet": "Paleta",
-        "bunch": "Pęczek"
+        "bunch": "Pęczek",
+        "hb": "HB"
     }
 }

@@ -748,6 +748,7 @@
         "crate": "Crate",
         "box": "Box",
         "pallet": "Pallet",
-        "bunch": "Bunch"
+        "bunch": "Bunch",
+        "hb": "HB"
     }
 }

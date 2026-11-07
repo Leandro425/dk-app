@@ -1,5 +1,5 @@
 /** Unit codes allowed in `article.unit` (check constraint). Labels live under `units.<code>` in the translations. */
-export const ARTICLE_UNITS = ['piece', 'kg', 'crate', 'box', 'pallet', 'bunch']
+export const ARTICLE_UNITS = ['piece', 'kg', 'crate', 'box', 'pallet', 'bunch', 'hb']
 
 export const DEFAULT_ARTICLE_UNIT = 'piece'
 
