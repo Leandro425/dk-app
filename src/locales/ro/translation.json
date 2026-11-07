@@ -230,7 +230,9 @@
                 "article": "Articol",
                 "order": "Comandă",
                 "quantity": "Cantitate",
-                "unit": "Unitate"
+                "unit": "Unitate",
+                "packagingUnit": "Unit. amb.",
+                "sum": "Total"
             }
         },
         "filters": {

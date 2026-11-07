@@ -229,7 +229,9 @@
                 "batch": "Parti",
                 "order": "Ordre",
                 "quantity": "Antal",
-                "unit": "Enhed"
+                "unit": "Enhed",
+                "packagingUnit": "Pk.-enh.",
+                "sum": "I alt"
             }
         },
         "filters": {

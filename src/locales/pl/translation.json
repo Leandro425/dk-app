@@ -229,7 +229,9 @@
                 "batch": "Partia",
                 "order": "Zamówienie",
                 "quantity": "Ilość",
-                "unit": "Jednostka"
+                "unit": "Jednostka",
+                "packagingUnit": "Opak.",
+                "sum": "Razem"
             }
         },
         "filters": {

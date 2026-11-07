@@ -228,7 +228,9 @@
                 "article": "Артикул",
                 "order": "Поръчка",
                 "quantity": "Количество",
-                "unit": "Мярка"
+                "unit": "Мярка",
+                "packagingUnit": "Опак.",
+                "sum": "Общо"
             }
         },
         "filters": {

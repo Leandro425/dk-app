@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
         fontSize: 10,
         paddingTop: mm(15),
         paddingBottom: mm(30),
-        paddingLeft: mm(25),
-        paddingRight: mm(20),
+        paddingLeft: mm(15),
+        paddingRight: mm(15),
         color: '#111',
     },
     // Letterhead: logo top right, up to where the address field starts (45 mm from the top).
@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
     letterheadName: { fontSize: 14, fontWeight: 'bold' },
     addressRow: { flexDirection: 'row', justifyContent: 'space-between' },
     // Address field for a DL window envelope: 85 x 45 mm, 5 mm of it for the sender line.
-    addressField: { width: mm(85), height: mm(45) },
+    // Kept at 20 mm from the left edge (page margin + 5 mm) so it sits in the DL window.
+    addressField: { width: mm(85), height: mm(45), marginLeft: mm(5) },
     senderLine: {
         fontSize: 7,
         color: '#555',
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
     tableRow: {
         flexDirection: 'row',
         alignItems: 'flex-start',
+        fontSize: 9,
         paddingVertical: 6,
         borderBottomWidth: 0.5,
         borderBottomColor: '#e0e0e0',
@@ -80,13 +82,15 @@ const styles = StyleSheet.create({
         borderTopColor: '#2b2b2b',
         fontWeight: 'bold',
     },
-    colPos: { width: 34, paddingHorizontal: 6, textAlign: 'right' },
-    colArticleNumber: { width: 70, paddingHorizontal: 6 },
+    colPos: { width: 28, paddingHorizontal: 6, textAlign: 'right' },
+    colArticleNumber: { width: 58, paddingHorizontal: 6 },
     colArticle: { flex: 3, paddingHorizontal: 6 },
-    colBatch: { width: 76, paddingHorizontal: 6 },
-    colOrder: { flex: 3, paddingHorizontal: 6 },
-    colQuantity: { width: 70, paddingHorizontal: 6, textAlign: 'right' },
-    colUnit: { width: 50, paddingHorizontal: 6 },
+    colBatch: { width: 56, paddingHorizontal: 6 },
+    colOrder: { flex: 2, paddingHorizontal: 6 },
+    colQuantity: { width: 54, paddingHorizontal: 6, textAlign: 'right' },
+    colUnit: { width: 44, paddingHorizontal: 6 },
+    colPackagingUnit: { width: 40, paddingHorizontal: 6, textAlign: 'right' },
+    colSum: { width: 56, paddingHorizontal: 6, textAlign: 'right' },
     cellMuted: { color: '#666' },
     cellSub: { fontSize: 8, color: '#777', marginTop: 1 },
     emptyRow: { paddingVertical: 10, textAlign: 'center', color: '#777', flex: 1 },
@@ -105,8 +109,8 @@ const styles = StyleSheet.create({
     footer: {
         position: 'absolute',
         bottom: mm(10),
-        left: mm(25),
-        right: mm(20),
+        left: mm(15),
+        right: mm(15),
         flexDirection: 'row',
         justifyContent: 'space-between',
         gap: 16,
@@ -120,6 +124,9 @@ const styles = StyleSheet.create({
     footerStrong: { fontWeight: 'bold', color: '#333' },
     footerPage: { textAlign: 'right' },
 })
+
+// Long compound words (article names) do not fit narrow table cells; allow a break at any character.
+const breakLongWords = (word) => (word.length > 14 ? Array.from(word) : [word])
 
 const InfoRow = ({ label, value }) =>
     value ? (
@@ -143,6 +150,13 @@ const DeliveryNoteDocument = ({ delivery, items = [], t }) => {
     })
     const formatQuantity = (value) => (value === null || value === undefined ? '' : numberFormat.format(value))
     const totalQuantity = items.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0)
+    // Sum = quantity x VPE (article.piecework_packaging); items without a VPE have no sum.
+    const getItemSum = (item) =>
+        item.article?.piecework_packaging === null || item.article?.piecework_packaging === undefined
+            ? null
+            : (Number(item.quantity) || 0) * Number(item.article.piecework_packaging)
+    const itemSums = items.map(getItemSum).filter((value) => value !== null)
+    const totalSum = itemSums.length ? itemSums.reduce((sum, value) => sum + value, 0) : null
     // The total only gets a unit when all items share one; mixed units are summed without.
     const units = new Set(items.map((item) => item.article?.unit ?? null))
     const totalUnit = units.size === 1 ? [...units][0] : null
@@ -221,6 +235,8 @@ const DeliveryNoteDocument = ({ delivery, items = [], t }) => {
                         <Text style={styles.colOrder}>{t('deliveries.pdf.columns.order')}</Text>
                         <Text style={styles.colQuantity}>{t('deliveries.pdf.columns.quantity')}</Text>
                         <Text style={styles.colUnit}>{t('deliveries.pdf.columns.unit')}</Text>
+                        <Text style={styles.colPackagingUnit}>{t('deliveries.pdf.columns.packagingUnit')}</Text>
+                        <Text style={styles.colSum}>{t('deliveries.pdf.columns.sum')}</Text>
                     </View>
                     {items.map((item, index) => (
                         <View
@@ -232,7 +248,12 @@ const DeliveryNoteDocument = ({ delivery, items = [], t }) => {
                             <Text style={[styles.colArticleNumber, styles.cellMuted]}>
                                 {item.article?.external_id ?? ''}
                             </Text>
-                            <Text style={styles.colArticle}>{item.article?.name ?? ''}</Text>
+                            <Text
+                                style={styles.colArticle}
+                                hyphenationCallback={breakLongWords}
+                            >
+                                {item.article?.name ?? ''}
+                            </Text>
                             <Text style={styles.colBatch}>{item.batch?.batch_number ?? ''}</Text>
                             <View style={styles.colOrder}>
                                 <Text>{item.order?.description ?? ''}</Text>
@@ -240,6 +261,10 @@ const DeliveryNoteDocument = ({ delivery, items = [], t }) => {
                             </View>
                             <Text style={styles.colQuantity}>{formatQuantity(item.quantity)}</Text>
                             <Text style={styles.colUnit}>{getUnitLabel(t, item.article?.unit)}</Text>
+                            <Text style={styles.colPackagingUnit}>
+                                {formatQuantity(item.article?.piecework_packaging)}
+                            </Text>
+                            <Text style={styles.colSum}>{formatQuantity(getItemSum(item))}</Text>
                         </View>
                     ))}
                     {items.length === 0 ? (
@@ -256,6 +281,8 @@ const DeliveryNoteDocument = ({ delivery, items = [], t }) => {
                             </Text>
                             <Text style={styles.colQuantity}>{formatQuantity(totalQuantity)}</Text>
                             <Text style={styles.colUnit}>{getUnitLabel(t, totalUnit)}</Text>
+                            <Text style={styles.colPackagingUnit} />
+                            <Text style={styles.colSum}>{formatQuantity(totalSum)}</Text>
                         </View>
                     )}
                 </View>

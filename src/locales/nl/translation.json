@@ -229,7 +229,9 @@
                 "batch": "Partij",
                 "order": "Order",
                 "quantity": "Aantal",
-                "unit": "Eenheid"
+                "unit": "Eenheid",
+                "packagingUnit": "VE",
+                "sum": "Totaal"
             }
         },
         "filters": {

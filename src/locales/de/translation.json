@@ -229,7 +229,9 @@
                 "batch": "Charge",
                 "order": "Auftrag",
                 "quantity": "Menge",
-                "unit": "Einheit"
+                "unit": "Einheit",
+                "packagingUnit": "VPE",
+                "sum": "Gesamt"
             }
         },
         "filters": {
