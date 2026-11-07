@@ -1,4 +1,4 @@
-import logo from '../assets/logo/dk_black_logo.png'
+import logo from '../assets/logo/dk_black_logo_trimmed.png'
 
 // Company details printed in the header of generated documents (delivery note, monthly statement).
 const company = {

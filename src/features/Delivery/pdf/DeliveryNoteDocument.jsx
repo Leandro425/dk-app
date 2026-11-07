@@ -27,12 +27,11 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'flex-start',
     },
-    logo: { width: mm(45), maxHeight: mm(22), objectFit: 'contain' },
+    logo: { width: mm(45), maxHeight: mm(22), objectFit: 'contain', objectPosition: 'right' },
     letterheadName: { fontSize: 14, fontWeight: 'bold' },
     addressRow: { flexDirection: 'row', justifyContent: 'space-between' },
     // Address field for a DL window envelope: 85 x 45 mm, 5 mm of it for the sender line.
-    // Kept at 20 mm from the left edge (page margin + 5 mm) so it sits in the DL window.
-    addressField: { width: mm(85), height: mm(45), marginLeft: mm(5) },
+    addressField: { width: mm(85), height: mm(45) },
     senderLine: {
         fontSize: 7,
         color: '#555',
