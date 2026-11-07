@@ -79,10 +79,7 @@ const DeliveriesTable = () => {
         if (filters.dateFrom) query = query.gte('date', filters.dateFrom)
         if (filters.dateTo) query = query.lte('date', filters.dateTo)
         if (filters.customer) query = query.eq('customer_id', filters.customer)
-        const { data, count, error } = await query
-            .range(from, to)
-            .order('completed_at', { ascending: true, nullsFirst: true })
-            .order('date', { ascending: false })
+        const { data, count, error } = await query.range(from, to).order('number', { ascending: false })
         if (error) {
             return { data: [], total: 0 }
         }
