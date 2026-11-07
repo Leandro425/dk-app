@@ -68,7 +68,8 @@
             "annotation": "Note",
             "notChargingPieceworkWage": "Do not charge as piecework wage",
             "specialFeatures": {
-                "barShears": "Bar shears"
+                "barShears": "Bar shears",
+                "barShearsNordmannHB": "Bar shears (Nordmann HB)"
             }
         },
         "filters": {

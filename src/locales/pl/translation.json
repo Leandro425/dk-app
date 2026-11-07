@@ -68,7 +68,8 @@
             "annotation": "Notatka",
             "notChargingPieceworkWage": "Nie naliczać jako akord",
             "specialFeatures": {
-                "barShears": "Sekator z przedłużeniem"
+                "barShears": "Sekator z przedłużeniem",
+                "barShearsNordmannHB": "Sekator z przedłużeniem (Nordmann HB)"
             }
         },
         "filters": {

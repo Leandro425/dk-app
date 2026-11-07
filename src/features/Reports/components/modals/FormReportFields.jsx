@@ -88,7 +88,13 @@ const FormReportFields = ({ control, errors, enabledSelects = false }) => {
                 control={control}
                 errors={errors}
                 label={t('reports.report.specialFeature')}
-                options={[{ label: t('reports.report.specialFeatures.barShears'), value: 'barShears' }]}
+                options={[
+                    { label: t('reports.report.specialFeatures.barShears'), value: 'barShears' },
+                    {
+                        label: t('reports.report.specialFeatures.barShearsNordmannHB'),
+                        value: 'barShearsNordmannHB',
+                    },
+                ]}
             />
             <FormTextArea
                 name="annotation"

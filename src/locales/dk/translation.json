@@ -68,7 +68,8 @@
             "annotation": "Bemærkning",
             "notChargingPieceworkWage": "Ikke beregnet som akkordløn",
             "specialFeatures": {
-                "barShears": "Stangsaks"
+                "barShears": "Stangsaks",
+                "barShearsNordmannHB": "Stangsaks (Nordmann HB)"
             }
         },
         "filters": {

@@ -68,7 +68,8 @@
             "annotation": "Opmerking",
             "notChargingPieceworkWage": "Niet als stukloon berekenen",
             "specialFeatures": {
-                "barShears": "Stangsaks"
+                "barShears": "Stangsaks",
+                "barShearsNordmannHB": "Stangsaks (Nordmann HB)"
             }
         },
         "filters": {

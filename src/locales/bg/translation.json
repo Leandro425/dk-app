@@ -68,7 +68,8 @@
             "annotation": "Бележка",
             "notChargingPieceworkWage": "Не начислявай като надница",
             "specialFeatures": {
-                "barShears": "Щангенножица"
+                "barShears": "Щангенножица",
+                "barShearsNordmannHB": "Щангенножица (Nordmann HB)"
             }
         },
         "filters": {

@@ -68,7 +68,8 @@
             "annotation": "Anmerkung",
             "notChargingPieceworkWage": "Akkordlohn nicht berechnen",
             "specialFeatures": {
-                "barShears": "Stangenschere"
+                "barShears": "Stangenschere",
+                "barShearsNordmannHB": "Stangenschere (Nordmann HB)"
             }
         },
         "filters": {

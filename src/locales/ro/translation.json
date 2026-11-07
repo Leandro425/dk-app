@@ -70,7 +70,8 @@
             "annotation": "Observație",
             "notChargingPieceworkWage": "Nu se calculează ca salariu pe bucată",
             "specialFeatures": {
-                "barShears": "Foarfece pentru bare"
+                "barShears": "Foarfece pentru bare",
+                "barShearsNordmannHB": "Foarfece pentru bare (Nordmann HB)"
             }
         },
         "filters": {

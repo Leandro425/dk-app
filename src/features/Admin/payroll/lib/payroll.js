@@ -9,7 +9,7 @@ import dayjs from 'dayjs'
  *
  * Behaviour mirrors the retired Python tool (dk-app-utils):
  * - piecework revenue = article piecework wage x quantity
- * - the "barShears" special feature adds a surcharge per piece
+ * - special features (e.g. "barShears") add a surcharge per piece
  * - time pay = work hours x employee.pay_rate
  * All money is rounded to cents only when totals are built.
  */
@@ -17,6 +17,7 @@ import dayjs from 'dayjs'
 /** Surcharge per piece for a report's special feature, in EUR. */
 export const SPECIAL_FEATURE_SURCHARGE = {
     barShears: 0.1,
+    barShearsNordmannHB: 0.2,
 }
 
 /** Only these time entry types count as paid working hours. */
